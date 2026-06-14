@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///Users/famsta22/Downloads/mumty_module22bis26.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY Coaching-Ausbildung – Module 22–26</title>
+<style>
+  :root {
+    --salbei: #5e8478;
+    --salbei-mid: #7da398;
+    --salbei-pale: #eaf2f0;
+    --apricot: #e8a882;
+    --apricot-pale: #fdf3ec;
+    --apricot-dark: #7a3e28;
+    --bg: #f4f8f6;
+    --white: #ffffff;
+    --text: #2d3e38;
+    --text-light: #5a7068;
+    --border: #d0e4df;
+    --shadow: rgba(94,132,120,0.13);
+    --gradient: linear-gradient(135deg, #3d6458, #5e8478, #7da398, #5e8478);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* NAV */
+  .module-nav { background: var(--gradient); padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; box-shadow: 0 2px 12px var(--shadow); }
+  .module-nav-label { color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-right: 6px; }
+  .module-btn { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 6px 16px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; }
+  .module-btn:hover { background: rgba(255,255,255,0.28); }
+  .module-btn.active { background: white; color: var(--salbei); border-color: white; }
+
+  /* PANELS */
+  .module-panel { display: none; }
+  .module-panel.active { display: block; }
+
+  /* HEADER */
+  .module-header { background: var(--gradient); padding: 36px 32px 28px; color: white; position: relative; overflow: hidden; }
+  .module-header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+  .module-number { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .75; margin-bottom: 6px; }
+  .module-title { font-size: 26px; font-weight: 700; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 10px; }
+  .module-subtitle { font-size: 15px; opacity: .85; line-height: 1.5; max-width: 560px; }
+
+  /* TABS */
+  .tab-bar { background: white; border-bottom: 2px solid var(--border); display: flex; overflow-x: auto; scrollbar-width: none; }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn { padding: 14px 22px; font-size: 14px; font-weight: 600; color: var(--text-light); background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap; transition: all .2s; }
+  .tab-btn:hover { color: var(--salbei); background: var(--salbei-pale); }
+  .tab-btn.active { color: var(--salbei); border-bottom-color: var(--salbei); background: var(--salbei-pale); }
+  .tab-content { display: none; padding: 28px 24px; max-width: 860px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* VIDEO */
+  .video-wrapper { position: relative; background: #111; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 30px rgba(0,0,0,0.18); }
+  .video-fade-top, .video-fade-bottom { position: absolute; left: 0; right: 0; height: 100px; pointer-events: none; z-index: 2; }
+  .video-fade-top { top: 0; background: linear-gradient(to bottom, #f4f8f6 0%, transparent 100%); }
+  .video-fade-bottom { bottom: 0; background: linear-gradient(to top, #f4f8f6 0%, transparent 100%); }
+  .video-wrapper iframe { display: block; width: 100%; height: 480px; border: none; }
+
+  /* THEORIE */
+  .theorie-block { background: white; border-radius: 12px; padding: 24px; margin-bottom: 18px; border: 1px solid var(--border); box-shadow: 0 2px 8px var(--shadow); }
+  .theorie-block h2 { font-size: 19px; color: var(--salbei); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--salbei-pale); }
+  .theorie-block h3 { font-size: 15px; color: var(--apricot-dark); margin: 16px 0 8px; font-weight: 700; }
+  .theorie-block p { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+  .theorie-block ul, .theorie-block ol { padding-left: 20px; margin-bottom: 12px; }
+  .theorie-block li { font-size: 15px; line-height: 1.7; margin-bottom: 4px; }
+  .merksatz { background: linear-gradient(135deg, var(--apricot-pale), #fff8f2); border-left: 4px solid var(--apricot); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 16px 0; font-style: italic; font-size: 15px; color: var(--apricot-dark); font-weight: 600; line-height: 1.6; }
+  .merksatz::before { content: '💡 '; font-style: normal; }
+  .check-list { list-style: none; padding: 0; }
+  .check-list li { padding-left: 28px; position: relative; margin-bottom: 6px; font-size: 15px; line-height: 1.6; }
+  .check-list li::before { content: '✅'; position: absolute; left: 0; font-size: 14px; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 14px 0; }
+  .info-card { background: var(--salbei-pale); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+  .info-card h4 { font-size: 14px; color: var(--salbei); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+  .info-card p, .info-card li { font-size: 14px; line-height: 1.6; }
+  .verbindung-block { background: linear-gradient(135deg, #f0f7f5, #fdf3ec); border-radius: 10px; padding: 18px; margin: 14px 0; border: 1px solid var(--border); }
+  .verbindung-block h4 { font-size: 14px; font-weight: 700; color: var(--salbei); margin-bottom: 8px; }
+  .verbindung-block p { font-size: 14px; line-height: 1.6; }
+  .schaubild-wrap { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; text-align: center; }
+  .schaubild-wrap svg { max-width: 100%; height: auto; }
+  .schritt-list { display: flex; flex-direction: column; gap: 12px; margin: 14px 0; }
+  .schritt-item { display: flex; gap: 14px; align-items: flex-start; background: white; border-radius: 10px; padding: 14px 16px; border: 1px solid var(--border); }
+  .schritt-num { min-width: 32px; height: 32px; background: var(--gradient); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+  .schritt-item > div p { font-size: 14px; line-height: 1.6; }
+  .schritt-item > div strong { font-size: 14px; color: var(--salbei); display: block; margin-bottom: 4px; }
+
+  /* GFK Step boxes */
+  .gfk-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 14px 0; }
+  .gfk-step { border-radius: 12px; padding: 16px; text-align: center; border: 1px solid var(--border); }
+  .gfk-step .step-num { font-size: 28px; font-weight: 800; display: block; margin-bottom: 6px; }
+  .gfk-step h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .gfk-step p { font-size: 13px; line-height: 1.5; }
+  .gfk-step.s1 { background: #e8f4f8; border-color: #b0d4e8; }
+  .gfk-step.s1 .step-num, .gfk-step.s1 h4 { color: #1a6b9a; }
+  .gfk-step.s2 { background: #fef9ec; border-color: #f0d898; }
+  .gfk-step.s2 .step-num, .gfk-step.s2 h4 { color: #8a6200; }
+  .gfk-step.s3 { background: #f0fbf0; border-color: #b8dbb8; }
+  .gfk-step.s3 .step-num, .gfk-step.s3 h4 { color: #2e7d32; }
+  .gfk-step.s4 { background: var(--apricot-pale); border-color: #e8b898; }
+  .gfk-step.s4 .step-num, .gfk-step.s4 h4 { color: var(--apricot-dark); }
+
+  /* Drama triangle */
+  .drama-roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 14px 0; }
+  .drama-role { border-radius: 12px; padding: 18px; border: 1px solid var(--border); }
+  .drama-role.opfer { background: #f5f0fb; border-color: #c9b0e0; }
+  .drama-role.retter { background: #f0f8ff; border-color: #90c4e4; }
+  .drama-role.verfolger { background: #fff5f0; border-color: #e8b090; }
+  .drama-role h4 { font-size: 16px; font-weight: 800; margin-bottom: 10px; }
+  .drama-role.opfer h4 { color: #6a3d9a; }
+  .drama-role.retter h4 { color: #1a5f8a; }
+  .drama-role.verfolger h4 { color: #c0440a; }
+  .drama-role p, .drama-role li { font-size: 13px; line-height: 1.6; }
+  .drama-role ul { padding-left: 16px; }
+
+  /* Glasl escalation */
+  .glasl-stages { display: flex; flex-direction: column; gap: 6px; margin: 14px 0; }
+  .glasl-stage { border-radius: 8px; padding: 12px 16px; border: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+  .stage-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: white; flex-shrink: 0; }
+  .glasl-stage.win-win { background: #f0fbf0; border-color: #b8dbb8; }
+  .glasl-stage.win-win .stage-num { background: #4caf50; }
+  .glasl-stage.win-lose { background: #fef9ec; border-color: #f0d898; }
+  .glasl-stage.win-lose .stage-num { background: #ff9800; }
+  .glasl-stage.lose-lose { background: #fff5f5; border-color: #f0b8b8; }
+  .glasl-stage.lose-lose .stage-num { background: #ef5350; }
+  .glasl-stage-text h4 { font-size: 14px; font-weight: 700; }
+  .glasl-stage-text p { font-size: 13px; color: var(--text-light); margin-top: 2px; }
+
+  /* Schindler positions */
+  .position-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 14px 0; }
+  .pos-card { border-radius: 12px; padding: 18px; border: 1px solid var(--border); }
+  .pos-card.alpha { background: linear-gradient(135deg, #fdf3ec, #fff8f2); border-color: #e8b898; }
+  .pos-card.beta { background: linear-gradient(135deg, #eaf2f0, #f0f8f5); border-color: #b0d0c8; }
+  .pos-card.gamma { background: linear-gradient(135deg, #f5f0fb, #f8f5fd); border-color: #c9b0e0; }
+  .pos-card.omega { background: linear-gradient(135deg, #fff5f5, #fff0f0); border-color: #e8b0b0; }
+  .pos-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .pos-card.alpha h4 { color: var(--apricot-dark); }
+  .pos-card.beta h4 { color: var(--salbei); }
+  .pos-card.gamma h4 { color: #6a3d9a; }
+  .pos-card.omega h4 { color: #c62828; }
+  .pos-card .role-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; opacity: .7; }
+  .pos-card p, .pos-card li { font-size: 13px; line-height: 1.6; }
+  .pos-card ul { padding-left: 14px; margin-top: 6px; }
+
+  /* Reframing comparison */
+  .reframe-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .reframe-box { border-radius: 10px; padding: 16px; }
+  .reframe-box.vorher { background: #fff5f5; border: 1px solid #f0b8b8; }
+  .reframe-box.nachher { background: #f0fbf0; border: 1px solid #b8dbb8; }
+  .reframe-box h4 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  .reframe-box.vorher h4 { color: #c62828; }
+  .reframe-box.nachher h4 { color: #2e7d32; }
+  .reframe-chain { display: flex; flex-direction: column; gap: 4px; }
+  .reframe-chain span { font-size: 14px; font-weight: 600; padding: 5px 0; }
+  .reframe-chain .arrow { font-size: 12px; color: var(--text-light); text-align: center; }
+
+  /* ÜBUNG */
+  .uebung-card { background: white; border-radius: 12px; padding: 22px; margin-bottom: 18px; border: 1px solid var(--border); box-shadow: 0 2px 8px var(--shadow); }
+  .uebung-card h3 { font-size: 16px; color: var(--salbei); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .uebung-number { background: var(--salbei); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .uebung-card p { font-size: 15px; line-height: 1.65; margin-bottom: 12px; color: var(--text); }
+  .uebung-card textarea { width: 100%; min-height: 110px; padding: 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; resize: vertical; background: var(--bg); transition: border-color .2s; color: var(--text); }
+  .uebung-card textarea:focus { outline: none; border-color: var(--salbei); background: white; }
+  .beispiel-toggle { background: none; border: 1.5px solid var(--salbei); color: var(--salbei); border-radius: 20px; padding: 7px 18px; font-size: 13px; font-weight: 600; cursor: pointer; margin-top: 10px; transition: all .2s; }
+  .beispiel-toggle:hover { background: var(--salbei); color: white; }
+  .beispiel-antwort { display: none; background: var(--salbei-pale); border-left: 3px solid var(--salbei); border-radius: 0 8px 8px 0; padding: 14px 16px; margin-top: 12px; font-size: 14px; line-height: 1.7; color: var(--text); }
+  .beispiel-antwort.open { display: block; }
+
+  /* QUIZ */
+  .quiz-card { background: white; border-radius: 12px; padding: 22px; margin-bottom: 18px; border: 1px solid var(--border); box-shadow: 0 2px 8px var(--shadow); }
+  .quiz-question { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 16px; line-height: 1.5; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; transition: all .2s; background: var(--bg); font-size: 14px; line-height: 1.5; }
+  .quiz-option:hover { border-color: var(--salbei); background: var(--salbei-pale); }
+  .quiz-option.correct { border-color: #4caf50; background: #f0fbf0; color: #2e7d32; }
+  .quiz-option.wrong { border-color: #ef5350; background: #fff5f5; color: #c62828; }
+  .quiz-option input[type="radio"] { margin-top: 2px; accent-color: var(--salbei); }
+  .quiz-feedback { margin-top: 14px; padding: 12px 16px; border-radius: 8px; font-size: 14px; line-height: 1.6; display: none; }
+  .quiz-feedback.correct { background: #f0fbf0; color: #2e7d32; border-left: 3px solid #4caf50; }
+  .quiz-feedback.wrong { background: #fff5f5; color: #c62828; border-left: 3px solid #ef5350; }
+
+  /* KI */
+  .ki-mode-switcher { display: flex; gap: 10px; margin-bottom: 20px; background: white; padding: 6px; border-radius: 12px; border: 1px solid var(--border); }
+  .ki-mode-btn { flex: 1; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; background: none; color: var(--text-light); }
+  .ki-mode-btn.active { background: var(--gradient); color: white; }
+  .ki-persona-info { background: linear-gradient(135deg, var(--apricot-pale), white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; display: flex; align-items: flex-start; gap: 14px; }
+  .ki-persona-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .ki-persona-info h4 { font-size: 15px; color: var(--apricot-dark); margin-bottom: 4px; }
+  .ki-persona-info p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+  .ki-chat-window { background: white; border: 1px solid var(--border); border-radius: 12px; min-height: 320px; max-height: 420px; overflow-y: auto; padding: 18px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 12px; }
+  .chat-msg { max-width: 80%; }
+  .chat-msg.user { align-self: flex-end; }
+  .chat-msg.assistant { align-self: flex-start; }
+  .chat-bubble { padding: 11px 15px; border-radius: 14px; font-size: 14px; line-height: 1.6; }
+  .chat-msg.user .chat-bubble { background: var(--salbei); color: white; border-bottom-right-radius: 4px; }
+  .chat-msg.assistant .chat-bubble { background: var(--salbei-pale); color: var(--text); border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+  .chat-sender { font-size: 11px; color: var(--text-light); margin-bottom: 4px; font-weight: 600; }
+  .chat-msg.user .chat-sender { text-align: right; }
+  .ki-input-row { display: flex; gap: 10px; }
+  .ki-input-row textarea { flex: 1; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; resize: none; min-height: 50px; transition: border-color .2s; background: var(--bg); }
+  .ki-input-row textarea:focus { outline: none; border-color: var(--salbei); background: white; }
+  .ki-send-btn { background: var(--gradient); color: white; border: none; border-radius: 10px; padding: 0 20px; font-size: 14px; font-weight: 700; cursor: pointer; transition: opacity .2s; white-space: nowrap; }
+  .ki-send-btn:hover { opacity: .88; }
+  .ki-send-btn:disabled { opacity: .45; cursor: not-allowed; }
+  .ki-reset-btn { background: none; border: 1.5px solid var(--border); color: var(--text-light); border-radius: 8px; padding: 7px 14px; font-size: 13px; cursor: pointer; margin-top: 8px; }
+  .ki-reset-btn:hover { border-color: var(--salbei); color: var(--salbei); }
+  .typing-indicator { display: flex; gap: 5px; align-items: center; padding: 8px 14px; background: var(--salbei-pale); border-radius: 14px; width: fit-content; border: 1px solid var(--border); }
+  .typing-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--salbei-mid); animation: bounce 1.2s infinite ease-in-out; }
+  .typing-dot:nth-child(2) { animation-delay: .2s; }
+  .typing-dot:nth-child(3) { animation-delay: .4s; }
+  @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-7px); } }
+
+  @media (max-width: 600px) {
+    .module-header { padding: 24px 16px 20px; }
+    .module-title { font-size: 20px; }
+    .tab-content { padding: 18px 14px; }
+    .gfk-steps, .drama-roles, .position-cards { grid-template-columns: 1fr; }
+    .reframe-compare { grid-template-columns: 1fr; }
+    .video-wrapper iframe { height: 240px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="module-nav">
+  <span class="module-nav-label">Modul</span>
+  <button class="module-btn active" onclick="showModule(22)">22 – GFK</button>
+  <button class="module-btn" onclick="showModule(23)">23 – Drama-Dreieck</button>
+  <button class="module-btn" onclick="showModule(24)">24 – Glasl</button>
+  <button class="module-btn" onclick="showModule(25)">25 – Positionsmodell</button>
+  <button class="module-btn" onclick="showModule(26)">26 – Reframing</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 22 – GEWALTFREIE KOMMUNIKATION (GFK)
+═══════════════════════════════════════════════════ -->
+<div class="module-panel active" id="module-22">
+  <div class="module-header">
+    <div class="module-number">Modul 22</div>
+    <div class="module-title">Gewaltfreie Kommunikation (GFK)</div>
+    <div class="module-subtitle">Hinter jedem Konflikt steckt meist ein unerfülltes Bedürfnis – die GFK nach Marshall Rosenberg macht es sichtbar und kommunizierbar.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m22&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m22&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m22&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m22&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m22&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m22-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="./Module 21-26 MUMTY Coaching-Ausbildung – Module 22–26_files/preview.html" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p style="margin-top:14px; color:var(--text-light); font-size:13px; text-align:center;">Video-Link für Modul 22 – bitte Drive-ID eintragen.</p>
+  </div>
+
+  <div class="tab-content" id="m22-theorie">
+
+    <div class="theorie-block">
+      <h2>Was ist Gewaltfreie Kommunikation?</h2>
+      <p>Die Gewaltfreie Kommunikation (GFK) wurde von dem Psychologen <strong>Marshall Rosenberg</strong> entwickelt. Sie hilft Menschen, klar und wertschätzend zu kommunizieren – nicht um immer nett zu sein, sondern um <strong>ehrlich, respektvoll und lösungsorientiert</strong> zu sprechen.</p>
+      <p>Der Name „gewaltfrei" meint dabei nicht körperliche Gewalt, sondern kommunikative Gewalt: Vorwürfe, Bewertungen, Interpretationen – alles, was in Gesprächen verletzt, ohne dass es notwendig wäre.</p>
+      <p>Die meisten Konflikte entstehen nicht durch böse Absichten, sondern durch unbewusste Bewertungen, Vorwürfe und unerfüllte Bedürfnisse, die nie klar ausgesprochen werden.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die 4 Schritte der GFK</h2>
+      <div class="gfk-steps">
+        <div class="gfk-step s1">
+          <span class="step-num">1</span>
+          <h4>Beobachtung</h4>
+          <p>Was ist tatsächlich passiert – ohne Bewertung?<br><br>
+          ❌ „Du bist unzuverlässig."<br>
+          ✅ „Du bist dreimal später gekommen."</p>
+        </div>
+        <div class="gfk-step s2">
+          <span class="step-num">2</span>
+          <h4>Gefühl</h4>
+          <p>Wie fühle ich mich dabei?<br><br>
+          traurig · enttäuscht<br>frustiert · erleichtert<br>ängstlich · froh</p>
+        </div>
+        <div class="gfk-step s3">
+          <span class="step-num">3</span>
+          <h4>Bedürfnis</h4>
+          <p>Welches Bedürfnis steckt dahinter?<br><br>
+          Klarheit · Sicherheit<br>Respekt · Verbindung<br>Unterstützung</p>
+        </div>
+        <div class="gfk-step s4">
+          <span class="step-num">4</span>
+          <h4>Bitte</h4>
+          <p>Was wünsche ich mir konkret – als Bitte, nicht als Forderung?<br><br>
+          Konkret, positiv, umsetzbar</p>
+        </div>
+      </div>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 460 80" xmlns="http://www.w3.org/2000/svg" width="460" height="80">
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#7da398"></path>
+            </marker>
+          </defs>
+          <rect x="0" y="20" width="90" height="40" rx="10" fill="#e8f4f8" stroke="#b0d4e8" stroke-width="1.5"></rect>
+          <text x="45" y="45" text-anchor="middle" fill="#1a6b9a" font-size="13" font-weight="bold">BEOBACH-</text>
+          <text x="45" y="58" text-anchor="middle" fill="#1a6b9a" font-size="13" font-weight="bold">TUNG</text>
+          <line x1="92" y1="40" x2="112" y2="40" stroke="#7da398" stroke-width="2" marker-end="url(#arr)"></line>
+          <rect x="114" y="20" width="80" height="40" rx="10" fill="#fef9ec" stroke="#f0d898" stroke-width="1.5"></rect>
+          <text x="154" y="45" text-anchor="middle" fill="#8a6200" font-size="13" font-weight="bold">GEFÜHL</text>
+          <line x1="196" y1="40" x2="216" y2="40" stroke="#7da398" stroke-width="2" marker-end="url(#arr)"></line>
+          <rect x="218" y="20" width="90" height="40" rx="10" fill="#f0fbf0" stroke="#b8dbb8" stroke-width="1.5"></rect>
+          <text x="263" y="45" text-anchor="middle" fill="#2e7d32" font-size="13" font-weight="bold">BEDÜRFNIS</text>
+          <line x1="310" y1="40" x2="330" y2="40" stroke="#7da398" stroke-width="2" marker-end="url(#arr)"></line>
+          <rect x="332" y="20" width="80" height="40" rx="10" fill="#fdf3ec" stroke="#e8b898" stroke-width="1.5"></rect>
+          <text x="372" y="45" text-anchor="middle" fill="#7a3e28" font-size="13" font-weight="bold">BITTE</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>GFK im Alltag: Beobachtung vs. Bewertung</h2>
+      <p>Der schwierigste Schritt der GFK ist der erste: Situationen beschreiben, ohne zu bewerten. Unser Gehirn springt sofort zur Interpretation.</p>
+      <div class="info-grid">
+        <div class="info-card" style="background:#fff5f5; border-color:#f0b8b8;">
+          <h4 style="color:#c62828;">❌ Bewertung</h4>
+          <ul style="padding-left:16px;">
+            <li>„Du bist immer so unordentlich."</li>
+            <li>„Das war typisch für dich."</li>
+            <li>„Du hörst nie zu."</li>
+            <li>„Du bist so egoistisch."</li>
+          </ul>
+        </div>
+        <div class="info-card" style="background:#f0fbf0; border-color:#b8dbb8;">
+          <h4 style="color:#2e7d32;">✅ Beobachtung</h4>
+          <ul style="padding-left:16px;">
+            <li>„Auf dem Tisch liegen 5 Dinge von dir."</li>
+            <li>„Du hast in diesem Gespräch dreimal unterbrochen."</li>
+            <li>„Du hast nicht geantwortet."</li>
+            <li>„Du bist ohne Absprache gegangen."</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>GFK im Coaching anwenden</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div><strong>Situation klären</strong><p>Der Coachee beschreibt den Konflikt. Der Coach hört zunächst ohne Bewertung zu und hilft dann, Beobachtungen von Interpretationen zu trennen.</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div><strong>Gefühle benennen</strong><p>„Wie hast du dich in dieser Situation gefühlt?" – Wichtig: echte Gefühle benennen (traurig, wütend), keine Pseudogefühle wie „Ich fühle mich manipuliert" (das ist eine Bewertung des anderen).</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div><strong>Bedürfnis herausarbeiten</strong><p>„Was brauchst du in dieser Situation?" – Das ist der Kern. Hinter jedem schwierigen Gefühl steckt ein unerfülltes Bedürfnis.</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">4</div>
+          <div><strong>Konkrete Bitte formulieren</strong><p>„Was könntest du die andere Person bitten?" – Eine echte Bitte ist offen für ein Nein. Eine Forderung nicht.</p></div>
+        </div>
+      </div>
+      <div class="merksatz">Hinter jedem Konflikt steckt meist ein unerfülltes Bedürfnis.</div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 GFK &amp; Emotionale Grundbedürfnisse</h4>
+        <p>Schritt 3 der GFK (Bedürfnis) greift direkt auf die emotionalen Grundbedürfnisse zurück. GFK ist praktisch die Kommunikationssprache der Grundbedürfnisse.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 GFK &amp; Transaktionsanalyse</h4>
+        <p>GFK zielt darauf ab, aus dem Eltern- oder Kind-Ich in das Erwachsenen-Ich zu wechseln. Vorwürfe kommen meist aus dem Kritischen Eltern-Ich – GFK hilft, stattdessen klar vom Erwachsenen-Ich zu sprechen.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 GFK &amp; Inneres Team</h4>
+        <p>Oft spricht bei Konflikten ein bestimmter innerer Anteil – der verletzte Anteil oder der Rebell. GFK kann helfen, diesen Anteilen eine klare, respektvolle Stimme zu geben statt einer verletzenden.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG M22 -->
+  <div class="tab-content" id="m22-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Bewertungen in Beobachtungen umwandeln</h3>
+      <p>Wandle diese drei Aussagen von Bewertungen in neutrale Beobachtungen um: (a) „Du bist immer so unzuverlässig." (b) „Du hörst mir nie zu." (c) „Das war wieder typisch für dich."</p>
+      <textarea placeholder="a) Statt... → Beobachtung: ...
+b) Statt... → Beobachtung: ...
+c) Statt... → Beobachtung: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>a)</strong> „Du bist dreimal zu spät zu unserem Treffen gekommen." – kein immer, kein Urteil über den Charakter, nur was faktisch passiert ist.<br><br>
+        <strong>b)</strong> „Als ich von meinem Tag erzählt habe, hast du aufs Handy geschaut." – konkrete Beobachtung, kein nie-Generalisierung.<br><br>
+        <strong>c)</strong> „Du hast heute wieder die Küche nicht aufgeräumt, obwohl wir das so abgesprochen hatten." – beschreibt was passiert ist, ohne Charakterbewertung.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Eine GFK-Aussage komplett formulieren</h3>
+      <p>Stell dir vor: Deine Kollegin hat eine Aufgabe, die ihr gemeinsam gehörte, ohne Absprache alleine abgegeben – ohne deinen Namen zu nennen. Du bist verletzt und wütend. Formuliere eine vollständige GFK-Aussage (alle 4 Schritte).</p>
+      <textarea placeholder="Beobachtung: Als... / Gefühl: Ich fühle mich... / Bedürfnis: Weil mir... wichtig ist. / Bitte: Ich würde mir wünschen, dass..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beobachtung:</strong> Als du unser gemeinsames Projekt abgegeben hast, ohne meinen Namen zu erwähnen,<br>
+        <strong>Gefühl:</strong> habe ich mich unsichtbar und übergangen gefühlt.<br>
+        <strong>Bedürfnis:</strong> Weil mir Anerkennung und das Gefühl, gehört zu werden, wichtig sind.<br>
+        <strong>Bitte:</strong> Ich würde mir wünschen, dass wir in Zukunft gemeinsame Arbeiten auch gemeinsam einreichen und präsentieren.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Bedürfnisse hinter Vorwürfen erkennen</h3>
+      <p>Was ist das unerfüllte Bedürfnis hinter diesen Aussagen? (a) „Du gibst mir nie Feedback!" (b) „Lass mich das selbst machen!" (c) „Du verstehst mich einfach nicht!"</p>
+      <textarea placeholder="a) Bedürfnis hinter dem Vorwurf: ... / b) ... / c) ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>a)</strong> Bedürfnis nach Anerkennung, Wertschätzung, Orientierung – die Person möchte wissen, ob ihre Arbeit gut ist und gesehen wird.<br>
+        <strong>b)</strong> Bedürfnis nach Autonomie und Selbstwirksamkeit – die Person möchte das Gefühl haben, selbst zu entscheiden und kompetent zu sein.<br>
+        <strong>c)</strong> Bedürfnis nach Verbindung und Verständnis – die Person möchte gehört, gesehen und emotional gespiegelt werden.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ M22 -->
+  <div class="tab-content" id="m22-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Was ist der Unterschied zwischen einer Beobachtung und einer Bewertung in der GFK?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q22_1" value="a"> <span>Eine Beobachtung ist immer positiv, eine Bewertung negativ.</span></label>
+        <label class="quiz-option"><input type="radio" name="q22_1" value="b"> <span>Eine Beobachtung beschreibt konkret, was passiert ist – ohne Interpretation oder Urteil über den Charakter.</span></label>
+        <label class="quiz-option"><input type="radio" name="q22_1" value="c"> <span>Beobachtungen sind subjektiv, Bewertungen objektiv.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q22_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was unterscheidet eine GFK-Bitte von einer Forderung?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q22_2" value="a"> <span>Eine Bitte ist immer höflicher formuliert als eine Forderung.</span></label>
+        <label class="quiz-option"><input type="radio" name="q22_2" value="b"> <span>Eine echte Bitte ist offen für ein Nein – eine Forderung erwartet Gehorsam.</span></label>
+        <label class="quiz-option"><input type="radio" name="q22_2" value="c"> <span>Forderungen sind im Beruf angemessen, Bitten nur privat.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q22_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Warum ist der Bedürfnis-Schritt in der GFK so zentral?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q22_3" value="a"> <span>Weil Bedürfnisse universell sind und das eigentliche Thema hinter Konflikten zeigen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q22_3" value="b"> <span>Weil Bedürfnisse einfacher auszudrücken sind als Gefühle.</span></label>
+        <label class="quiz-option"><input type="radio" name="q22_3" value="c"> <span>Weil die andere Person verpflichtet ist, Bedürfnisse zu erfüllen.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q22_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button class="ki-send-btn" style="padding:12px 32px;" onclick="checkQuiz(22)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI M22 -->
+  <div class="tab-content" id="m22-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m22-mode-coachee" onclick="switchKiMode(22,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m22-mode-lern" onclick="switchKiMode(22,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m22-persona">
+      <div class="ki-persona-avatar">👩‍💼</div>
+      <div>
+        <h4>Nina, 36 – Projektleiterin</h4>
+        <p>Nina hat ständig Reibungen mit ihrem Kollegen Thomas. Sie sagt über ihn: „Er sabotiert mich, er ist einfach unmöglich." Wenn man genauer nachfragt, zeigt sich: Thomas teilt Informationen nicht, hält Deadlines nicht ein und redet über ihre Arbeit hinter ihrem Rücken. Nina ist verletzt und wütend – aber sie hat mit Thomas noch nie direkt gesprochen.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m22-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m22-input" placeholder="Hilf Nina, mit GFK den Konflikt mit Thomas anzugehen..." rows="2" onkeydown="handleEnter(event,22)"></textarea>
+      <button class="ki-send-btn" id="m22-send" onclick="sendMessage(22)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(22)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 23 – DRAMA-DREIECK
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-23">
+  <div class="module-header">
+    <div class="module-number">Modul 23</div>
+    <div class="module-title">Das Drama-Dreieck</div>
+    <div class="module-subtitle">Opfer, Retter, Verfolger – und der Raum zwischen Reiz und Reaktion, der alles verändert.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m23&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m23&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m23&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m23&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m23&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m23-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="./Module 21-26 MUMTY Coaching-Ausbildung – Module 22–26_files/preview(1).html" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p style="margin-top:14px; color:var(--text-light); font-size:13px; text-align:center;">Video-Link für Modul 23 – bitte Drive-ID eintragen.</p>
+  </div>
+
+  <div class="tab-content" id="m23-theorie">
+    <div class="theorie-block">
+      <h2>Warum ist das Drama-Dreieck so wichtig?</h2>
+      <p>Viele Menschen stecken unbewusst immer wieder in denselben Konflikten fest – egal ob in der Partnerschaft, der Familie, im Freundeskreis oder auf der Arbeit. Die Muster wiederholen sich, die Rollen wechseln, aber das Drama bleibt. Das Modell geht auf <strong>Stephen Karpman</strong> zurück und beschreibt drei Rollen, die wir in Konfliktdynamiken einnehmen können – oft ohne es zu merken.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die drei Rollen</h2>
+      <div class="drama-roles">
+        <div class="drama-role opfer">
+          <h4>😔 Opfer</h4>
+          <p><strong>Grundüberzeugung:</strong> „Ich kann nichts tun."</p>
+          <ul>
+            <li>„Warum passiert das immer mir?"</li>
+            <li>„Ich bin hilflos."</li>
+            <li>„Ohne Hilfe schaffe ich das nicht."</li>
+          </ul>
+          <p style="margin-top:8px;"><strong>Gefühle:</strong> Hilflosigkeit, Ohnmacht, Hoffnungslosigkeit</p>
+          <p style="margin-top:6px;"><strong>Versteckter Gewinn:</strong> Keine Verantwortung tragen müssen</p>
+        </div>
+        <div class="drama-role retter">
+          <h4>🦸 Retter</h4>
+          <p><strong>Grundüberzeugung:</strong> „Ich muss helfen."</p>
+          <ul>
+            <li>„Ohne mich klappt das nicht."</li>
+            <li>„Ich weiß, was gut für dich ist."</li>
+            <li>„Ich muss für andere da sein."</li>
+          </ul>
+          <p style="margin-top:8px;"><strong>Gefühle:</strong> Überlastung, Kontrolle, Unentbehrlichkeit</p>
+          <p style="margin-top:6px;"><strong>Versteckter Gewinn:</strong> Bedeutung, Kontrolle, eigene Probleme vermeiden</p>
+        </div>
+        <div class="drama-role verfolger">
+          <h4>⚡ Verfolger</h4>
+          <p><strong>Grundüberzeugung:</strong> „Du bist schuld."</p>
+          <ul>
+            <li>„Du machst alles falsch."</li>
+            <li>„Typisch für dich!"</li>
+            <li>„Das ist deine Schuld."</li>
+          </ul>
+          <p style="margin-top:8px;"><strong>Gefühle:</strong> Ärger, Frustration, Kontrollbedürfnis</p>
+          <p style="margin-top:6px;"><strong>Versteckter Gewinn:</strong> Eigene Unsicherheit verdecken, Überlegenheit fühlen</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Das Drama-Dreieck als System</h2>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" width="380" height="260">
+          <defs>
+            <marker id="da" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#7da398"></path>
+            </marker>
+          </defs>
+          <!-- Triangle -->
+          <polygon points="190,30 50,220 330,220" fill="none" stroke="#d0e4df" stroke-width="2" stroke-dasharray="6,4"></polygon>
+          <!-- Nodes -->
+          <circle cx="190" cy="30" r="40" fill="#fff5f5" stroke="#e8b0b0" stroke-width="2"></circle>
+          <text x="190" y="22" text-anchor="middle" fill="#c62828" font-size="18">⚡</text>
+          <text x="190" y="40" text-anchor="middle" fill="#c62828" font-size="13" font-weight="bold">Verfolger</text>
+          <circle cx="50" cy="220" r="40" fill="#f5f0fb" stroke="#c9b0e0" stroke-width="2"></circle>
+          <text x="50" y="212" text-anchor="middle" fill="#6a3d9a" font-size="18">😔</text>
+          <text x="50" y="230" text-anchor="middle" fill="#6a3d9a" font-size="13" font-weight="bold">Opfer</text>
+          <circle cx="330" cy="220" r="40" fill="#f0f8ff" stroke="#90c4e4" stroke-width="2"></circle>
+          <text x="330" y="212" text-anchor="middle" fill="#1a5f8a" font-size="18">🦸</text>
+          <text x="330" y="230" text-anchor="middle" fill="#1a5f8a" font-size="13" font-weight="bold">Retter</text>
+          <!-- Arrows -->
+          <path d="M152,58 Q110,135 85,196" stroke="#7da398" stroke-width="1.5" fill="none" marker-end="url(#da)"></path>
+          <path d="M85,202 Q110,205 285,205" stroke="#7da398" stroke-width="1.5" fill="none" marker-end="url(#da)"></path>
+          <path d="M290,196 Q250,135 222,58" stroke="#7da398" stroke-width="1.5" fill="none" marker-end="url(#da)"></path>
+          <text x="190" y="130" text-anchor="middle" fill="#5a7068" font-size="11" font-style="italic">Rollen wechseln</text>
+          <text x="190" y="145" text-anchor="middle" fill="#5a7068" font-size="11" font-style="italic">ständig</text>
+        </svg>
+      </div>
+      <p>Das Wichtige: Menschen wechseln ständig die Rollen – oft innerhalb eines einzigen Gesprächs. Die Mutter, die anfangs alles für ihre Kinder tut (Retter), fühlt sich später ausgenutzt (Opfer) und wirft anderen Undankbarkeit vor (Verfolger).</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching</h2>
+      <p>Der Coach untersucht: Welche Rolle übernimmt der Coachee? Welche Vorteile hat diese Rolle? Welche Verantwortung wird damit vermieden?</p>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div><strong>Rolle erkennen</strong><p>„Welche Rolle nimmst du in diesem Konflikt gerade ein?" – Das Drama-Dreieck benennen und erklären. Oft kommt sofortige Wiedererkennung.</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div><strong>Funktion verstehen</strong><p>„Was gewinnst du dadurch?" / „Was verlierst du dadurch?" – Jede Rolle hat einen versteckten Vorteil. Diesen zu sehen ist entscheidend.</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div><strong>Eigenverantwortung zurückholen</strong><p>„Was wäre Eigenverantwortung in dieser Situation?" – Weg von Schuld, Drama und Rettung, hin zu Klarheit und Selbstführung.</p></div>
+        </div>
+      </div>
+      <div class="merksatz">Zwischen Reiz und Reaktion liegt ein Raum. In diesem Raum liegt die Freiheit, bewusst zu wählen statt automatisch zu reagieren.</div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 Drama-Dreieck &amp; Transaktionsanalyse</h4>
+        <p>Die Transaktionsanalyse erklärt die Ich-Zustände (Eltern, Erwachsener, Kind). Das Drama-Dreieck beschreibt, welche Ich-Zustände in Konflikten typischerweise aktiviert werden: Verfolger = Kritisches Eltern-Ich, Retter = Fürsorgliches Eltern-Ich, Opfer = Angepasstes Kind-Ich.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Drama-Dreieck &amp; Inneres Team</h4>
+        <p>Oft vertreten verschiedene innere Anteile die verschiedenen Rollen. Der eine Anteil rettet, der andere fühlt sich als Opfer. Das Drama-Dreieck kann innerlich wie äußerlich ablaufen.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Drama-Dreieck &amp; Reframing</h4>
+        <p>Reframing hilft, aus der Opferrolle auszusteigen: Statt „Warum passiert mir das?" → „Was kann ich daraus lernen?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG M23 -->
+  <div class="tab-content" id="m23-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Meine Lieblingsrolle im Drama</h3>
+      <p>Schau auf wiederkehrende Konflikte in deinem Leben. Welche Rolle nimmst du am häufigsten ein – Opfer, Retter oder Verfolger? Was ist der versteckte Vorteil dieser Rolle für dich?</p>
+      <textarea placeholder="Meine häufigste Rolle ist... In folgenden Situationen: ... Der versteckte Vorteil ist... Was ich dadurch vermeiden kann..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Meine häufigste Rolle ist die Retterin. Ich springe in Freundschaften und bei der Arbeit sofort ein, wenn jemand ein Problem hat – oft bevor die Person selbst um Hilfe bittet. Der versteckte Vorteil: Ich fühle mich gebraucht und wichtig. Ich muss nicht über meine eigenen Probleme nachdenken. Und ich habe Kontrolle über Situationen. Was ich dadurch vermeide: eigene Unsicherheit zuzugeben und Grenzen zu setzen.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Einen konkreten Konflikt analysieren</h3>
+      <p>Denke an einen aktuellen oder frischen Konflikt. Wer hat welche Rolle eingenommen? Wie haben die Rollen gewechselt? Welche Rolle hättest du gerne gehabt statt der, die du gespielt hast?</p>
+      <textarea placeholder="Der Konflikt war zwischen... Ich war in der Rolle: ... Die andere Person war: ... So haben die Rollen gewechselt: ... Die Rolle, die ich wirklich wollte: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Konflikt mit meiner Schwester über die Pflege unserer Mutter. Ich war anfangs Retterin (ich organisiere alles), dann wurde ich zur Verfolgerin (ich warf ihr vor, nichts zu tun), sie wurde zum Opfer (fühlt sich angegriffen). Dann wechselten wir: sie wurde zur Verfolgerin, ich zum Opfer. Was ich eigentlich wollte: Einfach eine erwachsene, klärende Unterhaltung über die Aufgabenteilung – ohne Drama. Dafür hätte ich früher benennen müssen, dass ich mit der Verteilung unzufrieden bin.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Der Raum zwischen Reiz und Reaktion</h3>
+      <p>Wähle eine Situation, in der du automatisch in eine Drama-Rolle gerutscht bist. Was war der Auslöser (Reiz)? Was hättest du tun können, wenn du den Raum davor genutzt hättest? Was wäre Eigenverantwortung gewesen?</p>
+      <textarea placeholder="Der Auslöser war: ... Meine automatische Reaktion: ... Was ich stattdessen hätte tun können: ... Das wäre Eigenverantwortung gewesen..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Auslöser: Mein Chef kommentierte meine Präsentation kurz und geht ohne Feedback weiter. Automatische Reaktion: Ich blieb den ganzen Tag mit dem Gedanken „Ich bin wohl nicht gut genug" im Opfermodus – und wurde im Nachgespräch zur Verfolgerin und warf Kolleginnen vor, Mist zu reden. Der Raum dazwischen: kurz innehalten und fragen – „Weiß ich wirklich, was das bedeutet?" Eigenverantwortung: Aktiv um Feedback bitten statt Bedeutungen zu erfinden.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ M23 -->
+  <div class="tab-content" id="m23-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Was ist der „versteckte Vorteil" der Opferrolle?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q23_1" value="a"> <span>Andere tun einem leid und helfen einem.</span></label>
+        <label class="quiz-option"><input type="radio" name="q23_1" value="b"> <span>Man muss keine Eigenverantwortung übernehmen und kann die Schuld bei anderen lassen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q23_1" value="c"> <span>Man bekommt mehr Aufmerksamkeit von anderen.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q23_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Warum ist die Retterrolle im Drama-Dreieck problematisch, obwohl sie positiv wirkt?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q23_2" value="a"> <span>Weil Retter immer überbezahlt werden und deshalb neidisch gemacht werden.</span></label>
+        <label class="quiz-option"><input type="radio" name="q23_2" value="b"> <span>Weil das Retten die Hilflosigkeit des Opfers bestätigt und eigene Probleme des Retters verdeckt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q23_2" value="c"> <span>Weil Retter immer irgendwann zu Opfern werden.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q23_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Was meint das Drama-Dreieck mit dem „Raum zwischen Reiz und Reaktion"?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q23_3" value="a"> <span>Den physischen Abstand, den man in Konflikten halten sollte.</span></label>
+        <label class="quiz-option"><input type="radio" name="q23_3" value="b"> <span>Den Moment der bewussten Wahrnehmung, bevor man automatisch in eine Drama-Rolle fällt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q23_3" value="c"> <span>Die Zeit, die man braucht, um sich nach einem Konflikt zu erholen.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q23_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button class="ki-send-btn" style="padding:12px 32px;" onclick="checkQuiz(23)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI M23 -->
+  <div class="tab-content" id="m23-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m23-mode-coachee" onclick="switchKiMode(23,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m23-mode-lern" onclick="switchKiMode(23,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m23-persona">
+      <div class="ki-persona-avatar">👩‍👦</div>
+      <div>
+        <h4>Petra, 48 – Mutter &amp; Unternehmerin</h4>
+        <p>Petra fühlt sich in ihrer Familie ständig als diejenige, die alles macht und sich für alle opfert. Sie sagt: „Ich bin die Einzige, die sich kümmert – aber keiner schätzt das." Gleichzeitig beschwert sie sich bitterlich über ihren Mann und ihre Kinder. Im Gespräch zeigt sich: Sie hält Kontrolle, lässt andere selten selbst handeln – und fühlt sich dann als Opfer ihres eigenen Systems.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m23-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m23-input" placeholder="Hilf Petra, ihre Rolle im Drama-Dreieck zu erkennen..." rows="2" onkeydown="handleEnter(event,23)"></textarea>
+      <button class="ki-send-btn" id="m23-send" onclick="sendMessage(23)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(23)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 24 – KONFLIKTESKALATION NACH GLASL
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-24">
+  <div class="module-header">
+    <div class="module-number">Modul 24</div>
+    <div class="module-title">Konflikteskalation nach Glasl</div>
+    <div class="module-subtitle">Konflikte entstehen nicht plötzlich – sie eskalieren Schritt für Schritt. Friedrich Glasls 9 Stufen zeigen: Je früher der Eingriff, desto leichter die Lösung.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m24&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m24&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m24&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m24&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m24&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m24-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="./Module 21-26 MUMTY Coaching-Ausbildung – Module 22–26_files/preview(2).html" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p style="margin-top:14px; color:var(--text-light); font-size:13px; text-align:center;">Video-Link für Modul 24 – bitte Drive-ID eintragen.</p>
+  </div>
+
+  <div class="tab-content" id="m24-theorie">
+    <div class="theorie-block">
+      <h2>Warum eskalieren Konflikte?</h2>
+      <p>Konflikte entstehen selten plötzlich. Sie beginnen als kleine Spannung, wachsen durch Missverständnisse und eskalieren, wenn niemand frühzeitig eingreift. <strong>Friedrich Glasl</strong> beschreibt 9 Eskalationsstufen, die in drei Hauptbereiche fallen: Von Win-Win bis zu einem gemeinsamen Absturz.</p>
+      <p>Das Entscheidende: Je früher ein Konflikt erkannt wird, desto leichter ist er lösbar. In frühen Phasen helfen Gespräche. In späten Phasen braucht es Mediation oder externe Eingriffe.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die 9 Eskalationsstufen</h2>
+      <div class="glasl-stages">
+        <div style="padding:8px 16px; background:var(--salbei-pale); border-radius:8px; font-weight:700; color:var(--salbei); font-size:13px; letter-spacing:.06em; text-transform:uppercase;">🟢 WIN-WIN – Beide wollen noch eine Lösung</div>
+        <div class="glasl-stage win-win"><div class="stage-num">1</div><div class="glasl-stage-text"><h4>Verhärtung</h4><p>Standpunkte verhärten sich, erste Spannungen entstehen. Beide Seiten sind noch gesprächsbereit.</p></div></div>
+        <div class="glasl-stage win-win"><div class="stage-num">2</div><div class="glasl-stage-text"><h4>Debatte</h4><p>Verbale Auseinandersetzungen, jeder versucht den anderen zu überzeugen. Argumente werden strategisch eingesetzt.</p></div></div>
+        <div class="glasl-stage win-win"><div class="stage-num">3</div><div class="glasl-stage-text"><h4>Taten statt Worte</h4><p>Kommunikation wird eingestellt, man zeigt Dinge durch Handlungen. Empathie schwindet.</p></div></div>
+        <div style="padding:8px 16px; background:#fef9ec; border-radius:8px; font-weight:700; color:#8a6200; font-size:13px; letter-spacing:.06em; text-transform:uppercase; margin-top:6px;">🟡 WIN-LOSE – Es geht nur noch ums Gewinnen</div>
+        <div class="glasl-stage win-lose"><div class="stage-num">4</div><div class="glasl-stage-text"><h4>Koalitionen</h4><p>Verbündete werden gesucht, andere eingespannt. Es geht nicht mehr um das Thema, sondern ums Gewinnen.</p></div></div>
+        <div class="glasl-stage win-lose"><div class="stage-num">5</div><div class="glasl-stage-text"><h4>Gesichtsverlust</h4><p>Öffentliche Angriffe, Demütigungen. Der andere soll bloßgestellt werden. Vertrauen ist zerstört.</p></div></div>
+        <div class="glasl-stage win-lose"><div class="stage-num">6</div><div class="glasl-stage-text"><h4>Drohungen</h4><p>Offene Drohungen und Ultimaten. Kontrolle über die Situation geht verloren.</p></div></div>
+        <div style="padding:8px 16px; background:#fff5f5; border-radius:8px; font-weight:700; color:#c62828; font-size:13px; letter-spacing:.06em; text-transform:uppercase; margin-top:6px;">🔴 LOSE-LOSE – Es geht nur noch um Zerstörung</div>
+        <div class="glasl-stage lose-lose"><div class="stage-num">7</div><div class="glasl-stage-text"><h4>Begrenzte Vernichtung</h4><p>Gezielte Schäden beim Gegner, eigene Verluste werden in Kauf genommen.</p></div></div>
+        <div class="glasl-stage lose-lose"><div class="stage-num">8</div><div class="glasl-stage-text"><h4>Zersplitterung</h4><p>Totale Zerstörung des Gegners als Ziel. Alles andere ist egal.</p></div></div>
+        <div class="glasl-stage lose-lose"><div class="stage-num">9</div><div class="glasl-stage-text"><h4>Gemeinsam in den Abgrund</h4><p>Selbstvernichtung in Kauf genommen, um den Gegner zu besiegen. Keine Rückkehr möglich.</p></div></div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching</h2>
+      <p>Wenn ein Coachee von einem Konflikt erzählt, helfen diese Fragen zur Einordnung:</p>
+      <ul>
+        <li>„Auf welcher Stufe befindet ihr euch ungefähr?"</li>
+        <li>„Geht es noch um Lösungen – oder nur noch ums Gewinnen?"</li>
+        <li>„Was würde helfen, eine Stufe zurückzugehen?"</li>
+        <li>„Was müsste passieren, damit ihr wieder auf Win-Win-Niveau sprechen könnt?"</li>
+      </ul>
+      <div class="merksatz">Je früher ein Konflikt erkannt wird, desto leichter kann er gelöst werden. In späten Phasen hilft Kommunikation allein nicht mehr.</div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 Glasl &amp; Transaktionsanalyse</h4>
+        <p>Zu Beginn eines Konflikts kommunizieren Menschen meist Erwachsenen-Ich zu Erwachsenen-Ich. Je höher die Eskalation, desto mehr dominieren Kritisches Eltern-Ich und Trotziges Kind-Ich die Kommunikation.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Glasl &amp; Inneres Team</h4>
+        <p>Oft eskaliert ein Konflikt, weil bestimmte innere Anteile die Führung übernehmen – der Rebell, der verletzte Anteil oder der Kritiker. Das Glasl-Modell zeigt die äußere Eskalation, das Innere Team die innere.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Glasl &amp; Drama-Dreieck</h4>
+        <p>Stufen 1–3 entsprechen oft noch modifizierten Drama-Rollen. Ab Stufe 4 verlieren die Rollen ihre ursprüngliche Funktion – es geht nur noch ums Gewinnen.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG M24 -->
+  <div class="tab-content" id="m24-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Einen Konflikt einordnen</h3>
+      <p>Denke an einen aktuellen oder vergangenen Konflikt in deinem Leben (Arbeit, Familie, Freundschaft). Auf welcher Stufe nach Glasl befindet er sich oder befand er sich? Was waren die Anzeichen?</p>
+      <textarea placeholder="Der Konflikt mit... befand sich auf Stufe... Die Anzeichen: ... Wie es dazu kam..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Ein Konflikt mit einer ehemaligen Geschäftspartnerin befand sich auf Stufe 5–6. Anzeichen: Sie hat mich in einem gemeinsamen Netzwerk schlechtgemacht (Gesichtsverlust), ich habe Dokumente gesammelt „für den Fall" (Koalitionen + Drohgebärde). Die Kommunikation war komplett eingestellt. Im Rückblick hätten wir schon auf Stufe 2 ein klärendes Gespräch führen müssen, als die ersten Meinungsverschiedenheiten über Verantwortlichkeiten kamen.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Frühwarnsignale erkennen</h3>
+      <p>Welche Verhaltensweisen bei dir selbst oder anderen signalisieren, dass ein Konflikt beginnt zu eskalieren (Stufe 1–3)? Schreibe deine persönlichen Frühwarnsignale auf.</p>
+      <textarea placeholder="Bei mir persönlich merke ich Eskalation daran, dass... Bei anderen sehe ich... Das wären meine Stopp-Signale..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Bei mir: Ich werde einsilbig, antworte auf Nachrichten verspätet (absichtlich, nicht bewusst), und mache in Gesprächen spitze Bemerkungen statt direkt zu sprechen. Das sind meine Stufe-2-Zeichen. Bei anderen: wenn jemand anfängt, „immer" und „nie" zu sagen, oder das Thema wechselt aber der Ton kälter wird. Mein Stopp-Signal: wenn ich merke, dass ich Argumente sammle statt zu hören.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>De-Eskalation im Coaching</h3>
+      <p>Ein Klient schildert einen Konflikt mit seiner Schwester: „Sie hat meiner Mutter erzählt, ich sei geldgierig. Jetzt reden alle in der Familie schlecht über mich." Auf welcher Stufe ist das? Welche Coaching-Fragen würdest du stellen?</p>
+      <textarea placeholder="Stufe einordnen: ... Meine Coaching-Fragen: ... Was ich noch erkunden würde..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Einordnung:</strong> Stufe 4–5 (Koalitionen, Gesichtsverlust innerhalb der Familiengruppe).<br><br>
+        <strong>Coaching-Fragen:</strong> „Wie war die Situation zwischen euch, bevor das passierte?" (Stufe verstehen) / „Was denkst du, was deine Schwester braucht – warum hat sie das getan?" (Perspektivwechsel) / „Was würde passieren, wenn du direkt mit ihr sprechen würdest?" (De-Eskalation anstoßen) / „Was wäre für dich ein gutes Ergebnis in den nächsten 2 Wochen?" (Zielorientierung)
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ M24 -->
+  <div class="tab-content" id="m24-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Ab welcher Phase in Glasls Modell wechselt der Fokus von Problemlösung zu Gewinnen?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q24_1" value="a"> <span>Ab Stufe 1 – schon Verhärtung bedeutet, dass man gewinnen will.</span></label>
+        <label class="quiz-option"><input type="radio" name="q24_1" value="b"> <span>Ab der Win-Lose-Phase (Stufe 4) – hier geht es nicht mehr um das Sachthema.</span></label>
+        <label class="quiz-option"><input type="radio" name="q24_1" value="c"> <span>Erst ab der Lose-Lose-Phase (Stufe 7) – davor ist noch alles lösbar.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q24_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was ist das Hauptmerkmal von Stufe 3 (Taten statt Worte) nach Glasl?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q24_2" value="a"> <span>Man sucht Verbündete in der eigenen Gruppe.</span></label>
+        <label class="quiz-option"><input type="radio" name="q24_2" value="b"> <span>Kommunikation wird eingestellt, Botschaften werden durch Handlungen und Verhalten übermittelt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q24_2" value="c"> <span>Es werden offene Drohungen ausgesprochen.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q24_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Warum ist frühes Eingreifen bei Konflikten so wichtig?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q24_3" value="a"> <span>Weil späteres Eingreifen teurer ist und mehr Zeit kostet.</span></label>
+        <label class="quiz-option"><input type="radio" name="q24_3" value="b"> <span>Weil in frühen Phasen Kommunikation und Verständnis ausreichen – in späten Phasen braucht es externe Eingriffe oder Zwang.</span></label>
+        <label class="quiz-option"><input type="radio" name="q24_3" value="c"> <span>Weil Konflikte immer vermieden werden sollten.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q24_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button class="ki-send-btn" style="padding:12px 32px;" onclick="checkQuiz(24)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI M24 -->
+  <div class="tab-content" id="m24-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m24-mode-coachee" onclick="switchKiMode(24,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m24-mode-lern" onclick="switchKiMode(24,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m24-persona">
+      <div class="ki-persona-avatar">👨‍💻</div>
+      <div>
+        <h4>Stefan, 44 – Abteilungsleiter</h4>
+        <p>Stefan hat einen eskalierenden Konflikt mit einem Kollegen aus einer anderen Abteilung. Was als sachliche Meinungsverschiedenheit begann, ist inzwischen so weit, dass Stefan dem Kollegen Informationen vorenthält und beide im Unternehmen Verbündete suchen. Stefan sagt: „Der kriegt von mir nichts mehr. Ich warte, bis er einen Fehler macht."</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m24-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m24-input" placeholder="Hilf Stefan, den Konflikt einzuordnen und einen Ausweg zu finden..." rows="2" onkeydown="handleEnter(event,24)"></textarea>
+      <button class="ki-send-btn" id="m24-send" onclick="sendMessage(24)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(24)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 25 – POSITIONSMODELL NACH RAOUL SCHINDLER
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-25">
+  <div class="module-header">
+    <div class="module-number">Modul 25</div>
+    <div class="module-title">Positionsmodell nach Raoul Schindler</div>
+    <div class="module-subtitle">Alpha, Beta, Gamma, Omega – in jeder Gruppe entstehen automatisch Rollen. Wer seine Rolle kennt, kann sie bewusst gestalten.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m25&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m25&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m25&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m25&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m25&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m25-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="./Module 21-26 MUMTY Coaching-Ausbildung – Module 22–26_files/preview(3).html" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p style="margin-top:14px; color:var(--text-light); font-size:13px; text-align:center;">Video-Link für Modul 25 – bitte Drive-ID eintragen.</p>
+  </div>
+
+  <div class="tab-content" id="m25-theorie">
+    <div class="theorie-block">
+      <h2>Was ist das Positionsmodell?</h2>
+      <p><strong>Raoul Schindler</strong> beobachtete, dass sich Menschen in Gruppen fast automatisch bestimmte Rollen suchen – in Teams, Familien, Vereinen, Projekten, Freundeskreisen. Oft völlig unbewusst. Das Modell beschreibt vier Grundpositionen, die in jeder Gruppe existieren.</p>
+      <p>Das Modell hilft zu verstehen, warum Gruppen funktionieren, warum Konflikte entstehen, und warum manche Menschen ständig opponieren oder führen – auch wenn sie das gar nicht wollten.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die 4 Positionen</h2>
+      <div class="position-cards">
+        <div class="pos-card alpha">
+          <div class="role-label">Alpha · Führung</div>
+          <h4>👑 Alpha</h4>
+          <p>Der Alpha übernimmt Führung, gibt Richtung, entscheidet und trägt Verantwortung.</p>
+          <ul>
+            <li>Entscheidet und gestaltet</li>
+            <li>Übernimmt Verantwortung</li>
+            <li>Gibt der Gruppe Orientierung</li>
+          </ul>
+          <p style="margin-top:8px; font-size:12px; color:var(--text-light);"><strong>Gefahr:</strong> Autoritär werden, andere übergehen</p>
+        </div>
+        <div class="pos-card beta">
+          <div class="role-label">Beta · Unterstützung</div>
+          <h4>🤝 Beta</h4>
+          <p>Der Beta unterstützt den Alpha mit Fachwissen, Beratung und Loyalität.</p>
+          <ul>
+            <li>Bringt Expertise ein</li>
+            <li>Stabilisiert die Gruppe</li>
+            <li>Wirkt ausgleichend</li>
+          </ul>
+          <p style="margin-top:8px; font-size:12px; color:var(--text-light);"><strong>Gefahr:</strong> Zu sehr anpassen, keine eigene Position</p>
+        </div>
+        <div class="pos-card gamma">
+          <div class="role-label">Gamma · Mehrheit</div>
+          <h4>👥 Gamma</h4>
+          <p>Gamma stellt die größte Gruppe dar – sie folgen, beobachten und orientieren sich.</p>
+          <ul>
+            <li>Größte Gruppe im System</li>
+            <li>Folgen der Führung</li>
+            <li>Stabilisieren durch Masse</li>
+          </ul>
+          <p style="margin-top:8px; font-size:12px; color:var(--text-light);"><strong>Gefahr:</strong> Verantwortung abgeben, passiv werden</p>
+        </div>
+        <div class="pos-card omega">
+          <div class="role-label">Omega · Opposition</div>
+          <h4>⚡ Omega</h4>
+          <p>Der Omega hinterfragt, kritisiert und bringt neue Perspektiven – oft unbequem, aber wertvoll.</p>
+          <ul>
+            <li>Frühwarnsystem der Gruppe</li>
+            <li>Qualitätskontrolle</li>
+            <li>Perspektivgeber</li>
+          </ul>
+          <p style="margin-top:8px; font-size:12px; color:var(--text-light);"><strong>Gefahr:</strong> Dauernde Opposition, Isolation</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Das Schaubild: Gruppenstruktur</h2>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" width="380" height="220">
+          <!-- Alpha top -->
+          <rect x="140" y="10" width="100" height="40" rx="10" fill="#fdf3ec" stroke="#e8b898" stroke-width="2"></rect>
+          <text x="190" y="35" text-anchor="middle" fill="#7a3e28" font-size="14" font-weight="bold">👑 ALPHA</text>
+          <!-- Beta left -->
+          <rect x="20" y="90" width="100" height="40" rx="10" fill="#eaf2f0" stroke="#b0d0c8" stroke-width="2"></rect>
+          <text x="70" y="115" text-anchor="middle" fill="#3d6458" font-size="14" font-weight="bold">🤝 BETA</text>
+          <!-- Omega right -->
+          <rect x="260" y="90" width="100" height="40" rx="10" fill="#fff5f5" stroke="#e8b0b0" stroke-width="2"></rect>
+          <text x="310" y="115" text-anchor="middle" fill="#c62828" font-size="14" font-weight="bold">⚡ OMEGA</text>
+          <!-- Gamma bottom -->
+          <rect x="140" y="170" width="100" height="40" rx="10" fill="#f5f0fb" stroke="#c9b0e0" stroke-width="2"></rect>
+          <text x="190" y="195" text-anchor="middle" fill="#6a3d9a" font-size="14" font-weight="bold">👥 GAMMA</text>
+          <!-- Lines -->
+          <line x1="190" y1="50" x2="190" y2="170" stroke="#d0e4df" stroke-width="1.5" stroke-dasharray="4,3"></line>
+          <line x1="120" y1="110" x2="260" y2="110" stroke="#d0e4df" stroke-width="1.5" stroke-dasharray="4,3"></line>
+          <line x1="155" y1="45" x2="110" y2="95" stroke="#d0e4df" stroke-width="1.5"></line>
+          <line x1="225" y1="45" x2="265" y2="95" stroke="#d0e4df" stroke-width="1.5"></line>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Warum Omega so wichtig ist</h2>
+      <p>Viele Führungskräfte empfinden Omega als schwierig oder störend. Dabei ist Omega oft das <strong>Frühwarnsystem der Gruppe</strong> – derjenige, der auf blinde Flecken aufmerksam macht, bevor sie zum Problem werden.</p>
+      <p>Ohne Omega entstehen häufig Fehlentscheidungen. Gruppen ohne Widerspruch laufen Gefahr, im Groupthink zu erstarren.</p>
+      <div class="merksatz">Nicht jeder Widerstand ist ein Problem. Manchmal ist er ein wichtiger Hinweis.</div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching: 3 Schritte</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div><strong>Aktuelle Gruppe betrachten</strong><p>Wer führt? Wer unterstützt? Wer folgt? Wer opponiert? – Die Positionen in konkreten Gruppen sichtbar machen (Team, Familie, Verein).</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div><strong>Eigene Rolle erkennen</strong><p>Welche Position nehme ich meist ein? Welche fällt mir leicht, welche vermeide ich? Bin ich immer Alpha – auch wo es nicht passt?</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div><strong>Dynamiken verstehen</strong><p>Warum entsteht gerade Widerstand? Welche Funktion hat dieser Widerstand? Was braucht die Gruppe gerade wirklich?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 Positionsmodell &amp; Drama-Dreieck</h4>
+        <p>Das Drama-Dreieck beschreibt emotionale Konfliktrollen. Das Positionsmodell beschreibt strukturelle Gruppenrollen. Beide können sich überlagern: Ein Alpha kann zum Verfolger werden, ein Omega zum Opfer erklärt werden.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Positionsmodell &amp; Transaktionsanalyse</h4>
+        <p>Alpha kommuniziert oft aus dem Eltern-Ich, Gamma aus dem Kind-Ich. Das Positionsmodell erklärt die Struktur, die Transaktionsanalyse die Kommunikation darin.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Positionsmodell &amp; Glasl</h4>
+        <p>Wenn ein Omega in eskalierenden Konflikten zum Feind erklärt wird, steigt die Glasl-Eskalation. Das Positionsmodell hilft, Widerstand früher als Information statt als Angriff zu verstehen.</p>
+      </div>
+      <div class="merksatz">Jede Gruppe braucht Führung, Unterstützung, Mitläufer – und jemanden, der kritisch hinterfragt.</div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG M25 -->
+  <div class="tab-content" id="m25-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Meine natürliche Position</h3>
+      <p>Denke an verschiedene Gruppen in deinem Leben (Team, Familie, Freundeskreis, Verein). Welche Position nimmst du jeweils ein? Ist sie immer gleich – oder wechselt sie je nach Kontext?</p>
+      <textarea placeholder="In meinem Team bin ich meist: ... In meiner Familie: ... Im Freundeskreis: ... Was ich beobachte: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Im Beruf bin ich fast immer Alpha – ich übernehme automatisch die Führung, auch wenn es nicht meine Aufgabe wäre. In meiner Familie bin ich eher Beta: Ich unterstütze meinen Vater, der Alpha ist, und bringe Ideen ein. Im Freundeskreis bin ich manchmal Omega: Ich hinterfrage Entscheidungen und bin deshalb nicht immer beliebt. Interessant: Meine Position hängt stark davon ab, wie viel Fachwissen oder emotionale Investition ich habe.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Einen Omega neu betrachten</h3>
+      <p>Denke an jemanden in deinem Leben oder Beruf, den du als störend oder schwierig empfindest. Könnte diese Person eine Omega-Funktion haben? Was könnte ihr Widerstand dir oder der Gruppe sagen?</p>
+      <textarea placeholder="Die Person ist... Ihr Verhalten wirkt auf mich wie... Als Omega-Funktion könnte ihr Widerstand bedeuten... Was ich daraus lernen könnte..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Mein Kollege Bernd stellt bei jedem Meeting jede Entscheidung in Frage. Das empfinde ich als nervig und bremsend. Wenn ich ihn als Omega betrachte: Sein Widerstand könnte bedeuten, dass wir zu schnell entscheiden ohne alle Risiken zu sehen. Oder dass er Informationen hat, die wir im Team nicht teilen. Was ich daraus lernen könnte: Ihn gezielt einzubinden, bevor Entscheidungen fallen – dann nutze ich sein Omega-Potential, statt ihn zu bekämpfen.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Positionsmodell im Coaching anwenden</h3>
+      <p>Ein Klient sagt: „Ich bin der Einzige in meinem Team, der kritisch nachfragt. Alle anderen nicken, und mein Chef findet mich anstrengend." Wie würdest du das im Positionsmodell einordnen – und wie könntest du dem Klienten helfen?</p>
+      <textarea placeholder="Einordnung: ... Coaching-Ansatz: ... Fragen, die ich stellen würde: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Einordnung:</strong> Der Klient befindet sich in der Omega-Position – er übt eine wichtige Funktion aus, wird aber als störend erlebt, was typisch für nicht anerkannte Omegas ist.<br><br>
+        <strong>Coaching-Ansatz:</strong> Erstens die Omega-Rolle würdigen: „Dein kritisches Nachfragen ist keine Schwäche – es ist eine wichtige Gruppenfunktion." Zweitens klären, wie er seine Bedenken so einbringen kann, dass sie gehört werden – Timing, Formulierung, Kontext. Drittens erkunden: Ist das ein dauerhaftes Muster in vielen Gruppen? Was steckt dahinter?
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ M25 -->
+  <div class="tab-content" id="m25-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Welche Position stellt nach Schindler die größte Gruppe in einem sozialen System dar?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q25_1" value="a"> <span>Alpha – da Führung überall gefragt ist.</span></label>
+        <label class="quiz-option"><input type="radio" name="q25_1" value="b"> <span>Gamma – die Mehrheit, die folgt, beobachtet und sich orientiert.</span></label>
+        <label class="quiz-option"><input type="radio" name="q25_1" value="c"> <span>Beta – da Unterstützung immer nötig ist.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q25_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Welche wichtige Funktion hat die Omega-Position, obwohl sie oft als störend empfunden wird?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q25_2" value="a"> <span>Omega hält die Gruppe zusammen, indem er Konflikte vermeidet.</span></label>
+        <label class="quiz-option"><input type="radio" name="q25_2" value="b"> <span>Omega macht auf blinde Flecken aufmerksam und wirkt als Frühwarnsystem der Gruppe.</span></label>
+        <label class="quiz-option"><input type="radio" name="q25_2" value="c"> <span>Omega übernimmt Führung, wenn Alpha fehlt.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q25_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Was ist die Gefahr der Beta-Position?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q25_3" value="a"> <span>Beta kann zu viel Verantwortung übernehmen und Alpha ersetzen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q25_3" value="b"> <span>Beta kann sich zu sehr anpassen und keine eigene Position mehr beziehen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q25_3" value="c"> <span>Beta hat kein Fachwissen und ist deshalb unsicher.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q25_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button class="ki-send-btn" style="padding:12px 32px;" onclick="checkQuiz(25)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI M25 -->
+  <div class="tab-content" id="m25-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m25-mode-coachee" onclick="switchKiMode(25,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m25-mode-lern" onclick="switchKiMode(25,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m25-persona">
+      <div class="ki-persona-avatar">👨‍🏫</div>
+      <div>
+        <h4>Thomas, 39 – Teamleiter im Vertrieb</h4>
+        <p>Thomas führt ein Team von 6 Personen. Er hat das Gefühl, dass sein Team nicht funktioniert: „Einer macht immer was er will und hinterfragt alles. Die anderen machen brav mit, aber leidenschaftslos." Er fragt sich, ob er einen Fehler bei der Teamzusammenstellung gemacht hat und ob er den kritischen Mitarbeiter entlassen soll.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m25-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m25-input" placeholder="Hilf Thomas, seine Team-Dynamik durch das Positionsmodell zu verstehen..." rows="2" onkeydown="handleEnter(event,25)"></textarea>
+      <button class="ki-send-btn" id="m25-send" onclick="sendMessage(25)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(25)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 26 – REFRAMING
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-26">
+  <div class="module-header">
+    <div class="module-number">Modul 26</div>
+    <div class="module-title">Reframing</div>
+    <div class="module-subtitle">Die Situation bleibt gleich – die Bedeutung ändert sich. Und damit alles andere auch.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m26&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m26&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m26&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m26&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m26&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m26-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="./Module 21-26 MUMTY Coaching-Ausbildung – Module 22–26_files/preview(4).html" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p style="margin-top:14px; color:var(--text-light); font-size:13px; text-align:center;">Video-Link für Modul 26 – bitte Drive-ID eintragen.</p>
+  </div>
+
+  <div class="tab-content" id="m26-theorie">
+    <div class="theorie-block">
+      <h2>Was ist Reframing?</h2>
+      <p>Reframing bedeutet: Einer Situation einen <strong>neuen Bedeutungsrahmen (Frame)</strong> zu geben. Dabei verändert sich nicht die Situation selbst – es verändert sich die Sichtweise auf die Situation. Und genau dadurch verändern sich häufig Gefühle, Verhalten, Entscheidungen und Handlungsmöglichkeiten.</p>
+      <p>Menschen leiden häufig nicht an den Ereignissen selbst, sondern an der <strong>Bedeutung, die sie diesen Ereignissen geben</strong>.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Das Grundprinzip</h2>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 440 90" xmlns="http://www.w3.org/2000/svg" width="440" height="90">
+          <defs>
+            <marker id="ra" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#7da398"></path>
+            </marker>
+          </defs>
+          <rect x="0" y="25" width="80" height="40" rx="8" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="40" y="50" text-anchor="middle" fill="#3d6458" font-size="12" font-weight="bold">SITUATION</text>
+          <line x1="82" y1="45" x2="102" y2="45" stroke="#7da398" stroke-width="1.5" marker-end="url(#ra)"></line>
+          <rect x="104" y="20" width="90" height="50" rx="8" fill="#fde8e0" stroke="#e8a882" stroke-width="2"></rect>
+          <text x="149" y="41" text-anchor="middle" fill="#7a3e28" font-size="11" font-weight="bold">BEDEUTUNG</text>
+          <text x="149" y="57" text-anchor="middle" fill="#7a3e28" font-size="10">(Interpretation)</text>
+          <text x="149" y="72" text-anchor="middle" fill="#e8a882" font-size="9">👈 Reframing hier!</text>
+          <line x1="196" y1="45" x2="216" y2="45" stroke="#7da398" stroke-width="1.5" marker-end="url(#ra)"></line>
+          <rect x="218" y="25" width="60" height="40" rx="8" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="248" y="50" text-anchor="middle" fill="#3d6458" font-size="12" font-weight="bold">GEFÜHL</text>
+          <line x1="280" y1="45" x2="300" y2="45" stroke="#7da398" stroke-width="1.5" marker-end="url(#ra)"></line>
+          <rect x="302" y="25" width="70" height="40" rx="8" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="337" y="50" text-anchor="middle" fill="#3d6458" font-size="12" font-weight="bold">VERHALTEN</text>
+          <line x1="374" y1="45" x2="394" y2="45" stroke="#7da398" stroke-width="1.5" marker-end="url(#ra)"></line>
+          <rect x="396" y="25" width="40" height="40" rx="8" fill="#5e8478"></rect>
+          <text x="416" y="50" text-anchor="middle" fill="white" font-size="11" font-weight="bold">ZI EL</text>
+        </svg>
+      </div>
+      <p>Reframing greift gezielt an der Schnittstelle zwischen Situation und Bedeutung an – dem einzigen Punkt, den wir wirklich verändern können, wenn die Situation selbst unveränderbar ist.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Reframing in Aktion: Vorher vs. Nachher</h2>
+      <div class="reframe-compare">
+        <div class="reframe-box vorher">
+          <h4>❌ Vor dem Reframing</h4>
+          <div class="reframe-chain">
+            <span>FEHLER</span><span class="arrow">↓</span>
+            <span>VERSAGEN</span><span class="arrow">↓</span>
+            <span>SCHAM</span><span class="arrow">↓</span>
+            <span>RÜCKZUG</span>
+          </div>
+        </div>
+        <div class="reframe-box nachher">
+          <h4>✅ Nach dem Reframing</h4>
+          <div class="reframe-chain">
+            <span>FEHLER</span><span class="arrow">↓</span>
+            <span>LERNERFAHRUNG</span><span class="arrow">↓</span>
+            <span>NEUGIER</span><span class="arrow">↓</span>
+            <span>ENTWICKLUNG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die 3 Arten des Reframings</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div>
+            <strong>Bedeutungs-Reframing</strong>
+            <p>Frage: <em>„Welche andere Bedeutung könnte diese Situation noch haben?"</em><br>
+            Beispiel: „Ich bin gescheitert." → „Ich habe wichtige Erfahrungen gesammelt, die mich beim nächsten Versuch stärker machen."</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div>
+            <strong>Kontext-Reframing</strong>
+            <p>Frage: <em>„In welchem Zusammenhang könnte dieses Verhalten hilfreich sein?"</em><br>
+            Beispiel: „Ich bin zu kritisch." → „Meine kritische Sicht hilft mir, Fehler früh zu erkennen – als Qualitätsmanagerin ist das meine Stärke."</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div>
+            <strong>Ressourcen-Reframing</strong>
+            <p>Frage: <em>„Welche Stärke steckt hinter diesem Verhalten?"</em><br>
+            Beispiel: „Ich denke zu viel nach." → „Ich reflektiere sorgfältig und treffe deshalb überlegte, nachhaltige Entscheidungen."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching: 4 Schritte</h2>
+      <div class="schritt-list">
+        <div class="schritt-item"><div class="schritt-num">1</div><div><strong>Situation beschreiben lassen</strong><p>„Was ist passiert?" – Erst vollständig hören, bevor geframet wird.</p></div></div>
+        <div class="schritt-item"><div class="schritt-num">2</div><div><strong>Aktuelle Interpretation erkennen</strong><p>„Welche Bedeutung gibst du dieser Situation?" – Den Frame explizit machen.</p></div></div>
+        <div class="schritt-item"><div class="schritt-num">3</div><div><strong>Alternative Perspektiven entwickeln</strong><p>„Wofür könnte das gut sein? Was lernst du? Welche Chance steckt darin? Was würde ein guter Freund dazu sagen?"</p></div></div>
+        <div class="schritt-item"><div class="schritt-num">4</div><div><strong>Neue Bedeutung prüfen</strong><p>„Was verändert sich für dich durch diese neue Sichtweise?" – Ob das Reframing wirkt, entscheidet immer der Coachee.</p></div></div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 Reframing &amp; Glaubenssätze</h4>
+        <p>Viele Glaubenssätze sind alte Reframings – einmal gemachte Interpretationen, die festgeschrieben wurden. Reframing schafft neue, hilfreichere Glaubenssätze: Aus „Misserfolg = Versagen" wird „Misserfolg = ich darf lernen".</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Reframing &amp; Drama-Dreieck</h4>
+        <p>Reframing ist ein direktes Werkzeug, um aus der Opferrolle auszusteigen. „Warum passiert mir das immer?" → „Was kann ich aus dieser Situation lernen und wie gestalte ich sie aktiv?"</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Reframing &amp; Inneres Team</h4>
+        <p>Oft sieht ein innerer Anteil nur eine Perspektive (der Kritiker: „Das war ein Fehler."). Reframing erweitert den Blickwinkel und gibt anderen inneren Anteilen Raum.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Reframing &amp; Circle of Influence</h4>
+        <p>Reframing lenkt den Fokus vom Problem (Circle of Concern) hin zu Handlungsmöglichkeiten (Circle of Influence): Nicht was passiert ist – sondern was ich daraus machen kann.</p>
+      </div>
+      <div class="merksatz">Wir können nicht immer verändern, was passiert. Aber wir können oft verändern, welche Bedeutung wir dem Geschehen geben.</div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG M26 -->
+  <div class="tab-content" id="m26-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Drei Reframing-Arten üben</h3>
+      <p>Nimm diese Aussage: „Ich bin zu emotional." Entwickle für jede der drei Reframing-Arten ein Gegenframe: (1) Bedeutungs-Reframing, (2) Kontext-Reframing, (3) Ressourcen-Reframing.</p>
+      <textarea placeholder="1. Bedeutungs-Reframing: ...
+2. Kontext-Reframing: ...
+3. Ressourcen-Reframing: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>1. Bedeutungs-Reframing:</strong> „Zu emotional" → „Ich nehme Dinge wahr, die andere verpassen. Mein Gefühlskompass ist feinfühlig und präzise."<br><br>
+        <strong>2. Kontext-Reframing:</strong> „Zu emotional" in der Arbeit → In der Begleitung von Menschen im Coaching oder in der Fürsorgearbeit ist Empathie die Kernkompetenz. Dort bin ich nicht zu viel, sondern genau richtig.<br><br>
+        <strong>3. Ressourcen-Reframing:</strong> Hinter „zu emotional" steckt die Stärke, tief zu fühlen und zu verbinden. Das macht mich zu jemandem, dem Menschen vertrauen – weil sie spüren, dass ich wirklich dabei bin.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Mein eigenes Reframing</h3>
+      <p>Welche Situation oder Eigenschaft in deinem Leben hast du bisher als Problem oder Schwäche betrachtet? Entwickle dafür ein Reframing, das sich echt und nicht aufgesetzt anfühlt.</p>
+      <textarea placeholder="Ich habe bisher gesehen: ... Als Problem: ... Mein Reframing: ... Wie sich das anfühlt..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Ich habe bisher gesehen: Ich brauche viel Zeit für Entscheidungen. Als Problem: Ich bin zu langsam, zu unsicher, zu zögerlich. Mein Reframing: Ich treffe Entscheidungen sorgfältig, mit allen Informationen und gutem Gewissen. Ich bereue selten, weil ich gründlich denke. Wie sich das anfühlt: Ehrlich gesagt noch etwas ungewohnt – aber es fühlt sich weniger wie eine Entschuldigung an als wie eine tatsächliche Stärke.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Reframing im Coaching-Gespräch</h3>
+      <p>Ein Klient sagt: „Ich habe meinen Job verloren. Das ist ein Beweis, dass ich versagt habe." Wie würdest du als Coach reagieren? Welche Reframing-Fragen würdest du stellen? Was würdest du NICHT sagen?</p>
+      <textarea placeholder="Meine erste Reaktion: ... Reframing-Fragen: ... Was ich NICHT sagen würde: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Meine erste Reaktion:</strong> Ich würde nicht sofort reframen. Erst hören, Gefühl anerkennen: „Das klingt wirklich schwer."<br><br>
+        <strong>Reframing-Fragen danach:</strong> „Was hat diese Stelle dir ermöglicht – und was nicht?" / „Wenn du in 5 Jahren zurückschaust: Könnte das der Beginn von etwas sein?" / „Was sagt ein Jobverlust über dich als Person aus – und was nicht?"<br><br>
+        <strong>Was ich NICHT sagen würde:</strong> „Sieh es positiv, das wird schon!" oder „Alles hat einen Sinn." – Aufgezwungenes Reframing wirkt entleerend, nicht hilfreich. Das Reframing muss vom Coachee kommen, der Coach schafft nur den Raum dafür.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ M26 -->
+  <div class="tab-content" id="m26-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Was verändert Reframing an einer Situation?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q26_1" value="a"> <span>Die Situation selbst – durch neue Handlungen und andere Entscheidungen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q26_1" value="b"> <span>Die Bedeutung, die der Situation gegeben wird – nicht die Situation selbst.</span></label>
+        <label class="quiz-option"><input type="radio" name="q26_1" value="c"> <span>Die Erinnerung an die Situation – Reframing löscht negative Erlebnisse.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q26_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was ist der Unterschied zwischen Kontext-Reframing und Bedeutungs-Reframing?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q26_2" value="a"> <span>Kontext-Reframing fragt nach einem anderen Zusammenhang, Bedeutungs-Reframing nach einer anderen Interpretation desselben Kontexts.</span></label>
+        <label class="quiz-option"><input type="radio" name="q26_2" value="b"> <span>Kontext ist für berufliche Themen, Bedeutung für persönliche.</span></label>
+        <label class="quiz-option"><input type="radio" name="q26_2" value="c"> <span>Beide sind dasselbe – nur anders benannt.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q26_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Warum sollte ein Coach Reframing nicht zu früh und nicht aufgezwungen einsetzen?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q26_3" value="a"> <span>Weil der Coachee sonst zu schnell besser fühlt und keine weiteren Sitzungen bucht.</span></label>
+        <label class="quiz-option"><input type="radio" name="q26_3" value="b"> <span>Weil aufgezwungenes Reframing das Gefühl des Coachees übergeht und deshalb nicht wirkt – echter Perspektivwechsel muss innerlich entstehen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q26_3" value="c"> <span>Weil Reframing nur bei positiven Themen funktioniert.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q26_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button class="ki-send-btn" style="padding:12px 32px;" onclick="checkQuiz(26)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI M26 -->
+  <div class="tab-content" id="m26-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m26-mode-coachee" onclick="switchKiMode(26,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m26-mode-lern" onclick="switchKiMode(26,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m26-persona">
+      <div class="ki-persona-avatar">🎨</div>
+      <div>
+        <h4>Marie, 31 – Designerin mit gescheitertem Startup</h4>
+        <p>Marie hat vor einem Jahr ihr eigenes Design-Startup aufgegeben. Sie beschreibt es als „totales Versagen" und „Beweis, dass ich nicht gut genug bin." Seitdem arbeitet sie wieder angestellt – sicher, aber unglücklich. Sie sagt: „Ich hab's versucht und bin kläglich gescheitert. Ich bin eben kein Unternehmerin-Typ."</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m26-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m26-input" placeholder="Begleite Marie zu einem hilfreichen Reframing ihres Scheiterns..." rows="2" onkeydown="handleEnter(event,26)"></textarea>
+      <button class="ki-send-btn" id="m26-send" onclick="sendMessage(26)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(26)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+// ── Navigation ──────────────────────
+function showModule(num) {
+  document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.module-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('module-' + num).classList.add('active');
+  const idx = [22,23,24,25,26].indexOf(num);
+  if (idx >= 0) document.querySelectorAll('.module-btn')[idx].classList.add('active');
+}
+
+function showTab(moduleId, tabName) {
+  const mNum = moduleId.replace('m','');
+  const panel = document.getElementById('module-' + mNum);
+  panel.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(moduleId + '-' + tabName).classList.add('active');
+  const idx = ['video','theorie','uebung','quiz','ki'].indexOf(tabName);
+  const btns = panel.querySelectorAll('.tab-btn');
+  if (btns[idx]) btns[idx].classList.add('active');
+}
+
+function toggleBeispiel(btn) {
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent = ans.classList.contains('open') ? '💡 Beispielantwort verbergen' : '💡 Beispielantwort anzeigen';
+}
+
+// ── Quiz ─────────────────────────────
+const quizAnswers = {
+  22: { q22_1: 'b', q22_2: 'b', q22_3: 'a' },
+  23: { q23_1: 'b', q23_2: 'b', q23_3: 'b' },
+  24: { q24_1: 'b', q24_2: 'b', q24_3: 'b' },
+  25: { q25_1: 'b', q25_2: 'b', q25_3: 'b' },
+  26: { q26_1: 'b', q26_2: 'a', q26_3: 'b' }
+};
+
+const quizExplanations = {
+  22: {
+    q22_1: { correct: 'Genau! Eine Beobachtung ist neutral und konkret: Was ist faktisch passiert? Kein Urteil, kein „immer", kein Charakterurteil.', wrong: 'Beobachtungen sind nicht positiv/negativ, objektiv/subjektiv. Der Unterschied liegt in der Bewertung: Beschreibt die Aussage nur, was passiert ist – ohne Interpretation?' },
+    q22_2: { correct: 'Richtig! Eine echte Bitte akzeptiert ein Nein. Sobald ein Nein nicht akzeptabel ist, ist es eine Forderung – auch wenn sie höflich formuliert ist.', wrong: 'Höflichkeit allein macht keine Bitte. Der Kern: Ist der andere frei, Nein zu sagen? Wenn nicht, ist es eine Forderung.' },
+    q22_3: { correct: 'Korrekt! Bedürfnisse sind universell (Sicherheit, Verbindung, Anerkennung) und zeigen das eigentliche Thema hinter Vorwürfen und Konflikten.', wrong: 'Bedürfnisse sind nicht einfacher auszudrücken – sie zu benennen ist oft die schwierigste Übung. Und die andere Person ist nicht verpflichtet, sie zu erfüllen.' }
+  },
+  23: {
+    q23_1: { correct: 'Genau! Der tiefste Vorteil der Opferrolle: Keine Verantwortung. Wenn ich nichts tun kann, muss ich auch nichts ändern.', wrong: 'Mitleid und Aufmerksamkeit sind Nebeneffekte, nicht der Kern. Der eigentliche Gewinn liegt in der vermiedenen Eigenverantwortung.' },
+    q23_2: { correct: 'Richtig! Das Retten bestätigt die Hilflosigkeit des Opfers und verstärkt das System. Und der Retter meidet oft eigene Themen durch die Beschäftigung mit fremden.', wrong: 'Die Problematik liegt tiefer als Entlohnung oder das Rollenwechsel-Muster allein. Retten hält das Drama-System am Laufen.' },
+    q23_3: { correct: 'Perfekt! Der Raum zwischen Reiz und Reaktion ist der Moment, in dem wir uns entscheiden können – statt automatisch zu reagieren. Das ist der Schlüssel zur Freiheit aus dem Drama.', wrong: 'Es geht nicht um physischen Abstand oder Erholungszeit. Der Raum ist ein innerer Moment der Bewusstheit zwischen Auslöser und Reaktion.' }
+  },
+  24: {
+    q24_1: { correct: 'Genau! Ab Stufe 4 (Koalitionen) wechselt das Ziel: Nicht mehr Lösung, sondern Sieg. Das Sachthema tritt in den Hintergrund.', wrong: 'Stufe 1 ist noch lösbar, Stufe 7 ist bereits sehr schwer. Der Wendepunkt liegt bei Stufe 4 – dem Beginn der Win-Lose-Phase.' },
+    q24_2: { correct: 'Richtig! Auf Stufe 3 spricht man nicht mehr – man handelt. Schweigen, ignorieren, Aktionen statt Worte.', wrong: 'Verbündete suchen ist Stufe 4. Drohungen sind Stufe 6. Stufe 3 ist der Rückzug aus der Kommunikation – Taten und Verhalten ersetzen Worte.' },
+    q24_3: { correct: 'Korrekt! In frühen Phasen sind Gespräche, Klarheit und GFK genug. In späten Phasen braucht es Mediation, manchmal sogar externe Autorität.', wrong: 'Kosten und Zeit sind Argumente – aber der eigentliche Grund ist die zunehmende Unzugänglichkeit von Kommunikation als Mittel bei hoher Eskalation.' }
+  },
+  25: {
+    q25_1: { correct: 'Richtig! Gamma ist die schweigende Mehrheit in fast jeder Gruppe – sie folgen, beobachten und stabilisieren durch ihre Masse.', wrong: 'Alpha, Beta und Omega sind immer Minderheiten. Gamma ist die Mehrheit – das ist ein zentrales Merkmal des Modells.' },
+    q25_2: { correct: 'Genau! Omega macht sichtbar, was andere nicht sehen wollen. Ohne Omega entsteht oft Groupthink – gefährliche Einheitlichkeit.', wrong: 'Omega hält keine Gruppe zusammen und übernimmt keine Führung. Seine Funktion ist Kritik und Perspektiverweiterung – ein Frühwarnsystem.' },
+    q25_3: { correct: 'Richtig! Beta kann so sehr auf Harmonie und Unterstützung ausgerichtet sein, dass er die eigene Meinung verliert. Das ist die spezifische Gefahr dieser Position.', wrong: 'Beta ersetzt keinen Alpha und hat typischerweise solides Fachwissen. Die Gefahr ist die Überanpassung, nicht die Überforderung.' }
+  },
+  26: {
+    q26_1: { correct: 'Genau! Die Situation bleibt gleich – was sich ändert, ist die Bedeutung, die wir ihr geben. Und das verändert Gefühle und Verhalten.', wrong: 'Reframing verändert weder die Situation selbst noch löscht es Erinnerungen. Es verändert die Interpretation – den Frame, den wir einer Situation geben.' },
+    q26_2: { correct: 'Richtig! Kontext-Reframing fragt: In welchem Kontext wäre das eine Stärke? Bedeutungs-Reframing fragt: Welche andere Bedeutung hat das im gleichen Kontext?', wrong: 'Die Unterscheidung ist nicht inhaltlich (Beruf/privat), sondern methodisch: Kontext = anderer Rahmen, Bedeutung = andere Interpretation im selben Rahmen.' },
+    q26_3: { correct: 'Korrekt! Echter Perspektivwechsel kann nicht von außen aufgezwungen werden. Der Coach öffnet den Raum – aber das Reframing muss vom Coachee selbst erlebt werden.', wrong: 'Es geht nicht um Sitzungszahlen oder Themeneignung. Aufgezwungenes Reframing übergeht das Gefühl des Coachees und verpufft deshalb – oder schlimmer, es wirkt entleerend.' }
+  }
+};
+
+function checkQuiz(moduleNum) {
+  const answers = quizAnswers[moduleNum];
+  Object.entries(answers).forEach(([qName, correct]) => {
+    const selected = document.querySelector(`input[name="${qName}"]:checked`);
+    const feedback = document.getElementById(qName + '_feedback');
+    const options = document.querySelectorAll(`input[name="${qName}"]`);
+    options.forEach(opt => { opt.closest('.quiz-option').classList.remove('correct','wrong'); opt.disabled = true; });
+    if (selected) {
+      if (selected.value === correct) {
+        selected.closest('.quiz-option').classList.add('correct');
+        feedback.className = 'quiz-feedback correct';
+        feedback.innerHTML = '✅ ' + quizExplanations[moduleNum][qName].correct;
+      } else {
+        selected.closest('.quiz-option').classList.add('wrong');
+        feedback.className = 'quiz-feedback wrong';
+        feedback.innerHTML = '❌ ' + quizExplanations[moduleNum][qName].wrong;
+        options.forEach(opt => { if (opt.value === correct) opt.closest('.quiz-option').classList.add('correct'); });
+      }
+      feedback.style.display = 'block';
+    } else {
+      feedback.className = 'quiz-feedback wrong';
+      feedback.innerHTML = '⚠️ Bitte wähle eine Antwort aus.';
+      feedback.style.display = 'block';
+    }
+  });
+}
+
+// ── KI-Praxis ──────────────────────
+const chatState = {};
+
+const personas = {
+  22: {
+    coachee: { name: 'Nina', system: `Du bist Nina, 36 Jahre, Projektleiterin. Du hast ständig Reibungen mit deinem Kollegen Thomas. Du sagst über ihn: "Er sabotiert mich, er ist einfach unmöglich." Du bist verletzt und wütend. Wenn du konkret befragt wirst, zeigt sich: Thomas teilt Informationen nicht und redet hinter deinem Rücken. Ihr habt nie direkt gesprochen. Reagiere auf Coaching-Fragen und lass dich behutsam zur GFK-Methode führen. Sei anfangs defensiv wenn du Bewertungen hörst, aber öffne dich schrittweise. Deutsch, max. 120 Wörter.` },
+    lern: { system: `Du bist Lernbegleiter für das MUMTY Modul "Gewaltfreie Kommunikation (GFK)". Erkläre die 4 Schritte (Beobachtung, Gefühl, Bedürfnis, Bitte), den Unterschied zwischen Bitte und Forderung, und typische Fehler. Antworte auf Deutsch, warm und konkret, max. 150 Wörter.` }
+  },
+  23: {
+    coachee: { name: 'Petra', system: `Du bist Petra, 48 Jahre, Mutter und Unternehmerin. Du fühlst dich in der Familie als die Einzige, die alles macht. "Ich bin die Einzige, die sich kümmert – aber keiner schätzt das." Du beschwichtigst dich über Mann und Kinder, lässt andere aber selten selbst handeln. Du schwingst zwischen Retter ("Ich mach das") und Opfer ("Keiner hilft mir") und Verfolger ("Ihr seid undankbar"). Wenn der Coach das Drama-Dreieck anspricht, reagiere zunächst abwehrend, erkenne es dann schrittweise. Deutsch, max. 120 Wörter.` },
+    lern: { system: `Du bist Lernbegleiter für das MUMTY Modul "Drama-Dreieck". Erkläre die 3 Rollen, ihren versteckten Vorteil, Rollenwechsel und den Raum zwischen Reiz und Reaktion. Antworte auf Deutsch, klar und warmherzig, max. 150 Wörter.` }
+  },
+  24: {
+    coachee: { name: 'Stefan', system: `Du bist Stefan, 44 Jahre, Abteilungsleiter. Du hast einen eskalierenden Konflikt mit einem Kollegen: Informationen werden vorenthalten, du suchst Verbündete. Du sagst: "Der kriegt von mir nichts mehr. Ich warte, bis er einen Fehler macht." Du bist fest in der Win-Lose-Phase. Wenn der Coach nach dem Anfang des Konflikts fragt, zeigt sich: Es begann mit einer Meinungsverschiedenheit über ein Projekt. Reagiere auf Coaching-Fragen und öffne dich langsam für neue Perspektiven. Deutsch, max. 120 Wörter.` },
+    lern: { system: `Du bist Lernbegleiter für das MUMTY Modul "Konflikteskalation nach Glasl". Erkläre die 9 Stufen und 3 Phasen, wann welche Interventionen sinnvoll sind, und Verbindungen zu anderen Modellen. Antworte auf Deutsch, präzise und praxisnah, max. 150 Wörter.` }
+  },
+  25: {
+    coachee: { name: 'Thomas', system: `Du bist Thomas, 39 Jahre, Teamleiter im Vertrieb mit 6 Mitarbeitern. Du sagst: "Einer macht immer was er will, die anderen machen brav mit aber leidenschaftslos." Du überlegst, den kritischen Mitarbeiter zu entlassen. Du verstehst nicht, was im Team passiert. Wenn der Coach das Positionsmodell anspricht, bist du zunächst skeptisch – erkennst dann aber die Dynamik. Reagiere authentisch und praxisnah. Deutsch, max. 120 Wörter.` },
+    lern: { system: `Du bist Lernbegleiter für das MUMTY Modul "Positionsmodell nach Raoul Schindler". Erkläre Alpha, Beta, Gamma, Omega, ihre Funktionen und Gefahren, und die Bedeutung von Omega. Antworte auf Deutsch, klar und anwendungsorientiert, max. 150 Wörter.` }
+  },
+  26: {
+    coachee: { name: 'Marie', system: `Du bist Marie, 31 Jahre, Designerin. Vor einem Jahr hast du dein Startup aufgegeben. Du nennst es "totales Versagen" und "Beweis, dass ich nicht gut genug bin." Seitdem arbeitest du wieder angestellt – sicher, aber unglücklich. Du sagst: "Ich hab's versucht und bin kläglich gescheitert." Wenn der Coach versucht, dir schnell ein Reframing aufzuzwingen, reagiere abwehrend. Öffne dich nur, wenn der Coach erst zuhört und dein Gefühl anerkennt. Dann lass ein echtes Reframing entstehen. Deutsch, max. 120 Wörter.` },
+    lern: { system: `Du bist Lernbegleiter für das MUMTY Modul "Reframing". Erkläre die 3 Reframing-Arten, die 4 Anwendungsschritte und warum Reframing nicht aufgezwungen werden darf. Antworte auf Deutsch, inspirierend und konkret, max. 150 Wörter.` }
+  }
+};
+
+function switchKiMode(moduleNum, mode) {
+  document.getElementById('m' + moduleNum + '-mode-coachee').classList.toggle('active', mode === 'coachee');
+  document.getElementById('m' + moduleNum + '-mode-lern').classList.toggle('active', mode === 'lern');
+  document.getElementById('m' + moduleNum + '-persona').style.display = mode === 'coachee' ? 'flex' : 'none';
+  if (!chatState[moduleNum]) chatState[moduleNum] = {};
+  chatState[moduleNum].mode = mode;
+  if (!chatState[moduleNum][mode + 'History']) chatState[moduleNum][mode + 'History'] = [];
+  renderChat(moduleNum);
+}
+
+function renderChat(moduleNum) {
+  const chatEl = document.getElementById('m' + moduleNum + '-chat');
+  const mode = (chatState[moduleNum] && chatState[moduleNum].mode) || 'coachee';
+  const history = (chatState[moduleNum] && chatState[moduleNum][mode + 'History']) || [];
+  chatEl.innerHTML = '';
+  if (history.length === 0) {
+    const intro = document.createElement('div');
+    intro.style.cssText = 'color:var(--text-light);font-size:13px;text-align:center;padding:20px;opacity:.7;';
+    intro.textContent = mode === 'coachee' ? '👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!' : '🎓 Stelle mir eine Frage zum Modul!';
+    chatEl.appendChild(intro);
+  } else {
+    history.forEach(msg => appendMessage(moduleNum, msg.role, msg.content, false));
+  }
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function appendMessage(moduleNum, role, content, scroll = true) {
+  const chatEl = document.getElementById('m' + moduleNum + '-chat');
+  const empty = chatEl.querySelector('div[style*="opacity"]');
+  if (empty) empty.remove();
+  const mode = (chatState[moduleNum] && chatState[moduleNum].mode) || 'coachee';
+  const senderName = role === 'user' ? 'Du (Coach)' : (mode === 'lern' ? 'Lernbegleiter' : (personas[moduleNum] && personas[moduleNum].coachee.name) || 'Coachee');
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-msg ' + (role === 'user' ? 'user' : 'assistant');
+  wrapper.innerHTML = `<div class="chat-sender">${senderName}</div><div class="chat-bubble">${content}</div>`;
+  chatEl.appendChild(wrapper);
+  if (scroll) chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function showTyping(moduleNum) {
+  const chatEl = document.getElementById('m' + moduleNum + '-chat');
+  const mode = (chatState[moduleNum] && chatState[moduleNum].mode) || 'coachee';
+  const name = mode === 'lern' ? 'Lernbegleiter' : (personas[moduleNum] && personas[moduleNum].coachee.name) || 'Coachee';
+  const t = document.createElement('div');
+  t.className = 'chat-msg assistant'; t.id = 'm' + moduleNum + '-typing';
+  t.innerHTML = `<div class="chat-sender">${name}</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  chatEl.appendChild(t);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function removeTyping(moduleNum) {
+  const t = document.getElementById('m' + moduleNum + '-typing');
+  if (t) t.remove();
+}
+
+async function sendMessage(moduleNum) {
+  const input = document.getElementById('m' + moduleNum + '-input');
+  const text = input.value.trim();
+  if (!text) return;
+  if (!chatState[moduleNum]) chatState[moduleNum] = { mode: 'coachee' };
+  const mode = chatState[moduleNum].mode || 'coachee';
+  const histKey = mode + 'History';
+  if (!chatState[moduleNum][histKey]) chatState[moduleNum][histKey] = [];
+  chatState[moduleNum][histKey].push({ role: 'user', content: text });
+  appendMessage(moduleNum, 'user', text);
+  input.value = '';
+  const sendBtn = document.getElementById('m' + moduleNum + '-send');
+  sendBtn.disabled = true;
+  showTyping(moduleNum);
+  const history = chatState[moduleNum][histKey];
+  const systemPrompt = personas[moduleNum][mode].system;
+  const userCount = history.filter(m => m.role === 'user').length;
+  let finalSystem = systemPrompt;
+  if (mode === 'coachee' && userCount >= 4) {
+    finalSystem += `\n\nNach dieser Antwort: Gib kurz (2-3 Sätze) aus deiner Rolle Feedback, wie sich das Coaching-Gespräch für dich angefühlt hat. Was war hilfreich, was fehlte?`;
+  }
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: finalSystem,
+        messages: history.map(m => ({ role: m.role, content: m.content }))
+      })
+    });
+    const data = await response.json();
+    removeTyping(moduleNum);
+    const reply = data.content && data.content[0] ? data.content[0].text : 'Fehler – bitte erneut versuchen.';
+    chatState[moduleNum][histKey].push({ role: 'assistant', content: reply });
+    appendMessage(moduleNum, 'assistant', reply);
+  } catch (e) {
+    removeTyping(moduleNum);
+    appendMessage(moduleNum, 'assistant', '⚠️ Verbindungsfehler. Bitte erneut versuchen.');
+  }
+  sendBtn.disabled = false;
+}
+
+function resetChat(moduleNum) {
+  if (!chatState[moduleNum]) return;
+  const mode = chatState[moduleNum].mode || 'coachee';
+  chatState[moduleNum][mode + 'History'] = [];
+  renderChat(moduleNum);
+}
+
+function handleEnter(event, moduleNum) {
+  if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(moduleNum); }
+}
+
+// Init
+[22,23,24,25,26].forEach(n => {
+  chatState[n] = { mode: 'coachee', coacheeHistory: [], lernHistory: [] };
+  renderChat(n);
+});
+</script>
+
+
+</body></html>

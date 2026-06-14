@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY Coaching-Ausbildung – Alle 33 Module</title>
+<style>
+  :root {
+    --gradient: linear-gradient(135deg, #3d6458, #5e8478, #7da398, #5e8478);
+    --apricot: #e8a882;
+    --salbei: #5e8478;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; font-family: system-ui, sans-serif; background: #f4f8f6; }
+
+  .top-nav {
+    background: var(--gradient);
+    padding: 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .top-nav button {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    padding: 0.8rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .top-nav button:hover { color: #fff; }
+  .top-nav button.active {
+    color: #fff;
+    border-bottom-color: var(--apricot);
+    font-weight: 700;
+  }
+
+  .nav-height { height: 48px; flex-shrink: 0; }
+
+  #frame-container {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  #frame-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+  }
+  #frame-container iframe.active {
+    display: block;
+  }
+
+  /* Loading overlay */
+  #loading {
+    position: fixed;
+    top: 48px;
+    left: 0; right: 0; bottom: 0;
+    background: #f4f8f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 500;
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #eaf2f0;
+    border-top-color: var(--salbei);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #loading p { color: #5e8478; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <button class="active" onclick="showModule('modul1.html', this)">M1 · Grundlagen</button>
+  <button onclick="showModule('modul2-5.html', this)">M2–5 · Fragetechniken bis GROW</button>
+  <button onclick="showModule('modul6-10.html', this)">M6–10 · GROW bis Wertearbeit</button>
+  <button onclick="showModule('modul11-16.html', this)">M11–16 · Johari bis Archetypen</button>
+  <button onclick="showModule('modul17-21.html', this)">M17–21 · Reiss bis Anker</button>
+  <button onclick="showModule('modul22-26.html', this)">M22–26 · GFK bis Reframing</button>
+  <button onclick="showModule('modul27-31.html', this)">M27–31 · Auftragsklärung bis Fallarbeit</button>
+  <button onclick="showModule('modul32-33.html', this)">M32–33 · Rolle & Abschluss</button>
+</nav>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Modul wird geladen…</p>
+</div>
+
+<div id="frame-container">
+  <iframe id="frame-modul1" src="modul1.html" class="active" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul2-5" src="" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul6-10" src="" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul11-16" src="" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul17-21" src="" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul22-26" src="" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul27-31" src="" onload="hideLoading()"></iframe>
+  <iframe id="frame-modul32-33" src="" onload="hideLoading()"></iframe>
+</div>
+
+<script>
+var currentFile = 'modul1.html';
+
+function hideLoading() {
+  document.getElementById('loading').style.display = 'none';
+}
+
+function showModule(file, btn) {
+  if (file === currentFile) return;
+  currentFile = file;
+
+  // Nav aktiv setzen
+  document.querySelectorAll('.top-nav button').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+
+  // Loading zeigen
+  document.getElementById('loading').style.display = 'flex';
+
+  // Alle iframes verstecken
+  document.querySelectorAll('#frame-container iframe').forEach(function(f) {
+    f.classList.remove('active');
+  });
+
+  // Richtigen iframe finden oder laden
+  var frameId = 'frame-' + file.replace('.html', '');
+  var frame = document.getElementById(frameId);
+  if (frame) {
+    if (!frame.src || frame.src === window.location.href) {
+      frame.src = file;
+    }
+    frame.classList.add('active');
+    // Falls schon geladen
+    setTimeout(hideLoading, 100);
+  }
+}
+
+// Erstes Modul laden
+window.addEventListener('load', function() {
+  setTimeout(hideLoading, 2000);
+});
+</script>
+
+</body>
+</html>
