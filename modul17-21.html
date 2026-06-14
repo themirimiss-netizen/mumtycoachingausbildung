@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///Users/famsta22/Downloads/mumty_module17bis21.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY Coaching-Ausbildung – Module 17–21</title>
+<style>
+  :root {
+    --salbei: #5e8478;
+    --salbei-mid: #7da398;
+    --salbei-pale: #eaf2f0;
+    --apricot: #e8a882;
+    --apricot-pale: #fdf3ec;
+    --apricot-dark: #7a3e28;
+    --bg: #f4f8f6;
+    --white: #ffffff;
+    --text: #2d3e38;
+    --text-light: #5a7068;
+    --border: #d0e4df;
+    --shadow: rgba(94,132,120,0.13);
+    --gradient: linear-gradient(135deg, #3d6458, #5e8478, #7da398, #5e8478);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── MODULE NAV ── */
+  .module-nav {
+    background: var(--gradient);
+    padding: 18px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .module-nav-label {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+  .module-btn {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .module-btn:hover { background: rgba(255,255,255,0.28); }
+  .module-btn.active {
+    background: white;
+    color: var(--salbei);
+    border-color: white;
+  }
+
+  /* ── MODULE PANEL ── */
+  .module-panel { display: none; }
+  .module-panel.active { display: block; }
+
+  /* ── MODULE HEADER ── */
+  .module-header {
+    background: var(--gradient);
+    padding: 36px 32px 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .module-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  .module-number {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .75;
+    margin-bottom: 6px;
+  }
+  .module-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .module-subtitle {
+    font-size: 15px;
+    opacity: .85;
+    line-height: 1.5;
+    max-width: 560px;
+  }
+
+  /* ── TABS ── */
+  .tab-bar {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 14px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all .2s;
+  }
+  .tab-btn:hover { color: var(--salbei); background: var(--salbei-pale); }
+  .tab-btn.active {
+    color: var(--salbei);
+    border-bottom-color: var(--salbei);
+    background: var(--salbei-pale);
+  }
+
+  /* ── TAB CONTENT ── */
+  .tab-content { display: none; padding: 28px 24px; max-width: 860px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* ── VIDEO TAB ── */
+  .video-wrapper {
+    position: relative;
+    background: #111;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.18);
+  }
+  .video-fade-top, .video-fade-bottom {
+    position: absolute; left: 0; right: 0;
+    height: 100px; pointer-events: none; z-index: 2;
+  }
+  .video-fade-top { top: 0; background: linear-gradient(to bottom, #f4f8f6 0%, transparent 100%); }
+  .video-fade-bottom { bottom: 0; background: linear-gradient(to top, #f4f8f6 0%, transparent 100%); }
+  .video-wrapper iframe {
+    display: block; width: 100%; height: 480px; border: none;
+  }
+
+  /* ── THEORIE ── */
+  .theorie-block {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .theorie-block h2 {
+    font-size: 19px;
+    color: var(--salbei);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--salbei-pale);
+  }
+  .theorie-block h3 {
+    font-size: 15px;
+    color: var(--apricot-dark);
+    margin: 16px 0 8px;
+    font-weight: 700;
+  }
+  .theorie-block p { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+  .theorie-block ul, .theorie-block ol {
+    padding-left: 20px; margin-bottom: 12px;
+  }
+  .theorie-block li { font-size: 15px; line-height: 1.7; margin-bottom: 4px; }
+
+  .merksatz {
+    background: linear-gradient(135deg, var(--apricot-pale), #fff8f2);
+    border-left: 4px solid var(--apricot);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--apricot-dark);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .merksatz::before { content: '💡 '; font-style: normal; }
+
+  .check-list { list-style: none; padding: 0; }
+  .check-list li { padding-left: 28px; position: relative; margin-bottom: 6px; font-size: 15px; line-height: 1.6; }
+  .check-list li::before { content: '✅'; position: absolute; left: 0; font-size: 14px; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .info-card {
+    background: var(--salbei-pale);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .info-card h4 {
+    font-size: 14px;
+    color: var(--salbei);
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .info-card p, .info-card li { font-size: 14px; line-height: 1.6; }
+
+  .verbindung-block {
+    background: linear-gradient(135deg, #f0f7f5, #fdf3ec);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    border: 1px solid var(--border);
+  }
+  .verbindung-block h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--salbei);
+    margin-bottom: 8px;
+  }
+  .verbindung-block p { font-size: 14px; line-height: 1.6; }
+
+  /* ── SVG SCHAUBILDER ── */
+  .schaubild-wrap {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  .schaubild-wrap svg { max-width: 100%; height: auto; }
+
+  /* ── ÜBUNG ── */
+  .uebung-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .uebung-card h3 {
+    font-size: 16px;
+    color: var(--salbei);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .uebung-number {
+    background: var(--salbei);
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .uebung-card p { font-size: 15px; line-height: 1.65; margin-bottom: 12px; color: var(--text); }
+  .uebung-card textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    background: var(--bg);
+    transition: border-color .2s;
+    color: var(--text);
+  }
+  .uebung-card textarea:focus { outline: none; border-color: var(--salbei); background: white; }
+
+  .beispiel-toggle {
+    background: none;
+    border: 1.5px solid var(--salbei);
+    color: var(--salbei);
+    border-radius: 20px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all .2s;
+  }
+  .beispiel-toggle:hover { background: var(--salbei); color: white; }
+
+  .beispiel-antwort {
+    display: none;
+    background: var(--salbei-pale);
+    border-left: 3px solid var(--salbei);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .beispiel-antwort.open { display: block; }
+
+  /* ── QUIZ ── */
+  .quiz-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .quiz-question {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s;
+    background: var(--bg);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .quiz-option:hover { border-color: var(--salbei); background: var(--salbei-pale); }
+  .quiz-option.correct { border-color: #4caf50; background: #f0fbf0; color: #2e7d32; }
+  .quiz-option.wrong { border-color: #ef5350; background: #fff5f5; color: #c62828; }
+  .quiz-option input[type="radio"] { margin-top: 2px; accent-color: var(--salbei); }
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    display: none;
+  }
+  .quiz-feedback.correct { background: #f0fbf0; color: #2e7d32; border-left: 3px solid #4caf50; }
+  .quiz-feedback.wrong { background: #fff5f5; color: #c62828; border-left: 3px solid #ef5350; }
+
+  /* ── KI-PRAXIS ── */
+  .ki-mode-switcher {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .ki-mode-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    background: none;
+    color: var(--text-light);
+  }
+  .ki-mode-btn.active { background: var(--gradient); color: white; }
+
+  .ki-persona-info {
+    background: linear-gradient(135deg, var(--apricot-pale), white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ki-persona-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .ki-persona-info h4 { font-size: 15px; color: var(--apricot-dark); margin-bottom: 4px; }
+  .ki-persona-info p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+  .ki-chat-window {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-height: 320px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 18px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chat-msg { max-width: 80%; }
+  .chat-msg.user { align-self: flex-end; }
+  .chat-msg.assistant { align-self: flex-start; }
+  .chat-bubble {
+    padding: 11px 15px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .chat-msg.user .chat-bubble {
+    background: var(--salbei);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-msg.assistant .chat-bubble {
+    background: var(--salbei-pale);
+    color: var(--text);
+    border-bottom-left-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .chat-sender { font-size: 11px; color: var(--text-light); margin-bottom: 4px; font-weight: 600; }
+  .chat-msg.user .chat-sender { text-align: right; }
+
+  .ki-input-row {
+    display: flex; gap: 10px;
+  }
+  .ki-input-row textarea {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: none;
+    min-height: 50px;
+    transition: border-color .2s;
+    background: var(--bg);
+  }
+  .ki-input-row textarea:focus { outline: none; border-color: var(--salbei); background: white; }
+  .ki-send-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity .2s;
+    white-space: nowrap;
+  }
+  .ki-send-btn:hover { opacity: .88; }
+  .ki-send-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+  .ki-reset-btn {
+    background: none;
+    border: 1.5px solid var(--border);
+    color: var(--text-light);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .ki-reset-btn:hover { border-color: var(--salbei); color: var(--salbei); }
+
+  .typing-indicator {
+    display: flex; gap: 5px; align-items: center; padding: 8px 14px;
+    background: var(--salbei-pale); border-radius: 14px; width: fit-content;
+    border: 1px solid var(--border);
+  }
+  .typing-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--salbei-mid);
+    animation: bounce 1.2s infinite ease-in-out;
+  }
+  .typing-dot:nth-child(2) { animation-delay: .2s; }
+  .typing-dot:nth-child(3) { animation-delay: .4s; }
+  @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-7px); } }
+
+  /* ── MOTIVE GRID (M17) ── */
+  .motive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .motiv-card {
+    background: var(--salbei-pale);
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .motiv-card .motiv-icon { font-size: 22px; margin-bottom: 6px; }
+  .motiv-card .motiv-name { font-size: 13px; font-weight: 700; color: var(--salbei); }
+  .motiv-card .motiv-desc { font-size: 12px; color: var(--text-light); margin-top: 3px; }
+
+  /* ── SYSTEM CARDS (M17 Limbisch) ── */
+  .system-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .system-card {
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid var(--border);
+  }
+  .system-card.balance { background: linear-gradient(135deg, #e8f4f8, #d4ecf7); border-color: #b0d4e8; }
+  .system-card.stimulanz { background: linear-gradient(135deg, #fef9ec, #fdf0d4); border-color: #f0d898; }
+  .system-card.dominanz { background: linear-gradient(135deg, #fdf0ec, #fce0d4); border-color: #e8b8a0; }
+  .system-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
+  .system-card.balance h4 { color: #1a6b9a; }
+  .system-card.stimulanz h4 { color: #8a6200; }
+  .system-card.dominanz h4 { color: var(--apricot-dark); }
+  .system-card p { font-size: 13px; line-height: 1.6; }
+  .system-card ul { padding-left: 16px; }
+  .system-card li { font-size: 13px; line-height: 1.6; }
+
+  /* ── ENERGIEKONTO TABLE ── */
+  .energie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .energie-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .energie-table th:first-child { background: #fff5f5; color: #c62828; }
+  .energie-table th:last-child { background: #f0fbf0; color: #2e7d32; }
+  .energie-table td { padding: 10px 16px; border-top: 1px solid var(--border); }
+
+  /* ── SCHRITT BOXES ── */
+  .schritt-list { display: flex; flex-direction: column; gap: 12px; margin: 14px 0; }
+  .schritt-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+  }
+  .schritt-num {
+    min-width: 32px; height: 32px;
+    background: var(--gradient);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .schritt-item > div p { font-size: 14px; line-height: 1.6; }
+  .schritt-item > div strong { font-size: 14px; color: var(--salbei); display: block; margin-bottom: 4px; }
+
+  .api-key-notice {
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 10px;
+    padding: 14px; margin-bottom: 16px; font-size: 13px; color: #7a5800;
+  }
+
+  @media (max-width: 600px) {
+    .module-header { padding: 24px 16px 20px; }
+    .module-title { font-size: 20px; }
+    .tab-content { padding: 18px 14px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .system-cards { grid-template-columns: 1fr; }
+    .motive-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-wrapper iframe { height: 240px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MODULE NAVIGATION -->
+<nav class="module-nav">
+  <span class="module-nav-label">Modul</span>
+  <button class="module-btn active" onclick="showModule(17)">17 – Reiss-Profil</button>
+  <button class="module-btn" onclick="showModule(18)">18 – Happy Place</button>
+  <button class="module-btn" onclick="showModule(19)">19 – Energiekonto</button>
+  <button class="module-btn" onclick="showModule(20)">20 – ZRM</button>
+  <button class="module-btn" onclick="showModule(21)">21 – Anker &amp; Ressourcen</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 17 – REISS MOTIVATION PROFILE
+═══════════════════════════════════════════════════ -->
+<div class="module-panel active" id="module-17">
+  <div class="module-header">
+    <div class="module-number">Modul 17</div>
+    <div class="module-title">Reiss Motivation Profile (RMP)</div>
+    <div class="module-subtitle">Hinter jedem Verhalten steckt ein Motiv – das RMP zeigt dir, welche 16 Lebensmotive dich antreiben.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m17&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m17&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m17&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m17&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m17&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="tab-content active" id="m17-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1FrInh-ibFmo0EWCHa6M6nFSwQtZ2_RAn/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <!-- THEORIE -->
+  <div class="tab-content" id="m17-theorie">
+
+    <div class="theorie-block">
+      <h2>Was ist das Reiss Motivation Profile?</h2>
+      <p>Das Reiss Motivation Profile (RMP) wurde von dem Psychologen Steven Reiss entwickelt. Es beschreibt die <strong>inneren Lebensmotive</strong> eines Menschen – also die tiefsten Antriebe, die hinter unserem Verhalten stecken.</p>
+      <p>Während viele Persönlichkeitsmodelle erklären, <em>wie</em> ein Mensch ist, beantwortet das RMP eine entscheidend andere Frage:</p>
+      <div class="merksatz">Warum handelt ein Mensch so, wie er handelt?</div>
+      <p>Alle Menschen besitzen dieselben 16 Grundmotive. Der Unterschied liegt darin, <strong>wie stark</strong> diese Motive bei jedem einzelnen ausgeprägt sind.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Warum ist das Modell wichtig?</h2>
+      <p>Oft bewerten wir andere Menschen nach unseren eigenen Maßstäben. Ein Mensch, der Ordnung liebt, versteht nicht, warum jemand anderes Freiheit wichtiger findet als Struktur. Beide halten ihr eigenes Verhalten für „normal".</p>
+      <p>Das RMP zeigt: <strong>Menschen sind nicht gleich motiviert.</strong> Und genau deshalb funktionieren dieselben Lösungen, Ziele oder Ratschläge nicht für jeden.</p>
+      <ul class="check-list">
+        <li>Sich selbst und die eigenen Entscheidungen besser verstehen</li>
+        <li>Konflikte mit anderen besser einordnen</li>
+        <li>Passendere Ziele setzen, die wirklich motivieren</li>
+        <li>Stärken bewusster einsetzen</li>
+      </ul>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die Grundidee: Motiv → Verhalten → Ergebnis</h2>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" width="420" height="220">
+          <defs>
+            <lineargradient id="rmpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#3d6458"></stop>
+              <stop offset="100%" style="stop-color:#7da398"></stop>
+            </lineargradient>
+          </defs>
+          <!-- Boxes -->
+          <rect x="160" y="10" width="100" height="40" rx="10" fill="url(#rmpGrad)"></rect>
+          <text x="210" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold">MOTIV</text>
+          <!-- Arrow -->
+          <line x1="210" y1="50" x2="210" y2="70" stroke="#5e8478" stroke-width="2.5" marker-end="url(#arr)"></line>
+          <rect x="155" y="72" width="110" height="40" rx="10" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="210" y="97" text-anchor="middle" fill="#3d6458" font-size="13" font-weight="bold">BEDÜRFNIS</text>
+          <line x1="210" y1="112" x2="210" y2="132" stroke="#5e8478" stroke-width="2.5" marker-end="url(#arr)"></line>
+          <rect x="155" y="134" width="110" height="40" rx="10" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="210" y="159" text-anchor="middle" fill="#3d6458" font-size="13" font-weight="bold">VERHALTEN</text>
+          <line x1="210" y1="174" x2="210" y2="194" stroke="#5e8478" stroke-width="2.5" marker-end="url(#arr)"></line>
+          <rect x="155" y="196" width="110" height="18" rx="8" fill="#fdf3ec" stroke="#e8a882" stroke-width="1.5"></rect>
+          <text x="210" y="209" text-anchor="middle" fill="#7a3e28" font-size="12" font-weight="bold">ERGEBNIS</text>
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#5e8478"></path>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+      <p>Hinter jedem Verhalten steht ein Motiv. Wer seine Motive kennt, versteht sich selbst – und andere – deutlich besser.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die 16 Lebensmotive</h2>
+      <div class="motive-grid">
+        <div class="motiv-card"><div class="motiv-icon">👑</div><div class="motiv-name">Macht</div><div class="motiv-desc">Einfluss, gestalten, führen</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🦅</div><div class="motiv-name">Unabhängigkeit</div><div class="motiv-desc">Selbst entscheiden, frei handeln</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🔍</div><div class="motiv-name">Neugier</div><div class="motiv-desc">Lernen, verstehen, entdecken</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🌟</div><div class="motiv-name">Anerkennung</div><div class="motiv-desc">Wertschätzung erhalten</div></div>
+        <div class="motiv-card"><div class="motiv-icon">📋</div><div class="motiv-name">Ordnung</div><div class="motiv-desc">Struktur, Planung, Übersicht</div></div>
+        <div class="motiv-card"><div class="motiv-icon">💰</div><div class="motiv-name">Sparen/Sammeln</div><div class="motiv-desc">Besitz sichern und aufbauen</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🛡️</div><div class="motiv-name">Ehre</div><div class="motiv-desc">Verantwortung, Loyalität</div></div>
+        <div class="motiv-card"><div class="motiv-icon">💚</div><div class="motiv-name">Idealismus</div><div class="motiv-desc">Helfen, Sinn beitragen</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🤝</div><div class="motiv-name">Beziehungen</div><div class="motiv-desc">Nähe, soziale Kontakte</div></div>
+        <div class="motiv-card"><div class="motiv-icon">👨‍👩‍👧</div><div class="motiv-name">Familie</div><div class="motiv-desc">Für Familie sorgen</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🏆</div><div class="motiv-name">Status</div><div class="motiv-desc">Ansehen, gesellschaft. Position</div></div>
+        <div class="motiv-card"><div class="motiv-icon">⚡</div><div class="motiv-name">Wettbewerb</div><div class="motiv-desc">Vergleichen, gewinnen, leisten</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🕊️</div><div class="motiv-name">Ruhe</div><div class="motiv-desc">Sicherheit, emotionale Stabilität</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🍽️</div><div class="motiv-name">Essen</div><div class="motiv-desc">Genuss und Lebensfreude</div></div>
+        <div class="motiv-card"><div class="motiv-icon">🏃</div><div class="motiv-name">Körperliche Aktivität</div><div class="motiv-desc">Bewegung und Sport</div></div>
+        <div class="motiv-card"><div class="motiv-icon">❤️</div><div class="motiv-name">Romantik</div><div class="motiv-desc">Nähe, Liebe, Partnerschaft</div></div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching: 3 Schritte</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div>
+            <strong>Profil analysieren</strong>
+            <p>Welche Motive sind bei der Klientin besonders hoch ausgeprägt? Das RMP kann als offizieller Test durchgeführt werden – oder im Coaching durch gezielte Fragen ermittelt werden: „Was gibt dir Energie? Was motiviert dich wirklich?"</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div>
+            <strong>Verhalten verstehen</strong>
+            <p>Hohe Unabhängigkeit → mag Freiheit, hasst Kontrolle. Hohe Ordnung → liebt Struktur, braucht Klarheit. Hohes Wettbewerbsmotiv → denkt in Ergebnissen, vergleicht sich. Das macht Verhaltensweisen verständlich, ohne sie zu bewerten.</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div>
+            <strong>Ziele motivgerecht gestalten</strong>
+            <p>Ein Ziel funktioniert besser, wenn es zu den eigenen Motiven passt. Nicht: „Arbeite streng nach diesem System." Sondern (bei hoher Unabhängigkeit): „Wie können wir deinen eigenen Weg entwickeln?"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 RMP &amp; Limbisches System</h4>
+        <p>Das limbische System beschreibt die <em>emotionale Grundrichtung</em> (Balance, Stimulanz, Dominanz). Das RMP zeigt die individuelle Feinabstimmung innerhalb dieser Richtung. Das limbische System ist die grobe Landkarte – das RMP ist die genaue Adresse.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 RMP &amp; Emotionale Grundbedürfnisse</h4>
+        <p>Die emotionalen Grundbedürfnisse erklären, was Menschen grundsätzlich brauchen. Das RMP zeigt, wie stark einzelne Bedürfnisse bei einem Menschen ausgeprägt sind.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 RMP &amp; Inneres Team</h4>
+        <p>Die verschiedenen inneren Anteile vertreten oft unterschiedliche Motive: Der Perfektionist vertritt Ordnung, der Freigeist vertritt Unabhängigkeit, der Antreiber vertritt Wettbewerb.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 RMP &amp; Wertearbeit</h4>
+        <p>Viele Werte entstehen direkt aus starken Motiven: Familie → Verbundenheit, Unabhängigkeit → Freiheit, Idealismus → Sinn, Wettbewerb → Erfolg.</p>
+      </div>
+      <div class="merksatz">Menschen handeln nicht zufällig. Hinter jedem Verhalten steht ein Motiv. Wer seine Motive kennt, versteht sich selbst – und andere – deutlich besser.</div>
+    </div>
+
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m17-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Mein persönliches Motivprofil</h3>
+      <p>Lies dir die 16 Lebensmotive durch. Wähle die <strong>3 Motive</strong>, die für dich am stärksten zutreffen, und die <strong>3 Motive</strong>, die kaum eine Rolle spielen. Was fällt dir auf?</p>
+      <textarea placeholder="Meine Top-3-Motive sind... Diese kaum wirksamen Motive habe ich gewählt... Was mich überrascht hat..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Meine Top-3-Motive: Unabhängigkeit, Neugier, Idealismus. Kaum relevant: Status, Sparen, Wettbewerb. Was mich überrascht: Ich hätte gedacht, mir ist Anerkennung wichtiger – aber ehrlich gesagt ist mir die Meinung anderer weniger wichtig als mein eigenes Urteil. Das erklärt, warum mich Lob weniger motiviert als neue Erkenntnisse.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Einen Konflikt neu verstehen</h3>
+      <p>Denke an eine Person in deinem Leben, mit der du häufig aneinander gerätst oder Missverständnisse hast. Welche Motive könnte diese Person stark ausgeprägt haben? Welche hast du? Was wird dadurch klarer?</p>
+      <textarea placeholder="Die Person ist... Ihre möglichen Motive... Meine Motive... Der Kern des Missverständnisses könnte sein..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Meine Schwester und ich haben oft Diskussionen über Familientreffen. Sie hat ein sehr hohes Familien-Motiv, ich ein hohes Unabhängigkeits-Motiv. Sie interpretiert mein „Ich komme nur kurz vorbei" als Desinteresse – ich erlebe ihr Drängen als Einengung. Jetzt verstehe ich: Wir verletzen gegenseitig unsere wichtigsten Motive, ohne es zu wollen.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Ein Coaching-Ziel motivgerecht gestalten</h3>
+      <p>Stelle dir vor, eine Klientin möchte regelmäßig Sport treiben, schafft es aber nie. Ihr stärkstes Motiv ist <strong>Beziehungen</strong>. Wie würdest du ihren Weg zum Ziel motivgerecht umgestalten?</p>
+      <textarea placeholder="Ich würde ihr empfehlen... Die Frage, die ich stellen würde... Welcher Ansatz passt zu ihrem Motiv..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Statt „Geh einfach zum Sport" würde ich fragen: „Mit wem könntest du das gemeinsam machen?" Eine Sportgruppe, eine feste Trainingspartnerin, ein Kurs mit Bekannten – das verbindet ihr starkes Beziehungsmotiv mit dem Ziel. Plötzlich wird Sport nicht als Pflicht erlebt, sondern als soziale Zeit. Das Ziel bleibt gleich, der Weg wird motivgerecht.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m17-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Was unterscheidet das Reiss Motivation Profile von anderen Persönlichkeitsmodellen?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q17_1" value="a"> <span>Es beschreibt, wie schnell ein Mensch lernt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q17_1" value="b"> <span>Es beantwortet die Frage <em>warum</em> ein Mensch so handelt, wie er handelt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q17_1" value="c"> <span>Es misst emotionale Intelligenz auf einer Skala.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q17_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Zwei Klientinnen möchten ein Business aufbauen. Eine fragt „Wie kann ich möglichst frei arbeiten?" – die andere: „Wie minimiere ich das Risiko?" Was erklärt diesen Unterschied im RMP?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q17_2" value="a"> <span>Unterschiedliche Intelligenz und Risikobereitschaft</span></label>
+        <label class="quiz-option"><input type="radio" name="q17_2" value="b"> <span>Unterschiedlich stark ausgeprägte Motive (Unabhängigkeit vs. Ruhe/Sicherheit)</span></label>
+        <label class="quiz-option"><input type="radio" name="q17_2" value="c"> <span>Unterschiedliche berufliche Erfahrungen</span></label>
+      </div>
+      <div class="quiz-feedback" id="q17_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Eine Klientin mit hohem Ordnungs-Motiv will abnehmen. Welcher Rat wäre motivgerecht?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q17_3" value="a"> <span>„Spring einfach rein, hör auf deinen Bauch!"</span></label>
+        <label class="quiz-option"><input type="radio" name="q17_3" value="b"> <span>„Mach es spontan und flexibel, ohne Plan."</span></label>
+        <label class="quiz-option"><input type="radio" name="q17_3" value="c"> <span>„Erstelle dir einen strukturierten Ernährungsplan mit klaren Wochen­zielen."</span></label>
+      </div>
+      <div class="quiz-feedback" id="q17_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top: 20px;">
+      <button class="ki-send-btn" style="padding: 12px 32px;" onclick="checkQuiz(17)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m17-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m17-mode-coachee" onclick="switchKiMode(17,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m17-mode-lern" onclick="switchKiMode(17,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m17-persona">
+      <div class="ki-persona-avatar">👨‍💼</div>
+      <div>
+        <h4>Markus, 41 – Teamleiter in der IT</h4>
+        <p>Markus führt seit 3 Jahren ein Team von 8 Personen und hat das Gefühl, er motiviert sie falsch. Was für ihn zählt (Leistung, Wettbewerb, Zielerreichung), interessiert seine Mitarbeiter kaum. Gleichzeitig versteht er seine eigene Unzufriedenheit nicht – er hat alles erreicht, was er wollte, und fühlt sich trotzdem leer.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m17-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m17-input" placeholder="Schreibe deine Coaching-Frage an Markus..." rows="2" onkeydown="handleEnter(event,17)"></textarea>
+      <button class="ki-send-btn" id="m17-send" onclick="sendMessage(17)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(17)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 18 – HAPPY PLACE
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-18">
+  <div class="module-header">
+    <div class="module-number">Modul 18</div>
+    <div class="module-title">Happy Place</div>
+    <div class="module-subtitle">Ein innerer Wohlfühlort, der Sicherheit, Ruhe und Kraft jederzeit zugänglich macht.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m18&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m18&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m18&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m18&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m18&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m18-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1tXvudiAwxLNjRf8uNWLzKYhfJG9P2_k3/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m18-theorie">
+    <div class="theorie-block">
+      <h2>Was ist der Happy Place?</h2>
+      <p>Der Happy Place ist ein <strong>innerer Wohlfühlort</strong>, den sich ein Mensch bewusst vorstellt. Es handelt sich um einen Ort, an dem er sich sicher, entspannt, geborgen, ruhig und kraftvoll fühlt.</p>
+      <p>Dieser Ort kann real oder frei erfunden sein: ein Strand, ein Wald, eine Berghütte, ein Segelboot, ein Lieblingsplatz aus der Kindheit oder ein reiner Fantasieort.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Warum funktioniert das?</h2>
+      <p>Unser Gehirn reagiert auf vorgestellte Bilder <strong>ähnlich wie auf reale Erlebnisse</strong>. Wenn wir einen positiven Ort intensiv innerlich erleben, kann sich unser Nervensystem tatsächlich beruhigen.</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Sinkt</h4>
+          <ul>
+            <li>Stress und Anspannung</li>
+            <li>Angst und Unruhe</li>
+            <li>Cortisol-Spiegel</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>Steigt</h4>
+          <ul>
+            <li>Gefühl von Sicherheit</li>
+            <li>Ruhe und Fokus</li>
+            <li>Selbstregulation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Schaubild: Von äußerem Stress zu innerer Stabilität</h2>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+          <defs>
+            <lineargradient id="happyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#e8a882"></stop>
+              <stop offset="100%" style="stop-color:#5e8478"></stop>
+            </lineargradient>
+          </defs>
+          <rect x="130" y="8" width="140" height="36" rx="10" fill="#fde8e0" stroke="#e8a882" stroke-width="1.5"></rect>
+          <text x="200" y="31" text-anchor="middle" fill="#7a3e28" font-size="13" font-weight="bold">ÄUSSERER STRESS</text>
+          <line x1="200" y1="44" x2="200" y2="62" stroke="#5e8478" stroke-width="2" marker-end="url(#a2)"></line>
+          <rect x="110" y="64" width="180" height="58" rx="12" fill="url(#happyGrad)" opacity=".9"></rect>
+          <text x="200" y="84" text-anchor="middle" fill="white" font-size="13" font-weight="bold">HAPPY PLACE</text>
+          <text x="200" y="101" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Sicherheit · Ruhe · Kraft</text>
+          <line x1="200" y1="122" x2="200" y2="142" stroke="#5e8478" stroke-width="2" marker-end="url(#a2)"></line>
+          <rect x="120" y="144" width="160" height="36" rx="10" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="200" y="167" text-anchor="middle" fill="#3d6458" font-size="13" font-weight="bold">INNERE STABILITÄT</text>
+          <defs>
+            <marker id="a2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#5e8478"></path>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching: 4 Schritte</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div>
+            <strong>Ort finden</strong>
+            <p>Der Coach fragt: „Wo fühlst du dich vollkommen wohl? Wo kannst du loslassen? Wo fühlst du dich sicher?" Der Coachee wählt einen Ort – real oder erfunden.</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div>
+            <strong>Ort lebendig machen</strong>
+            <p>Der Coachee beschreibt alle Sinneseindrücke: Was siehst du? Was hörst du? Was riechst du? Was spürst du? Je detaillierter die Vorstellung, desto wirksamer die Wirkung.</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div>
+            <strong>Gefühle verankern</strong>
+            <p>„Wie fühlst du dich dort? Welche Qualität entsteht? Welche Stärke nimmst du wahr?" Diese Empfindungen bewusst wahrnehmen und benennen.</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">4</div>
+          <div>
+            <strong>Anker setzen</strong>
+            <p>Eine körperliche Geste mit dem Zustand verbinden: Hand aufs Herz, Daumen und Zeigefinger zusammendrücken, tief durchatmen. Dieser Anker kann später genutzt werden, um das Gefühl schneller abzurufen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 Happy Place &amp; Energiekonto</h4>
+        <p>Der Happy Place ist eine direkte Energiequelle. Das Energiekonto zeigt, was Energie gibt – der Happy Place macht diese Energie bewusst verfügbar.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Happy Place &amp; Emotionale Grundbedürfnisse</h4>
+        <p>Am Happy Place werden oft die wichtigsten Grundbedürfnisse erfüllt: Sicherheit, Verbundenheit, Ruhe, Freiheit. Der Ort ist kein Zufall – er spiegelt, was uns fehlt.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Happy Place &amp; Inneres Team</h4>
+        <p>Wenn innere Anteile gestresst oder ängstlich sind, kann der Happy Place helfen, wieder Sicherheit herzustellen. Der ängstliche Anteil findet dort Beruhigung.</p>
+      </div>
+      <div class="merksatz">Der Happy Place erinnert Körper und Geist daran, wie sich Sicherheit, Ruhe und Kraft anfühlen. Er schafft einen inneren Ort, zu dem wir jederzeit zurückkehren können.</div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m18-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Mein Happy Place</h3>
+      <p>Schließe kurz die Augen und stelle dir vor: Wo fühlst du dich vollkommen wohl? Wo bist du sicher? Beschreibe diesen Ort so genau wie möglich – alle 5 Sinne!</p>
+      <textarea placeholder="Ich bin an/in... Was ich sehe: ... Was ich höre: ... Was ich rieche: ... Was ich spüre: ... Das Gefühl dort ist..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Ich bin auf einem kleinen Steg an einem Bergsee in der Früh, kurz nach Sonnenaufgang. Ich sehe das ruhige Wasser mit dem Spiegelbild der Berge, goldenes Licht. Ich höre das leise Plätschern des Wassers, ab und zu einen Vogel. Ich rieche frische Luft und ein bisschen Kiefernharz. Ich spüre die Wärme der aufgehenden Sonne auf meiner Haut, die kühle Luft beim Einatmen. Das Gefühl: totale Stille im Kopf, absolute Weite, ich bin genau richtig.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Welches Bedürfnis erfüllt dein Happy Place?</h3>
+      <p>Schau auf die emotionalen Grundbedürfnisse (Sicherheit, Autonomie, Verbundenheit, Kompetenz, Lustgewinn, Unlustvermeidung). Welches Bedürfnis erfüllt dir dein Happy Place besonders? Was sagt das über dich aus?</p>
+      <textarea placeholder="Mein Happy Place erfüllt vor allem... Das bedeutet für mich gerade..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Mein Happy Place erfüllt vor allem Sicherheit und Ruhe – und interessanterweise auch Autonomie. Ich bin dort ganz allein und trotzdem nicht einsam. Das sagt mir, dass ich in meinem Alltag gerade zu wenig Stille und zu wenig Zeit für mich habe. Das ist eine wichtige Information.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Eine Coaching-Situation begleiten</h3>
+      <p>Eine Klientin ist vor einem wichtigen Gespräch mit ihrer Chefin sehr nervös. Du möchtest sie mit dem Happy Place vorbereiten. Schreibe auf, wie du die Übung anleiten würdest – konkrete Fragen und Schritte.</p>
+      <textarea placeholder="Zuerst würde ich... Dann frage ich... Schließlich würde ich sie bitten..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Zuerst würde ich sagen: „Bevor wir über das Gespräch reden, lade ich dich ein, kurz in einen inneren Ort zu wechseln, wo du dich sicher und stark fühlst." Dann frage ich: „Wo bist du in deiner Vorstellung?" – Pause – „Was siehst du, was hörst du?" – Pause – „Wie fühlt sich dein Körper dort an?" Dann: „Lege eine Hand auf dein Herz und atme dreimal tief ein. Dieses Gefühl nehmen wir mit in das Gespräch." Zum Abschluss: „Du kannst jederzeit zu diesem Ort zurückkehren – auch mitten im Gespräch."
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m18-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Warum ist der Happy Place als Coaching-Methode wirksam?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q18_1" value="a"> <span>Weil er Probleme dauerhaft löst und den Stress beseitigt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q18_1" value="b"> <span>Weil unser Gehirn auf vorgestellte Bilder ähnlich reagiert wie auf reale Erlebnisse.</span></label>
+        <label class="quiz-option"><input type="radio" name="q18_1" value="c"> <span>Weil Entspannung immer besser ist als Anspannung.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q18_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was ist der Zweck des „Ankers" im 4. Schritt der Happy-Place-Methode?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q18_2" value="a"> <span>Den Coachee ruhig zu halten während der Sitzung.</span></label>
+        <label class="quiz-option"><input type="radio" name="q18_2" value="b"> <span>Eine körperliche Geste mit dem Gefühlszustand zu verbinden, damit er später schneller abrufbar ist.</span></label>
+        <label class="quiz-option"><input type="radio" name="q18_2" value="c"> <span>Den Happy Place zu dokumentieren für zukünftige Sitzungen.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q18_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Warum sollte der Happy Place mit allen Sinnen beschrieben werden?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q18_3" value="a"> <span>Damit der Coach die Beschreibung später wiederholen kann.</span></label>
+        <label class="quiz-option"><input type="radio" name="q18_3" value="b"> <span>Weil es kreativer klingt und den Coachee beeindruckt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q18_3" value="c"> <span>Weil eine detailreiche Vorstellung die Wirkung auf das Nervensystem verstärkt.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q18_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top: 20px;">
+      <button class="ki-send-btn" style="padding: 12px 32px;" onclick="checkQuiz(18)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m18-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m18-mode-coachee" onclick="switchKiMode(18,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m18-mode-lern" onclick="switchKiMode(18,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m18-persona">
+      <div class="ki-persona-avatar">👩‍🏫</div>
+      <div>
+        <h4>Lena, 35 – Grundschullehrerin</h4>
+        <p>Lena steht kurz vor dem Burnout. Sie schläft schlecht, ist ständig angespannt und kann nach der Arbeit nicht abschalten. Vor einem wichtigen Elterngespräch fängt sie oft an zu zittern. Sie hat das Gefühl, keinen Ort zu haben, wo sie „einfach sie selbst" sein kann.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m18-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m18-input" placeholder="Begleite Lena zu ihrem Happy Place..." rows="2" onkeydown="handleEnter(event,18)"></textarea>
+      <button class="ki-send-btn" id="m18-send" onclick="sendMessage(18)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(18)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 19 – ENERGIEKONTO
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-19">
+  <div class="module-header">
+    <div class="module-number">Modul 19</div>
+    <div class="module-title">Energiekonto</div>
+    <div class="module-subtitle">Was gibt dir Kraft – und was raubt sie? Das Energiekonto macht unsichtbare Muster sichtbar.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m19&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m19&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m19&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m19&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m19&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m19-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1AfgA4Yd_WJABCIJCgry-3gDzvgCpGZon/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m19-theorie">
+    <div class="theorie-block">
+      <h2>Was ist das Energiekonto?</h2>
+      <p>Das Energiekonto ist eine Coaching-Methode zur <strong>Bewusstmachung von Energiequellen und Energieräubern</strong>. Viele Menschen merken, dass sie erschöpft sind – aber wissen nicht genau, wodurch Energie verloren geht und was tatsächlich Kraft gibt.</p>
+      <p>Das Energiekonto macht diese Dynamiken sichtbar und schafft dadurch mehr Selbstwahrnehmung, bessere Entscheidungen, emotionales Verständnis und klarere Prioritäten.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Energiegeber &amp; Energienehmer</h2>
+      <div class="info-grid">
+        <div class="info-card" style="background: #f0fbf0; border-color: #b8dbb8;">
+          <h4 style="color: #2e7d32;">⚡ Energiegeber</h4>
+          <p>Dinge, Menschen oder Situationen, nach denen du dich <strong>stärker, klarer oder lebendiger</strong> fühlst.</p>
+          <ul style="margin-top: 8px; padding-left: 16px;">
+            <li>Sport, Natur, Musik</li>
+            <li>Gute Gespräche</li>
+            <li>Kreative Projekte</li>
+            <li>Ruhe und Schlaf</li>
+          </ul>
+        </div>
+        <div class="info-card" style="background: #fff5f5; border-color: #f0b8b8;">
+          <h4 style="color: #c62828;">🔋 Energienehmer</h4>
+          <p>Dinge, Menschen oder Situationen, die dich <strong>leer, gestresst oder erschöpft</strong> machen.</p>
+          <ul style="margin-top: 8px; padding-left: 16px;">
+            <li>Konflikte, Streit</li>
+            <li>Zeitdruck, Überforderung</li>
+            <li>Ungeliebte Aufgaben</li>
+            <li>Schwierige Menschen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>So funktioniert die Methode</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div><strong>Energiegeber und -nehmer auflisten</strong><p>Der Coachee schreibt auf, was ihm Energie gibt – und was Energie kostet. Alles darf rein, auch Kleinigkeiten.</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div><strong>Intensität und Häufigkeit bewerten</strong><p>Für jeden Punkt: Intensität (1–10) × Häufigkeit (1–10) = Energie-Wert. So wird sichtbar, was wirklich ins Gewicht fällt.</p></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div><strong>Bilanz ziehen und Konsequenzen ableiten</strong><p>Summe der Energiegeber vs. Summe der Energienehmer. Wo liegt das Ungleichgewicht? Was lässt sich verändern?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die 1:4-Regel des Energiekontos</h2>
+      <p>Unser Gehirn nimmt Belastungen stärker wahr als positive Erlebnisse – die Psychologie nennt das <strong>Negativity Bias</strong>.</p>
+      <div class="merksatz">Faustregel: 1 starker Energieräuber = ca. 4 Energiegeber nötig, um ihn auszugleichen.</div>
+      <p>Das bedeutet: Viele Menschen versuchen, ihr Energiekonto durch <em>mehr</em> Energiegeber zu verbessern. Oft ist es jedoch wirksamer, die <strong>größten Energieräuber zu reduzieren</strong>:</p>
+      <ul>
+        <li>Konflikte klären</li>
+        <li>Grenzen setzen</li>
+        <li>Belastende Aufgaben delegieren</li>
+        <li>Unnötige Verpflichtungen reduzieren</li>
+      </ul>
+      <div class="merksatz">Energie entsteht nicht nur durch Auftanken. Oft entsteht sie dadurch, dass wir aufhören, ständig Energie zu verlieren.</div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Schaubild: Das Energiekonto</h2>
+      <div class="schaubild-wrap" style="padding: 0; overflow: hidden;">
+        <table class="energie-table">
+          <tbody><tr>
+            <th>🔋 Energienehmer</th>
+            <th>⚡ Energiegeber</th>
+          </tr>
+          <tr>
+            <td>Meeting mit Chef <em style="color:#aaa; font-size:12px;">□ × □ = □</em></td>
+            <td>Sport <em style="color:#aaa; font-size:12px;">□ × □ = □</em></td>
+          </tr>
+          <tr>
+            <td>Streit <em style="color:#aaa; font-size:12px;">□ × □ = □</em></td>
+            <td>Natur <em style="color:#aaa; font-size:12px;">□ × □ = □</em></td>
+          </tr>
+          <tr>
+            <td>Zeitdruck <em style="color:#aaa; font-size:12px;">□ × □ = □</em></td>
+            <td>Musik <em style="color:#aaa; font-size:12px;">□ × □ = □</em></td>
+          </tr>
+          <tr>
+            <td><strong>SUMME: ___</strong></td>
+            <td><strong>SUMME: ___</strong></td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Einsatzgebiete</h2>
+      <p>Die Methode eignet sich besonders bei: Stress, Überforderung, Burnout-Tendenzen, Entscheidungsproblemen und mangelnder Motivation.</p>
+      <div class="verbindung-block">
+        <h4>🔗 Energiekonto &amp; Happy Place</h4>
+        <p>Der Happy Place aktiviert Energie. Das Energiekonto zeigt, wo und warum Energie verloren geht. Beides zusammen gibt ein vollständiges Bild.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Energiekonto &amp; Emotionale Grundbedürfnisse</h4>
+        <p>Wenn ein Energienehmer besonders stark ist, steckt meist ein verletztes Grundbedürfnis dahinter – das wird durch die Analyse sichtbar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m19-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Mein persönliches Energiekonto</h3>
+      <p>Liste deine Top-5-Energiegeber und Top-5-Energienehmer auf. Bewerte jeweils Intensität (1–10) und Häufigkeit (1–10) und multipliziere sie. Was zeigt die Bilanz?</p>
+      <textarea placeholder="Energiegeber: 1. ... (Int.: _ × Häuf.: _ = _) / Energienehmer: 1. ... / Meine Bilanz zeigt..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong><br>
+        Energiegeber: Sport (8×6=48), Wald (7×4=28), Lesen (6×5=30), Freunde (9×3=27), Musik (7×7=49) → Summe: 182<br>
+        Energienehmer: Streit mit Partner (9×7=63), Pendeln (6×9=54), Überstunden (7×6=42), Unklarheit (8×5=40), Social Media (5×8=40) → Summe: 239<br>
+        Meine Bilanz: Die Energienehmer überwiegen deutlich. Besonders der Streit mit Partner und Pendeln sind die größten Posten. Ich sollte erst da ansetzen, nicht bei mehr Sport.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Den größten Energieräuber angehen</h3>
+      <p>Wähle deinen Nr.-1-Energieräuber aus Übung 1. Was wäre ein konkreter erster Schritt, um diesen zu reduzieren? (Nicht lösen – nur reduzieren!)</p>
+      <textarea placeholder="Mein größter Energieräuber ist... Ein konkreter Schritt wäre... Das würde sich verändern..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Mein größter Energieräuber ist das Pendeln (54 Punkte). Ein konkreter Schritt: Ich frage meinen Chef an, ob ich einen Tag pro Woche im Homeoffice arbeiten kann. Das ist kein Riesensprung, würde aber schon 20% des Pendel-Stresses wegnehmen. Ich würde merken, ob ich diesen Tag tatsächlich besser drauf bin.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Die 1:4-Regel anwenden</h3>
+      <p>Erkläre einem fiktiven Klienten, der sagt „Ich gehe jetzt mehr zum Sport, dann wird's besser!", warum dieser Ansatz zu kurz gedacht sein könnte. Was würdest du ihm vorschlagen?</p>
+      <textarea placeholder="Ich würde ihm erklären... Die Frage, die ich stellen würde... Der hilfreichere Ansatz wäre..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Ich würde erklären: Sport ist großartig und gibt Energie – aber wenn du gleichzeitig einen starken Energieräuber hast, der 4× so viel kostet, wirst du nie auf ein Plus kommen. Das ist wie ein Leck im Schiff zustopfen mit einem Becher Wasser ausschöpfen. Meine Frage: „Was kostet dich gerade am meisten Energie?" Wenn er das benennt, schauen wir, was davon reduzierbar ist. Sport bleibt trotzdem – aber als Ergänzung, nicht als einzige Strategie.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m19-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Was versteht man unter einem „Energienehmer" im Kontext des Energiekontos?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q19_1" value="a"> <span>Eine Person, die grundsätzlich negativ eingestellt ist.</span></label>
+        <label class="quiz-option"><input type="radio" name="q19_1" value="b"> <span>Eine Situation, Person oder Aufgabe, die nach dem Erlebnis Erschöpfung hinterlässt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q19_1" value="c"> <span>Alles, was anstrengend ist – weil Anstrengung immer Energie kostet.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q19_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was besagt die „1:4-Regel" des Energiekontos?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q19_2" value="a"> <span>Für jede Stunde Arbeit braucht man 4 Stunden Erholung.</span></label>
+        <label class="quiz-option"><input type="radio" name="q19_2" value="b"> <span>Ein starker Energieräuber benötigt ca. 4 Energiegeber zur Kompensation.</span></label>
+        <label class="quiz-option"><input type="radio" name="q19_2" value="c"> <span>Man sollte täglich 4 Dinge tun, die Energie geben.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q19_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Was ist laut der Methode oft wirksamer, als mehr Energiegeber einzubauen?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q19_3" value="a"> <span>Mehr schlafen und mehr Urlaub nehmen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q19_3" value="b"> <span>Die größten Energieräuber aktiv reduzieren.</span></label>
+        <label class="quiz-option"><input type="radio" name="q19_3" value="c"> <span>Sich an die Belastungen gewöhnen und resilienter werden.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q19_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top: 20px;">
+      <button class="ki-send-btn" style="padding: 12px 32px;" onclick="checkQuiz(19)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m19-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m19-mode-coachee" onclick="switchKiMode(19,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m19-mode-lern" onclick="switchKiMode(19,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m19-persona">
+      <div class="ki-persona-avatar">👩‍💻</div>
+      <div>
+        <h4>Sandra, 38 – Selbstständige Designerin</h4>
+        <p>Sandra arbeitet viel, macht Sport und trifft Freunde – und fühlt sich trotzdem chronisch erschöpft. Sie versteht nicht, warum ihre vielen positiven Aktivitäten nicht helfen. Wenn du fragst, kommt raus: Ihr Hauptauftraggeber ist extrem anspruchsvoll und beleidigt sie regelmäßig. Sie kündigt ihm aber nicht, weil er 60% ihres Umsatzes ausmacht.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m19-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m19-input" placeholder="Arbeite mit Sandra am Energiekonto..." rows="2" onkeydown="handleEnter(event,19)"></textarea>
+      <button class="ki-send-btn" id="m19-send" onclick="sendMessage(19)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(19)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 20 – ZÜRCHER RESSOURCEN MODELL (ZRM)
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-20">
+  <div class="module-header">
+    <div class="module-number">Modul 20</div>
+    <div class="module-title">Zürcher Ressourcen Modell (ZRM)</div>
+    <div class="module-subtitle">Ziele nicht nur im Kopf formulieren, sondern mit Gefühlen und dem Unbewussten verbinden – für nachhaltige Veränderung.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m20&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m20&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m20&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m20&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m20&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m20-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1E9xU8x6ikn6vmnKSpPOseNXANMI_7DQv/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m20-theorie">
+    <div class="theorie-block">
+      <h2>Was ist das ZRM?</h2>
+      <p>Das Zürcher Ressourcen Modell (ZRM) wurde von <strong>Maja Storch und Frank Krause</strong> entwickelt. Es hilft Menschen dabei, Ziele nicht nur mit dem Verstand zu formulieren, sondern mit ihren <strong>Gefühlen und ihrem Unbewussten</strong> zu verbinden.</p>
+      <p>Das Problem vieler Menschen: Sie wissen genau, was sie tun <em>sollten</em> – und tun es trotzdem nicht. Das Problem liegt meist nicht im Wissen, sondern in der fehlenden emotionalen Verbindung zum Ziel.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Warum brauchen Ziele Gefühl?</h2>
+      <p>Verstand allein erzeugt selten nachhaltige Veränderung. Menschen handeln vor allem dann, wenn <strong>Kopf, Gefühl und Körper</strong> in dieselbe Richtung arbeiten. Das ZRM verbindet genau diese drei Ebenen.</p>
+      <ul class="check-list">
+        <li>Innere Motivation aktivieren, statt sich zu zwingen</li>
+        <li>Leichter ins Handeln kommen</li>
+        <li>Widerstände verstehen und auflösen</li>
+        <li>Emotionale Ressourcen nutzbar machen</li>
+        <li>Ziele nachhaltiger erreichen</li>
+      </ul>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Der Rubikon: Das Herzstück des ZRM</h2>
+      <p>Das ZRM baut auf dem <strong>Rubikon-Modell der Handlungsphasen</strong> auf. Der Rubikon ist der innere Wendepunkt, an dem aus einem Wunsch eine echte Entscheidung wird: „Jetzt tue ich es wirklich."</p>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" width="400" height="280">
+          <defs>
+            <lineargradient id="zrmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#3d6458"></stop>
+              <stop offset="100%" style="stop-color:#e8a882"></stop>
+            </lineargradient>
+          </defs>
+          <!-- Steps -->
+          <rect x="130" y="10" width="140" height="36" rx="10" fill="#fdf3ec" stroke="#e8a882" stroke-width="1.5"></rect>
+          <text x="200" y="33" text-anchor="middle" fill="#7a3e28" font-size="13" font-weight="bold">WUNSCH</text>
+
+          <line x1="200" y1="46" x2="200" y2="64" stroke="#7da398" stroke-width="2.5" marker-end="url(#a3)"></line>
+          <rect x="125" y="66" width="150" height="36" rx="10" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="200" y="89" text-anchor="middle" fill="#3d6458" font-size="13" font-weight="bold">ENTSCHEIDUNG</text>
+
+          <line x1="200" y1="102" x2="200" y2="120" stroke="#7da398" stroke-width="2.5" marker-end="url(#a3)"></line>
+          <!-- Rubikon highlight -->
+          <rect x="90" y="122" width="220" height="40" rx="12" fill="url(#zrmGrad)" opacity=".9"></rect>
+          <text x="200" y="138" text-anchor="middle" fill="white" font-size="13" font-weight="bold">RUBIKON</text>
+          <text x="200" y="155" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11">„Jetzt tue ich es wirklich."</text>
+
+          <line x1="200" y1="162" x2="200" y2="180" stroke="#7da398" stroke-width="2.5" marker-end="url(#a3)"></line>
+          <rect x="130" y="182" width="140" height="36" rx="10" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></rect>
+          <text x="200" y="205" text-anchor="middle" fill="#3d6458" font-size="13" font-weight="bold">HANDLUNG</text>
+
+          <line x1="200" y1="218" x2="200" y2="238" stroke="#7da398" stroke-width="2.5" marker-end="url(#a3)"></line>
+          <rect x="130" y="240" width="140" height="32" rx="10" fill="#5e8478"></rect>
+          <text x="200" y="261" text-anchor="middle" fill="white" font-size="13" font-weight="bold">ERFOLG</text>
+
+          <defs>
+            <marker id="a3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#5e8478"></path>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Anwendung im Coaching: 4 Schritte</h2>
+      <div class="schritt-list">
+        <div class="schritt-item">
+          <div class="schritt-num">1</div>
+          <div>
+            <strong>Ein Bild auswählen</strong>
+            <p>Der Coachee wählt aus einer Bildkartei ein Bild, das ihn spontan positiv anspricht – ohne zu analysieren. Das Bild muss nichts mit dem Thema zu tun haben. Wichtig ist das Bauchgefühl: „Dieses Bild gefällt mir."</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">2</div>
+          <div>
+            <strong>Ressourcen benennen</strong>
+            <p>Fragen: „Was gefällt dir daran? Welche Qualität erkennst du? Was berührt dich?" Der Coachee benennt positive Eigenschaften, die im Bild stecken – das sind seine eigenen, inneren Ressourcen.</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">3</div>
+          <div>
+            <strong>Motto-Ziel entwickeln</strong>
+            <p>Aus den Ressourcen entsteht ein Motto-Ziel – kein SMART-Ziel, sondern ein Haltungssatz. Nicht: „Ich will 10 kg abnehmen." Sondern: „Ich gehe kraftvoll und liebevoll mit meinem Körper um."</p>
+          </div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num">4</div>
+          <div>
+            <strong>Körperlich verankern</strong>
+            <p>Das Motto-Ziel wird mit Bildern, Gefühlen und Körperhaltung verbunden, damit es nicht nur kognitiv, sondern emotional und körperlich verankert wird.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 ZRM &amp; Happy Place</h4>
+        <p>Der Happy Place erzeugt Ressourcen und Kraft. Das ZRM nimmt diese Kraft und lenkt sie in eine konkrete Richtung – hin zu einem Motto-Ziel.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 ZRM &amp; SMART-Ziele</h4>
+        <p>SMART-Ziele sind präzise und messbar. ZRM-Ziele (Motto-Ziele) sind emotional wirksam. In der Praxis ergänzen sie sich: Das Motto-Ziel gibt die emotionale Richtung, SMART-Ziele den konkreten Fahrplan.</p>
+      </div>
+      <div class="merksatz">Menschen verändern sich nachhaltiger, wenn Ziele nicht nur logisch richtig sind, sondern sich auch richtig anfühlen.</div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m20-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Vom SMART-Ziel zum Motto-Ziel</h3>
+      <p>Nimm ein typisches SMART-Ziel und formuliere daraus ein ZRM-Motto-Ziel. Beispiel-Startziel: „Ich will jeden Tag 30 Minuten Bewegung machen." Was wäre ein dazu passendes Motto-Ziel?</p>
+      <textarea placeholder="SMART-Ziel: ... Mein Motto-Ziel: ... Wie sich das Motto-Ziel anders anfühlt..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> SMART-Ziel: Jeden Tag 30 Minuten Sport, mindestens 5× pro Woche, für 3 Monate. Mein Motto-Ziel: „Ich lebe in einem Körper, dem ich dankbar bin und den ich liebe." Das Motto-Ziel fühlt sich ganz anders an – weniger wie eine Aufgabe, mehr wie eine Einladung. Wenn ich in einer Situation fragen würde: „Handele ich gerade so, als würde ich meinen Körper lieben?" – das wäre ein stärkerer innerer Kompass als „habe ich heute schon 30 Minuten Sport gemacht?"
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Die Rubikon-Frage</h3>
+      <p>Denke an ein Ziel, das du schon lange vor dir herschiebst. Bist du noch im „Ich sollte"-Stadium oder hast du den Rubikon schon überschritten? Was wäre nötig, um wirklich auf die andere Seite zu kommen?</p>
+      <textarea placeholder="Mein aufgeschobenes Ziel ist... Ich befinde mich gerade im Stadium... Zum Rubikon fehlt mir noch..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Mein aufgeschobenes Ziel: Mein eigenes Coaching-Angebot online stellen. Ich bin im „Ich sollte eigentlich"-Stadium. Es fehlt mir noch der emotionale Klick – ich weiß, dass ich es tun sollte, aber ich fühle noch keine echte Entscheidung. Was helfen würde: Mir ein Bild zu suchen, das das Gefühl von Wirkung und Sichtbarkeit verkörpert, und daraus ein Motto-Ziel zu entwickeln. Vielleicht: „Ich teile das, was mir wichtig ist, mit Mut und Herzlichkeit."
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Ressourcen aus einem Bild ziehen</h3>
+      <p>Suche dir ein Bild, das dir gerade spontan gefällt (Foto, Instagram-Bild, irgendetwas). Ohne zu analysieren – was gefällt dir daran? Welche Qualitäten siehst du? Wie könntest du diese Qualitäten für ein aktuelles Ziel nutzen?</p>
+      <textarea placeholder="Das Bild zeigt... Was mich daran anspricht: ... Die Qualitäten, die ich darin sehe: ... Für mein Ziel könnte das bedeuten..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Ich habe ein Foto ausgewählt: Eine Frau sitzt allein auf einem Dach bei Sonnenuntergang, schaut in die Weite, ein Glas Wein in der Hand. Was mich anspricht: Die Ruhe, das Ankommen, das Genießen ohne Eile. Qualitäten: Gelassenheit, Selbstgenuss, Frieden-mit-sich-haben. Für mein Ziel (besser Grenzen setzen) bedeutet das: Ich darf mir Zeit nehmen. Ich muss nicht immer verfügbar sein. Mein Motto-Ziel: „Ich bin jemand, der Momente der Stille als Stärke lebt."
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m20-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Was ist das Besondere an einem „Motto-Ziel" im ZRM im Vergleich zu einem SMART-Ziel?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q20_1" value="a"> <span>Es ist allgemeiner formuliert und daher leichter erreichbar.</span></label>
+        <label class="quiz-option"><input type="radio" name="q20_1" value="b"> <span>Es verbindet den Verstand mit Gefühlen und inneren Ressourcen, statt nur kognitiv zu sein.</span></label>
+        <label class="quiz-option"><input type="radio" name="q20_1" value="c"> <span>Es hat keinen Zeitrahmen und ist daher flexibler.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q20_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was symbolisiert der „Rubikon" im ZRM?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q20_2" value="a"> <span>Den Moment, in dem jemand ein Bild auswählt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q20_2" value="b"> <span>Den inneren Wendepunkt, an dem aus einem Wunsch eine echte Entscheidung und Handlungsbereitschaft wird.</span></label>
+        <label class="quiz-option"><input type="radio" name="q20_2" value="c"> <span>Den Abschluss einer Coaching-Sitzung mit einer Zusammenfassung.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q20_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Warum werden im ZRM Bilder statt direkter Fragen genutzt?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q20_3" value="a"> <span>Weil Bilder schöner sind und die Stimmung in der Sitzung verbessern.</span></label>
+        <label class="quiz-option"><input type="radio" name="q20_3" value="b"> <span>Weil Bilder das Unbewusste ansprechen und Ressourcen zugänglich machen, die dem Verstand nicht direkt zugänglich sind.</span></label>
+        <label class="quiz-option"><input type="radio" name="q20_3" value="c"> <span>Weil direkte Fragen den Coachee überfordern könnten.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q20_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top: 20px;">
+      <button class="ki-send-btn" style="padding: 12px 32px;" onclick="checkQuiz(20)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m20-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m20-mode-coachee" onclick="switchKiMode(20,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m20-mode-lern" onclick="switchKiMode(20,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m20-persona">
+      <div class="ki-persona-avatar">🧑‍🎨</div>
+      <div>
+        <h4>Jonas, 29 – Freelance-Texter</h4>
+        <p>Jonas hat viele Ziele notiert: mehr Sport, eigenes Buch schreiben, gesünder essen. Er hat SMART-Ziele formuliert, Apps geladen und Pläne gemacht. Aber nach 2 Wochen ist immer wieder die Luft raus. Er sagt: „Ich weiß genau, was ich tun müsste – aber ich tu's einfach nicht." Er wirkt frustriert und etwas resigniert.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m20-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m20-input" placeholder="Hilf Jonas, den Rubikon zu finden..." rows="2" onkeydown="handleEnter(event,20)"></textarea>
+      <button class="ki-send-btn" id="m20-send" onclick="sendMessage(20)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(20)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODUL 21 – ANKER, ASSOZIATIONEN & RESSOURCENAKTIVIERUNG
+═══════════════════════════════════════════════════ -->
+<div class="module-panel" id="module-21">
+  <div class="module-header">
+    <div class="module-number">Modul 21</div>
+    <div class="module-title">Anker, Assoziationen &amp; Ressourcenaktivierung</div>
+    <div class="module-subtitle">Warum Düfte Erinnerungen auslösen – und wie du das gezielt im Coaching nutzt.</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab(&#39;m21&#39;,&#39;video&#39;)">🎥 Video</button>
+    <button class="tab-btn" onclick="showTab(&#39;m21&#39;,&#39;theorie&#39;)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(&#39;m21&#39;,&#39;uebung&#39;)">✍️ Übung</button>
+    <button class="tab-btn" onclick="showTab(&#39;m21&#39;,&#39;quiz&#39;)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab(&#39;m21&#39;,&#39;ki&#39;)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m21-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1FElGUY2b2pn5TgVrCD7B6E_duPr99SYS/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m21-theorie">
+    <div class="theorie-block">
+      <h2>Warum funktioniert der Duft von Omas Kuchen?</h2>
+      <p>Du riechst Sonnencreme – und bist sofort im Sommerurlaub. Du hörst ein bestimmtes Lied – und erinnerst dich an deine erste Liebe. Das passiert, weil unser Gehirn Erlebnisse nicht einzeln speichert.</p>
+      <p>Es speichert immer als <strong>Gesamtpaket</strong>: Bilder, Gefühle, Geräusche, Gerüche, Körperempfindungen – alles zusammen, verknüpft in einem neuronalen Netzwerk.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Das Prinzip der Assoziation</h2>
+      <p>Assoziationen sind neuronale Verknüpfungen. Immer wenn zwei Dinge gleichzeitig erlebt werden, werden sie im Gehirn miteinander verbunden. Wird später eines der Elemente aktiviert, wird automatisch das gesamte verknüpfte Erlebnis mit abgerufen.</p>
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" width="500" height="160">
+          <!-- Three elements connected -->
+          <circle cx="80" cy="80" r="48" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></circle>
+          <text x="80" y="72" text-anchor="middle" fill="#3d6458" font-size="20">🏖️</text>
+          <text x="80" y="92" text-anchor="middle" fill="#3d6458" font-size="11" font-weight="bold">Strand</text>
+          <text x="80" y="107" text-anchor="middle" fill="#5a7068" font-size="10">(Erlebnis)</text>
+
+          <line x1="132" y1="80" x2="200" y2="80" stroke="#e8a882" stroke-width="2.5" stroke-dasharray="5,3"></line>
+          
+          <circle cx="250" cy="80" r="48" fill="#fdf3ec" stroke="#e8a882" stroke-width="1.5"></circle>
+          <text x="250" y="72" text-anchor="middle" fill="#7a3e28" font-size="20">🌞</text>
+          <text x="250" y="92" text-anchor="middle" fill="#7a3e28" font-size="11" font-weight="bold">Sonnencreme</text>
+          <text x="250" y="107" text-anchor="middle" fill="#a0786a" font-size="10">(Reiz/Anker)</text>
+
+          <line x1="302" y1="80" x2="370" y2="80" stroke="#e8a882" stroke-width="2.5" stroke-dasharray="5,3"></line>
+          
+          <circle cx="420" cy="80" r="48" fill="#eaf2f0" stroke="#5e8478" stroke-width="1.5"></circle>
+          <text x="420" y="72" text-anchor="middle" fill="#3d6458" font-size="20">💛</text>
+          <text x="420" y="92" text-anchor="middle" fill="#3d6458" font-size="11" font-weight="bold">Freude, Leichtigkeit</text>
+          <text x="420" y="107" text-anchor="middle" fill="#5a7068" font-size="10">(Zustand)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Das Prinzip des Ankers</h2>
+      <p>Ein Anker ist ein <strong>bewusst gesetzter Reiz</strong>, der einen gewünschten Zustand wieder auslöst.</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Mögliche Anker</h4>
+          <ul>
+            <li>Lieblingslied</li>
+            <li>Ein bestimmter Duft</li>
+            <li>Hand aufs Herz</li>
+            <li>Körperhaltung</li>
+            <li>Foto oder Symbol</li>
+            <li>Daumen und Zeigefinger</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>Bedingungen für starke Anker</h4>
+          <ul>
+            <li>Zustand muss intensiv sein</li>
+            <li>Reiz und Zustand gleichzeitig</li>
+            <li>Wiederholung festigt die Verbindung</li>
+            <li>Reiz sollte einzigartig sein</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:12px;">Beispiel: Du fühlst dich <strong>stark, mutig, selbstbewusst</strong>. Währenddessen drückst du Daumen und Zeigefinger zusammen. Wird dieser Zustand oft genug mit dieser Bewegung verbunden, kann später die Bewegung allein Teile des Zustands wieder auslösen.</p>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Die Zukunftsreise: Ressourcen aus der Zukunft</h2>
+      <p>Das Gehirn kann Zukunft nicht vollständig von Erinnerungen unterscheiden. Eine intensive Visualisierung der Zukunft erzeugt deshalb echte emotionale Bilder und Motivation.</p>
+      <div class="merksatz">Frage: „Du feierst heute deinen 85. Geburtstag. Alle wichtigen Menschen sind da. Was erzählen sie über dein Leben?"</div>
+      <p>Durch diese Frage entsteht oft:</p>
+      <ul>
+        <li>Ein emotionales Bild vom eigenen Leben</li>
+        <li>Plötzliche Klarheit über eigene Werte</li>
+        <li>Motivation und Orientierung</li>
+        <li>Erkenntnis, was wirklich wichtig ist</li>
+      </ul>
+
+      <div class="schritt-list" style="margin-top: 16px;">
+        <div class="schritt-item">
+          <div class="schritt-num" style="font-size: 16px;">?</div>
+          <div><strong>Was sollen deine Kinder über dich sagen?</strong></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num" style="font-size: 16px;">?</div>
+          <div><strong>Worauf möchtest du stolz sein?</strong></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num" style="font-size: 16px;">?</div>
+          <div><strong>Was möchtest du erlebt haben?</strong></div>
+        </div>
+        <div class="schritt-item">
+          <div class="schritt-num" style="font-size: 16px;">?</div>
+          <div><strong>Was möchtest du hinterlassen?</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-block">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <div class="verbindung-block">
+        <h4>🔗 Anker &amp; Happy Place</h4>
+        <p>Der Happy Place wird durch das Setzen eines Ankers transportierbar. Der Anker ist der Schlüssel, mit dem der Happy Place jederzeit abgerufen werden kann.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Zukunftsreise &amp; Wertearbeit</h4>
+        <p>Die Zukunft macht sichtbar, was wirklich wichtig ist – die eigenen Werte treten klarer hervor als bei direkter Befragung.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Zukunftsreise &amp; ZRM</h4>
+        <p>Aus den Bildern der Zukunftsreise entstehen emotionale Ressourcen, die das ZRM aufgreift und in Motto-Ziele verwandelt.</p>
+      </div>
+      <div class="verbindung-block">
+        <h4>🔗 Zukunftsreise &amp; Reframing</h4>
+        <p>Plötzlich wird aus „Ich muss" ein „Ich möchte". Die Perspektive aus dem 85. Lebensjahr ist ein natürliches Reframing.</p>
+      </div>
+      <div class="merksatz">Das Gehirn lernt besonders stark über Emotionen, Bilder, Wiederholung und Körpererfahrungen. Methoden wie Happy Place, ZRM, Visionen und Zukunftsreisen nutzen genau das.</div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m21-uebung">
+    <div class="uebung-card">
+      <h3><div class="uebung-number">1</div>Meine persönlichen Anker</h3>
+      <p>Welche Reize haben in deinem Leben bereits eine starke Assoziation? Ein Lied, ein Geruch, eine Bewegung? Schreibe 3 „natürlich entstandene" Anker auf und beschreibe, welchen Zustand sie auslösen.</p>
+      <textarea placeholder="Anker 1: [Reiz] → löst aus: ... / Anker 2: ... / Anker 3: ..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong><br>
+        Anker 1: Der Song „The Sound of Silence" → löst sofort ein Gefühl von tiefer Stille und Ernsthaftigkeit aus, ich werde ruhiger.<br>
+        Anker 2: Geruch von frischem Brot → löst Geborgenheit und Sonntagmorgen-Gefühl aus.<br>
+        Anker 3: Das Strecken beider Arme nach oben → löst Energie und „ich schaff das!"-Gefühl aus – hab ich unbewusst immer nach dem Sport gemacht.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">2</div>Einen Ressourcen-Anker bewusst setzen</h3>
+      <p>Denke an eine Situation, in der du dich sehr stark, kompetent und sicher gefühlt hast. Tauche in diese Erinnerung ein. Wähle eine Körperbewegung, die du in diesem Moment mit dem Gefühl verbindest. Beschreibe das Vorgehen.</p>
+      <textarea placeholder="Meine Ressourcen-Situation war... Das Gefühl dabei war... Meinen Anker setze ich mit der Bewegung: ... Das Ziel ist..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Meine Ressourcen-Situation: Mein erster eigener Coaching-Abschluss – die Klientin war wirklich bewegt und sagte, das Gespräch hat ihr Klarheit gegeben. Das Gefühl: Stolz, Sinn, ich-bin-richtig-hier. Meinen Anker setze ich: Ich lege die rechte Hand aufs Herz und atme tief durch. Diesen Moment halte ich kurz fest. Das Ziel: Bei Nervosität vor Coaching-Sitzungen diesen Anker nutzen, um das Gefühl von Kompetenz und Präsenz abzurufen.
+      </div>
+    </div>
+    <div class="uebung-card">
+      <h3><div class="uebung-number">3</div>Die Zukunftsreise – dein 85. Geburtstag</h3>
+      <p>Nimm dir 5 Minuten Zeit. Schließe die Augen. Stelle dir vor: Du feierst deinen 85. Geburtstag. Alle Menschen, die dir wichtig sind, sind da. Was erzählen sie? Worauf bist du stolz? Was hast du gelebt? Schreibe danach auf, was dir aufgefallen ist.</p>
+      <textarea placeholder="Was mir bei der Zukunftsreise aufgefallen ist... Was überraschend war... Was das für mein jetziges Leben bedeuten könnte..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        <strong>Beispiel:</strong> Was mir aufgefallen ist: Meine Tochter spricht davon, dass ich immer für sie da war – nicht perfekt, aber ehrlich. Meine Freundin sagt, ich habe ihr gezeigt, dass man auch nach 40 nochmal neu anfangen kann. Was überraschend war: Ich hatte gedacht, ich würde auf Karriere-Dinge stolz sein. Stattdessen war es vor allem Verbindung, Mut und Wahrhaftigkeit. Was das jetzt bedeutet: Ich verschwende zu viel Energie auf Dinge, die auf meinem 85. Geburtstag keine Rolle spielen werden.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m21-quiz">
+    <div class="quiz-card">
+      <div class="quiz-question">1. Wie speichert das Gehirn Erlebnisse?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q21_1" value="a"> <span>Als einzelne, voneinander getrennte Fakten ohne emotionale Verbindung.</span></label>
+        <label class="quiz-option"><input type="radio" name="q21_1" value="b"> <span>Als Gesamtpaket aus Bildern, Gefühlen, Geräuschen, Gerüchen und Körperempfindungen.</span></label>
+        <label class="quiz-option"><input type="radio" name="q21_1" value="c"> <span>Hauptsächlich als sprachliche Informationen im präfrontalen Kortex.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q21_1_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">2. Was ist die Bedingung dafür, dass ein Anker stark wirkt?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q21_2" value="a"> <span>Der Anker sollte möglichst komplex und schwer zu vergessen sein.</span></label>
+        <label class="quiz-option"><input type="radio" name="q21_2" value="b"> <span>Der gewünschte Zustand muss intensiv sein und der Reiz muss gleichzeitig gesetzt werden; Wiederholung festigt die Verbindung.</span></label>
+        <label class="quiz-option"><input type="radio" name="q21_2" value="c"> <span>Der Coach muss den Anker bestätigen und schriftlich dokumentieren.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q21_2_feedback"></div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">3. Warum ist die „85. Geburtstag"-Frage so wirkungsvoll im Coaching?</div>
+      <div class="quiz-options">
+        <label class="quiz-option"><input type="radio" name="q21_3" value="a"> <span>Weil sie den Coachee daran erinnert, dass das Leben endlich ist und er handeln muss.</span></label>
+        <label class="quiz-option"><input type="radio" name="q21_3" value="b"> <span>Weil das Gehirn Zukunft ähnlich wie Erinnerungen verarbeitet, was emotionale Klarheit über eigene Werte erzeugt.</span></label>
+        <label class="quiz-option"><input type="radio" name="q21_3" value="c"> <span>Weil Zukunftsfragen besser als direkte Fragen nach Wünschen und Zielen beantwortet werden können.</span></label>
+      </div>
+      <div class="quiz-feedback" id="q21_3_feedback"></div>
+    </div>
+    <div style="text-align:center; margin-top: 20px;">
+      <button class="ki-send-btn" style="padding: 12px 32px;" onclick="checkQuiz(21)">Quiz auswerten</button>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m21-ki">
+    <div class="ki-mode-switcher">
+      <button class="ki-mode-btn active" id="m21-mode-coachee" onclick="switchKiMode(21,&#39;coachee&#39;)">👤 Coachee-Modus</button>
+      <button class="ki-mode-btn" id="m21-mode-lern" onclick="switchKiMode(21,&#39;lern&#39;)">🎓 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-info" id="m21-persona">
+      <div class="ki-persona-avatar">👩‍👧</div>
+      <div>
+        <h4>Claudia, 44 – Mutter &amp; wiedereinsteigend</h4>
+        <p>Claudia war 7 Jahre hauptsächlich zuhause und steigt jetzt wieder in den Beruf ein. Sie zweifelt stark an sich: „Ich weiß gar nicht mehr, wer ich bin, außer Mama." Auf die Frage, was sie eigentlich will, kommt: „Ich hab keine Ahnung." Sie hat Schwierigkeiten, sich eine Zukunft vorzustellen.</p>
+      </div>
+    </div>
+    <div class="ki-chat-window" id="m21-chat"><div style="color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: 0.7;">👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m21-input" placeholder="Begleite Claudia auf einer Zukunftsreise oder setze einen Ressourcenanker..." rows="2" onkeydown="handleEnter(event,21)"></textarea>
+      <button class="ki-send-btn" id="m21-send" onclick="sendMessage(21)">Senden</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetChat(21)">↺ Gespräch zurücksetzen</button>
+  </div>
+</div>
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+const API_KEY_PLACEHOLDER = 'YOUR_API_KEY';
+
+// ── Module & Tab Navigation ──────────────────────
+function showModule(num) {
+  document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.module-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('module-' + num).classList.add('active');
+  const btns = document.querySelectorAll('.module-btn');
+  const idx = [17,18,19,20,21].indexOf(num);
+  if (idx >= 0) btns[idx].classList.add('active');
+}
+
+function showTab(moduleId, tabName) {
+  const panel = document.getElementById('module-' + moduleId.replace('m',''));
+  panel.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(moduleId + '-' + tabName).classList.add('active');
+  const tabOrder = ['video','theorie','uebung','quiz','ki'];
+  const idx = tabOrder.indexOf(tabName);
+  const btns = panel.querySelectorAll('.tab-btn');
+  if (btns[idx]) btns[idx].classList.add('active');
+}
+
+// ── Beispiel-Antworten ───────────────────────────
+function toggleBeispiel(btn) {
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent = ans.classList.contains('open') ? '💡 Beispielantwort verbergen' : '💡 Beispielantwort anzeigen';
+}
+
+// ── Quiz ─────────────────────────────────────────
+const quizAnswers = {
+  17: { q17_1: 'b', q17_2: 'b', q17_3: 'c' },
+  18: { q18_1: 'b', q18_2: 'b', q18_3: 'c' },
+  19: { q19_1: 'b', q19_2: 'b', q19_3: 'b' },
+  20: { q20_1: 'b', q20_2: 'b', q20_3: 'b' },
+  21: { q21_1: 'b', q21_2: 'b', q21_3: 'b' }
+};
+
+const quizExplanations = {
+  17: {
+    q17_1: { correct: 'Genau! Das RMP fragt nicht „Wie bist du?" sondern „Warum handelst du so?" – das ist der entscheidende Unterschied zu Typologien.', wrong: 'Nicht ganz. Das RMP ist kein Lernmodell und keine Intelligenzskala – es geht um die <em>Motive</em> hinter dem Verhalten.' },
+    q17_2: { correct: 'Richtig! Beide verfolgen dasselbe Ziel, aber aus völlig unterschiedlichen Motiven – Unabhängigkeit vs. Sicherheit/Ruhe.', wrong: 'Das RMP erklärt gerade, dass Unterschiede im Verhalten nicht auf Intelligenz oder Erfahrung zurückgehen, sondern auf unterschiedlich starke Lebensmotive.' },
+    q17_3: { correct: 'Super! Hohe Ordnung bedeutet: Struktur, Klarheit, Planung. Ein strukturierter Plan passt perfekt zu diesem Motiv.', wrong: 'Überlege: Was braucht jemand mit hohem Ordnungs-Motiv? Spontaneität und Bauchgefühl oder lieber Struktur und Klarheit?' }
+  },
+  18: {
+    q18_1: { correct: 'Genau! Das Gehirn unterscheidet nicht scharf zwischen echten und vorgestellten Erlebnissen – deshalb wirkt intensive Imagination.', wrong: 'Der Happy Place löst keine Probleme und beseitigt keinen Stress dauerhaft. Seine Stärke liegt in der neurophysiologischen Reaktion auf intensiv vorgestellte Bilder.' },
+    q18_2: { correct: 'Richtig! Der Anker verknüpft Körpergeste und Gefühlszustand, sodass der Zustand später schneller abrufbar ist.', wrong: 'Der Anker ist nicht für die Sitzung selbst gedacht, sondern für die spätere Nutzung im Alltag. Er macht das Gefühl tragbar.' },
+    q18_3: { correct: 'Korrekt! Je mehr Sinne beteiligt sind, desto intensiver das innere Erleben – und desto stärker die Wirkung auf das Nervensystem.', wrong: 'Es geht nicht um Kreativität oder Eindruck, sondern um neurophysiologische Wirksamkeit. Mehr Details = intensiveres Gehirnerleben.' }
+  },
+  19: {
+    q19_1: { correct: 'Genau! Energienehmer sind subjektiv und situationsabhängig – es geht darum, was mich persönlich leer macht, nicht um objektive Anstrengung.', wrong: 'Ein Energienehmer ist keine Charakterfrage. Sport ist für viele anstrengend – aber für manche ein Energiegeber. Es kommt auf die Wirkung danach an.' },
+    q19_2: { correct: 'Richtig! Das spiegelt den Negativity Bias wider – unser Gehirn gewichtet Belastungen stärker als positive Erlebnisse.', wrong: 'Die 1:4-Regel beschreibt den Negativity Bias: Ein Energieräuber braucht ungefähr 4 Energiegeber zum Ausgleich – nicht mehr Schlaf oder eine Anzahl an täglichen Aktivitäten.' },
+    q19_3: { correct: 'Genau! Die 1:4-Regel zeigt: Solange ein starker Energieräuber aktiv ist, können viele Energiegeber ihn kaum kompensieren. Wurzel angehen!', wrong: 'Mehr Schlaf und Urlaub helfen – aber nur, wenn danach der Energieräuber immer noch da ist, kehrt die Erschöpfung zurück. Das Wirksame ist: Energieräuber reduzieren.' }
+  },
+  20: {
+    q20_1: { correct: 'Genau! Das Motto-Ziel verbindet Kopf und Herz – es ist emotional wirksam, nicht nur kognitiv richtig.', wrong: 'Motto-Ziele sind nicht unbedingt allgemeiner oder leichter – sie sind anders. Der Unterschied liegt in der emotionalen Qualität, nicht in der Schwierigkeit.' },
+    q20_2: { correct: 'Richtig! Der Rubikon ist dieser entscheidende innere Moment: Nicht mehr „Ich sollte" sondern „Ich tu es." Diese echte Entscheidung ist der Wendepunkt.', wrong: 'Der Rubikon ist kein Methodenschritt, sondern ein innerer Zustand – der Moment echter Entscheidung und Handlungsbereitschaft.' },
+    q20_3: { correct: 'Super! Bilder sprechen das Unbewusste an, umgehen rationale Filter und machen Ressourcen zugänglich, die dem Verstand allein nicht erreichbar wären.', wrong: 'Es geht nicht um Stimmung oder Überforderung – Bilder haben eine spezifische Funktion: Sie ermöglichen den Zugang zu unbewussten Ressourcen, die durch direkte Fragen nicht erreichbar sind.' }
+  },
+  21: {
+    q21_1: { correct: 'Genau! Genau deshalb können einzelne Reize ganze Erlebniskomplexe auslösen – alles ist vernetzt gespeichert.', wrong: 'Das Gegenteil ist der Fall: Das Gehirn speichert Erlebnisse vernetzt als sensorisches Gesamtpaket, nicht als isolierte Fakten.' },
+    q21_2: { correct: 'Richtig! Die drei Schlüsselbedingungen: Intensität des Zustands, Gleichzeitigkeit von Reiz und Zustand, Wiederholung zur Festigung.', wrong: 'Komplexität ist kein Kriterium – eher das Gegenteil. Der Anker sollte eindeutig und einzigartig sein, der Zustand intensiv, und beides muss gleichzeitig passieren.' },
+    q21_3: { correct: 'Super! Weil das Gehirn intensive Zukunftsvorstellungen ähnlich verarbeitet wie Erinnerungen, entstehen echte emotionale Bilder statt abstrakter Pläne.', wrong: 'Die Wirksamkeit liegt nicht im Memento-mori-Aspekt, sondern in der neurologischen Verarbeitung: Das Gehirn erlebt die vorgestellte Zukunft fast wie eine Erinnerung – und das erzeugt echte Klarheit.' }
+  }
+};
+
+function checkQuiz(moduleNum) {
+  const answers = quizAnswers[moduleNum];
+  Object.entries(answers).forEach(([qName, correct]) => {
+    const selected = document.querySelector(`input[name="${qName}"]:checked`);
+    const feedback = document.getElementById(qName + '_feedback');
+    const options = document.querySelectorAll(`input[name="${qName}"]`);
+    options.forEach(opt => {
+      opt.closest('.quiz-option').classList.remove('correct','wrong');
+      opt.disabled = true;
+    });
+    if (selected) {
+      if (selected.value === correct) {
+        selected.closest('.quiz-option').classList.add('correct');
+        feedback.className = 'quiz-feedback correct';
+        feedback.innerHTML = '✅ ' + quizExplanations[moduleNum][qName].correct;
+      } else {
+        selected.closest('.quiz-option').classList.add('wrong');
+        feedback.className = 'quiz-feedback wrong';
+        feedback.innerHTML = '❌ ' + quizExplanations[moduleNum][qName].wrong;
+        // Highlight correct
+        options.forEach(opt => {
+          if (opt.value === correct) opt.closest('.quiz-option').classList.add('correct');
+        });
+      }
+      feedback.style.display = 'block';
+    } else {
+      feedback.className = 'quiz-feedback wrong';
+      feedback.innerHTML = '⚠️ Bitte wähle eine Antwort aus.';
+      feedback.style.display = 'block';
+    }
+  });
+}
+
+// ── KI-Praxis ────────────────────────────────────
+const chatState = {};
+
+const personas = {
+  17: {
+    coachee: {
+      name: 'Markus',
+      system: `Du bist Markus, 41 Jahre alt, Teamleiter in der IT mit 8 Mitarbeitern. Du hast alles erreicht, was du wolltest – und fühlst dich trotzdem leer. Du verstehst nicht, warum du dein Team falsch motivierst. Was für dich zählt (Leistung, Wettbewerb, schnelle Ergebnisse), lässt deine Mitarbeiter kalt. Du bist nachdenklich und etwas ratlos. Antworte auf Coaching-Fragen authentisch aus dieser Rolle heraus. Deine Antworten sind auf Deutsch, persönlich und manchmal etwas defensiv, wenn du zu direkt auf deine Leere angesprochen wirst. Halte deine Antworten unter 120 Wörtern.`
+    },
+    lern: {
+      system: `Du bist ein freundlicher, kenntnisreicher Lernbegleiter für die MUMTY Coaching-Ausbildung. Das aktuelle Modul ist "Reiss Motivation Profile (RMP)". Beantworte Fragen zur Theorie, erkläre die 16 Lebensmotive, gib Feedback zu Anwendungsüberlegungen und zeige Verbindungen zu anderen Modellen. Antworte auf Deutsch, warm und präzise. Maximal 150 Wörter pro Antwort.`
+    }
+  },
+  18: {
+    coachee: {
+      name: 'Lena',
+      system: `Du bist Lena, 35 Jahre, Grundschullehrerin, kurz vor dem Burnout. Du schläfst schlecht, bist ständig angespannt und kannst nach der Arbeit nicht abschalten. Vor Elterngesprächen wirst du nervös bis zitternd. Du hast keinen Ort, wo du "einfach du" sein kannst. Du bist erschöpft aber willig, etwas zu verändern. Reagiere auf Coaching-Fragen und lass dich behutsam zum Happy Place führen. Wenn du an deinen Wohlfühlort geführt wirst, beschreibe ihn zögernd, aber mit wachsender Offenheit. Antworte auf Deutsch, max. 120 Wörter.`
+    },
+    lern: {
+      system: `Du bist ein Lernbegleiter für das MUMTY Modul "Happy Place". Erkläre die Methode, beantworte Fragen zur Anleitung, gib Feedback zu Coaching-Ansätzen und zeige Verbindungen zu Energiekonto und Inneres Team. Antworte auf Deutsch, warm und kompetent, max. 150 Wörter.`
+    }
+  },
+  19: {
+    coachee: {
+      name: 'Sandra',
+      system: `Du bist Sandra, 38 Jahre, selbstständige Designerin. Du machst viel Sport, triffst Freunde, hörst Podcasts – und bist trotzdem chronisch erschöpft. Dein Hauptauftraggeber macht 60% deines Umsatzes aus, behandelt dich aber schlecht und beleidigt dich regelmäßig. Du kündigst ihm nicht, weil du Angst hast. Du verstehst nicht, warum deine vielen positiven Aktivitäten nicht helfen. Reagiere offen auf das Energiekonto-Thema, aber sei zunächst defensiv, wenn der Auftraggeber angesprochen wird. Antworte auf Deutsch, max. 120 Wörter.`
+    },
+    lern: {
+      system: `Du bist Lernbegleiter für das MUMTY Modul "Energiekonto". Erkläre die Methode, die 1:4-Regel, die Bewertungsformel und Anwendungstipps. Antworte auf Deutsch, praxisnah und warm, max. 150 Wörter.`
+    }
+  },
+  20: {
+    coachee: {
+      name: 'Jonas',
+      system: `Du bist Jonas, 29 Jahre, Freelance-Texter. Du hast viele Ziele, hast SMART-Ziele formuliert, Apps geladen, Pläne gemacht – und bist nach 2 Wochen immer wieder leer gelaufen. Du sagst: "Ich weiß genau was ich tun müsste – aber ich tu's einfach nicht." Du bist frustriert und etwas resigniert, aber offen für neue Ansätze, wenn sie sich anders anfühlen als die bisherigen. Reagiere auf ZRM-basierte Fragen und lass dich überraschen, wenn der Coach nicht wieder einen Plan fordert. Antworte auf Deutsch, max. 120 Wörter.`
+    },
+    lern: {
+      system: `Du bist Lernbegleiter für das MUMTY Modul "Zürcher Ressourcen Modell (ZRM)". Erkläre das Rubikon-Modell, Motto-Ziele, die Bildarbeit und zeige Unterschiede zu SMART-Zielen. Antworte auf Deutsch, klar und inspirierend, max. 150 Wörter.`
+    }
+  },
+  21: {
+    coachee: {
+      name: 'Claudia',
+      system: `Du bist Claudia, 44 Jahre, warst 7 Jahre Vollzeit-Mutter und steigst jetzt wieder in den Beruf ein. Du weißt nicht mehr, wer du bist außer Mama. Auf die Frage was du willst kommt: "Ich hab keine Ahnung." Du hast Schwierigkeiten, dir eine Zukunft vorzustellen. Du bist unsicher, manchmal selbstkritisch, aber auch bereit, wenn man dich behutsam begleitet. Bei der Zukunftsreise öffnest du dich langsam und überraschst dich selbst. Antworte auf Deutsch, authentisch und verletzlich, max. 120 Wörter.`
+    },
+    lern: {
+      system: `Du bist Lernbegleiter für das MUMTY Modul "Anker, Assoziationen und Ressourcenaktivierung". Erkläre das Assoziationsprinzip, wie Anker gesetzt werden und wie die Zukunftsreise funktioniert. Antworte auf Deutsch, engagiert und praxisnah, max. 150 Wörter.`
+    }
+  }
+};
+
+function switchKiMode(moduleNum, mode) {
+  const coacheeBtn = document.getElementById('m' + moduleNum + '-mode-coachee');
+  const lernBtn = document.getElementById('m' + moduleNum + '-mode-lern');
+  const personaDiv = document.getElementById('m' + moduleNum + '-persona');
+
+  coacheeBtn.classList.toggle('active', mode === 'coachee');
+  lernBtn.classList.toggle('active', mode === 'lern');
+  personaDiv.style.display = mode === 'coachee' ? 'flex' : 'none';
+
+  if (!chatState[moduleNum]) chatState[moduleNum] = {};
+  chatState[moduleNum].mode = mode;
+  chatState[moduleNum][mode + 'History'] = chatState[moduleNum][mode + 'History'] || [];
+
+  renderChat(moduleNum);
+}
+
+function renderChat(moduleNum) {
+  const chatEl = document.getElementById('m' + moduleNum + '-chat');
+  const mode = (chatState[moduleNum] && chatState[moduleNum].mode) || 'coachee';
+  const history = (chatState[moduleNum] && chatState[moduleNum][mode + 'History']) || [];
+
+  chatEl.innerHTML = '';
+  if (history.length === 0) {
+    const intro = document.createElement('div');
+    intro.style.cssText = 'color: var(--text-light); font-size: 13px; text-align: center; padding: 20px; opacity: .7;';
+    intro.textContent = mode === 'coachee'
+      ? '👋 Starte das Coaching-Gespräch – schreibe deine erste Frage!'
+      : '🎓 Stelle mir eine Frage zum Modul – ich helfe dir beim Verstehen und Anwenden.';
+    chatEl.appendChild(intro);
+  } else {
+    history.forEach(msg => appendMessage(moduleNum, msg.role, msg.content, false));
+  }
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function appendMessage(moduleNum, role, content, scroll = true) {
+  const chatEl = document.getElementById('m' + moduleNum + '-chat');
+  // Remove empty state
+  const empty = chatEl.querySelector('div[style*="opacity"]');
+  if (empty) empty.remove();
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-msg ' + (role === 'user' ? 'user' : 'assistant');
+  const senderName = role === 'user' ? 'Du (Coach)' : (
+    chatState[moduleNum] && chatState[moduleNum].mode === 'lern' ? 'Lernbegleiter' :
+    (personas[moduleNum] && personas[moduleNum].coachee.name) || 'Coachee'
+  );
+  wrapper.innerHTML = `<div class="chat-sender">${senderName}</div><div class="chat-bubble">${content}</div>`;
+  chatEl.appendChild(wrapper);
+  if (scroll) chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function showTyping(moduleNum) {
+  const chatEl = document.getElementById('m' + moduleNum + '-chat');
+  const typing = document.createElement('div');
+  typing.className = 'chat-msg assistant';
+  typing.id = 'm' + moduleNum + '-typing';
+  typing.innerHTML = `<div class="chat-sender">${(chatState[moduleNum] && chatState[moduleNum].mode === 'lern') ? 'Lernbegleiter' : ((personas[moduleNum] && personas[moduleNum].coachee.name) || 'Coachee')}</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  chatEl.appendChild(typing);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function removeTyping(moduleNum) {
+  const t = document.getElementById('m' + moduleNum + '-typing');
+  if (t) t.remove();
+}
+
+async function sendMessage(moduleNum) {
+  const input = document.getElementById('m' + moduleNum + '-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  if (!chatState[moduleNum]) chatState[moduleNum] = { mode: 'coachee' };
+  const mode = chatState[moduleNum].mode || 'coachee';
+  const histKey = mode + 'History';
+  if (!chatState[moduleNum][histKey]) chatState[moduleNum][histKey] = [];
+
+  chatState[moduleNum][histKey].push({ role: 'user', content: text });
+  appendMessage(moduleNum, 'user', text);
+  input.value = '';
+
+  const sendBtn = document.getElementById('m' + moduleNum + '-send');
+  sendBtn.disabled = true;
+  showTyping(moduleNum);
+
+  const history = chatState[moduleNum][histKey];
+  const persona = personas[moduleNum][mode];
+  const systemPrompt = persona.system;
+
+  // Auto feedback after 4 user messages
+  const userMsgCount = history.filter(m => m.role === 'user').length;
+  let finalSystem = systemPrompt;
+  if (mode === 'coachee' && userMsgCount >= 4) {
+    finalSystem += `\n\nNach dieser Antwort: Gib kurz (2-3 Sätze) aus deiner Rolle heraus Feedback, wie das Coaching-Gespräch sich für dich angefühlt hat. Was war hilfreich? Was fehlte dir?`;
+  }
+
+  try {
+    const messages = history.map(m => ({ role: m.role, content: m.content }));
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: finalSystem,
+        messages: messages
+      })
+    });
+
+    const data = await response.json();
+    removeTyping(moduleNum);
+
+    const reply = data.content && data.content[0] ? data.content[0].text : 'Entschuldigung, es gab einen Fehler. Bitte versuche es erneut.';
+    chatState[moduleNum][histKey].push({ role: 'assistant', content: reply });
+    appendMessage(moduleNum, 'assistant', reply);
+  } catch (err) {
+    removeTyping(moduleNum);
+    appendMessage(moduleNum, 'assistant', '⚠️ Verbindungsfehler. Bitte prüfe deine Internetverbindung und versuche es erneut.');
+  }
+
+  sendBtn.disabled = false;
+}
+
+function resetChat(moduleNum) {
+  if (!chatState[moduleNum]) return;
+  const mode = chatState[moduleNum].mode || 'coachee';
+  chatState[moduleNum][mode + 'History'] = [];
+  renderChat(moduleNum);
+}
+
+function handleEnter(event, moduleNum) {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault();
+    sendMessage(moduleNum);
+  }
+}
+
+// Init all chat windows
+[17,18,19,20,21].forEach(n => {
+  chatState[n] = { mode: 'coachee', coacheeHistory: [], lernHistory: [] };
+  renderChat(n);
+});
+</script>
+
+
+</body></html>

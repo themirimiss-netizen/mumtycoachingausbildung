@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///Users/famsta22/Downloads/mumty_module2bis5.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY – Module 2–5</title>
+<link href="./2-5 MUMTY – Module 2–5_files/css2" rel="stylesheet">
+<style>
+:root {
+  --sage: #5e8478;
+  --sage-light: #7da398;
+  --sage-pale: #eaf2f0;
+  --apricot: #e8a882;
+  --apricot-pale: #fdf3ec;
+  --apricot-dark: #7a3e28;
+  --copper: #9f634e;
+  --cream: #f4f8f6;
+  --white: #ffffff;
+  --text: #1e2a27;
+  --text-mid: #4a6158;
+  --text-light: #7a9990;
+  --border: rgba(94,132,120,0.18);
+}
+@keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes typing { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);}
+
+/* MODULE SWITCHER */
+.module-nav{background:white;border-bottom:2px solid var(--border);display:flex;overflow-x:auto;padding:0 1.5rem;}
+.mod-tab{padding:1rem 1.5rem;font-size:13px;font-weight:500;color:var(--text-light);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;}
+.mod-tab:hover{color:var(--sage);}
+.mod-tab.active{color:var(--sage);border-bottom-color:var(--sage);}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#3d6458 0%,#5e8478 40%,#7da398 70%,#5e8478 100%);background-size:200% 200%;animation:shimmer 7s ease-in-out infinite;padding:1.25rem 2rem;display:flex;align-items:center;gap:1.25rem;}
+.header-logo{background:white;border-radius:10px;padding:7px 9px;flex-shrink:0;}
+.header-text h1{font-family:'Playfair Display',serif;font-size:19px;color:white;font-weight:500;}
+.header-text p{font-size:12px;color:rgba(255,255,255,.75);margin-top:2px;}
+
+/* MODULE SHELL */
+.module-shell{display:none;}
+.module-shell.active{display:block;}
+
+/* TABS */
+.tabs-wrap{background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.tabs{display:flex;overflow-x:auto;padding:0 1.5rem;}
+.tab{padding:.875rem 1.1rem;font-size:13px;font-weight:500;color:var(--text-light);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;display:flex;align-items:center;gap:5px;}
+.tab:hover{color:var(--sage);}
+.tab.active{color:var(--sage);border-bottom-color:var(--sage);}
+
+/* MAIN */
+.main{max-width:820px;margin:0 auto;padding:1.75rem 1.5rem;}
+.section{display:none;}
+.section.active{display:block;}
+
+/* VIDEO */
+.video-wrap{position:relative;border-radius:16px;overflow:hidden;background:#000;margin-bottom:1.5rem;}
+.video-wrap iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
+.vfade-top{position:absolute;top:0;left:0;right:0;height:100px;background:linear-gradient(to bottom,var(--cream) 0%,rgba(244,248,246,.6) 50%,transparent 100%);pointer-events:none;border-radius:16px 16px 0 0;}
+.vfade-bot{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,var(--cream) 0%,rgba(244,248,246,.6) 50%,transparent 100%);pointer-events:none;border-radius:0 0 16px 16px;}
+.sim-badge{display:inline-flex;align-items:center;gap:6px;background:var(--sage-pale);color:var(--sage);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:500;margin-bottom:1rem;}
+
+/* CARDS */
+.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--sage);margin-bottom:.75rem;}
+.intro-card{background:white;border-radius:14px;padding:1.5rem;border:1px solid var(--border);margin-bottom:1.25rem;}
+.intro-card h2{font-family:'Playfair Display',serif;font-size:21px;color:var(--text);margin-bottom:.5rem;}
+.intro-card p{font-size:14px;color:var(--text-mid);line-height:1.7;}
+.grundsatz{background:linear-gradient(135deg,#3d6458,#5e8478,#7da398,#5e8478);background-size:200% 200%;animation:shimmer 7s ease-in-out infinite;border-radius:14px;padding:1.25rem 1.75rem;text-align:center;margin-bottom:1.25rem;}
+.grundsatz .gl{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-bottom:6px;}
+.grundsatz .gt{font-family:'Playfair Display',serif;font-size:17px;color:white;line-height:1.5;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;}
+.card{background:white;border:1px solid var(--border);border-radius:14px;padding:1.25rem;}
+.card-full{grid-column:1/-1;}
+.card h3{font-size:14px;font-weight:500;margin-bottom:.75rem;color:var(--text);}
+.card p{font-size:13px;color:var(--text-mid);line-height:1.65;}
+.merksatz{background:var(--apricot-pale);border-left:3px solid var(--apricot);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.25rem;}
+.merksatz p{font-size:15px;color:var(--apricot-dark);font-style:italic;line-height:1.6;}
+.pill-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:.75rem;}
+.pill{background:var(--sage-pale);color:var(--sage);border-radius:20px;padding:5px 13px;font-size:13px;font-weight:500;}
+.pill-apricot{background:var(--apricot-pale);color:var(--apricot-dark);}
+.flow{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.flow-node{background:var(--sage-pale);color:var(--sage);border-radius:10px;padding:7px 18px;font-size:13px;font-weight:500;text-align:center;}
+.flow-node-sm{background:var(--apricot-pale);color:var(--apricot-dark);border-radius:8px;padding:5px 14px;font-size:12px;font-weight:500;text-align:center;}
+.flow-arrow{color:var(--text-light);font-size:16px;}
+.flow-sub{font-size:11px;color:var(--text-light);text-align:center;}
+.example-box{background:var(--cream);border-radius:10px;padding:12px 14px;margin:8px 0;font-size:13px;color:var(--text-mid);line-height:1.65;border-left:3px solid var(--sage);}
+.example-box.bad{border-left-color:var(--apricot);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+
+/* TECHNIQUE CARD */
+.technique{background:white;border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-bottom:1rem;}
+.technique-header{display:flex;align-items:center;gap:10px;margin-bottom:.75rem;}
+.technique-num{width:28px;height:28px;background:var(--sage);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0;}
+.technique h3{font-size:14px;font-weight:500;color:var(--text);}
+.technique p{font-size:13px;color:var(--text-mid);line-height:1.65;margin-bottom:.5rem;}
+.technique-tag{font-size:11px;font-weight:500;color:var(--sage);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+
+/* SMART */
+.smart-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:1rem 0;}
+.smart-item{border-radius:12px;padding:12px 10px;text-align:center;}
+.smart-letter{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;}
+.smart-label{font-size:11px;font-weight:500;margin-top:4px;}
+.smart-desc{font-size:11px;margin-top:6px;line-height:1.5;}
+
+/* GROW */
+.grow-step{display:flex;gap:14px;margin-bottom:1rem;align-items:flex-start;}
+.grow-letter{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;flex-shrink:0;}
+.grow-content h4{font-size:14px;font-weight:500;margin-bottom:4px;}
+.grow-content p{font-size:13px;color:var(--text-mid);line-height:1.6;}
+
+/* EXERCISE */
+.exercise-card{background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;}
+.exercise-card h3{font-size:15px;font-weight:500;margin-bottom:.5rem;}
+.exercise-card p{font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:1rem;}
+.ex-input{width:100%;background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);resize:none;line-height:1.6;min-height:90px;}
+.ex-input:focus{outline:none;border-color:var(--sage);}
+.ex-example{background:var(--sage-pale);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--sage);margin-top:.75rem;line-height:1.6;display:none;}
+.ex-example.show{display:block;}
+.btn-tab{background:var(--sage-pale);border:none;border-radius:10px;padding:9px 16px;font-size:13px;color:var(--sage);font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;}
+
+/* QUIZ */
+.quiz-q-card{background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1rem;}
+.quiz-q{font-size:15px;font-weight:500;margin-bottom:1rem;line-height:1.5;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{background:var(--cream);border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;color:var(--text);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:10px;}
+.quiz-opt:hover:not(.answered){border-color:var(--sage);background:var(--sage-pale);}
+.quiz-opt.correct{border-color:var(--sage);background:var(--sage-pale);color:var(--sage);}
+.quiz-opt.wrong{border-color:#e57373;background:#ffeaea;color:#c62828;}
+.quiz-opt.disabled{pointer-events:none;opacity:.5;}
+.quiz-opt.correct.disabled{opacity:1;}
+.quiz-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:13px;line-height:1.6;display:none;}
+.quiz-fb.show{display:block;}
+.quiz-fb.ok{background:var(--sage-pale);color:var(--sage);}
+.quiz-fb.nok{background:#ffeaea;color:#c62828;}
+.quiz-score{background:linear-gradient(135deg,#3d6458,#5e8478);color:white;border-radius:14px;padding:1.5rem;text-align:center;margin-top:1rem;display:none;}
+.quiz-score.show{display:block;}
+.quiz-score .snum{font-family:'Playfair Display',serif;font-size:36px;}
+.quiz-score p{font-size:14px;opacity:.85;margin-top:6px;}
+
+/* CHAT */
+.mode-toggle{display:flex;gap:10px;margin-bottom:1.5rem;}
+.mode-btn{flex:1;padding:11px;border-radius:12px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--text-mid);font-family:'DM Sans',sans-serif;transition:all .15s;text-align:center;}
+.mode-btn.active{background:var(--sage);border-color:var(--sage);color:white;}
+.persona-card{background:white;border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-bottom:1rem;display:flex;gap:12px;align-items:flex-start;}
+.p-avatar{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.p-avatar.coachee{background:var(--apricot-pale);}
+.p-avatar.guide{background:var(--sage-pale);}
+.p-info h4{font-size:14px;font-weight:500;margin-bottom:2px;}
+.p-info p{font-size:13px;color:var(--text-mid);line-height:1.5;}
+.chat-box{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1rem;}
+.chat-msgs{padding:1.25rem;min-height:180px;max-height:380px;overflow-y:auto;}
+.msg{margin-bottom:1rem;display:flex;gap:10px;align-items:flex-start;}
+.msg.user{flex-direction:row-reverse;}
+.msg-av{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.msg.ai .msg-av{background:var(--sage-pale);}
+.msg.user .msg-av{background:var(--apricot-pale);}
+.msg-bub{max-width:75%;padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.6;}
+.msg.ai .msg-bub{background:var(--cream);color:var(--text);border-radius:4px 12px 12px 12px;}
+.msg.user .msg-bub{background:var(--sage);color:white;border-radius:12px 4px 12px 12px;}
+.typing-dots{display:flex;gap:4px;align-items:center;padding:10px 14px;}
+.dot-t{width:6px;height:6px;border-radius:50%;background:var(--text-light);animation:typing 1.2s infinite;}
+.dot-t:nth-child(2){animation-delay:.2s;}
+.dot-t:nth-child(3){animation-delay:.4s;}
+.chat-inp-wrap{border-top:1px solid var(--border);padding:1rem;display:flex;gap:10px;}
+.chat-inp{flex:1;border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);resize:none;min-height:44px;max-height:120px;}
+.chat-inp:focus{outline:none;border-color:var(--sage);}
+.send-btn{background:var(--sage);color:white;border:none;border-radius:10px;padding:0 18px;font-size:18px;cursor:pointer;flex-shrink:0;transition:opacity .15s;}
+.send-btn:hover{opacity:.85;}
+.send-btn:disabled{opacity:.4;cursor:not-allowed;}
+.fb-btn{background:var(--apricot-pale);border:1px solid rgba(232,168,130,.4);color:var(--apricot-dark);border-radius:10px;padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:1rem;display:none;}
+.fb-btn.show{display:block;}
+
+/* NAV */
+.nav-row{display:flex;gap:10px;margin-top:1.5rem;}
+.btn-primary{background:linear-gradient(135deg,#c97a5a,#e8a882,#c97a5a);background-size:200%;animation:shimmer 5s ease-in-out infinite;color:white;border:none;border-radius:10px;padding:11px 22px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-secondary{background:white;border:1px solid var(--border);border-radius:10px;padding:11px 18px;font-size:14px;color:var(--text-mid);cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+@media(max-width:600px){.card-grid{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr;}.smart-grid{grid-template-columns:repeat(2,1fr);}.mode-toggle{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62.72 47.81" width="48" height="37">
+      <defs>
+        <lineargradient id="g1" x1="9.1" y1="11.27" x2="34.59" y2="24.38" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"></stop><stop offset=".41" stop-color="#7da398"></stop><stop offset="1" stop-color="#5e8478"></stop></lineargradient>
+        <lineargradient id="g2" x1="29.66" y1="16.16" x2="58.58" y2="16.16" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e97d69"></stop><stop offset="1" stop-color="#fff"></stop></lineargradient>
+      </defs>
+      <path fill="url(#g1)" d="M16.9,24.24c-.01.61-.12,1.22-.35,1.78-.23.55-.57,1.05-.98,1.5-.88.98-2.08,1.73-3.37,1.92-2.1.3-4.46-.89-5.73-2.66-1.41-1.97-1.47-4.66-1.01-6.96-1.4,2.14-1.7,4.8-.82,7.2s2.84,4.24,5.28,4.96c2.45.73,5.09.26,7.14-1.27s3.25-3.93,3.25-6.48V8.08c0-2.58,2.09-4.68,4.68-4.68s4.68,2.09,4.68,4.68v16.16h3.4V8.08c0-4.46-3.62-8.08-8.08-8.08s-8.08,3.62-8.08,8.08v16.16Z"></path>
+      <path fill="url(#g2)" opacity=".9" d="M45.82,24.24c.01.61.12,1.22.35,1.78.23.55.57,1.05.98,1.5.88.98,2.08,1.73,3.37,1.92,2.1.3,4.46-.89,5.73-2.66,1.41-1.97,1.47-4.66,1.01-6.96,1.4,2.14,1.7,4.8.82,7.2-.88,2.4-2.84,4.24-5.28,4.96-2.45.73-5.09.26-7.14-1.27-2.05-1.52-3.25-3.93-3.25-6.48V8.08c0-2.58-2.09-4.68-4.68-4.68s-4.68,2.09-4.68,4.68v16.16h-3.4V8.08c0-4.46,3.62-8.08,8.08-8.08s8.08,3.62,8.08,8.08v16.16Z"></path>
+      <path fill="#9f634e" d="M9.1,37.85c-.23.05-.46.13-.67.25-.11.07-.21.14-.3.23-.18.17-.32.35-.43.57-1.05,2.07-2.1,4.13-3.14,6.2-1.05-2.07-2.1-4.13-3.14-6.2-.11-.22-.25-.4-.43-.57-.09-.09-.2-.16-.3-.23-.21-.12-.44-.21-.67-.25v9.97h1.13v-6.95l3.42,6.74c1.14-2.25,2.28-4.49,3.42-6.74v6.95h1.13v-9.97Z"></path>
+      <path fill="#9f634e" d="M27.63,37.85c.23.05.46.13.67.25.11.07.21.14.3.23.18.17.32.35.43.57,1.05,2.07,2.1,4.13,3.14,6.2,1.05-2.07,2.1-4.13,3.14-6.2.11-.22.25-.4.43-.57.09-.09.2-.16.3-.23.21-.12.44-.21.67-.25v9.97h-1.13v-6.95c-1.14,2.25-2.28,4.49-3.42,6.74-1.14-2.25-2.28-4.49-3.42-6.74v6.95h-1.13v-9.97Z"></path>
+      <polygon fill="#9f634e" points="58.54 43.49 58.54 47.81 59.68 47.81 59.68 43.49 62.72 37.85 61.43 37.85 59.11 42.15 56.79 37.85 55.5 37.85 58.54 43.49"></polygon>
+      <polygon fill="#9f634e" points="45.87 38.98 45.87 47.81 47 47.81 47 38.98 50.49 38.98 50.49 37.85 42.39 37.85 42.39 38.98 45.87 38.98"></polygon>
+      <path fill="#9f634e" d="M14.76,37.85v6.36c0,1.99,1.61,3.6,3.6,3.6s3.6-1.61,3.6-3.6v-6.36h-1.13v6.36c0,1.36-1.11,2.47-2.47,2.47s-2.47-1.11-2.47-2.47v-6.36h-1.13Z"></path>
+    </svg>
+  </div>
+  <div class="header-text">
+    <h1 id="main-title">Modul 2 – Fragetechniken</h1>
+    <p id="main-sub">MUMTY Coaching-Ausbildung · Flugsimulator</p>
+  </div>
+</header>
+
+<!-- MODULE NAVIGATION -->
+<nav class="module-nav">
+  <div class="mod-tab active" onclick="switchModule(2)">Modul 2 · Fragetechniken</div>
+  <div class="mod-tab" onclick="switchModule(3)">Modul 3 · Aktives Zuhören</div>
+  <div class="mod-tab" onclick="switchModule(4)">Modul 4 · SMART-Ziele</div>
+  <div class="mod-tab" onclick="switchModule(5)">Modul 5 · GROW-Modell</div>
+</nav>
+
+<!-- ═══════════════════ MODUL 2 ═══════════════════ -->
+<div class="module-shell active" id="module-2">
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(2,&#39;video&#39;)">▶ Video</div>
+      <div class="tab" onclick="showTab(2,&#39;theory&#39;)">📖 Theorie</div>
+      <div class="tab" onclick="showTab(2,&#39;exercise&#39;)">✏️ Übung</div>
+      <div class="tab" onclick="showTab(2,&#39;quiz&#39;)">🎯 Quiz</div>
+      <div class="tab" onclick="showTab(2,&#39;ai&#39;)">🤖 KI-Praxis</div>
+    </div>
+  </div>
+  <div class="main">
+
+    <!-- VIDEO -->
+    <div class="section active" id="2-video">
+      <div class="sim-badge">✈ Flugsimulator · Modul 2 von 32</div>
+      <div class="video-wrap">
+        <iframe src="https://drive.google.com/file/d/18DDG4S_2V-wd5qS6zhqyqEXU71cOeQTz/preview" allow="autoplay" allowfullscreen=""></iframe>
+        <div class="vfade-top"></div><div class="vfade-bot"></div>
+      </div>
+      <div class="intro-card">
+        <div class="section-label">Was dich erwartet</div>
+        <h2>Fragetechniken im Coaching</h2>
+        <p>Fragen sind das wichtigste Werkzeug eines Coaches. In diesem Modul lernst du 9 Fragetechniken kennen, die Denkprozesse anstoßen, Klarheit schaffen und Veränderung ermöglichen – plus die 5 goldenen Coachingfragen, die immer funktionieren.</p>
+      </div>
+      <div class="nav-row"><button class="btn-primary" onclick="showTab(2,&#39;theory&#39;)">Zur Theorie →</button></div>
+    </div>
+
+    <!-- THEORY -->
+    <div class="section" id="2-theory">
+      <div class="section-label">Theorie · Modul 2</div>
+      <div class="grundsatz">
+        <div class="gl">Der Grundsatz</div>
+        <div class="gt">Nicht jede Frage braucht sofort eine Antwort.<br>Oft entsteht Veränderung erst in der Stille nach der Frage.</div>
+      </div>
+      <div class="intro-card">
+        <div class="section-label">Warum Fragen so wichtig sind</div>
+        <p>Viele Menschen stellen Fragen, um Antworten zu bekommen. <strong>Ein Coach stellt Fragen, um Denken zu ermöglichen.</strong> Der Unterschied ist enorm.</p>
+        <div class="two-col" style="margin-top:1rem;">
+          <div class="example-box bad"><strong>Normale Frage:</strong><br>„Warum hast du das gemacht?"<br><small style="color:#b05a3a;">→ erzeugt Rechtfertigung</small></div>
+          <div class="example-box"><strong>Coachingfrage:</strong><br>„Was hat dich in diesem Moment dazu bewogen?"<br><small style="color:var(--sage);">→ erzeugt Reflexion</small></div>
+        </div>
+      </div>
+
+      <!-- 9 Techniken -->
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">1</div><h3>Offene Fragen</h3></div>
+        <p>Beginnen mit <strong>Was? Wie? Woran? Welche?</strong> – sie laden zum Erzählen ein und öffnen das Gespräch.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Was beschäftigt dich aktuell?" · „Wie erlebst du die Situation?" · „Welche Möglichkeiten siehst du?"</div>
+        <div class="pill-wrap"><span class="pill">Informationen sammeln</span><span class="pill">Reflexion fördern</span><span class="pill">Gespräche öffnen</span></div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">2</div><h3>Geschlossene Fragen</h3></div>
+        <p>Können mit <strong>Ja, Nein, Vielleicht</strong> beantwortet werden. Nicht immer hilfreich, aber gezielt eingesetzt sehr nützlich.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Hast du bereits mit ihm gesprochen?" · „Ist das dein Ziel?" · „Möchtest du das verändern?"</div>
+        <div class="pill-wrap"><span class="pill">Fakten klären</span><span class="pill">Entscheidungen prüfen</span><span class="pill">Verbindlichkeit schaffen</span></div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">3</div><h3>Skalierungsfragen</h3></div>
+        <p>Der Coachee bewertet etwas auf einer Skala – meist <strong>1 bis 10</strong>. Macht Gefühle messbar und Fortschritte sichtbar.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Wie zufrieden bist du aktuell auf einer Skala von 1 bis 10?" · „Wie groß ist deine Motivation?" · „Wie stark belastet dich das?"</div>
+        <div class="pill-wrap"><span class="pill">Fortschritte sichtbar machen</span><span class="pill">Gefühle messbar machen</span><span class="pill">Veränderungen erkennen</span></div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">4</div><h3>Lösungsorientierte Fragen</h3></div>
+        <p>Richten den Fokus auf <strong>Lösungen statt Probleme</strong>. Aktivieren Ressourcen und schaffen Handlungsmöglichkeiten.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Was würde sich verbessern, wenn das Problem gelöst wäre?" · „Was funktioniert bereits gut?" · „Was wäre ein erster kleiner Schritt?"</div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">5</div><h3>Die Wunderfrage</h3></div>
+        <p>Aus der lösungsorientierten Kurzzeittherapie. Erzeugt Zukunftsbilder, konkretisiert Ziele, steigert Motivation.</p>
+        <div class="technique-tag">Die klassische Wunderfrage</div>
+        <div class="example-box" style="border-color:var(--apricot);background:var(--apricot-pale);color:var(--text);">„Stell dir vor, heute Nacht geschieht ein Wunder und dein Problem ist gelöst. <strong>Woran würdest du morgen als Erstes merken, dass etwas anders ist?</strong>"</div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">6</div><h3>Hypothetische Fragen</h3></div>
+        <p>Arbeiten mit einer vorgestellten Situation. Lösen Denkblockaden und schaffen neue Perspektiven.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Was würdest du tun, wenn du keine Angst hättest?" · „Was würde dein bestes Ich tun?" · „Was würdest du einem guten Freund raten?"</div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">7</div><h3>Ressourcenfragen</h3></div>
+        <p>Richten den Fokus auf <strong>Stärken und vorhandene Ressourcen</strong>. Stärken Selbstvertrauen.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Wann hast du etwas Ähnliches bereits geschafft?" · „Welche Stärken haben dir damals geholfen?" · „Worauf kannst du zurückgreifen?"</div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">8</div><h3>Vertiefungsfragen</h3></div>
+        <p>Helfen, <strong>tiefer zu gehen</strong> – oberflächliche Antworten vertiefen, Emotionen sichtbar machen.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Was genau meinst du damit?" · „Kannst du das näher beschreiben?" · „Was macht das mit dir?"</div>
+      </div>
+
+      <div class="technique">
+        <div class="technique-header"><div class="technique-num">9</div><h3>Zukunftsfragen</h3></div>
+        <p>Richten den Blick nach vorne. Entwickeln eine Vision, erzeugen Motivation, machen Werte sichtbar.</p>
+        <div class="technique-tag">Beispiele</div>
+        <div class="example-box">„Wo möchtest du in einem Jahr stehen?" · „Wie soll dein Leben in fünf Jahren aussehen?" · „Was sollen die Menschen an deinem 85. Geburtstag über dich sagen?"</div>
+      </div>
+
+      <!-- Goldene Fragen -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1rem;">⭐ Die 5 goldenen Coachingfragen</h3>
+        <p style="font-size:13px;color:var(--text-mid);margin-bottom:1rem;">Wenn ein Coach nur fünf Fragen beherrschen würde, wären es diese:</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="example-box">1. Was genau möchtest du erreichen?</div>
+          <div class="example-box">2. Was hält dich aktuell davon ab?</div>
+          <div class="example-box">3. Was funktioniert bereits?</div>
+          <div class="example-box">4. Was wäre ein erster kleiner Schritt?</div>
+          <div class="example-box">5. Was nimmst du aus unserem Gespräch mit?</div>
+        </div>
+      </div>
+
+      <!-- Häufige Fehler -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:.75rem;">⚠️ Häufige Anfängerfehler</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="example-box bad">❌ Zu viele Fragen hintereinander stellen</div>
+          <div class="example-box bad">❌ Suggestivfragen: „Findest du nicht auch, dass ...?"</div>
+          <div class="example-box bad">❌ Warum-Fragen im falschen Moment → führen zu Rechtfertigungen<br><small>Statt: „Warum machst du das?" → Lieber: „Was bewegt dich dazu?"</small></div>
+        </div>
+      </div>
+
+      <div class="merksatz"><p>„Nicht jede Frage braucht sofort eine Antwort. Oft entsteht Veränderung erst in der Stille nach der Frage."</p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(2,&#39;video&#39;)">← Video</button><button class="btn-primary" onclick="showTab(2,&#39;exercise&#39;)">Zur Übung →</button></div>
+    </div>
+
+    <!-- EXERCISE -->
+    <div class="section" id="2-exercise">
+      <div class="section-label">Übung · Modul 2</div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 1 – Fragentypen erkennen</div>
+        <h3>Wandle die Fragen um</h3>
+        <p>Wandle diese problematischen Fragen in bessere Coachingfragen um:</p>
+        <div class="example-box bad" style="margin-bottom:.75rem;">„Warum hast du das nicht früher erledigt?"</div>
+        <textarea class="ex-input" placeholder="Deine bessere Coachingfrage..."></textarea>
+        <div class="example-box bad" style="margin:1rem 0 .75rem;">„Findest du nicht auch, dass du mehr Selbstdisziplin brauchst?"</div>
+        <textarea class="ex-input" placeholder="Deine bessere Coachingfrage..."></textarea>
+        <button class="btn-tab" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">Beispielantworten zeigen</button>
+        <div class="ex-example">„Was war in dieser Situation besonders herausfordernd?" oder „Was würde einen früheren Start erleichtern?"<br><br>„Welche Qualität würde dir in dieser Situation helfen?" oder „Was genau macht dir das schwer?"</div>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 2 – Wunderfrage üben</div>
+        <h3>Stell dir selbst die Wunderfrage</h3>
+        <p>Wähle ein Thema aus deinem Leben, das dich beschäftigt. Stell dir die Wunderfrage und schreib auf was entsteht.</p>
+        <textarea class="ex-input" style="min-height:120px;" placeholder="Mein Thema: ...\n\nWas ich nach dem Wunder bemerken würde: ..."></textarea>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 3 – Praxis</div>
+        <h3>Führe ein Mini-Coaching durch</h3>
+        <p>Nutze in einem echten Gespräch bewusst 3 verschiedene Fragetechniken aus diesem Modul. Notiere danach welche du genutzt hast und was passiert ist.</p>
+        <textarea class="ex-input" style="min-height:110px;" placeholder="Fragetechniken die ich genutzt habe: ...\n\nWas beobachtet habe: ..."></textarea>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(2,&#39;theory&#39;)">← Theorie</button><button class="btn-primary" onclick="showTab(2,&#39;quiz&#39;)">Zum Quiz →</button></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="2-quiz">
+      <div class="section-label">Quiz · Modul 2 · 3 Fragen</div>
+      <div class="quiz-q-card" id="2q1">
+        <div class="quiz-q">1. Eine Klientin sagt: „Ich fühle mich seit Wochen erschöpft." Welche Frage ist am besten geeignet?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;2q1&#39;,false)">🅐 „Hast du schon versucht, früher schlafen zu gehen?"</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q1&#39;,true)">🅑 „Was gibt dir aktuell noch Energie – und was raubt sie?"</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q1&#39;,false)">🅒 „Warum tust du nicht mehr für dich?"</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q1&#39;,false)">🅓 „Findest du nicht auch, dass du Pausen brauchst?"</div>
+        </div>
+        <div class="quiz-fb ok" id="2q1-ok">✓ Richtig! Das ist eine lösungsorientierte, offene Frage die sowohl Ressourcen als auch Hindernisse sichtbar macht – ohne zu urteilen oder Ratschläge zu geben.</div>
+        <div class="quiz-fb nok" id="2q1-nok">✗ Diese Frage ist entweder eine Suggestivfrage, ein Ratschlag oder eine Warum-Frage die Rechtfertigung erzeugt. Die beste Frage ist offen, ressourcenorientiert und wertfrei.</div>
+      </div>
+      <div class="quiz-q-card" id="2q2">
+        <div class="quiz-q">2. Wofür sind Skalierungsfragen besonders hilfreich?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;2q2&#39;,false)">🅐 Um schnell Ja/Nein-Entscheidungen zu bekommen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q2&#39;,true)">🅑 Um Gefühle und Zustände messbar zu machen und Fortschritte sichtbar zu zeigen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q2&#39;,false)">🅒 Um Informationen zu sammeln und das Gespräch zu öffnen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q2&#39;,false)">🅓 Um den Coachee in eine bestimmte Richtung zu lenken</div>
+        </div>
+        <div class="quiz-fb ok" id="2q2-ok">✓ Genau! „Auf einer Skala von 1–10: Wie zufrieden bist du damit?" macht ein inneres Erleben konkret vergleichbar – ideal um Veränderung über Zeit sichtbar zu machen.</div>
+        <div class="quiz-fb nok" id="2q2-nok">✗ Skalierungsfragen machen Gefühle und innere Zustände messbar. Für Ja/Nein dienen geschlossene Fragen, für offenes Erkunden offene Fragen.</div>
+      </div>
+      <div class="quiz-q-card" id="2q3">
+        <div class="quiz-q">3. Was ist der Unterschied zwischen einer normalen Warum-Frage und einer guten Coachingfrage?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;2q3&#39;,false)">🅐 Es gibt keinen Unterschied – beide sind gleich gut geeignet</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q3&#39;,false)">🅑 Warum-Fragen sind besser weil sie tiefer gehen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q3&#39;,true)">🅒 Warum-Fragen lösen oft Rechtfertigung aus – Coachingfragen laden zur Reflexion ein</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;2q3&#39;,false)">🅓 Coachingfragen müssen immer mit „Was" beginnen</div>
+        </div>
+        <div class="quiz-fb ok" id="2q3-ok">✓ Perfekt! „Warum hast du das gemacht?" aktiviert das Verteidigungssystem. „Was hat dich in diesem Moment bewogen?" öffnet stattdessen echte Reflexion.</div>
+        <div class="quiz-fb nok" id="2q3-nok">✗ Warum-Fragen erzeugen oft Rechtfertigung und Abwehr, keine Reflexion. Besser: Was? Wie? Woran? – diese Fragen laden zum Nachdenken ein statt zum Verteidigen.</div>
+      </div>
+      <div class="quiz-score" id="2-score"><div class="snum" id="2-score-num">0/3</div><p id="2-score-msg"></p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(2,&#39;exercise&#39;)">← Übung</button><button class="btn-primary" onclick="showTab(2,&#39;ai&#39;)">Zur KI-Praxis →</button></div>
+    </div>
+
+    <!-- AI -->
+    <div class="section" id="2-ai">
+      <div class="section-label">KI-Praxis · Modul 2</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="2-btn-coachee" onclick="setMode(2,&#39;coachee&#39;)">🎭 Coachee-Modus<br><small style="font-weight:400;font-size:11px;">Du übst als Coach</small></button>
+        <button class="mode-btn" id="2-btn-guide" onclick="setMode(2,&#39;guide&#39;)">🧭 Lernbegleiter-Modus<br><small style="font-weight:400;font-size:11px;">KI gibt dir Feedback</small></button>
+      </div>
+      <div class="persona-card" id="2-persona-coachee">
+        <div class="p-avatar coachee">👨</div>
+        <div class="p-info"><h4>Tom, 34 – dein Übungs-Klient</h4><p>Software-Entwickler, fühlt sich beruflich festgefahren. Er weiß nicht, ob er seinen Job wechseln soll oder in der Firma bleibt und hofft auf mehr. Antwortet knapp wenn er geschlossene Fragen bekommt – öffnet sich bei offenen Fragen deutlich.</p></div>
+      </div>
+      <div class="persona-card" id="2-persona-guide" style="display:none">
+        <div class="p-avatar guide">🧭</div>
+        <div class="p-info"><h4>Dein Lernbegleiter</h4><p>Ich teste dein Wissen zu den 9 Fragetechniken und den goldenen Coachingfragen – mit Fragen, Beispielen und direktem Feedback.</p></div>
+      </div>
+      <div class="chat-box"><div class="chat-msgs" id="2-chat"></div></div>
+      <button class="fb-btn" id="2-fb-btn" onclick="requestFeedback(2)">Feedback zu meiner Coaching-Session anfordern</button>
+      <div class="chat-inp-wrap">
+        <textarea class="chat-inp" id="2-inp" placeholder="Deine Nachricht..." rows="1" onkeydown="if(event.key===&#39;Enter&#39;&amp;&amp;!event.shiftKey){event.preventDefault();sendMsg(2);}"></textarea>
+        <button class="send-btn" id="2-send" onclick="sendMsg(2)">↑</button>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(2,&#39;quiz&#39;)">← Quiz</button><button class="btn-primary" onclick="switchModule(3)">Weiter zu Modul 3 →</button></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ MODUL 3 ═══════════════════ -->
+<div class="module-shell" id="module-3">
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(3,&#39;video&#39;)">▶ Video</div>
+      <div class="tab" onclick="showTab(3,&#39;theory&#39;)">📖 Theorie</div>
+      <div class="tab" onclick="showTab(3,&#39;exercise&#39;)">✏️ Übung</div>
+      <div class="tab" onclick="showTab(3,&#39;quiz&#39;)">🎯 Quiz</div>
+      <div class="tab" onclick="showTab(3,&#39;ai&#39;)">🤖 KI-Praxis</div>
+    </div>
+  </div>
+  <div class="main">
+
+    <div class="section active" id="3-video">
+      <div class="sim-badge">✈ Flugsimulator · Modul 3 von 32</div>
+      <div class="video-wrap">
+        <iframe src="https://drive.google.com/file/d/1Y68J3nbBi12oySG52PNkbNIrTxWvcs4U/preview" allow="autoplay" allowfullscreen=""></iframe>
+        <div class="vfade-top"></div><div class="vfade-bot"></div>
+      </div>
+      <div class="intro-card">
+        <div class="section-label">Was dich erwartet</div>
+        <h2>Aktives Zuhören</h2>
+        <p>Aktives Zuhören ist mehr als schweigen. Es ist eine Technik, die Vertrauen schafft, Verbindung ermöglicht und Menschen dabei hilft, ihre eigenen Gedanken zu sortieren. Du lernst die 5 Schritte kennen – und warum Zuhören oft wirksamer ist als jeder Ratschlag.</p>
+      </div>
+      <div class="nav-row"><button class="btn-primary" onclick="showTab(3,&#39;theory&#39;)">Zur Theorie →</button></div>
+    </div>
+
+    <div class="section" id="3-theory">
+      <div class="section-label">Theorie · Modul 3</div>
+      <div class="grundsatz">
+        <div class="gl">Der Grundsatz</div>
+        <div class="gt">Menschen verändern sich selten weil man ihnen gute Ratschläge gibt.<br>Sie verändern sich oft weil sie sich verstanden fühlen.</div>
+      </div>
+      <div class="intro-card">
+        <div class="section-label">Was ist aktives Zuhören?</div>
+        <p>Aktives Zuhören bedeutet: Ich höre zu, um zu <strong>verstehen</strong> – nicht um zu antworten. Dadurch fühlt sich das Gegenüber gesehen, verstanden und ernst genommen.</p>
+        <p style="margin-top:.75rem;">Wenn Menschen über ein Problem sprechen, hören sie sich oft <strong>selbst zum ersten Mal bewusst zu</strong>. Allein durch das Erzählen entstehen häufig neue Erkenntnisse, Lösungen und Perspektivwechsel. Der Coach muss nicht immer Antworten liefern – oft reicht es, den richtigen Raum zu halten.</p>
+      </div>
+
+      <!-- 5 Schritte -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1.25rem;">Die 5 Schritte des aktiven Zuhörens</h3>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">1</div>
+          <div class="grow-content"><h4>Zuhören</h4><p>Nicht unterbrechen. Volle Aufmerksamkeit schenken. Nicht sofort nach Lösungen suchen.</p></div>
+        </div>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">2</div>
+          <div class="grow-content"><h4>Wiederholen</h4><p>Das Gesagte in eigenen Worten wiedergeben.</p><div class="example-box">„Wenn ich dich richtig verstehe, fühlst du dich gerade überfordert."</div></div>
+        </div>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">3</div>
+          <div class="grow-content"><h4>Zusammenfassen</h4><p>Die wichtigsten Punkte kurz bündeln.</p><div class="example-box">„Das Hauptthema scheint aktuell der Druck zwischen Familie und Arbeit zu sein."</div></div>
+        </div>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">4</div>
+          <div class="grow-content"><h4>Gefühle spiegeln</h4><p>Emotionen benennen – nicht interpretieren.</p><div class="example-box">„Das klingt nach Enttäuschung." · „Ich spüre viel Frust bei diesem Thema."</div></div>
+        </div>
+        <div class="grow-step" style="margin-bottom:0">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">5</div>
+          <div class="grow-content"><h4>Vertiefen</h4><p>Durch offene Fragen mehr Klarheit schaffen.</p><div class="example-box">„Was genau belastet dich daran?" · „Was wäre dir stattdessen wichtig?"</div></div>
+        </div>
+      </div>
+
+      <!-- Schaubild -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1rem;">Der Wirkungspfad</h3>
+        <div class="two-col">
+          <div class="flow">
+            <div class="flow-node">Erzählen</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">Zuhören</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">Verstehen</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">Spiegeln</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">Klarheit</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">Lösung</div>
+          </div>
+          <div>
+            <p style="font-size:13px;color:var(--text-mid);line-height:1.7;">Aktives Zuhören schafft:<br><br></p>
+            <div class="pill-wrap" style="flex-direction:column;gap:6px;">
+              <span class="pill">Vertrauen</span>
+              <span class="pill">Offenheit</span>
+              <span class="pill">Verbindung</span>
+              <span class="pill">Selbstreflexion</span>
+              <span class="pill">Tiefere Gespräche</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beispiel -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1rem;">Beispiel aus der Praxis</h3>
+        <p style="font-size:13px;color:var(--text-mid);margin-bottom:.75rem;"><strong>Coachee:</strong> „Ich bin ständig gestresst und weiß gar nicht mehr, wo ich anfangen soll."</p>
+        <div class="example-box bad" style="margin-bottom:.75rem;"><strong>Ohne aktives Zuhören:</strong><br>„Dann musst du besser planen."</div>
+        <div class="example-box"><strong>Mit aktivem Zuhören:</strong><br>„Du hast das Gefühl, dass dir gerade alles zu viel wird?"<br><br><strong>Coachee:</strong> „Ja, genau. Eigentlich fühle ich mich schon seit Wochen überfordert."<br><br>→ <em>Jetzt beginnt die eigentliche Coachingarbeit.</em></div>
+      </div>
+
+      <div class="merksatz"><p>„Erst verstehen, dann fragen. Wer gut zuhört, hört oft mehr als nur Worte."</p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(3,&#39;video&#39;)">← Video</button><button class="btn-primary" onclick="showTab(3,&#39;exercise&#39;)">Zur Übung →</button></div>
+    </div>
+
+    <div class="section" id="3-exercise">
+      <div class="section-label">Übung · Modul 3</div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 1 – Spiegeln üben</div>
+        <h3>Formuliere eine Spiegelung</h3>
+        <p>Dein Coachee sagt: <em>„Ich habe das Projekt abgegeben und eigentlich alles richtig gemacht, aber mein Chef hat kein Wort gesagt. Ich weiß nicht was ich denken soll."</em></p>
+        <p style="margin-top:.5rem;">Schreib eine Spiegelung (Schritt 2) und eine Gefühlsspiegelung (Schritt 4):</p>
+        <label style="font-size:13px;color:var(--text-mid);display:block;margin-bottom:5px;">Wiederholung in eigenen Worten:</label>
+        <textarea class="ex-input" placeholder="„Wenn ich dich richtig verstehe, ..." "=""></textarea>
+        <label style="font-size:13px;color:var(--text-mid);display:block;margin:10px 0 5px;">Gefühl spiegeln:</label>
+        <textarea class="ex-input" placeholder="„Das klingt nach ..." "=""></textarea>
+        <button class="btn-tab" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">Beispielantworten zeigen</button>
+        <div class="ex-example">Wiederholung: „Wenn ich dich richtig verstehe, hast du gute Arbeit geleistet – bekommst aber keinerlei Rückmeldung und weißt nicht, wie du das einordnen sollst."<br><br>Gefühl: „Das klingt nach Unsicherheit, vielleicht auch nach Enttäuschung. Du hättest dir ein Signal gewünscht, ob deine Arbeit gesehen wurde."</div>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 2 – Reflexion</div>
+        <h3>Wann fällt dir aktives Zuhören schwer?</h3>
+        <p>In welchen Situationen bist du versucht, schnell eine Lösung anzubieten oder zu unterbrechen – statt wirklich zuzuhören?</p>
+        <textarea class="ex-input" style="min-height:100px;" placeholder="z.B. wenn jemand klagt, wenn ich die Lösung schon kenne, wenn die Zeit knapp ist..."></textarea>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 3 – Praxis</div>
+        <h3>3-Minuten Zuhören</h3>
+        <p>Lass in einem Gespräch deinen Gegenüber 3 Minuten lang <strong>ununterbrochenem Erzählen</strong>. Nur zuhören, nicken, spiegeln. Keine Ratschläge, keine eigenen Geschichten. Was bemerkst du?</p>
+        <textarea class="ex-input" style="min-height:100px;" placeholder="Beobachtungen nach dem Gespräch..."></textarea>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(3,&#39;theory&#39;)">← Theorie</button><button class="btn-primary" onclick="showTab(3,&#39;quiz&#39;)">Zum Quiz →</button></div>
+    </div>
+
+    <div class="section" id="3-quiz">
+      <div class="section-label">Quiz · Modul 3 · 3 Fragen</div>
+      <div class="quiz-q-card" id="3q1">
+        <div class="quiz-q">1. Was bedeutet „aktives Zuhören" im Coaching?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;3q1&#39;,false)">🅐 Zuhören um schnell eine gute Lösung anbieten zu können</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q1&#39;,true)">🅑 Zuhören um den anderen wirklich zu verstehen – nicht um zu antworten</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q1&#39;,false)">🅒 Zuhören und dabei Notizen machen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q1&#39;,false)">🅓 Schweigen bis der andere fertig ist</div>
+        </div>
+        <div class="quiz-fb ok" id="3q1-ok">✓ Genau! Der entscheidende Unterschied: „Ich höre zu, um zu antworten" vs. „Ich höre zu, um zu verstehen." Erst das Zweite erzeugt wirkliche Verbindung.</div>
+        <div class="quiz-fb nok" id="3q1-nok">✗ Aktives Zuhören ist mehr als Schweigen oder Lösungen suchen. Der Kern: Zuhören um zu verstehen – nicht um zu antworten. Alles andere folgt daraus.</div>
+      </div>
+      <div class="quiz-q-card" id="3q2">
+        <div class="quiz-q">2. Welcher Schritt gehört NICHT zu den 5 Schritten des aktiven Zuhörens?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;3q2&#39;,false)">🅐 Wiederholen in eigenen Worten</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q2&#39;,false)">🅑 Gefühle spiegeln</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q2&#39;,true)">🅒 Eine Lösung vorschlagen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q2&#39;,false)">🅓 Zusammenfassen</div>
+        </div>
+        <div class="quiz-fb ok" id="3q2-ok">✓ Richtig! Die 5 Schritte sind: Zuhören, Wiederholen, Zusammenfassen, Gefühle spiegeln, Vertiefen. Eine Lösung vorzuschlagen gehört zum Beraten – nicht zum Coaching.</div>
+        <div class="quiz-fb nok" id="3q2-nok">✗ Die 5 Schritte sind: Zuhören → Wiederholen → Zusammenfassen → Gefühle spiegeln → Vertiefen. Lösungsvorschläge kommen beim aktiven Zuhören nicht vor – das wäre Beratung.</div>
+      </div>
+      <div class="quiz-q-card" id="3q3">
+        <div class="quiz-q">3. Warum ist aktives Zuhören oft wirksamer als ein guter Ratschlag?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;3q3&#39;,false)">🅐 Weil Ratschläge grundsätzlich falsch sind</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q3&#39;,false)">🅑 Weil Zuhören weniger Aufwand ist</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q3&#39;,true)">🅒 Weil Menschen sich erst verändern wenn sie sich wirklich verstanden fühlen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;3q3&#39;,false)">🅓 Weil der Coach keine Ratschläge geben darf</div>
+        </div>
+        <div class="quiz-fb ok" id="3q3-ok">✓ Perfekt! Oft ist der Grund für Ratschlag-Resistenz: Der Mensch fühlt sich noch nicht verstanden. Erst wenn dieses Gefühl da ist, öffnet er sich für neue Ideen.</div>
+        <div class="quiz-fb nok" id="3q3-nok">✗ Der Schlüsselinsight: Menschen verändern sich selten durch Ratschläge, sondern dann wenn sie sich verstanden fühlen. Aktives Zuhören schafft genau diese Voraussetzung.</div>
+      </div>
+      <div class="quiz-score" id="3-score"><div class="snum" id="3-score-num">0/3</div><p id="3-score-msg"></p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(3,&#39;exercise&#39;)">← Übung</button><button class="btn-primary" onclick="showTab(3,&#39;ai&#39;)">Zur KI-Praxis →</button></div>
+    </div>
+
+    <div class="section" id="3-ai">
+      <div class="section-label">KI-Praxis · Modul 3</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="3-btn-coachee" onclick="setMode(3,&#39;coachee&#39;)">🎭 Coachee-Modus<br><small style="font-weight:400;font-size:11px;">Du übst als Coach</small></button>
+        <button class="mode-btn" id="3-btn-guide" onclick="setMode(3,&#39;guide&#39;)">🧭 Lernbegleiter-Modus<br><small style="font-weight:400;font-size:11px;">KI gibt dir Feedback</small></button>
+      </div>
+      <div class="persona-card" id="3-persona-coachee">
+        <div class="p-avatar coachee">👩‍🦱</div>
+        <div class="p-info"><h4>Lena, 42 – deine Übungs-Klientin</h4><p>Lehrerin, zwei Kinder. Kommt erschöpft und weiß nicht wie sie das Schulsystem, die eigene Familie und die eigenen Bedürfnisse unter einen Hut bringen soll. Öffnet sich sehr wenn sie sich wirklich gehört fühlt – bleibt aber an der Oberfläche wenn Ratschläge kommen.</p></div>
+      </div>
+      <div class="persona-card" id="3-persona-guide" style="display:none">
+        <div class="p-avatar guide">🧭</div>
+        <div class="p-info"><h4>Dein Lernbegleiter</h4><p>Ich teste dein Verständnis der 5 Schritte des aktiven Zuhörens – mit konkreten Situationen und direktem Feedback.</p></div>
+      </div>
+      <div class="chat-box"><div class="chat-msgs" id="3-chat"></div></div>
+      <button class="fb-btn" id="3-fb-btn" onclick="requestFeedback(3)">Feedback zu meiner Coaching-Session anfordern</button>
+      <div class="chat-inp-wrap">
+        <textarea class="chat-inp" id="3-inp" placeholder="Deine Nachricht..." rows="1" onkeydown="if(event.key===&#39;Enter&#39;&amp;&amp;!event.shiftKey){event.preventDefault();sendMsg(3);}"></textarea>
+        <button class="send-btn" id="3-send" onclick="sendMsg(3)">↑</button>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(3,&#39;quiz&#39;)">← Quiz</button><button class="btn-primary" onclick="switchModule(4)">Weiter zu Modul 4 →</button></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ MODUL 4 ═══════════════════ -->
+<div class="module-shell" id="module-4">
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(4,&#39;video&#39;)">▶ Video</div>
+      <div class="tab" onclick="showTab(4,&#39;theory&#39;)">📖 Theorie</div>
+      <div class="tab" onclick="showTab(4,&#39;exercise&#39;)">✏️ Übung</div>
+      <div class="tab" onclick="showTab(4,&#39;quiz&#39;)">🎯 Quiz</div>
+      <div class="tab" onclick="showTab(4,&#39;ai&#39;)">🤖 KI-Praxis</div>
+    </div>
+  </div>
+  <div class="main">
+
+    <div class="section active" id="4-video">
+      <div class="sim-badge">✈ Flugsimulator · Modul 4 von 32</div>
+      <div class="video-wrap">
+        <iframe src="https://drive.google.com/file/d/1dWXnaRYkb_Ce3gxddwLGOx5UKs6Vnf8i/preview" allow="autoplay" allowfullscreen=""></iframe>
+        <div class="vfade-top"></div><div class="vfade-bot"></div>
+      </div>
+      <div class="intro-card">
+        <div class="section-label">Was dich erwartet</div>
+        <h2>SMART-Ziele</h2>
+        <p>Viele Menschen haben Wünsche, aber keine Ziele. SMART hilft dabei, aus einem vagen Wunsch ein klares Ziel zu machen – das konkret, messbar, motivierend, realistisch und terminiert ist. Eine der einfachsten und wirksamsten Methoden im Coaching.</p>
+      </div>
+      <div class="nav-row"><button class="btn-primary" onclick="showTab(4,&#39;theory&#39;)">Zur Theorie →</button></div>
+    </div>
+
+    <div class="section" id="4-theory">
+      <div class="section-label">Theorie · Modul 4</div>
+      <div class="grundsatz">
+        <div class="gl">Der Grundsatz</div>
+        <div class="gt">Ein Wunsch wird erst dann zum Ziel,<br>wenn er klar formuliert und mit einem Termin versehen wird.</div>
+      </div>
+
+      <!-- SMART Übersicht -->
+      <div class="smart-grid">
+        <div class="smart-item" style="background:#eaf2f0;"><div class="smart-letter" style="color:#3d6458;">S</div><div class="smart-label" style="color:#3d6458;">Spezifisch</div><div class="smart-desc" style="color:var(--text-mid);">Konkret und klar formuliert</div></div>
+        <div class="smart-item" style="background:#e1f5ee;"><div class="smart-letter" style="color:#0f6e56;">M</div><div class="smart-label" style="color:#0f6e56;">Messbar</div><div class="smart-desc" style="color:var(--text-mid);">Erkennbar wenn erreicht</div></div>
+        <div class="smart-item" style="background:#fbeaf0;"><div class="smart-letter" style="color:#993556;">A</div><div class="smart-label" style="color:#993556;">Attraktiv</div><div class="smart-desc" style="color:var(--text-mid);">Persönlich bedeutsam</div></div>
+        <div class="smart-item" style="background:#eeedfe;"><div class="smart-letter" style="color:#534ab7;">R</div><div class="smart-label" style="color:#534ab7;">Realistisch</div><div class="smart-desc" style="color:var(--text-mid);">Herausfordernd aber machbar</div></div>
+        <div class="smart-item" style="background:#faeeda;"><div class="smart-letter" style="color:#854f0b;">T</div><div class="smart-label" style="color:#854f0b;">Terminiert</div><div class="smart-desc" style="color:var(--text-mid);">Mit festem Datum</div></div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>S = Spezifisch</h3>
+          <p>Das Ziel muss konkret sein – nicht vage.</p>
+          <div class="example-box bad" style="margin-top:.75rem;">❌ „Ich möchte fitter werden."</div>
+          <div class="example-box" style="margin-top:.5rem;">✅ „Ich möchte 3x pro Woche 30 Minuten joggen."</div>
+        </div>
+        <div class="card">
+          <h3>M = Messbar</h3>
+          <p>Woran erkennst du, dass du es erreicht hast?</p>
+          <div class="example-box bad" style="margin-top:.75rem;">❌ „Mehr Kunden gewinnen."</div>
+          <div class="example-box" style="margin-top:.5rem;">✅ „5 neue Kunden bis Ende des Quartals."</div>
+        </div>
+        <div class="card">
+          <h3>A = Attraktiv</h3>
+          <p>Das Ziel sollte für dich persönlich bedeutsam sein. Die Frage dahinter: Warum möchtest du das wirklich?</p>
+        </div>
+        <div class="card">
+          <h3>R = Realistisch</h3>
+          <p>Herausfordernd – aber erreichbar.</p>
+          <div class="example-box bad" style="margin-top:.75rem;">❌ 20 kg in 4 Wochen.</div>
+          <div class="example-box" style="margin-top:.5rem;">✅ 5 kg in 3 Monaten.</div>
+        </div>
+        <div class="card card-full">
+          <h3>T = Terminiert</h3>
+          <p>Ein Ziel braucht einen Zeitpunkt – sonst bleibt es ein Wunsch.</p>
+          <div class="two-col" style="margin-top:.75rem;">
+            <div class="example-box bad">❌ „Irgendwann werde ich das machen."</div>
+            <div class="example-box">✅ „Bis zum 30. September werde ich das abgeschlossen haben."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anwendung -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1rem;">Anwendung im Coaching: 3 Schritte</h3>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">1</div>
+          <div class="grow-content"><h4>Wunsch formulieren lassen</h4><p>„Ich möchte mein eigenes Business aufbauen."</p></div>
+        </div>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">2</div>
+          <div class="grow-content"><h4>SMART-Fragen stellen</h4>
+            <div class="example-box">„Was genau möchtest du erreichen?" · „Woran erkennst du den Erfolg?" · „Warum ist das wichtig für dich?" · „Ist das realistisch?" · „Bis wann?"</div>
+          </div>
+        </div>
+        <div class="grow-step" style="margin-bottom:0">
+          <div class="grow-letter" style="background:var(--sage-pale);color:var(--sage);">3</div>
+          <div class="grow-content"><h4>SMART-Ziel formulieren</h4>
+            <div class="example-box">„Ich möchte bis zum 31.12. mein erstes Coaching-Angebot erstellen und drei zahlende Kunden gewinnen."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="merksatz"><p>„SMART sagt, WO du hinwillst. GROW zeigt, WIE du dorthin kommst."</p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(4,&#39;video&#39;)">← Video</button><button class="btn-primary" onclick="showTab(4,&#39;exercise&#39;)">Zur Übung →</button></div>
+    </div>
+
+    <div class="section" id="4-exercise">
+      <div class="section-label">Übung · Modul 4</div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 1 – SMART oder nicht?</div>
+        <h3>Prüfe diese Ziele</h3>
+        <p>Welche SMART-Kriterien fehlen bei diesem Ziel: <em>„Ich will mehr Sport machen und gesünder essen."</em> – Schreib auf was fehlt und formuliere es SMART:</p>
+        <textarea class="ex-input" placeholder="Was fehlt: ...\n\nSMART formuliert: ..."></textarea>
+        <button class="btn-tab" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">Beispielantwort zeigen</button>
+        <div class="ex-example">Fehlt: Spezifisch (was genau?), Messbar (wie viel?), Terminiert (bis wann?)<br><br>SMART: „Ich jogge ab dem 1. Februar jeden Montag und Donnerstag für 30 Minuten und esse an 5 Tagen pro Woche eine warme Mahlzeit mit Gemüse – bis Ende März."</div>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 2 – Eigenes SMART-Ziel</div>
+        <h3>Formuliere dein eigenes SMART-Ziel</h3>
+        <p>Wähle ein Ziel für deine Coaching-Praxis und formuliere es vollständig nach SMART:</p>
+        <textarea class="ex-input" style="min-height:120px;" placeholder="Mein Ziel (vage): ...\n\nS: ...\nM: ...\nA: ...\nR: ...\nT: ...\n\nMein SMART-Ziel: ..."></textarea>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 3 – SMART-Fragen üben</div>
+        <h3>SMART-Fragen für dein Gegenüber</h3>
+        <p>Schreib je eine gute Coaching-Frage für jeden SMART-Buchstaben, die du einem Coachee stellen würdest – ohne das Wort SMART zu nennen:</p>
+        <textarea class="ex-input" style="min-height:130px;" placeholder="S (Konkretisierung): ...\nM (Messbarkeit): ...\nA (Bedeutung): ...\nR (Realisierbarkeit): ...\nT (Zeitrahmen): ..."></textarea>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(4,&#39;theory&#39;)">← Theorie</button><button class="btn-primary" onclick="showTab(4,&#39;quiz&#39;)">Zum Quiz →</button></div>
+    </div>
+
+    <div class="section" id="4-quiz">
+      <div class="section-label">Quiz · Modul 4 · 3 Fragen</div>
+      <div class="quiz-q-card" id="4q1">
+        <div class="quiz-q">1. Was bedeutet das „A" in SMART?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;4q1&#39;,false)">🅐 Angemessen – das Ziel muss zur Person passen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q1&#39;,true)">🅑 Attraktiv – das Ziel muss persönlich bedeutsam und motivierend sein</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q1&#39;,false)">🅒 Ausführbar – das Ziel muss in Schritte aufgeteilt werden können</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q1&#39;,false)">🅓 Ambitioniert – das Ziel muss herausfordernd sein</div>
+        </div>
+        <div class="quiz-fb ok" id="4q1-ok">✓ Richtig! Attraktiv bedeutet: Das Ziel muss für den Coachee persönlich wichtig sein. Ein Ziel ohne emotionale Bedeutung verliert schnell an Motivation.</div>
+        <div class="quiz-fb nok" id="4q1-nok">✗ A steht für Attraktiv – das Ziel muss persönlich bedeutsam sein. Die entscheidende Coaching-Frage: „Warum ist dir dieses Ziel wirklich wichtig?"</div>
+      </div>
+      <div class="quiz-q-card" id="4q2">
+        <div class="quiz-q">2. Ein Coachee sagt: „Ich will irgendwann mal ein Buch schreiben." Was fehlt hauptsächlich?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;4q2&#39;,false)">🅐 Das Ziel ist nicht spezifisch genug</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q2&#39;,false)">🅑 Das Ziel ist nicht realistisch</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q2&#39;,true)">🅒 Das Ziel ist nicht terminiert und nicht messbar</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q2&#39;,false)">🅓 Das Ziel ist nicht attraktiv genug</div>
+        </div>
+        <div class="quiz-fb ok" id="4q2-ok">✓ Genau! „Irgendwann" ist kein Termin. Ohne T (Terminiert) und M (Messbar) bleibt es ein Wunsch. Die richtigen Fragen: „Bis wann?" und „Woran erkennst du, dass du angefangen hast?"</div>
+        <div class="quiz-fb nok" id="4q2-nok">✗ „Irgendwann" fehlt vor allem das T – kein Termin, kein Zeitdruck, kein Anfang. Außerdem fehlt M: Woran erkennt man Fortschritt? „Irgendwann" bleibt ein Traum ohne diese beiden Elemente.</div>
+      </div>
+      <div class="quiz-q-card" id="4q3">
+        <div class="quiz-q">3. Wie unterscheiden sich SMART-Ziele von Wünschen?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;4q3&#39;,false)">🅐 Wünsche sind unrealistisch, SMART-Ziele immer realistisch</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q3&#39;,false)">🅑 Wünsche kommen vom Herzen, SMART-Ziele vom Verstand</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q3&#39;,true)">🅒 SMART-Ziele sind konkret, messbar und terminiert – Wünsche bleiben vage und zeitlos</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;4q3&#39;,false)">🅓 Wünsche sind persönlicher, SMART-Ziele sachlicher</div>
+        </div>
+        <div class="quiz-fb ok" id="4q3-ok">✓ Perfekt! Der Kern: Wünsche sind vage und haben kein Datum. SMART macht sie konkret, messbar und zeitlich gebunden – und damit handelbar.</div>
+        <div class="quiz-fb nok" id="4q3-nok">✗ Der wichtigste Unterschied: Wünsche sind vage und haben kein Datum. „Fitter werden" ist ein Wunsch. „3x Joggen pro Woche bis März" ist ein SMART-Ziel – konkret, messbar, terminiert.</div>
+      </div>
+      <div class="quiz-score" id="4-score"><div class="snum" id="4-score-num">0/3</div><p id="4-score-msg"></p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(4,&#39;exercise&#39;)">← Übung</button><button class="btn-primary" onclick="showTab(4,&#39;ai&#39;)">Zur KI-Praxis →</button></div>
+    </div>
+
+    <div class="section" id="4-ai">
+      <div class="section-label">KI-Praxis · Modul 4</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="4-btn-coachee" onclick="setMode(4,&#39;coachee&#39;)">🎭 Coachee-Modus<br><small style="font-weight:400;font-size:11px;">Du übst als Coach</small></button>
+        <button class="mode-btn" id="4-btn-guide" onclick="setMode(4,&#39;guide&#39;)">🧭 Lernbegleiter-Modus<br><small style="font-weight:400;font-size:11px;">KI gibt dir Feedback</small></button>
+      </div>
+      <div class="persona-card" id="4-persona-coachee">
+        <div class="p-avatar coachee">👩‍💼</div>
+        <div class="p-info"><h4>Karin, 45 – deine Übungs-Klientin</h4><p>Marketingmanagerin, möchte sich selbstständig machen – hat aber immer nur vage Pläne. Sagt Dinge wie „irgendwann", „bald" oder „wenn die Zeit besser ist". Deine Aufgabe: hilf ihr durch SMART-Fragen zu einem konkreten Ziel zu kommen.</p></div>
+      </div>
+      <div class="persona-card" id="4-persona-guide" style="display:none">
+        <div class="p-avatar guide">🧭</div>
+        <div class="p-info"><h4>Dein Lernbegleiter</h4><p>Ich prüfe dein Verständnis der SMART-Formel – mit Beispielzielen zum Analysieren und praktischen Übungen.</p></div>
+      </div>
+      <div class="chat-box"><div class="chat-msgs" id="4-chat"></div></div>
+      <button class="fb-btn" id="4-fb-btn" onclick="requestFeedback(4)">Feedback zu meiner Coaching-Session anfordern</button>
+      <div class="chat-inp-wrap">
+        <textarea class="chat-inp" id="4-inp" placeholder="Deine Nachricht..." rows="1" onkeydown="if(event.key===&#39;Enter&#39;&amp;&amp;!event.shiftKey){event.preventDefault();sendMsg(4);}"></textarea>
+        <button class="send-btn" id="4-send" onclick="sendMsg(4)">↑</button>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(4,&#39;quiz&#39;)">← Quiz</button><button class="btn-primary" onclick="switchModule(5)">Weiter zu Modul 5 →</button></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ MODUL 5 ═══════════════════ -->
+<div class="module-shell" id="module-5">
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(5,&#39;video&#39;)">▶ Video</div>
+      <div class="tab" onclick="showTab(5,&#39;theory&#39;)">📖 Theorie</div>
+      <div class="tab" onclick="showTab(5,&#39;exercise&#39;)">✏️ Übung</div>
+      <div class="tab" onclick="showTab(5,&#39;quiz&#39;)">🎯 Quiz</div>
+      <div class="tab" onclick="showTab(5,&#39;ai&#39;)">🤖 KI-Praxis</div>
+    </div>
+  </div>
+  <div class="main">
+
+    <div class="section active" id="5-video">
+      <div class="sim-badge">✈ Flugsimulator · Modul 5 von 32</div>
+      <div class="video-wrap">
+        <iframe src="https://drive.google.com/file/d/161i86WEo9pG_HcusfBQei-d5adU7sY-V/preview" allow="autoplay" allowfullscreen=""></iframe>
+        <div class="vfade-top"></div><div class="vfade-bot"></div>
+      </div>
+      <div class="intro-card">
+        <div class="section-label">Was dich erwartet</div>
+        <h2>Das GROW-Modell</h2>
+        <p>GROW ist eines der bekanntesten Coaching-Modelle weltweit. Es bietet einen einfachen, klaren Gesprächsleitfaden – von der Zieldefinition bis zur konkreten Umsetzung. Du lernst die vier Phasen kennen und wie du damit strukturiert durch jede Coaching-Session führst.</p>
+      </div>
+      <div class="nav-row"><button class="btn-primary" onclick="showTab(5,&#39;theory&#39;)">Zur Theorie →</button></div>
+    </div>
+
+    <div class="section" id="5-theory">
+      <div class="section-label">Theorie · Modul 5</div>
+      <div class="grundsatz">
+        <div class="gl">Der Grundsatz</div>
+        <div class="gt">GROW ist kein Werkzeug für perfekte Antworten.<br>Es ist ein Weg, damit Menschen ihre eigenen Lösungen entdecken.</div>
+      </div>
+
+      <!-- GROW Overview -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1.25rem;">Die 4 Phasen des GROW-Modells</h3>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:#eaf2f0;color:#3d6458;font-size:20px;">G</div>
+          <div class="grow-content">
+            <h4>Goal – Ziel</h4>
+            <p style="margin-bottom:.5rem;">Was möchtest du erreichen?</p>
+            <div class="example-box">„Was ist dein Ziel?" · „Was soll am Ende anders sein?" · „Woran erkennst du den Erfolg?"</div>
+          </div>
+        </div>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:#e1f5ee;color:#0f6e56;font-size:20px;">R</div>
+          <div class="grow-content">
+            <h4>Reality – Realität</h4>
+            <p style="margin-bottom:.5rem;">Wo stehst du aktuell?</p>
+            <div class="example-box">„Wie sieht die Situation heute aus?" · „Was funktioniert bereits?" · „Welche Hindernisse gibt es?"</div>
+          </div>
+        </div>
+        <div class="grow-step">
+          <div class="grow-letter" style="background:#fbeaf0;color:#993556;font-size:20px;">O</div>
+          <div class="grow-content">
+            <h4>Options – Möglichkeiten</h4>
+            <p style="margin-bottom:.5rem;">Welche Wege gibt es?</p>
+            <div class="example-box">„Welche Lösungen fallen dir ein?" · „Was hast du noch nicht ausprobiert?" · „Was würdest du einem Freund empfehlen?"</div>
+          </div>
+        </div>
+        <div class="grow-step" style="margin-bottom:0">
+          <div class="grow-letter" style="background:#faeeda;color:#854f0b;font-size:20px;">W</div>
+          <div class="grow-content">
+            <h4>Will – Umsetzung</h4>
+            <p style="margin-bottom:.5rem;">Was wirst du konkret tun?</p>
+            <div class="example-box">„Was ist dein erster Schritt?" · „Wann beginnst du?" · „Woran merkst du Fortschritte?"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Praxisbeispiel -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:1rem;">Beispiel: „Ich möchte mich selbstständig machen."</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="example-box" style="border-left-color:#3d6458;"><strong style="color:#3d6458;">G – Goal:</strong> „Ich möchte innerhalb von 6 Monaten mein erstes Coaching-Angebot verkaufen."</div>
+          <div class="example-box" style="border-left-color:#0f6e56;"><strong style="color:#0f6e56;">R – Reality:</strong> „Ich habe bereits Fachwissen, aber noch kein konkretes Angebot formuliert."</div>
+          <div class="example-box" style="border-left-color:#993556;"><strong style="color:#993556;">O – Options:</strong> „Ich könnte ein Testangebot entwickeln, kostenlose Erstgespräche anbieten oder ein kleines Webinar starten."</div>
+          <div class="example-box" style="border-left-color:#854f0b;"><strong style="color:#854f0b;">W – Will:</strong> „Bis nächste Woche schreibe ich mein erstes Angebotskonzept auf einer A4-Seite."</div>
+        </div>
+      </div>
+
+      <!-- GROW vs SMART -->
+      <div class="card card-full" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;">
+        <h3 style="margin-bottom:.75rem;">SMART &amp; GROW – wie sie zusammenarbeiten</h3>
+        <div class="two-col">
+          <div style="background:var(--sage-pale);border-radius:10px;padding:12px;">
+            <div style="font-size:11px;font-weight:500;color:var(--sage);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">SMART</div>
+            <p style="font-size:13px;color:var(--text-mid);">Definiert das Ziel – sagt WO du hinwillst</p>
+          </div>
+          <div style="background:var(--apricot-pale);border-radius:10px;padding:12px;">
+            <div style="font-size:11px;font-weight:500;color:var(--apricot-dark);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">GROW</div>
+            <p style="font-size:13px;color:var(--text-mid);">Führt durch den Prozess – zeigt WIE du dorthin kommst</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="merksatz"><p>„GROW liefert die Struktur. Zuhören und Fragen füllen sie mit Leben."</p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(5,&#39;video&#39;)">← Video</button><button class="btn-primary" onclick="showTab(5,&#39;exercise&#39;)">Zur Übung →</button></div>
+    </div>
+
+    <div class="section" id="5-exercise">
+      <div class="section-label">Übung · Modul 5</div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 1 – Fragen zuordnen</div>
+        <h3>Welche GROW-Phase?</h3>
+        <p>Ordne diese Fragen den richtigen GROW-Phasen zu (G / R / O / W):</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1rem;">
+          <div class="example-box">„Was funktioniert in dieser Situation bereits gut?"</div>
+          <div class="example-box">„Welche Lösungen fallen dir spontan ein?"</div>
+          <div class="example-box">„Was soll am Ende dieser Coaching-Session anders sein?"</div>
+          <div class="example-box">„Was ist dein konkreter nächster Schritt bis Freitag?"</div>
+        </div>
+        <textarea class="ex-input" placeholder="Frage 1: Phase ...\nFrage 2: Phase ...\nFrage 3: Phase ...\nFrage 4: Phase ..."></textarea>
+        <button class="btn-tab" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">Lösung zeigen</button>
+        <div class="ex-example">Frage 1 → R (Reality – aktueller Stand)<br>Frage 2 → O (Options – Möglichkeiten)<br>Frage 3 → G (Goal – Ziel)<br>Frage 4 → W (Will – Umsetzung)</div>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 2 – Eigene GROW-Session planen</div>
+        <h3>Plane eine Mini-Session</h3>
+        <p>Wähle ein Thema (deins oder von jemandem den du kennst) und skizziere 1–2 Fragen für jede GROW-Phase:</p>
+        <textarea class="ex-input" style="min-height:150px;" placeholder="G: ...\nR: ...\nO: ...\nW: ..."></textarea>
+      </div>
+      <div class="exercise-card">
+        <div class="section-label">Übung 3 – Beobachtung</div>
+        <h3>GROW im echten Gespräch</h3>
+        <p>Führe ein kurzes Coaching-Gespräch bewusst nach GROW durch. Achte auf die Phase in der du gerade bist. Was passiert wenn du die Reihenfolge verlässt?</p>
+        <textarea class="ex-input" style="min-height:100px;" placeholder="Was ich beobachtet habe: ..."></textarea>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(5,&#39;theory&#39;)">← Theorie</button><button class="btn-primary" onclick="showTab(5,&#39;quiz&#39;)">Zum Quiz →</button></div>
+    </div>
+
+    <div class="section" id="5-quiz">
+      <div class="section-label">Quiz · Modul 5 · 3 Fragen</div>
+      <div class="quiz-q-card" id="5q1">
+        <div class="quiz-q">1. Wofür steht das „O" in GROW?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;5q1&#39;,false)">🅐 Ordnung – eine Struktur für das Gespräch</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q1&#39;,false)">🅑 Offenheit – die Grundhaltung des Coaches</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q1&#39;,true)">🅒 Options – die Erkundung von Möglichkeiten und Lösungswegen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q1&#39;,false)">🅓 Orientierung – das Ziel des Gesprächs</div>
+        </div>
+        <div class="quiz-fb ok" id="5q1-ok">✓ Richtig! O steht für Options. In dieser Phase erkundet der Coachee selbst, welche Möglichkeiten es gibt – ohne dass der Coach Lösungen vorgibt.</div>
+        <div class="quiz-fb nok" id="5q1-nok">✗ O steht für Options – die Phase in der Möglichkeiten und Lösungswege erkundet werden. Der Coach stellt Fragen wie: „Was hast du noch nicht ausprobiert?" oder „Was würdest du einem Freund empfehlen?"</div>
+      </div>
+      <div class="quiz-q-card" id="5q2">
+        <div class="quiz-q">2. In welcher Reihenfolge sollten die GROW-Phasen durchlaufen werden?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;5q2&#39;,false)">🅐 Reality → Goal → Options → Will</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q2&#39;,true)">🅑 Goal → Reality → Options → Will</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q2&#39;,false)">🅒 Options → Goal → Reality → Will</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q2&#39;,false)">🅓 Die Reihenfolge ist egal</div>
+        </div>
+        <div class="quiz-fb ok" id="5q2-ok">✓ Genau! Erst das Ziel klären (G), dann die aktuelle Situation verstehen (R), dann Möglichkeiten erkunden (O), dann konkrete Schritte festlegen (W). Diese Reihenfolge hat ihren Grund.</div>
+        <div class="quiz-fb nok" id="5q2-nok">✗ Die richtige Reihenfolge ist G → R → O → W. Erst das Ziel, dann die Realität, dann Optionen, dann Umsetzung. Ohne klares Ziel am Anfang irrt das Gespräch ziellos umher.</div>
+      </div>
+      <div class="quiz-q-card" id="5q3">
+        <div class="quiz-q">3. Ein Coachee spricht 20 Minuten über sein Problem, ohne dass ein Ziel klar wird. Was sollte der Coach tun?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="answer(this,&#39;5q3&#39;,false)">🅐 Weiter zuhören bis das Problem vollständig verstanden ist</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q3&#39;,false)">🅑 Eine Lösung vorschlagen um Zeit zu sparen</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q3&#39;,true)">🅒 Zurück zur G-Phase: „Was möchtest du am Ende dieser Session konkret erreicht haben?"</div>
+          <div class="quiz-opt" onclick="answer(this,&#39;5q3&#39;,false)">🅓 Die Session beenden und in der nächsten Sitzung weitermachen</div>
+        </div>
+        <div class="quiz-fb ok" id="5q3-ok">✓ Perfekt! Das ist einer der häufigsten Coaching-Fehler: zu lange in der Problem-Erzählung verweilen ohne ein Ziel zu klären. Die G-Frage bringt das Gespräch sofort auf Kurs.</div>
+        <div class="quiz-fb nok" id="5q3-nok">✗ Ohne klares Ziel verliert die Session ihre Richtung. Der Coach sollte zurück zur G-Phase: „Was möchtest du am Ende konkret anders haben?" – das ist die wichtigste Frage im GROW-Prozess.</div>
+      </div>
+      <div class="quiz-score" id="5-score"><div class="snum" id="5-score-num">0/3</div><p id="5-score-msg"></p></div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(5,&#39;exercise&#39;)">← Übung</button><button class="btn-primary" onclick="showTab(5,&#39;ai&#39;)">Zur KI-Praxis →</button></div>
+    </div>
+
+    <div class="section" id="5-ai">
+      <div class="section-label">KI-Praxis · Modul 5</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="5-btn-coachee" onclick="setMode(5,&#39;coachee&#39;)">🎭 Coachee-Modus<br><small style="font-weight:400;font-size:11px;">Du übst als Coach</small></button>
+        <button class="mode-btn" id="5-btn-guide" onclick="setMode(5,&#39;guide&#39;)">🧭 Lernbegleiter-Modus<br><small style="font-weight:400;font-size:11px;">KI gibt dir Feedback</small></button>
+      </div>
+      <div class="persona-card" id="5-persona-coachee">
+        <div class="p-avatar coachee">👨‍🍳</div>
+        <div class="p-info"><h4>Marco, 29 – dein Übungs-Klient</h4><p>Koch, träumt von einem eigenen kleinen Restaurant. Hat viele Ideen, aber verliert sich immer in Problemen und Hindernissen statt nach vorne zu schauen. Deine Aufgabe: führe ihn durch alle vier GROW-Phasen.</p></div>
+      </div>
+      <div class="persona-card" id="5-persona-guide" style="display:none">
+        <div class="p-avatar guide">🧭</div>
+        <div class="p-info"><h4>Dein Lernbegleiter</h4><p>Ich teste dein Verständnis des GROW-Modells – welche Frage gehört zu welcher Phase, wie du Übergänge gestaltest und wann du die G-Phase neu aktivieren musst.</p></div>
+      </div>
+      <div class="chat-box"><div class="chat-msgs" id="5-chat"></div></div>
+      <button class="fb-btn" id="5-fb-btn" onclick="requestFeedback(5)">Feedback zu meiner Coaching-Session anfordern</button>
+      <div class="chat-inp-wrap">
+        <textarea class="chat-inp" id="5-inp" placeholder="Deine Nachricht..." rows="1" onkeydown="if(event.key===&#39;Enter&#39;&amp;&amp;!event.shiftKey){event.preventDefault();sendMsg(5);}"></textarea>
+        <button class="send-btn" id="5-send" onclick="sendMsg(5)">↑</button>
+      </div>
+      <div class="nav-row"><button class="btn-secondary" onclick="showTab(5,&#39;quiz&#39;)">← Quiz</button><button class="btn-primary" onclick="alert(&#39;Modul 6 folgt in der naechsten Datei!&#39;)">Weiter zu Modul 6 →</button></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── MODULE SWITCH ──
+const MODULES_INFO = {
+  2:{title:'Modul 2 – Fragetechniken',sub:'Offene Fragen · Wunderfrage · Goldene 5'},
+  3:{title:'Modul 3 – Aktives Zuhören',sub:'5 Schritte · Spiegeln · Verstehen'},
+  4:{title:'Modul 4 – SMART-Ziele',sub:'Spezifisch · Messbar · Attraktiv · Realistisch · Terminiert'},
+  5:{title:'Modul 5 – GROW-Modell',sub:'Goal · Reality · Options · Will'},
+};
+
+function switchModule(n) {
+  document.querySelectorAll('.module-shell').forEach(m=>m.classList.remove('active'));
+  document.querySelectorAll('.mod-tab').forEach((t,i)=>{t.classList.toggle('active',i===n-2);});
+  document.getElementById('module-'+n).classList.add('active');
+  document.getElementById('main-title').textContent = MODULES_INFO[n].title;
+  document.getElementById('main-sub').textContent = MODULES_INFO[n].sub;
+  window.scrollTo(0,0);
+}
+
+// ── TAB SWITCH ──
+function showTab(mod, tab) {
+  const shell = document.getElementById('module-'+mod);
+  shell.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  shell.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(mod+'-'+tab).classList.add('active');
+  const tabs=['video','theory','exercise','quiz','ai'];
+  shell.querySelectorAll('.tab')[tabs.indexOf(tab)].classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ── QUIZ ──
+const quizState = {2:{q1:null,q2:null,q3:null},3:{q1:null,q2:null,q3:null},4:{q1:null,q2:null,q3:null},5:{q1:null,q2:null,q3:null}};
+
+function answer(el, qid, correct) {
+  const mod = parseInt(qid);
+  const q = qid.replace(mod,'');
+  if (quizState[mod][q] !== null) return;
+  quizState[mod][q] = correct;
+  el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(o=>o.classList.add('disabled'));
+  el.classList.add(correct?'correct':'wrong');
+  document.getElementById(qid+'-ok').classList.toggle('show',correct);
+  document.getElementById(qid+'-nok').classList.toggle('show',!correct);
+  const qs = quizState[mod];
+  if (Object.values(qs).every(v=>v!==null)) {
+    const score = Object.values(qs).filter(Boolean).length;
+    const msgs = ['Noch nicht ganz – lies die Theorie nochmal durch. 💪','Gut! Schau nochmal bei der falschen Frage nach.','Super! Du hast das Modul verstanden. 🎉'];
+    document.getElementById(mod+'-score-num').textContent = score+'/3';
+    document.getElementById(mod+'-score-msg').textContent = msgs[score-1]||msgs[0];
+    document.getElementById(mod+'-score').classList.add('show');
+  }
+}
+
+// ── AI CHAT ──
+const chatState = {};
+
+const COACHEE_PROMPTS = {
+  2: `Du bist Tom, 34 Jahre alt, Software-Entwickler. Du bist seit 4 Jahren im selben Job und weißt nicht ob du bleiben oder wechseln sollst. Du liebst die Technik aber hasst das Management. Antworte authentisch und menschlich auf Deutsch. Bei geschlossenen Fragen: kurze Antworten. Bei offenen Fragen: erzählst du mehr. Starte mit einer kurzen Beschreibung deiner Situation (2-3 Sätze, etwas zögerlich).`,
+  3: `Du bist Lena, 42 Jahre alt, Lehrerin, zwei Kinder (8 und 11). Du bist erschöpft und zerrissen zwischen Schule, Familie und dir selbst. Du hast das Gefühl dass alle immer etwas von dir wollen aber niemand fragt wie es dir geht. Du öffnest dich sehr wenn du dich wirklich gehört fühlst, aber zieht dich zurück wenn jemand sofort Ratschläge gibt. Antworte auf Deutsch, authentisch. Starte mit einer kurzen beschreibung deines Zustands.`,
+  4: `Du bist Karin, 45 Jahre alt, Marketingmanagerin. Du möchtest dich selbstständig machen als Coach oder Beraterin aber hast immer wieder Ausreden: "irgendwann", "wenn die Kinder groß sind", "wenn ich mehr Geld gespart habe". Du bist ambivalent: der Wunsch ist echt, aber die Angst auch. Antworte auf Deutsch. Formuliere vage Ziele wenn gefragt, lass dich durch SMART-Fragen konkretisieren. Starte mit deiner Situation.`,
+  5: `Du bist Marco, 29 Jahre alt, Koch. Du träumst von einem eigenen kleinen Restaurant – aber verlierst dich immer in Problemen: "Das kostet zu viel", "Ich kenne mich mit Business nicht aus", "Der Markt ist schwierig". Du hast viele Ideen aber keinen Plan. Lass dich durch GROW-Phasen führen. Antworte auf Deutsch, authentisch. Starte mit deinem Traum und sofortigen Bedenken.`,
+};
+
+const GUIDE_PROMPTS = {
+  2: `Du bist ein warmer, lockerer Lernbegleiter für die MUMTY Coaching-Ausbildung. Teste das Verständnis von Modul 2 (Fragetechniken). Wichtige Inhalte: 9 Fragetechniken (offene, geschlossene, Skalierung, lösungsorientiert, Wunderfrage, hypothetische, Ressourcen-, Vertiefungs-, Zukunftsfragen), die 5 goldenen Coachingfragen, häufige Fehler (Warum-Fragen, Suggestivfragen). Stelle eine Frage, gib Feedback, stelle nächste Frage. Locker, warm, direkt.`,
+  3: `Du bist ein warmer Lernbegleiter für MUMTY Modul 3 (Aktives Zuhören). Inhalte: 5 Schritte (Zuhören, Wiederholen, Zusammenfassen, Gefühle spiegeln, Vertiefen), Unterschied Zuhören zum Verstehen vs. zum Antworten, Wirkungspfad. Stelle eine Frage, gib konkretes Feedback. Locker, warm, direkt.`,
+  4: `Du bist ein warmer Lernbegleiter für MUMTY Modul 4 (SMART-Ziele). Inhalte: S=Spezifisch, M=Messbar, A=Attraktiv, R=Realistisch, T=Terminiert, Unterschied Wunsch vs. Ziel, SMART-Fragen im Coaching. Stelle eine Frage, gib konkretes Feedback. Locker, warm, direkt.`,
+  5: `Du bist ein warmer Lernbegleiter für MUMTY Modul 5 (GROW-Modell). Inhalte: G=Goal, R=Reality, O=Options, W=Will, Fragen für jede Phase, Zusammenspiel mit SMART, wann man zur G-Phase zurückgeht. Stelle eine Frage, gib konkretes Feedback. Locker, warm, direkt.`,
+};
+
+function setMode(mod, mode) {
+  if (!chatState[mod]) chatState[mod] = {};
+  chatState[mod].mode = mode;
+  chatState[mod].history = [];
+  chatState[mod].msgCount = 0;
+  chatState[mod].initialized = false;
+  document.getElementById(mod+'-btn-coachee').classList.toggle('active',mode==='coachee');
+  document.getElementById(mod+'-btn-guide').classList.toggle('active',mode==='guide');
+  document.getElementById(mod+'-persona-coachee').style.display = mode==='coachee'?'flex':'none';
+  document.getElementById(mod+'-persona-guide').style.display = mode==='guide'?'flex':'none';
+  document.getElementById(mod+'-fb-btn').classList.remove('show');
+  document.getElementById(mod+'-chat').innerHTML = '';
+  initChat(mod);
+}
+
+async function initChat(mod) {
+  if (!chatState[mod]) chatState[mod]={mode:'coachee',history:[],msgCount:0,initialized:false};
+  if (chatState[mod].initialized) return;
+  chatState[mod].initialized = true;
+  const mode = chatState[mod].mode;
+  const sys = mode==='coachee' ? COACHEE_PROMPTS[mod] : GUIDE_PROMPTS[mod];
+  showTyping(mod);
+  const msg = await callClaude(sys,[{role:'user',content:'Beginne.'}]);
+  hideTyping(mod);
+  addMsg(mod,'ai',msg);
+  chatState[mod].history.push({role:'assistant',content:msg});
+}
+
+function addMsg(mod, role, text) {
+  const wrap = document.getElementById(mod+'-chat');
+  const d = document.createElement('div');
+  d.className = 'msg '+role;
+  const mode = chatState[mod]?.mode||'coachee';
+  const av = role==='ai'?(mode==='coachee'?['👨','👩‍🦱','👩‍💼','👨‍🍳'][mod-2]:'🧭'):'👤';
+  d.innerHTML=`<div class="msg-av">${av}</div><div class="msg-bub">${text.replace(/\n/g,'<br>')}</div>`;
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+
+function showTyping(mod) {
+  const wrap = document.getElementById(mod+'-chat');
+  const d = document.createElement('div');
+  d.className='msg ai'; d.id=mod+'-typing';
+  const mode = chatState[mod]?.mode||'coachee';
+  const av = mode==='coachee'?['👨','👩‍🦱','👩‍💼','👨‍🍳'][mod-2]:'🧭';
+  d.innerHTML=`<div class="msg-av">${av}</div><div class="msg-bub"><div class="typing-dots"><span class="dot-t"></span><span class="dot-t"></span><span class="dot-t"></span></div></div>`;
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+function hideTyping(mod){const t=document.getElementById(mod+'-typing');if(t)t.remove();}
+
+async function sendMsg(mod) {
+  const inp = document.getElementById(mod+'-inp');
+  const text = inp.value.trim();
+  if (!text) return;
+  if (!chatState[mod]?.initialized) {initChat(mod);return;}
+  inp.value=''; inp.style.height='auto';
+  document.getElementById(mod+'-send').disabled=true;
+  addMsg(mod,'user',text);
+  chatState[mod].history.push({role:'user',content:text});
+  chatState[mod].msgCount++;
+  showTyping(mod);
+  const mode = chatState[mod].mode;
+  const sys = mode==='coachee' ? COACHEE_PROMPTS[mod]+' Antworte kurz, maximal 3-4 Sätze.' : GUIDE_PROMPTS[mod];
+  const resp = await callClaude(sys, chatState[mod].history);
+  hideTyping(mod);
+  addMsg(mod,'ai',resp);
+  chatState[mod].history.push({role:'assistant',content:resp});
+  document.getElementById(mod+'-send').disabled=false;
+  if (chatState[mod].msgCount>=4 && mode==='coachee') {
+    document.getElementById(mod+'-fb-btn').classList.add('show');
+  }
+}
+
+async function requestFeedback(mod) {
+  document.getElementById(mod+'-fb-btn').classList.remove('show');
+  showTyping(mod);
+  const fbSys = `Du hast gerade eine Coaching-Übungssession als Coachee begleitet. Gib jetzt als Lernbegleiter ein kurzes, ehrliches Feedback: Was hat gut geklappt (konkret benennen), was kann besser werden (konstruktiv), eine konkrete Empfehlung. Locker, warm, max. 120 Wörter.`;
+  const fb = await callClaude(fbSys, chatState[mod].history);
+  hideTyping(mod);
+  const wrap = document.getElementById(mod+'-chat');
+  const d = document.createElement('div');
+  d.style.cssText='background:var(--sage-pale);border-radius:12px;padding:14px;margin:10px 0;font-size:14px;color:var(--sage);line-height:1.65;border-left:3px solid var(--sage);';
+  d.innerHTML='<strong>Feedback zu deiner Session:</strong><br><br>'+fb.replace(/\n/g,'<br>');
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+
+async function callClaude(system, messages) {
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system,messages})
+    });
+    const d = await r.json();
+    return d.content?.[0]?.text||'Entschuldigung, ich konnte keine Antwort generieren.';
+  } catch(e) {
+    return 'Verbindungsfehler – bitte versuche es erneut.';
+  }
+}
+
+// Auto-resize textareas
+document.querySelectorAll('.chat-inp').forEach(inp=>{
+  inp.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px';});
+});
+
+// Init KI for module 2 when AI tab is clicked
+document.querySelectorAll('.tab').forEach((tab,i)=>{
+  tab.addEventListener('click',()=>{
+    const activeModule = parseInt(document.querySelector('.module-shell.active').id.replace('module-',''));
+    if(tab.textContent.includes('KI') && !chatState[activeModule]?.initialized){
+      if(!chatState[activeModule]) chatState[activeModule]={mode:'coachee',history:[],msgCount:0,initialized:false};
+      initChat(activeModule);
+    }
+  });
+});
+</script>
+
+
+</body></html>
