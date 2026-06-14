@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///Users/famsta22/Downloads/mumty_module27bis31.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY Coaching-Ausbildung – Module 27–31</title>
+<style>
+  :root {
+    --salbei: #5e8478;
+    --salbei-mid: #7da398;
+    --salbei-pale: #eaf2f0;
+    --apricot: #e8a882;
+    --apricot-pale: #fdf3ec;
+    --apricot-dark: #7a3e28;
+    --bg: #f4f8f6;
+    --gradient: linear-gradient(135deg, #3d6458, #5e8478, #7da398, #5e8478);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: #2c2c2c;
+    min-height: 100vh;
+  }
+
+  /* ── Top Nav ── */
+  .top-nav {
+    background: var(--gradient);
+    padding: 0 1rem;
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-nav button {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    padding: 1rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .top-nav button:hover { color: #fff; }
+  .top-nav button.active {
+    color: #fff;
+    border-bottom-color: var(--apricot);
+    font-weight: 700;
+  }
+
+  /* ── Module Panel ── */
+  .module-panel { display: none; }
+  .module-panel.active { display: block; }
+
+  /* ── Module Header ── */
+  .module-header {
+    background: var(--gradient);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .module-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  .module-number {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 0.4rem;
+  }
+  .module-header h1 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+  .module-header p {
+    font-size: 1rem;
+    opacity: 0.88;
+    max-width: 640px;
+    line-height: 1.5;
+  }
+
+  /* ── Tab Bar ── */
+  .tab-bar {
+    background: #fff;
+    border-bottom: 2px solid var(--salbei-pale);
+    display: flex;
+    overflow-x: auto;
+  }
+  .tab-bar button {
+    background: none;
+    border: none;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-bar button:hover { color: var(--salbei); }
+  .tab-bar button.active {
+    color: var(--salbei);
+    border-bottom-color: var(--salbei);
+  }
+
+  /* ── Tab Content ── */
+  .tab-content { display: none; padding: 2rem; max-width: 860px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* ── Video Tab ── */
+  .video-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  }
+  .video-wrapper iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+  }
+  .video-fade-top {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--bg), transparent);
+    pointer-events: none;
+  }
+  .video-fade-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
+  }
+  .video-hint {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #888;
+  }
+
+  /* ── Theorie ── */
+  .theorie-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+  }
+  .theorie-section h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--salbei);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--salbei-pale);
+  }
+  .theorie-section h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--apricot-dark);
+    margin: 1rem 0 0.5rem;
+  }
+  .theorie-section p { line-height: 1.7; margin-bottom: 0.8rem; color: #3a3a3a; }
+  .theorie-section ul, .theorie-section ol {
+    margin: 0.5rem 0 0.8rem 1.4rem;
+    line-height: 1.7;
+    color: #3a3a3a;
+  }
+  .theorie-section li { margin-bottom: 0.3rem; }
+
+  .merksatz {
+    background: var(--apricot-pale);
+    border-left: 4px solid var(--apricot);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.2rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--apricot-dark);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .check-list { list-style: none; margin-left: 0 !important; }
+  .check-list li::before { content: '✅ '; }
+
+  .fehler-list { list-style: none; margin-left: 0 !important; }
+  .fehler-list li::before { content: '❌ '; }
+
+  /* ── SVG Schaubilder ── */
+  .schaubild-wrap {
+    margin: 1.2rem 0;
+    background: var(--salbei-pale);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .schaubild-wrap svg { max-width: 100%; overflow: visible; }
+
+  /* ── Übung ── */
+  .uebung-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+    border-left: 4px solid var(--salbei-mid);
+  }
+  .uebung-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--salbei);
+    margin-bottom: 0.8rem;
+  }
+  .uebung-card p { line-height: 1.7; margin-bottom: 0.8rem; color: #3a3a3a; }
+  .uebung-card textarea {
+    width: 100%;
+    min-height: 110px;
+    border: 1.5px solid #cde0da;
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    transition: border-color 0.2s;
+    background: var(--bg);
+  }
+  .uebung-card textarea:focus { outline: none; border-color: var(--salbei); }
+  .beispiel-toggle {
+    background: var(--salbei-pale);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--salbei);
+    cursor: pointer;
+    margin-top: 0.7rem;
+    transition: background 0.2s;
+  }
+  .beispiel-toggle:hover { background: #cde0da; }
+  .beispiel-antwort {
+    display: none;
+    background: var(--salbei-pale);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    margin-top: 0.6rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #2c4a42;
+  }
+  .beispiel-antwort.open { display: block; }
+
+  /* ── Quiz ── */
+  .quiz-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+  }
+  .quiz-card .question {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #2c2c2c;
+  }
+  .quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border: 1.5px solid #e0e0e0;
+    transition: all 0.2s;
+    background: var(--bg);
+    font-size: 0.91rem;
+    line-height: 1.5;
+  }
+  .quiz-option:hover { border-color: var(--salbei-mid); background: var(--salbei-pale); }
+  .quiz-option.correct { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+  .quiz-option.wrong { background: #fdecea; border-color: #ef5350; color: #7f0000; }
+  .quiz-option input { margin-top: 3px; flex-shrink: 0; }
+  .quiz-btn {
+    background: var(--salbei);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    transition: background 0.2s;
+  }
+  .quiz-btn:hover { background: #4a6d63; }
+  .quiz-feedback {
+    display: none;
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .quiz-feedback.correct { background: #e8f5e9; color: #1b5e20; border: 1px solid #4caf50; }
+  .quiz-feedback.wrong { background: #fdecea; color: #7f0000; border: 1px solid #ef5350; }
+
+  /* ── KI-Praxis ── */
+  .ki-mode-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 0.4rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+  }
+  .ki-mode-toggle button {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: #666;
+    transition: all 0.2s;
+  }
+  .ki-mode-toggle button.active {
+    background: var(--salbei);
+    color: #fff;
+  }
+
+  .ki-persona-card {
+    background: var(--apricot-pale);
+    border: 1.5px solid var(--apricot);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--apricot-dark);
+  }
+  .ki-persona-card strong { display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+
+  .ki-chat-window {
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid #e0e0e0;
+    height: 340px;
+    overflow-y: auto;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .ki-chat-window .msg {
+    max-width: 82%;
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .ki-chat-window .msg.user {
+    background: var(--salbei);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+  .ki-chat-window .msg.ai {
+    background: var(--salbei-pale);
+    color: #2c2c2c;
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+  }
+  .ki-chat-window .msg.system {
+    background: var(--apricot-pale);
+    color: var(--apricot-dark);
+    align-self: center;
+    font-size: 0.82rem;
+    font-style: italic;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .ki-input-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .ki-input-row textarea {
+    flex: 1;
+    min-height: 58px;
+    max-height: 120px;
+    border: 1.5px solid #cde0da;
+    border-radius: 8px;
+    padding: 0.65rem;
+    font-family: inherit;
+    font-size: 0.88rem;
+    resize: vertical;
+  }
+  .ki-input-row textarea:focus { outline: none; border-color: var(--salbei); }
+  .ki-send-btn {
+    background: var(--salbei);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 1.1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-end;
+    height: 58px;
+  }
+  .ki-send-btn:hover { background: #4a6d63; }
+  .ki-reset-btn {
+    background: transparent;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    color: #666;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  .ki-reset-btn:hover { border-color: var(--salbei); color: var(--salbei); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .tab-content { padding: 1rem; }
+    .theorie-section, .uebung-card, .quiz-card { padding: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION -->
+<nav class="top-nav" id="topNav">
+  <button class="active" onclick="showModule(&#39;m27&#39;, this)">M27 Auftragsklärung</button>
+  <button onclick="showModule(&#39;m28&#39;, this)">M28 Coachingprozess</button>
+  <button onclick="showModule(&#39;m29&#39;, this)">M29 Ethik &amp; Grenzen</button>
+  <button onclick="showModule(&#39;m30&#39;, this)">M30 Methodenauswahl</button>
+  <button onclick="showModule(&#39;m31&#39;, this)">M31 Fallarbeit</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 27 – DAS AUFTRAGSKLÄRUNGSGESPRÄCH
+════════════════════════════════════════════════ -->
+<div class="module-panel active" id="m27">
+  <div class="module-header">
+    <div class="module-number">Modul 27</div>
+    <h1>Das Auftragsklärungsgespräch</h1>
+    <p>Bevor Methoden greifen, muss das richtige Thema gefunden werden. Hier lernst du, wie ein Coaching wirklich beginnt.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab(&#39;m27&#39;,&#39;video&#39;,this)">🎬 Video</button>
+    <button onclick="showTab(&#39;m27&#39;,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button onclick="showTab(&#39;m27&#39;,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button onclick="showTab(&#39;m27&#39;,&#39;quiz&#39;,this)">🧠 Quiz</button>
+    <button onclick="showTab(&#39;m27&#39;,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="tab-content active" id="m27-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1sVgooa8iox3IgIIpphozfbkXm65st1ob/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Tipp: Vollbild-Modus für beste Lernerfahrung</p>
+  </div>
+
+  <!-- THEORIE -->
+  <div class="tab-content" id="m27-theorie">
+
+    <div class="theorie-section">
+      <h2>Was ist das Auftragsklärungsgespräch?</h2>
+      <p>Das Auftragsklärungsgespräch ist der <strong>Start eines professionellen Coachings</strong>. Bevor Lösungen gesucht oder Methoden angewendet werden, wird gemeinsam geklärt:</p>
+      <ul>
+        <li>Worum geht es eigentlich?</li>
+        <li>Was möchte der Coachee erreichen?</li>
+        <li>Was soll sich verändern?</li>
+        <li>Woran erkennen wir den Erfolg?</li>
+      </ul>
+      <p>Viele Menschen kommen mit einem <em>Problem</em>. Ein guter Coach hilft zunächst dabei, daraus einen <strong>klaren Auftrag</strong> zu formulieren.</p>
+      <div class="merksatz">Ein guter Coach löst nicht sofort Probleme. Er sorgt zuerst dafür, dass das <em>richtige</em> Problem bearbeitet wird.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Warum ist das so wichtig?</h2>
+      <p>Viele Coachings scheitern nicht an fehlenden Methoden – sie scheitern daran, dass das eigentliche Thema nie richtig geklärt wurde.</p>
+      <p><strong>Beispiel:</strong> Der Coachee sagt: „Ich bin gestresst." Doch dahinter könnte stehen:</p>
+      <ul>
+        <li>Fehlende Grenzen</li>
+        <li>Konflikte im Job</li>
+        <li>Perfektionismus</li>
+        <li>Überforderung</li>
+        <li>Fehlende Prioritäten</li>
+      </ul>
+      <p>Der Coach muss zuerst verstehen: <strong>Worum geht es wirklich?</strong></p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Das Ziel der Auftragsklärung</h2>
+      <p>Am Ende des Gesprächs sollen beide Seiten beantworten können:</p>
+      <ol>
+        <li>Was ist das Thema?</li>
+        <li>Was ist das Ziel?</li>
+        <li>Woran erkennen wir Erfolg?</li>
+        <li>Was soll konkret anders werden?</li>
+      </ol>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die 5 Schritte der Auftragsklärung</h2>
+
+      <h3>1. Anliegen verstehen</h3>
+      <p>Der Coachee schildert seine Situation. Hilfreiche Fragen: „Was führt dich heute zu mir?", „Was beschäftigt dich aktuell?", „Was möchtest du verändern?"</p>
+
+      <h3>2. Das eigentliche Thema herausarbeiten</h3>
+      <p>Oft ist das erste Problem nicht das eigentliche Thema. Nachfragen: „Wodurch entsteht der Stress?", „Was genau belastet dich?", „Seit wann ist das so?"</p>
+
+      <h3>3. Ziel definieren</h3>
+      <p>„Was möchtest du stattdessen erleben?", „Was soll nach dem Coaching anders sein?", „Woran erkennst du den Erfolg?"</p>
+
+      <h3>4. Motivation prüfen</h3>
+      <p>„Warum ist dir das wichtig?", „Was verändert sich dadurch?", „Was gewinnst du dadurch?" – Hier entsteht oft die <em>emotionale Verbindung</em> zum Ziel.</p>
+
+      <h3>5. Auftrag formulieren</h3>
+      <p>Gemeinsam wird ein klarer Coachingauftrag formuliert. Beispiel: <em>„Ich möchte lernen, klare Grenzen zu setzen, um meinen Stress zu reduzieren und mehr Zeit für meine Familie zu haben."</em></p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" style="max-width:320px">
+          <defs>
+            <marker id="arr27" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#5e8478"></polygon>
+            </marker>
+          </defs>
+          <!-- Boxes -->
+          <rect x="80" y="10" width="160" height="36" rx="8" fill="#5e8478"></rect>
+          <text x="160" y="33" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">ANLIEGEN</text>
+          <line x1="160" y1="46" x2="160" y2="62" stroke="#5e8478" stroke-width="2" marker-end="url(#arr27)"></line>
+
+          <rect x="80" y="64" width="160" height="36" rx="8" fill="#7da398"></rect>
+          <text x="160" y="87" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">VERSTEHEN</text>
+          <line x1="160" y1="100" x2="160" y2="116" stroke="#5e8478" stroke-width="2" marker-end="url(#arr27)"></line>
+
+          <rect x="80" y="118" width="160" height="36" rx="8" fill="#5e8478"></rect>
+          <text x="160" y="141" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">ZIEL</text>
+          <line x1="160" y1="154" x2="160" y2="170" stroke="#5e8478" stroke-width="2" marker-end="url(#arr27)"></line>
+
+          <rect x="80" y="172" width="160" height="36" rx="8" fill="#7da398"></rect>
+          <text x="160" y="195" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">MOTIVATION</text>
+          <line x1="160" y1="208" x2="160" y2="224" stroke="#5e8478" stroke-width="2" marker-end="url(#arr27)"></line>
+
+          <rect x="80" y="226" width="160" height="36" rx="8" fill="#e8a882"></rect>
+          <text x="160" y="249" text-anchor="middle" fill="#7a3e28" font-size="13" font-weight="700">AUFTRAG</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Coachingfragen für die Auftragsklärung</h2>
+      <h3>Situationsfragen</h3>
+      <ul>
+        <li>Was ist aktuell die Herausforderung?</li>
+        <li>Was funktioniert bereits gut?</li>
+        <li>Was hast du schon versucht?</li>
+      </ul>
+      <h3>Zielfragen</h3>
+      <ul>
+        <li>Was möchtest du erreichen?</li>
+        <li>Was wäre ein gutes Ergebnis?</li>
+        <li>Woran erkennst du Erfolg?</li>
+      </ul>
+      <h3>Motivationsfragen</h3>
+      <ul>
+        <li>Warum ist das wichtig?</li>
+        <li>Was verändert sich dadurch?</li>
+        <li>Was passiert, wenn du nichts veränderst?</li>
+      </ul>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Häufige Fehler von Coaches</h2>
+      <ul class="fehler-list">
+        <li>Zu schnell Lösungen anbieten</li>
+        <li>Zu früh Methoden einsetzen</li>
+        <li>Das erste Problem für das eigentliche Thema halten</li>
+        <li>Keine klare Zieldefinition erarbeiten</li>
+        <li>Erfolgskriterien nicht festlegen</li>
+      </ul>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <h3>Auftragsklärung &amp; SMART</h3>
+      <p>Die Auftragsklärung findet das Ziel. SMART macht es konkret und messbar.</p>
+      <div class="merksatz">Die Auftragsklärung findet die Richtung. SMART macht sie messbar.</div>
+      <h3>Auftragsklärung &amp; GROW</h3>
+      <p>Die Auftragsklärung klärt das Thema. GROW strukturiert anschließend den Coachingprozess.</p>
+      <div class="merksatz">Erst den Auftrag klären. Dann den Weg entwickeln.</div>
+      <h3>Auftragsklärung &amp; Coachingprozess</h3>
+      <p>Die Auftragsklärung bildet das Fundament für das gesamte Coaching. Ohne klaren Auftrag fehlt die Orientierung.</p>
+    </div>
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m27-uebung">
+    <div class="uebung-card">
+      <h3>Übung 1: Das verborgene Thema entdecken</h3>
+      <p>Jemand kommt zu dir ins Coaching und sagt: <em>„Ich bin ständig müde und habe keine Energie mehr."</em> Formuliere 5 Nachfragen, die helfen, das eigentliche Thema dahinter zu finden.</p>
+      <textarea placeholder="Deine Nachfragen..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Mögliche Nachfragen: „Seit wann ist das so?" – „Was passiert in Momenten, wo du Energie hast?" – „Was gibt dir gerade am meisten Energie weg?" – „Gibt es etwas, das du dir selbst nicht erlaubst?" – „Was müsste sich verändern, damit du dich besser fühlst?" Diese Fragen öffnen verschiedene Richtungen: körperliche Erschöpfung, fehlende Grenzen, innere Antreiber oder Lebensumstände.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 2: Auftrag formulieren</h3>
+      <p>Formuliere auf Basis dieses Anliegens einen konkreten Coachingauftrag: <em>„Ich weiß nicht, ob ich meinen Job wechseln soll. Ich bin total unentschlossen und das macht mich fertig."</em></p>
+      <textarea placeholder="Dein Coachingauftrag..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Möglicher Auftrag: „Ich möchte Klarheit gewinnen, was mir in meiner beruflichen Tätigkeit wirklich wichtig ist, damit ich eine Entscheidung treffen kann, die zu meinen Werten und meinem Leben passt." Dieser Auftrag ist spezifischer als das ursprüngliche Anliegen und zeigt einen klaren Fokus: Werte klären, nicht einfach eine Entscheidung erzwingen.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 3: Die Erfolgsfrage</h3>
+      <p>Woran erkennt man am Ende eines Coachings, ob es erfolgreich war? Entwickle 3 konkrete Erfolgskriterien für das folgende Thema: <em>„Ich möchte mehr Selbstbewusstsein im Beruf."</em></p>
+      <textarea placeholder="Deine Erfolgskriterien..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Mögliche Kriterien: 1) „Ich spreche in der nächsten Teambesprechung mindestens einmal meine Meinung aus, ohne mich vorher zu entschuldigen." 2) „Ich sage bis Ende des Monats in einem konkreten Moment Nein, wenn ich etwas nicht möchte." 3) „Ich bitte aktiv um Feedback und nehme es an, ohne mich zu rechtfertigen." Gute Erfolgskriterien sind konkret, beobachtbar und im Alltag überprüfbar.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m27-quiz">
+    <div class="quiz-card" id="m27q1">
+      <p class="question">1. Warum ist das Auftragsklärungsgespräch so entscheidend für ein Coaching?</p>
+      <label class="quiz-option"><input type="radio" name="m27q1" value="a"> Es legt fest, welche Methoden im Coaching eingesetzt werden.</label>
+      <label class="quiz-option"><input type="radio" name="m27q1" value="b"> Es stellt sicher, dass Coach und Coachee dasselbe Ziel verfolgen und am richtigen Thema arbeiten.</label>
+      <label class="quiz-option"><input type="radio" name="m27q1" value="c"> Es dient dazu, die Persönlichkeit des Coachees zu analysieren.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m27q1&#39;,&#39;b&#39;,&#39;Genau! Die Auftragsklärung sorgt dafür, dass das eigentliche Thema bearbeitet wird – nicht nur das erste, was der Coachee nennt. Ohne klaren Auftrag fehlt dem Coaching die Orientierung.&#39;,&#39;Das stimmt nicht ganz. Die Auftragsklärung geht tiefer: Sie stellt sicher, dass das eigentliche Thema (nicht das offensichtliche Problem) bearbeitet wird.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m27q1-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m27q2">
+      <p class="question">2. Ein Coachee sagt: „Ich habe keinen Antrieb mehr." Was ist die beste erste Reaktion eines Coaches?</p>
+      <label class="quiz-option"><input type="radio" name="m27q2" value="a"> Sofort das Reiss-Profil einsetzen, um die Motivationsstruktur zu analysieren.</label>
+      <label class="quiz-option"><input type="radio" name="m27q2" value="b"> Beruhigen und sagen, dass das vielen Menschen so geht.</label>
+      <label class="quiz-option"><input type="radio" name="m27q2" value="c"> Nachfragen: Seit wann ist das so? Was genau fehlt dir? Was hat sich verändert?</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m27q2&#39;,&#39;c&#39;,&#39;Sehr gut! Zuerst das Anliegen tiefer verstehen – nicht sofort eine Methode anwenden. Der erste Schritt der Auftragsklärung ist immer das echte Zuhören und gezielte Nachfragen.&#39;,&#39;Das ist nicht die beste erste Reaktion. Bevor Methoden eingesetzt werden, muss das eigentliche Thema verstanden sein – durch gezieltes Nachfragen.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m27q2-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m27q3">
+      <p class="question">3. Was ist das Ergebnis einer guten Auftragsklärung?</p>
+      <label class="quiz-option"><input type="radio" name="m27q3" value="a"> Der Coach hat ein klares Bild davon, welche Persönlichkeitstypen im Coaching-Raum sind.</label>
+      <label class="quiz-option"><input type="radio" name="m27q3" value="b"> Beide Seiten wissen: Was ist das Thema, was ist das Ziel und woran erkennen wir Erfolg?</label>
+      <label class="quiz-option"><input type="radio" name="m27q3" value="c"> Der Coachee hat eine fertige Lösung für sein Problem entwickelt.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m27q3&#39;,&#39;b&#39;,&#39;Perfekt! Die Auftragsklärung endet nicht mit einer Lösung, sondern mit einem gemeinsamen Verständnis von Thema, Ziel und Erfolgskriterien – das ist die Grundlage für alles, was danach kommt.&#39;,&#39;Noch nicht ganz. Lösungen entstehen im weiteren Coaching. Die Auftragsklärung schafft erst die Grundlage: gemeinsames Verständnis von Thema, Ziel und Erfolg.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m27q3-feedback"></div>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m27-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode(&#39;m27&#39;,&#39;coachee&#39;)">🎭 Coachee-Modus</button>
+      <button onclick="setKiMode(&#39;m27&#39;,&#39;lern&#39;)">📚 Lernbegleiter</button>
+    </div>
+
+    <div class="ki-persona-card" id="m27-persona"><strong>🎭 Deine Übungsklientin: Katharina, 37</strong>Katharina ist selbstständige Grafikdesignerin. Sie kommt zu dir mit den Worten: „Ich weiß irgendwie nicht, wo ich gerade stehe. Ich bin unzufrieden, aber ich kann gar nicht sagen womit." Übe, aus diesem vagen Anliegen einen klaren Coachingauftrag herauszuarbeiten.</div>
+
+    <div class="ki-chat-window" id="m27-chat"><div class="msg system">✨ Neues Gespräch gestartet. Beginne dein Coaching!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m27-input" placeholder="Deine Coaching-Frage an Katharina..." onkeydown="handleKiKey(event,&#39;m27&#39;)"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage(&#39;m27&#39;)">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi(&#39;m27&#39;)">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 28 – DER COACHINGPROZESS
+════════════════════════════════════════════════ -->
+<div class="module-panel" id="m28">
+  <div class="module-header">
+    <div class="module-number">Modul 28</div>
+    <h1>Der Coachingprozess</h1>
+    <p>Das Modul, das alles zusammenführt. Wann setze ich welche Methode ein – und warum?</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab(&#39;m28&#39;,&#39;video&#39;,this)">🎬 Video</button>
+    <button onclick="showTab(&#39;m28&#39;,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button onclick="showTab(&#39;m28&#39;,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button onclick="showTab(&#39;m28&#39;,&#39;quiz&#39;,this)">🧠 Quiz</button>
+    <button onclick="showTab(&#39;m28&#39;,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m28-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1BsUAXSZrT_P7N-U6hzpO5fhC0XE61nho/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Tipp: Vollbild-Modus für beste Lernerfahrung</p>
+  </div>
+
+  <div class="tab-content" id="m28-theorie">
+    <div class="theorie-section">
+      <h2>Was ist der Coachingprozess?</h2>
+      <p>Der Coachingprozess ist der <strong>rote Faden</strong> eines Coachings. Er sorgt dafür, dass Gespräche strukturiert, zielorientiert und professionell ablaufen.</p>
+      <p>Ein guter Coach springt nicht wahllos zwischen Methoden. Er folgt einem Prozess.</p>
+      <div class="merksatz">Methoden sind Werkzeuge. Der Coachingprozess entscheidet, wann welches Werkzeug sinnvoll eingesetzt wird.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Warum ist dieses Modell wichtig?</h2>
+      <p>Viele Anfänger-Coaches stellen viele Fragen und kennen viele Methoden – verlieren aber den Überblick. Das Ergebnis: Das Coaching fühlt sich an wie Methode → Methode → Methode, ohne erkennbaren roten Faden. Der Coachee erlebt keine klare Reise. Der Coachingprozess schafft Orientierung.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die 7 Phasen eines Coachings</h2>
+
+      <h3>1. Kontakt &amp; Beziehung</h3>
+      <p><strong>Ziel:</strong> Vertrauen aufbauen. Der Coachee muss sich sicher, verstanden und angenommen fühlen.</p>
+      <p><em>Hilfreiche Methoden:</em> Aktives Zuhören, Fragetechniken, Rapport</p>
+
+      <h3>2. Auftragsklärung</h3>
+      <p><strong>Ziel:</strong> Verstehen, worum es wirklich geht. „Was möchtest du erreichen?", „Was soll sich verändern?", „Woran erkennen wir Erfolg?" (Skalierungsfragen eignen sich hier gut.)</p>
+
+      <h3>3. Zieldefinition</h3>
+      <p>Jetzt wird das Ziel konkret.</p>
+      <p><em>Hilfreiche Methoden:</em> SMART, GROW (Goal), Wertearbeit</p>
+
+      <h3>4. Analysephase</h3>
+      <p>Die aktuelle Situation wird tiefgehend verstanden.</p>
+      <p><em>Mögliche Methoden:</em> SWOT, Emotionale Grundbedürfnisse, Glaubenssätze, Inneres Team, Johari-Fenster, Reiss-Profil</p>
+
+      <h3>5. Intervention</h3>
+      <p>Jetzt beginnt die eigentliche Veränderungsarbeit.</p>
+      <p><em>Mögliche Methoden:</em> Reframing, Inneres Team, Happy Place, ZRM, GFK, Drama-Dreieck</p>
+
+      <h3>6. Umsetzung</h3>
+      <p>„Was ist dein nächster Schritt?", „Was wirst du konkret tun?", „Wann beginnst du?"</p>
+      <p><em>Methoden:</em> SMART, GROW (Will), SWOT, Circle of Influence</p>
+
+      <h3>7. Transfer &amp; Abschluss</h3>
+      <p><strong>Ziel:</strong> Erkenntnisse in den Alltag bringen. „Was nimmst du mit?", „Was war die wichtigste Erkenntnis?", „Wie stellst du die Umsetzung sicher?"</p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg" style="max-width:320px">
+          <defs>
+            <marker id="arr28" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#5e8478"></polygon>
+            </marker>
+          </defs>
+          <rect x="60" y="10" width="200" height="32" rx="8" fill="#3d6458"></rect>
+          <text x="160" y="31" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">1. BEZIEHUNG</text>
+          <line x1="160" y1="42" x2="160" y2="54" stroke="#5e8478" stroke-width="2" marker-end="url(#arr28)"></line>
+
+          <rect x="60" y="56" width="200" height="32" rx="8" fill="#5e8478"></rect>
+          <text x="160" y="77" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">2. AUFTRAG</text>
+          <line x1="160" y1="88" x2="160" y2="100" stroke="#5e8478" stroke-width="2" marker-end="url(#arr28)"></line>
+
+          <rect x="60" y="102" width="200" height="32" rx="8" fill="#7da398"></rect>
+          <text x="160" y="123" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">3. ZIEL</text>
+          <line x1="160" y1="134" x2="160" y2="146" stroke="#5e8478" stroke-width="2" marker-end="url(#arr28)"></line>
+
+          <rect x="60" y="148" width="200" height="32" rx="8" fill="#5e8478"></rect>
+          <text x="160" y="169" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">4. ANALYSE</text>
+          <line x1="160" y1="180" x2="160" y2="192" stroke="#5e8478" stroke-width="2" marker-end="url(#arr28)"></line>
+
+          <rect x="60" y="194" width="200" height="32" rx="8" fill="#7da398"></rect>
+          <text x="160" y="215" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">5. INTERVENTION</text>
+          <line x1="160" y1="226" x2="160" y2="238" stroke="#5e8478" stroke-width="2" marker-end="url(#arr28)"></line>
+
+          <rect x="60" y="240" width="200" height="32" rx="8" fill="#5e8478"></rect>
+          <text x="160" y="261" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">6. UMSETZUNG</text>
+          <line x1="160" y1="272" x2="160" y2="284" stroke="#5e8478" stroke-width="2" marker-end="url(#arr28)"></line>
+
+          <rect x="60" y="286" width="200" height="32" rx="8" fill="#e8a882"></rect>
+          <text x="160" y="307" text-anchor="middle" fill="#7a3e28" font-size="12" font-weight="700">7. TRANSFER</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Verbindung zu allen bisherigen Modellen</h2>
+      <p>Der Coachingprozess ist das <strong>Dach über allen Methoden</strong>. Er hilft dem Coach dabei, Orientierung zu behalten, Gespräche professionell zu führen und die richtigen Methoden zur richtigen Zeit einzusetzen.</p>
+      <div class="merksatz">Der Coachingprozess entscheidet, wann welches Werkzeug sinnvoll eingesetzt wird.</div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m28-uebung">
+    <div class="uebung-card">
+      <h3>Übung 1: Phasen zuordnen</h3>
+      <p>Ordne folgende Coaching-Interventionen der richtigen Phase zu: a) „Was nimmst du als wichtigste Erkenntnis mit?" b) Tiefgehende SWOT-Analyse der aktuellen Situation c) „Was führt dich heute zu mir?" d) Reframing eines blockierenden Glaubenssatzes e) SMART-Ziel entwickeln</p>
+      <textarea placeholder="Deine Zuordnung..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        a) → Phase 7 (Transfer &amp; Abschluss) | b) → Phase 4 (Analyse) | c) → Phase 2 (Auftragsklärung) | d) → Phase 5 (Intervention) | e) → Phase 3 (Zieldefinition). Der Coachingprozess ist kein starres Schema – manchmal kehrt man zurück, aber die Richtung bleibt gleich.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 2: Der rote Faden</h3>
+      <p>Stell dir vor, ein Coachee kommt mit dem Thema: <em>„Ich will endlich mein erstes Online-Angebot launchen, aber ich fange immer wieder von vorne an."</em> Skizziere, wie du die 7 Phasen in diesem Coaching gestalten würdest.</p>
+      <textarea placeholder="Dein Prozess-Entwurf..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Phase 1: Vertrauen schaffen, offen zuhören. Phase 2: Herausfinden, was „immer wieder von vorne anfangen" bedeutet – Perfektionismus? Angst vor Kritik? Phase 3: Klares Ziel: z.B. ein konkretes Angebot bis Datum X veröffentlichen. Phase 4: SWOT + Glaubenssatzarbeit (z.B. „Ich bin noch nicht gut genug"). Phase 5: Reframing des Glaubenssatzes, Inneres Team (welcher Anteil hält zurück?). Phase 6: Konkreter nächster Schritt mit Datum. Phase 7: Reflexion, was sich bereits verändert hat.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 3: Die Methoden-Werkzeugkiste</h3>
+      <p>Welche 3 Methoden aus der Ausbildung würdest du für die Interventionsphase bevorzugen und warum? Begründe deine Wahl.</p>
+      <textarea placeholder="Deine Methoden und Begründung..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Beispiel: 1) Reframing – weil es Perspektiven schnell verändern kann und direkt zugänglich ist. 2) Inneres Team – weil innere Konflikte oft der eigentliche Kern sind. 3) Happy Place / ZRM – weil sie Ressourcen aktivieren und neue Handlungsräume öffnen. Entscheidend ist immer: Was braucht der Coachee gerade? Nicht: Was kenne ich am besten?
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m28-quiz">
+    <div class="quiz-card" id="m28q1">
+      <p class="question">1. Was ist die Hauptfunktion des Coachingprozesses?</p>
+      <label class="quiz-option"><input type="radio" name="m28q1" value="a"> Er legt fest, welche Persönlichkeitsmodelle im Coaching eingesetzt werden dürfen.</label>
+      <label class="quiz-option"><input type="radio" name="m28q1" value="b"> Er sorgt dafür, dass Gespräche strukturiert und zielorientiert verlaufen und die richtigen Methoden zur richtigen Zeit eingesetzt werden.</label>
+      <label class="quiz-option"><input type="radio" name="m28q1" value="c"> Er bestimmt, wie lange ein Coaching dauert.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m28q1&#39;,&#39;b&#39;,&#39;Genau! Der Coachingprozess ist der rote Faden – er schafft Orientierung für Coach und Coachee und hilft dabei, Methoden passend zur aktuellen Phase einzusetzen.&#39;,&#39;Das stimmt nicht ganz. Der Coachingprozess ist kein Zeitplan, sondern ein struktureller Leitfaden, der sicherstellt, dass Gespräche zielorientiert verlaufen.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m28q1-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m28q2">
+      <p class="question">2. In welcher Phase wird typischerweise das Reiss-Profil eingesetzt?</p>
+      <label class="quiz-option"><input type="radio" name="m28q2" value="a"> Phase 1 – Kontakt &amp; Beziehung</label>
+      <label class="quiz-option"><input type="radio" name="m28q2" value="b"> Phase 4 – Analysephase</label>
+      <label class="quiz-option"><input type="radio" name="m28q2" value="c"> Phase 7 – Transfer &amp; Abschluss</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m28q2&#39;,&#39;b&#39;,&#39;Richtig! In der Analysephase geht es darum, die aktuelle Situation und die Hintergründe zu verstehen – dafür sind diagnostische Werkzeuge wie das Reiss-Profil ideal.&#39;,&#39;Nicht ganz. Das Reiss-Profil ist ein Analysewerkzeug und gehört in die Analysephase, wo die aktuelle Situation und Motivationsstruktur des Coachees verstanden werden soll.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m28q2-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m28q3">
+      <p class="question">3. Was beschreibt den häufigsten Anfängerfehler beim Coaching?</p>
+      <label class="quiz-option"><input type="radio" name="m28q3" value="a"> Zu wenige Methoden zu kennen und daher unsicher zu sein.</label>
+      <label class="quiz-option"><input type="radio" name="m28q3" value="b"> Methoden wahllos anzuwenden ohne dem Prozess zu folgen – der Coachee erlebt keine klare Reise.</label>
+      <label class="quiz-option"><input type="radio" name="m28q3" value="c"> Zu viel auf den Coachee einzugehen und zu wenig zu leiten.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m28q3&#39;,&#39;b&#39;,&#39;Genau! Methoden-Hopping ohne Prozess ist der klassische Anfängerfehler. Viele Fragen und viele Methoden helfen nichts, wenn der rote Faden fehlt.&#39;,&#39;Das ist nicht der häufigste Fehler. Das Problem ist meist nicht zu wenig Wissen, sondern das fehlende Prozessverständnis – wahlloser Methodeneinsatz ohne roten Faden.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m28q3-feedback"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m28-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode(&#39;m28&#39;,&#39;coachee&#39;)">🎭 Coachee-Modus</button>
+      <button onclick="setKiMode(&#39;m28&#39;,&#39;lern&#39;)">📚 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-card" id="m28-persona"><strong>🎭 Dein Übungsklient: Lukas, 41</strong>Lukas ist Führungskraft in einem mittelständischen Unternehmen. Er sagt: „Ich führe schon seit Jahren Coaching-Gespräche mit meinen Mitarbeitern – aber irgendwie kommt dabei selten etwas raus. Ich weiß nicht warum." Übe, gemeinsam mit Lukas herauszufinden, was im Prozess fehlt.</div>
+    <div class="ki-chat-window" id="m28-chat"><div class="msg system">✨ Neues Gespräch gestartet. Beginne dein Coaching!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m28-input" placeholder="Deine Coaching-Frage an Lukas..." onkeydown="handleKiKey(event,&#39;m28&#39;)"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage(&#39;m28&#39;)">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi(&#39;m28&#39;)">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 29 – ETHIK UND GRENZEN IM COACHING
+════════════════════════════════════════════════ -->
+<div class="module-panel" id="m29">
+  <div class="module-header">
+    <div class="module-number">Modul 29</div>
+    <h1>Ethik und Grenzen im Coaching</h1>
+    <p>Professionelles Coaching bedeutet nicht nur, Methoden zu kennen – sondern auch zu wissen, wann Coaching endet und andere Hilfe beginnt.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab(&#39;m29&#39;,&#39;video&#39;,this)">🎬 Video</button>
+    <button onclick="showTab(&#39;m29&#39;,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button onclick="showTab(&#39;m29&#39;,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button onclick="showTab(&#39;m29&#39;,&#39;quiz&#39;,this)">🧠 Quiz</button>
+    <button onclick="showTab(&#39;m29&#39;,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m29-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/13ytc35sj7crMhg9IZmTlNk0PN9Hh-3Zv/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Tipp: Vollbild-Modus für beste Lernerfahrung</p>
+  </div>
+
+  <div class="tab-content" id="m29-theorie">
+    <div class="theorie-section">
+      <h2>Was ist Ethik im Coaching?</h2>
+      <p>Ethik beschreibt die <strong>Grundhaltung und Verantwortung</strong> eines Coaches gegenüber seinen Coachees. Ein Coach arbeitet mit Menschen, ihren Gedanken, Gefühlen und Entscheidungen – manchmal auch mit sehr persönlichen Themen.</p>
+      <p>Deshalb reicht es nicht aus, nur Methoden zu kennen. Ein professioneller Coach muss wissen:</p>
+      <ul>
+        <li>Was Coaching leisten kann</li>
+        <li>Wo die Grenzen des Coachings liegen</li>
+        <li>Wann andere Fachpersonen benötigt werden</li>
+        <li>Wie Verantwortung sinnvoll verteilt wird</li>
+      </ul>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Was ist Coaching – und was nicht?</h2>
+      <h3>Coaching ist:</h3>
+      <ul>
+        <li>Hilfe zur Selbsthilfe</li>
+        <li>Begleitung von Entwicklungsprozessen</li>
+        <li>Förderung von Selbstreflexion</li>
+        <li>Unterstützung bei Entscheidungen</li>
+        <li>Aktivierung von Ressourcen</li>
+        <li>Erweiterung von Perspektiven</li>
+      </ul>
+      <h3>Coaching ist keine:</h3>
+      <ul class="fehler-list">
+        <li>Psychotherapie oder psychiatrische Behandlung</li>
+        <li>Medizinische Behandlung</li>
+        <li>Rechts- oder Steuerberatung</li>
+        <li>Paar- oder Traumatherapie</li>
+      </ul>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die Verantwortung im Coaching</h2>
+      <p>Ein professioneller Coach übernimmt <strong>nicht</strong> die Verantwortung für das Leben des Coachees.</p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+          <rect x="10" y="10" width="120" height="50" rx="8" fill="#5e8478"></rect>
+          <text x="70" y="30" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">COACH</text>
+          <text x="70" y="48" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="10">begleitet den Prozess</text>
+
+          <rect x="170" y="10" width="120" height="50" rx="8" fill="#e8a882"></rect>
+          <text x="230" y="30" text-anchor="middle" fill="#7a3e28" font-size="11" font-weight="700">COACHEE</text>
+          <text x="230" y="48" text-anchor="middle" fill="#7a3e28" font-size="10">trägt die Lösung</text>
+
+          <line x1="130" y1="35" x2="165" y2="35" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"></line>
+
+          <text x="150" y="90" text-anchor="middle" fill="#5e8478" font-size="10">↓</text>
+          <text x="230" y="90" text-anchor="middle" fill="#5e8478" font-size="10">↓</text>
+          <text x="150" y="108" text-anchor="middle" fill="#888" font-size="10">Prozess</text>
+          <text x="230" y="108" text-anchor="middle" fill="#888" font-size="10">Lösung</text>
+          <text x="230" y="124" text-anchor="middle" fill="#888" font-size="10">Umsetzung</text>
+          <text x="230" y="140" text-anchor="middle" fill="#888" font-size="10">Ergebnis</text>
+        </svg>
+      </div>
+      <div class="merksatz">Der Coach begleitet den Weg. Der Coachee geht ihn selbst.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die wichtigsten ethischen Grundprinzipien</h2>
+      <h3>1. Wertschätzung</h3>
+      <p>Jeder Mensch wird respektvoll behandelt – unabhängig von Herkunft, Bildung, Geschlecht, Lebensstil oder Weltanschauung.</p>
+      <h3>2. Freiwilligkeit</h3>
+      <p>Coaching funktioniert nur, wenn der Coachee freiwillig teilnehmen möchte. Veränderung kann nicht erzwungen werden.</p>
+      <h3>3. Eigenverantwortung</h3>
+      <p>Der Coach unterstützt. Die Entscheidungen trifft der Coachee.</p>
+      <h3>4. Vertraulichkeit</h3>
+      <p>Alles Besprochene bleibt vertraulich. Vertrauen ist die Grundlage jeder Coachingbeziehung.</p>
+      <h3>5. Transparenz</h3>
+      <p>Der Coach arbeitet offen. Methoden, Ziele und Vorgehensweisen werden nachvollziehbar erklärt.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Warnsignale im Coaching</h2>
+      <p>Es gibt Situationen, in denen ein Coach aufmerksam werden sollte. Mögliche Hinweise:</p>
+      <ul>
+        <li>Starke Antriebslosigkeit oder dauerhafte Hoffnungslosigkeit</li>
+        <li>Schwere depressive Symptome oder akute Panikzustände</li>
+        <li>Suchterkrankungen oder Traumafolgen</li>
+        <li>Selbstverletzung oder Suizidgedanken</li>
+      </ul>
+      <p>In solchen Fällen muss geprüft werden, ob zusätzlich therapeutische oder medizinische Unterstützung notwendig ist.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Wann sollte ein Coach weiterverweisen?</h2>
+      <p>Ein Coach zeigt Professionalität nicht dadurch, dass er alles selbst löst – sondern dadurch, dass er erkennt: <em>„Dieses Thema gehört in andere Hände."</em></p>
+      <p>Mögliche Ansprechpartner: Psychotherapeut, Arzt, Psychiater, Suchtberatung, Rechtsanwalt, Schuldnerberatung.</p>
+
+      <h3>Typische Anfängerfehler</h3>
+      <p><strong>Retterrolle:</strong> „Ich muss meinem Kunden helfen." → Gefahr: Der Coach übernimmt Verantwortung, die nicht ihm gehört.</p>
+      <p><strong>Überforderung:</strong> „Ich muss auf alles eine Antwort haben." → Gefahr: Der Coach verlässt seine Kompetenzgrenzen.</p>
+      <p><strong>Rollenvermischung:</strong> Coach wird gleichzeitig Freund, Therapeut, Berater und Problemlöser. → Unklarheit auf beiden Seiten.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <h3>Ethik &amp; Drama-Dreieck</h3>
+      <p>Viele Coaches geraten unbewusst in die Retterrolle. Ein professioneller Coach bleibt außerhalb des Dramas.</p>
+      <div class="merksatz">Wer seine Rolle kennt, kennt auch seine Grenzen.</div>
+      <h3>Ethik &amp; Auftragsklärung</h3>
+      <p>Eine gute Auftragsklärung hilft bereits früh zu erkennen: Ist Coaching passend? Sind die Erwartungen realistisch? Braucht es zusätzliche Unterstützung?</p>
+      <h3>Praxisfragen vor jeder Begleitung</h3>
+      <ul>
+        <li>Ist Coaching hier das richtige Format?</li>
+        <li>Liegt das Thema innerhalb meiner Kompetenz?</li>
+        <li>Übernehme ich gerade Verantwortung, die dem Coachee gehört?</li>
+        <li>Würde eine andere Fachperson mehr helfen?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m29-uebung">
+    <div class="uebung-card">
+      <h3>Übung 1: Grenzen erkennen</h3>
+      <p>Lies folgende Aussagen eines Coachees und entscheide: Fällt das noch in den Bereich Coaching oder braucht es eine andere Fachperson? Begründe kurz. a) „Ich schlafe seit drei Wochen kaum, alles fühlt sich sinnlos an." b) „Ich weiß nicht, ob ich kündigen soll." c) „Ich trinke jeden Abend eine Flasche Wein, das ist das Einzige, was hilft."</p>
+      <textarea placeholder="Deine Einschätzung..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        a) Warnsignal! Schlafentzug + Sinnlosigkeit könnten auf Depression hinweisen → Empfehlung: therapeutische Abklärung. Coaching kann parallel begleiten, aber nicht ersetzen. b) Klassisches Coaching-Thema – Entscheidungsfindung, Wertearbeit, GROW. c) Alkohol als Bewältigungsstrategie → Empfehlung zur Suchtberatung. Coaching ist hier nicht das richtige primäre Format.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 2: Die Retterrolle</h3>
+      <p>Eine Klientin ruft dich abends an, ist am Weinen und sagt: „Ich weiß nicht mehr weiter, du bist der Einzige, dem ich noch vertraue." Wie reagierst du – und wie vermeidest du dabei die Retterrolle?</p>
+      <textarea placeholder="Deine Reaktion..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Mit Empathie zuhören, aber klar bleiben: „Ich bin froh, dass du dich meldest. Was du gerade fühlst, ist wichtig. Gleichzeitig ist es mir wichtig, dass du die Unterstützung bekommst, die du wirklich brauchst – und das könnte mehr sein als Coaching." Abend-Anrufe außerhalb der Coaching-Stunden können sanft auf klare Strukturen hingewiesen werden: Die Retterrolle entsteht, wenn ich keine Grenzen setze.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 3: Meine ethische Grundhaltung</h3>
+      <p>Formuliere in eigenen Worten, was die drei für dich wichtigsten ethischen Prinzipien im Coaching sind – und warum gerade diese.</p>
+      <textarea placeholder="Deine ethische Grundhaltung..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Beispiel: 1) Eigenverantwortung – weil ich nur begleite und nicht rette. Wenn der Coachee spürt, dass er selbst der Experte seines Lebens ist, wird das Coaching wirksam. 2) Vertraulichkeit – weil Vertrauen die Grundlage ist. Ohne das öffnet sich niemand wirklich. 3) Grenzen kennen – weil ich meinen Coachees am meisten helfe, wenn ich ehrlich sage, wann jemand anderes besser geeignet ist.
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m29-quiz">
+    <div class="quiz-card" id="m29q1">
+      <p class="question">1. Was beschreibt den Grundsatz der Eigenverantwortung im Coaching?</p>
+      <label class="quiz-option"><input type="radio" name="m29q1" value="a"> Der Coach ist verantwortlich dafür, dass der Coachee sein Ziel erreicht.</label>
+      <label class="quiz-option"><input type="radio" name="m29q1" value="b"> Der Coach unterstützt, aber die Entscheidungen trifft der Coachee – er geht seinen Weg selbst.</label>
+      <label class="quiz-option"><input type="radio" name="m29q1" value="c"> Der Coachee muss eigenständig alle Methoden anwenden ohne Anleitung.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m29q1&#39;,&#39;b&#39;,&#39;Genau! Eigenverantwortung bedeutet: Der Coach begleitet, aber er trägt nicht die Verantwortung für das Leben und die Entscheidungen des Coachees.&#39;,&#39;Nicht ganz. Der Coach ist nicht für das Ergebnis verantwortlich – er begleitet den Prozess. Für Lösungen, Entscheidungen und Umsetzung ist der Coachee selbst zuständig.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m29q1-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m29q2">
+      <p class="question">2. Ein Coachee erzählt von anhaltender Hoffnungslosigkeit und Schlaflosigkeit seit Wochen. Was ist die professionelle Reaktion?</p>
+      <label class="quiz-option"><input type="radio" name="m29q2" value="a"> Das Thema intensiver im Coaching bearbeiten, da der Coachee Unterstützung braucht.</label>
+      <label class="quiz-option"><input type="radio" name="m29q2" value="b"> Aufmerksam werden, empathisch zuhören und prüfen, ob therapeutische oder medizinische Unterstützung sinnvoll ist.</label>
+      <label class="quiz-option"><input type="radio" name="m29q2" value="c"> Das Coaching sofort beenden, da das kein Coaching-Thema ist.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m29q2&#39;,&#39;b&#39;,&#39;Richtig! Professionalität bedeutet: aufmerksam sein, empathisch begleiten und klar benennen, wenn andere Fachbereiche besser helfen können. Das Coaching muss nicht sofort enden – aber Grenzen müssen transparent gemacht werden.&#39;,&#39;Das stimmt nicht ganz. Das sofortige Beenden wäre nicht empathisch. Besser: aufmerksam sein, ansprechen und über mögliche zusätzliche Unterstützung informieren.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m29q2-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m29q3">
+      <p class="question">3. Was beschreibt die „Retterrolle" im Coaching?</p>
+      <label class="quiz-option"><input type="radio" name="m29q3" value="a"> Wenn ein Coach besonders engagiert und kreativ bei der Lösungsfindung hilft.</label>
+      <label class="quiz-option"><input type="radio" name="m29q3" value="b"> Wenn ein Coach Verantwortung übernimmt, die dem Coachee gehört – und dabei seine eigene Rolle verlässt.</label>
+      <label class="quiz-option"><input type="radio" name="m29q3" value="c"> Wenn ein Coach in Notfallsituationen besonders schnell reagiert.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m29q3&#39;,&#39;b&#39;,&#39;Genau! Die Retterrolle entsteht, wenn der Coach anfängt, Verantwortung für das Leben des Coachees zu tragen – das ist ein klassischer ethischer Fehler, der beide Seiten überfordert.&#39;,&#39;Nicht ganz. Die Retterrolle hat nichts mit Kreativität oder Schnelligkeit zu tun – sie beschreibt das Übernehmen von Verantwortung, die eigentlich dem Coachee gehört.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m29q3-feedback"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m29-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode(&#39;m29&#39;,&#39;coachee&#39;)">🎭 Coachee-Modus</button>
+      <button onclick="setKiMode(&#39;m29&#39;,&#39;lern&#39;)">📚 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-card" id="m29-persona"><strong>🎭 Dein Übungsklient: Felix, 34</strong>Felix kommt ins Coaching mit einer Mischung aus Business-Themen und persönlichen Belastungen. Im Laufe des Gesprächs erwähnt er beiläufig: „Ich trinke eigentlich täglich, das entspannt mich einfach am besten nach der Arbeit." Übe, wie du mit dieser Aussage ethisch professionell umgehst.</div>
+    <div class="ki-chat-window" id="m29-chat"><div class="msg system">✨ Neues Gespräch gestartet. Beginne dein Coaching!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m29-input" placeholder="Deine Reaktion im Coaching..." onkeydown="handleKiKey(event,&#39;m29&#39;)"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage(&#39;m29&#39;)">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi(&#39;m29&#39;)">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 30 – METHODENAUSWAHL IM COACHING
+════════════════════════════════════════════════ -->
+<div class="module-panel" id="m30">
+  <div class="module-header">
+    <div class="module-number">Modul 30</div>
+    <h1>Methodenauswahl im Coaching</h1>
+    <p>Du kennst jetzt 25–30 Methoden. Aber wann nutzt du welche? Das lernt du hier.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab(&#39;m30&#39;,&#39;video&#39;,this)">🎬 Video</button>
+    <button onclick="showTab(&#39;m30&#39;,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button onclick="showTab(&#39;m30&#39;,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button onclick="showTab(&#39;m30&#39;,&#39;quiz&#39;,this)">🧠 Quiz</button>
+    <button onclick="showTab(&#39;m30&#39;,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m30-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1vtIytt7ciW1m7e5vvQez4F2X2-tcEAFj/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Tipp: Vollbild-Modus für beste Lernerfahrung</p>
+  </div>
+
+  <div class="tab-content" id="m30-theorie">
+    <div class="theorie-section">
+      <h2>Die wichtigste Regel</h2>
+      <p>Nicht: <em>„Welche Methode möchte ich anwenden?"</em></p>
+      <p>Sondern: <strong>„Was braucht mein Coachee gerade?"</strong></p>
+      <div class="merksatz">Ein guter Coach erkennt nicht nur viele Methoden. Er erkennt, wann welche Methode sinnvoll ist.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die Coaching-Landkarte</h2>
+      <p>Welche Methode passt zu welcher Situation? Hier ist die Übersicht:</p>
+
+      <h3>🎯 Der Coachee hat kein klares Ziel</h3>
+      <p>→ SMART, GROW</p>
+
+      <h3>🧭 Der Coachee ist orientierungslos</h3>
+      <p>→ SWOT, Johari-Fenster, Wertearbeit</p>
+
+      <h3>⚡ Der Coachee hat einen inneren Konflikt</h3>
+      <p>→ Inneres Team, Wertearbeit, Reiss-Profil</p>
+
+      <h3>🔒 Der Coachee hat limitierende Überzeugungen</h3>
+      <p>→ Glaubenssatzarbeit, Reframing</p>
+
+      <h3>🎭 Der Coachee steckt im Drama</h3>
+      <p>→ Drama-Dreieck, Circle of Influence</p>
+
+      <h3>💬 Der Coachee hat Konflikte mit anderen</h3>
+      <p>→ Transaktionsanalyse, GFK, Glasl, Schindler</p>
+
+      <h3>🔋 Der Coachee hat wenig Energie</h3>
+      <p>→ Energiekonto, Happy Place, ZRM</p>
+
+      <h3>🔍 Der Coachee versteht sich selbst nicht</h3>
+      <p>→ Reiss-Profil, Limbisches System, Archetypen</p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 340 360" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
+          <rect x="90" y="10" width="160" height="36" rx="8" fill="#3d6458"></rect>
+          <text x="170" y="33" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">THEMA DES COACHEES</text>
+
+          <line x1="170" y1="46" x2="170" y2="62" stroke="#5e8478" stroke-width="2"></line>
+          <text x="170" y="75" text-anchor="middle" fill="#5e8478" font-size="11" font-weight="700">Was fehlt?</text>
+
+          <!-- Grid of method bubbles -->
+          <rect x="10" y="88" width="145" height="30" rx="7" fill="#eaf2f0"></rect>
+          <text x="82" y="108" text-anchor="middle" fill="#3d6458" font-size="10" font-weight="600">Ziel? → SMART / GROW</text>
+
+          <rect x="185" y="88" width="145" height="30" rx="7" fill="#eaf2f0"></rect>
+          <text x="257" y="108" text-anchor="middle" fill="#3d6458" font-size="10" font-weight="600">Klarheit? → SWOT</text>
+
+          <rect x="10" y="130" width="145" height="30" rx="7" fill="#eaf2f0"></rect>
+          <text x="82" y="150" text-anchor="middle" fill="#3d6458" font-size="10" font-weight="600">Motivation? → Reiss</text>
+
+          <rect x="185" y="130" width="145" height="30" rx="7" fill="#eaf2f0"></rect>
+          <text x="257" y="150" text-anchor="middle" fill="#3d6458" font-size="10" font-weight="600">Werte? → Wertearbeit</text>
+
+          <rect x="10" y="172" width="145" height="30" rx="7" fill="#fdf3ec"></rect>
+          <text x="82" y="192" text-anchor="middle" fill="#7a3e28" font-size="10" font-weight="600">Konflikt? → Drama-Dreieck</text>
+
+          <rect x="185" y="172" width="145" height="30" rx="7" fill="#fdf3ec"></rect>
+          <text x="257" y="192" text-anchor="middle" fill="#7a3e28" font-size="10" font-weight="600">Kommunik.? → GFK</text>
+
+          <rect x="10" y="214" width="145" height="30" rx="7" fill="#eaf2f0"></rect>
+          <text x="82" y="234" text-anchor="middle" fill="#3d6458" font-size="10" font-weight="600">Innere Anteile? → Inn. Team</text>
+
+          <rect x="185" y="214" width="145" height="30" rx="7" fill="#eaf2f0"></rect>
+          <text x="257" y="234" text-anchor="middle" fill="#3d6458" font-size="10" font-weight="600">Glaubenssatz? → GSA</text>
+
+          <rect x="10" y="256" width="145" height="30" rx="7" fill="#fdf3ec"></rect>
+          <text x="82" y="276" text-anchor="middle" fill="#7a3e28" font-size="10" font-weight="600">Energie? → Energiekonto</text>
+
+          <rect x="185" y="256" width="145" height="30" rx="7" fill="#fdf3ec"></rect>
+          <text x="257" y="276" text-anchor="middle" fill="#7a3e28" font-size="10" font-weight="600">Perspektive? → Reframing</text>
+
+          <rect x="90" y="308" width="160" height="36" rx="8" fill="#e8a882"></rect>
+          <text x="170" y="331" text-anchor="middle" fill="#7a3e28" font-size="11" font-weight="700">PASSENDE METHODE</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die Königsfrage des Coaches</h2>
+      <p>Vor jeder Intervention:</p>
+      <p style="font-size:1.05rem; font-weight:700; color:var(--salbei); margin: 0.5rem 0;">„Was würde meinem Coachee jetzt am meisten helfen?"</p>
+      <p>Nicht: „Welche Methode kenne ich am besten?"</p>
+
+      <h3>Verbindung zum Coachingprozess</h3>
+      <p><strong>Analysephase:</strong> Welche Ursache steckt hinter dem Thema? → <strong>Methodenauswahl:</strong> Welche Methode passt zur Ursache? → <strong>Intervention:</strong> Die Methode wird angewendet. → <strong>Umsetzung:</strong> Transfer in den Alltag.</p>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m30-uebung">
+    <div class="uebung-card">
+      <h3>Übung 1: Methode passend wählen</h3>
+      <p>Für jede der folgenden Aussagen: Welche Methode würdest du wählen und warum? a) „Ich weiß nicht, was ich wirklich will." b) „Ich streite ständig mit meiner Kollegin." c) „Ich weiß genau was ich will, aber ich fange es einfach nicht an." d) „Ich bin total erschöpft und leer."</p>
+      <textarea placeholder="Deine Methodenwahl..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        a) Kein klares Ziel → SMART + Wertearbeit: Zuerst klären, was wirklich wichtig ist. b) Konflikt mit Kollegin → GFK oder Transaktionsanalyse: Welche Muster spielen eine Rolle? c) Weiß was er will, beginnt aber nicht → Inneres Team (Welcher Anteil hält zurück?) + Glaubenssatzarbeit (z.B. Perfektionismus). d) Erschöpfung → Energiekonto + Wertearbeit: Was raubt Energie, was gibt sie zurück?
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 2: Die Coaching-Landkarte erstellen</h3>
+      <p>Erstelle deine eigene persönliche Methoden-Landkarte: Welche 5 Methoden möchtest du in deiner Coaching-Praxis am häufigsten einsetzen? Notiere jeweils die Situation, für die sie am besten geeignet sind.</p>
+      <textarea placeholder="Deine persönliche Methodenlandkarte..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Beispiel: 1) Auftragsklärung – immer am Anfang, um das echte Thema zu finden. 2) Inneres Team – wenn jemand sich „hin- und hergerissen" fühlt. 3) Glaubenssatzarbeit – wenn Sätze wie „Ich bin nicht gut genug" auftauchen. 4) Reframing – wenn jemand feststeckt und eine neue Perspektive braucht. 5) GROW – wenn Ziel und Weg klar sind und es um konkrete Schritte geht.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 3: Methoden-Hopping erkennen</h3>
+      <p>Beschreibe in eigenen Worten: Was ist Methoden-Hopping und wie schadet es dem Coaching? Was kannst du dagegen tun?</p>
+      <textarea placeholder="Deine Beschreibung..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Methoden-Hopping: Der Coach springt von Methode zu Methode, ohne dass eine davon wirklich tief greift. Der Coachee erlebt keine klare Reise, sondern einen Methodenmarathon. Das schadet, weil es Vertrauen und Tiefe verhindert. Dagegen hilft: Den Coachingprozess im Kopf haben, in der Analysephase zuerst verstehen bevor man interveniert, und sich fragen: „Warum genau diese Methode jetzt?"
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m30-quiz">
+    <div class="quiz-card" id="m30q1">
+      <p class="question">1. Was ist die entscheidende Frage bei der Methodenauswahl?</p>
+      <label class="quiz-option"><input type="radio" name="m30q1" value="a"> Welche Methode habe ich zuletzt eingesetzt und möchte ich variieren?</label>
+      <label class="quiz-option"><input type="radio" name="m30q1" value="b"> Was würde meinem Coachee gerade am meisten helfen?</label>
+      <label class="quiz-option"><input type="radio" name="m30q1" value="c"> Welche Methode ist die aktuell modernste?</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m30q1&#39;,&#39;b&#39;,&#39;Genau! Die Königsfrage lautet immer: Was braucht der Coachee gerade? Nicht: Was kenne ich am besten? Die Methode dient dem Coachee – nicht umgekehrt.&#39;,&#39;Das ist nicht die richtige Haltung. Die Methodenauswahl orientiert sich immer am Bedarf des Coachees in der aktuellen Situation.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m30q1-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m30q2">
+      <p class="question">2. Welche Methoden passen am besten, wenn jemand limitierende Überzeugungen hat?</p>
+      <label class="quiz-option"><input type="radio" name="m30q2" value="a"> SMART und GROW</label>
+      <label class="quiz-option"><input type="radio" name="m30q2" value="b"> Glaubenssatzarbeit und Reframing</label>
+      <label class="quiz-option"><input type="radio" name="m30q2" value="c"> Energiekonto und Happy Place</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m30q2&#39;,&#39;b&#39;,&#39;Richtig! Glaubenssatzarbeit bearbeitet die limitierenden Überzeugungen direkt, Reframing bietet neue Perspektiven auf diese Überzeugungen. SMART wäre zu früh, wenn die inneren Blockaden noch im Weg stehen.&#39;,&#39;Nicht ganz. SMART und Energiekonto sind für andere Situationen. Bei limitierenden Überzeugungen braucht es Werkzeuge, die direkt an den inneren Blockaden ansetzen.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m30q2-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m30q3">
+      <p class="question">3. Was beschreibt „Methoden-Hopping"?</p>
+      <label class="quiz-option"><input type="radio" name="m30q3" value="a"> Das systematische Durcharbeiten aller gelernten Methoden in einer Session.</label>
+      <label class="quiz-option"><input type="radio" name="m30q3" value="b"> Das wahllose Springen zwischen Methoden ohne prozessorientierten roten Faden.</label>
+      <label class="quiz-option"><input type="radio" name="m30q3" value="c"> Das Kombinieren mehrerer Methoden für ein besseres Ergebnis.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m30q3&#39;,&#39;b&#39;,&#39;Genau! Methoden-Hopping entsteht, wenn ein Coach keine klare Prozessorientierung hat und die Methode wählt, die gerade einfällt – nicht die, die der Coachee wirklich braucht.&#39;,&#39;Nicht ganz. Methoden-Hopping ist kein systematisches oder bewusstes Kombinieren – es beschreibt den wahlosen, unstrukturierten Einsatz von Methoden ohne roten Faden.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m30q3-feedback"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m30-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode(&#39;m30&#39;,&#39;coachee&#39;)">🎭 Coachee-Modus</button>
+      <button onclick="setKiMode(&#39;m30&#39;,&#39;lern&#39;)">📚 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-card" id="m30-persona"><strong>🎭 Deine Übungsklientin: Sarah, 29</strong>Sarah ist in der Ausbildung zur Coach und sagt dir: „Ich kenne so viele Methoden, aber wenn ich sitze und coache, vergesse ich alles oder springe zwischen Techniken hin und her." Übe, Sarah durch die Methodenauswahl zu begleiten.</div>
+    <div class="ki-chat-window" id="m30-chat"><div class="msg system">✨ Neues Gespräch gestartet. Beginne dein Coaching!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m30-input" placeholder="Deine Coaching-Frage an Sarah..." onkeydown="handleKiKey(event,&#39;m30&#39;)"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage(&#39;m30&#39;)">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi(&#39;m30&#39;)">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 31 – FALLARBEIT & PRAXISFÄLLE
+════════════════════════════════════════════════ -->
+<div class="module-panel" id="m31">
+  <div class="module-header">
+    <div class="module-number">Modul 31</div>
+    <h1>Fallarbeit &amp; Praxisfälle</h1>
+    <p>Im echten Coaching kommen Menschen mit Geschichten. Die Kunst: hinter der Geschichte das eigentliche Thema erkennen.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab(&#39;m31&#39;,&#39;video&#39;,this)">🎬 Video</button>
+    <button onclick="showTab(&#39;m31&#39;,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button onclick="showTab(&#39;m31&#39;,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button onclick="showTab(&#39;m31&#39;,&#39;quiz&#39;,this)">🧠 Quiz</button>
+    <button onclick="showTab(&#39;m31&#39;,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+
+  <div class="tab-content active" id="m31-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1qZmv9PFn8Ugn3iIUSTd-tFMYZAASfMJk/preview" allowfullscreen=""></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Tipp: Vollbild-Modus für beste Lernerfahrung</p>
+  </div>
+
+  <div class="tab-content" id="m31-theorie">
+    <div class="theorie-section">
+      <h2>Warum Fallarbeit?</h2>
+      <p>In echten Coachings kommt kaum jemand und sagt: „Ich habe einen Glaubenssatz." oder „Ich stecke im Drama-Dreieck." Menschen erzählen ihre <em>Geschichte</em>.</p>
+      <p>Die Aufgabe des Coaches besteht darin:</p>
+      <ul>
+        <li>Muster zu erkennen</li>
+        <li>Ursachen zu verstehen</li>
+        <li>Passende Methoden auszuwählen</li>
+        <li>Den Coachingprozess zu steuern</li>
+      </ul>
+      <div class="merksatz">Im echten Coaching kommen Menschen mit Geschichten. Die Kunst des Coaches besteht darin, hinter der Geschichte das eigentliche Thema zu erkennen.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Fall 1 – Oliver und der neue Geschäftsführer</h2>
+      <p>Oliver, 48, Führungskraft. Ein neuer Geschäftsführer übernimmt das Unternehmen. Oliver sagt: <em>„Früher hatte ich das Gefühl, etwas bewegen zu können. Heute habe ich das Gefühl, mich ständig rechtfertigen zu müssen."</em> Er schläft schlechter, zweifelt an sich und verliert Motivation.</p>
+      <h3>Mögliche Themen</h3>
+      <p>Anerkennung, Autonomie, Rollenveränderung, Selbstwert, Umgang mit Veränderung</p>
+      <h3>Mögliche Methoden</h3>
+      <p>Emotionale Grundbedürfnisse, Reiss-Profil, Circle of Influence, Reframing, Johari-Fenster, Positionsmodell nach Schindler</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Fall 2 – Susanne und die ewige Vorbereitung</h2>
+      <p>Susanne möchte seit über einem Jahr ihr Business aufbauen. Sie hat mehrere Ausbildungen, Bücher, Kurse – aber noch keinen einzigen Kunden angesprochen. Immer wieder: <em>„Ich bin noch nicht bereit."</em></p>
+      <h3>Mögliche Themen</h3>
+      <p>Perfektionismus, Angst vor Ablehnung, Selbstzweifel, Sicherheitsbedürfnis</p>
+      <h3>Mögliche Methoden</h3>
+      <p>Inneres Team, Glaubenssatzarbeit, SWOT, Reframing, GROW, Reiss-Profil</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Fall 3 – Sandra und die Dauererschöpfung</h2>
+      <p>Sandra hat vier Kinder, arbeitet Teilzeit und baut nebenbei ihr Business auf. <em>„Ich funktioniere nur noch. Für alle anderen bin ich da. Für mich selbst bleibt nichts übrig."</em></p>
+      <h3>Mögliche Themen</h3>
+      <p>Fehlende Selbstfürsorge, Überlastung, fehlende Grenzen, innere Antreiber, Energieverlust</p>
+      <h3>Mögliche Methoden</h3>
+      <p>Energiekonto, Wertearbeit, Emotionale Grundbedürfnisse, Reiss-Profil, Happy Place, Inneres Team</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Fall 4 – Benjamin an der Weggabelung</h2>
+      <p>Benjamin, 44, sicherer Beruf, Familie. Von außen läuft alles gut. <em>„Da muss noch mehr sein."</em> Er träumt von Freiheit, Menschen begleiten, etwas Eigenem – hat gleichzeitig Angst, Sicherheit aufzugeben.</p>
+      <h3>Mögliche Themen</h3>
+      <p>Sinnfindung, Berufung, Sicherheit vs. Freiheit, Identität, Zukunftsbild</p>
+      <h3>Mögliche Methoden</h3>
+      <p>Wertearbeit, Reiss-Profil, Inneres Team, SWOT, GROW</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Fall 5 – Claudia und der Konflikt im Team</h2>
+      <p>Claudia führt ein Team mit 8 Mitarbeitern. <em>„Die Stimmung ist schlecht und ich weiß nicht mehr, was ich noch tun soll."</em> Konflikte werden vermieden, Erwartungen nicht ausgesprochen, Kritik persönlich genommen.</p>
+      <h3>Mögliche Themen</h3>
+      <p>Kommunikation, Konfliktverhalten, Führung, Rollenklärung</p>
+      <h3>Mögliche Methoden</h3>
+      <p>Gewaltfreie Kommunikation, Transaktionsanalyse, Drama-Dreieck, Konflikteskalation nach Glasl, Schindler</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Weitere Praxisfälle</h2>
+      <h3>Fall 6 – Andrea nach der Trennung</h3>
+      <p>Andrea, 52, nach 25 Jahren Ehe: <em>„Wer bin ich eigentlich ohne meine Rollen als Ehefrau und Mutter?"</em> → Themen: Identität, Rollenverlust, Neuausrichtung. Methoden: Wertearbeit, Archetypen, Johari-Fenster.</p>
+      <h3>Fall 7 – Markus und die ständige Wut</h3>
+      <p>Markus gerät ständig in Konflikte. <em>„Die anderen machen mich wahnsinnig."</em> Im Coaching zeigen sich: hohe Erwartungen, geringe Fehlertoleranz, starker Kontrollwunsch. → Methoden: Circle of Influence, Drama-Dreieck, GFK, Reframing.</p>
+      <h3>Fall 8 – Julia und die Angst vor Sichtbarkeit</h3>
+      <p>Julia möchte online sichtbar werden. Bei jedem Videoversuch: <em>„Was denken die anderen?"</em>, <em>„Wenn ich Fehler mache, blamiere ich mich."</em> → Methoden: Glaubenssatzarbeit, Inneres Team, Reframing.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Reflexionsfragen für jeden Fall</h2>
+      <ol>
+        <li>Worum geht es vordergründig?</li>
+        <li>Worum könnte es eigentlich gehen?</li>
+        <li>Welche Bedürfnisse könnten betroffen sein?</li>
+        <li>Welche Methode würdest du zuerst einsetzen?</li>
+        <li>Welche Methode würdest du bewusst <em>nicht</em> einsetzen?</li>
+        <li>Wie könnte ein möglicher Coachingauftrag lauten?</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m31-uebung">
+    <div class="uebung-card">
+      <h3>Übung 1: Fall analysieren – Oliver</h3>
+      <p>Lies den Fall von Oliver nochmals durch. Beantworte die 6 Reflexionsfragen für diesen Fall und entwickle einen möglichen Coachingauftrag.</p>
+      <textarea placeholder="Deine Analyse zu Oliver..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        1) Vordergründig: Frustration mit neuem Chef, Schlafprobleme, Motivationsverlust. 2) Eigentliches Thema: Verletzte Autonomie und Anerkennung – zwei Kernbedürfnisse. 3) Bedürfnisse: Anerkennung, Selbstwirksamkeit, Kontrolle. 4) Erste Methode: Emotionale Grundbedürfnisse – um die Tiefenstruktur zu verstehen. 5) Nicht einsetzen: sofort Reframing – das wäre zu früh, bevor das Gefühl wirklich gehört wurde. 6) Möglicher Auftrag: „Ich möchte verstehen, was mir in meiner Rolle wirklich wichtig ist, und einen Weg finden, auch unter den neuen Bedingungen meine Stärken zu spüren."
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 2: Eigenen Fall einbringen</h3>
+      <p>Denke an eine reale Person aus deinem Umfeld (anonym!), die du gerne coachen würdest. Beschreibe das Anliegen und entwickle einen möglichen Coachingauftrag sowie 2–3 passende Methoden.</p>
+      <textarea placeholder="Dein eigener Praxisfall..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Es gibt keine „richtige" Antwort hier – das ist deine persönliche Praxis! Wichtig: Unterscheide zwischen dem ersten Anliegen (was die Person sagt) und dem eigentlichen Thema (was dahintersteckt). Formuliere den Auftrag aus der Ich-Perspektive der Person. Wähle Methoden, die zur Tiefenstruktur des Themas passen – nicht zur Oberfläche.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 3: Die Lernreise reflektieren</h3>
+      <p>Du bist jetzt am Ende der Ausbildung angekommen. Welche 3 Erkenntnisse aus der gesamten Ausbildung haben dich am meisten bewegt oder verändert – und warum?</p>
+      <textarea placeholder="Deine 3 wichtigsten Erkenntnisse..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Diese Reflexion ist sehr persönlich – es gibt keine richtige Antwort. Manche nennen das Innere Team als ihr liebstes Werkzeug. Andere erleben Reframing als Schlüssel. Wieder andere sagen: Die wichtigste Erkenntnis war zu verstehen, dass ein Coach keine Antworten gibt – sondern den richtigen Raum schafft, damit der Coachee seine eigenen findet.
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m31-quiz">
+    <div class="quiz-card" id="m31q1">
+      <p class="question">1. Warum ist Fallarbeit ein unverzichtbarer Teil der Coaching-Ausbildung?</p>
+      <label class="quiz-option"><input type="radio" name="m31q1" value="a"> Weil Coachees im echten Coaching immer klar benennen, welches Modell sie brauchen.</label>
+      <label class="quiz-option"><input type="radio" name="m31q1" value="b"> Weil Coachees ihre Situation als Geschichte erzählen und man lernen muss, dahinter Muster, Ursachen und passende Methoden zu erkennen.</label>
+      <label class="quiz-option"><input type="radio" name="m31q1" value="c"> Weil Fallarbeit die beste Vorbereitung für Prüfungen ist.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m31q1&#39;,&#39;b&#39;,&#39;Genau! Im echten Coaching sprechen Menschen nicht in Modellen – sie erzählen Geschichten. Die Kunst des Coaches ist es, darin Muster und das eigentliche Thema zu erkennen.&#39;,&#39;Das ist nicht korrekt. Kein Coachee sagt „Ich habe einen Glaubenssatz" .="" fallarbeit="" trainiert="" die="" fähigkeit,="" hinter="" geschichten="" echten="" themen="" zu="" erkennen.')"="">Auswerten</button>
+      <div class="quiz-feedback" id="m31q1-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m31q2">
+      <p class="question">2. Susanne (Fall 2) sagt: „Ich bin noch nicht bereit." Was ist das wahrscheinlichste eigentliche Thema?</p>
+      <label class="quiz-option"><input type="radio" name="m31q2" value="a"> Sie braucht einfach noch eine weitere Ausbildung.</label>
+      <label class="quiz-option"><input type="radio" name="m31q2" value="b"> Perfektionismus und/oder Angst vor Ablehnung als innere Blockade.</label>
+      <label class="quiz-option"><input type="radio" name="m31q2" value="c"> Mangelnde Motivation für ihr Business-Ziel.</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m31q2&#39;,&#39;b&#39;,&#39;Richtig! Das ewige „Noch nicht bereit" ist="" ein="" klassisches="" muster:="" hinter="" der="" vorbereitung="" steckt="" oft="" perfektionismus="" oder="" die="" angst="" vor="" ablehnung="" sichtbarkeit="" –="" nicht="" fehlende="" qualifikation.','das="" stimmt="" nicht.="" das="" problem="" liegt="" an="" fehlender="" ausbildung.="" „noch="" bereit"="" meist="" schutzmechanismus="" typischerweise="" ablehnung.')"="">Auswerten</button>
+      <div class="quiz-feedback" id="m31q2-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m31q3">
+      <p class="question">3. Was ist die erste Reflexionsfrage, die man bei jedem Praxisfall stellen sollte?</p>
+      <label class="quiz-option"><input type="radio" name="m31q3" value="a"> Welche Methode passt am besten zu dieser Situation?</label>
+      <label class="quiz-option"><input type="radio" name="m31q3" value="b"> Worum geht es vordergründig – und worum könnte es eigentlich gehen?</label>
+      <label class="quiz-option"><input type="radio" name="m31q3" value="c"> Wie lange wird das Coaching dauern?</label>
+      <button class="quiz-btn" onclick="checkQuiz(&#39;m31q3&#39;,&#39;b&#39;,&#39;Genau! Erst das Thema wirklich verstehen – vordergründig und tief – bevor Methoden ausgewählt werden. Die Methode folgt dem Verständnis, nicht umgekehrt.&#39;,&#39;Nicht ganz. Die Methodenauswahl kommt erst nach dem Verstehen. Der erste Schritt ist immer: das vordergründige Anliegen und das eigentliche Thema darunter erkennen.&#39;)">Auswerten</button>
+      <div class="quiz-feedback" id="m31q3-feedback"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="m31-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode(&#39;m31&#39;,&#39;coachee&#39;)">🎭 Coachee-Modus</button>
+      <button onclick="setKiMode(&#39;m31&#39;,&#39;lern&#39;)">📚 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-card" id="m31-persona"><strong>🎭 Deine Übungsklientin: Susanne, 38</strong>Susanne möchte seit über einem Jahr ihr Business aufbauen, hat alle Vorbereitungen gemacht – aber noch keinen Kunden kontaktiert. Sie sagt: „Ich glaube, ich brauche einfach noch eine weitere Ausbildung, dann fühle ich mich sicher genug." Übe, das wirkliche Thema hinter dem „Noch nicht bereit" zu erkunden.</div>
+    <div class="ki-chat-window" id="m31-chat"><div class="msg system">✨ Neues Gespräch gestartet. Beginne dein Coaching!</div></div>
+    <div class="ki-input-row">
+      <textarea id="m31-input" placeholder="Deine Coaching-Frage an Susanne..." onkeydown="handleKiKey(event,&#39;m31&#39;)"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage(&#39;m31&#39;)">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi(&#39;m31&#39;)">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+// ── Navigation ──
+function showModule(id, btn) {
+  document.querySelectorAll('.module-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.top-nav button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showTab(mod, tab, btn) {
+  var panel = document.getElementById(mod);
+  panel.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  panel.querySelectorAll('.tab-bar button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(mod + '-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── Übung ──
+function toggleBeispiel(btn) {
+  var ans = btn.nextElementSibling;
+  var open = ans.classList.toggle('open');
+  btn.textContent = open ? '🙈 Beispielantwort verbergen' : '💡 Beispielantwort anzeigen';
+}
+
+// ── Quiz ──
+function checkQuiz(id, correct, okMsg, wrongMsg) {
+  var card = document.getElementById(id);
+  var sel = card.querySelector('input[name="' + id + '"]:checked');
+  var fb = document.getElementById(id + '-feedback');
+  if (!sel) { fb.style.display = 'block'; fb.className = 'quiz-feedback wrong'; fb.textContent = 'Bitte wähle eine Antwort aus.'; return; }
+  card.querySelectorAll('.quiz-option').forEach(function(opt) {
+    opt.classList.remove('correct', 'wrong');
+    if (opt.querySelector('input').value === correct) opt.classList.add('correct');
+    else if (opt.querySelector('input').value === sel.value && sel.value !== correct) opt.classList.add('wrong');
+  });
+  fb.style.display = 'block';
+  if (sel.value === correct) {
+    fb.className = 'quiz-feedback correct';
+    fb.textContent = '✅ ' + okMsg;
+  } else {
+    fb.className = 'quiz-feedback wrong';
+    fb.textContent = '❌ ' + wrongMsg;
+  }
+}
+
+// ── KI-Praxis ──
+var kiState = {};
+
+var kiPersonas = {
+  m27: {
+    coachee: {
+      label: '🎭 Deine Übungsklientin: Katharina, 37',
+      desc: 'Katharina ist selbstständige Grafikdesignerin. Sie kommt zu dir mit den Worten: „Ich weiß irgendwie nicht, wo ich gerade stehe. Ich bin unzufrieden, aber ich kann gar nicht sagen womit." Übe, aus diesem vagen Anliegen einen klaren Coachingauftrag herauszuarbeiten.',
+      system: 'Du spielst Katharina, 37, selbstständige Grafikdesignerin. Du kommst ins Coaching mit einem diffusen Unzufriedenheitsgefühl – du kannst nicht genau sagen, was dich stört. Im Laufe des Gesprächs wird durch gute Fragen sichtbar, dass du dich in deiner Arbeit unverstanden und unsichtbar fühlst – du machst Auftragsarbeit, aber sehnst dich danach, eigene kreative Projekte umzusetzen. Antworte immer als Katharina, menschlich, mit etwas Zögern. Reagiere auf gute Coaching-Fragen offen und tiefer. Behalte die Rolle bei. Antworte auf Deutsch, warmherzig und lebensnah.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich beantworte deine Fragen zu Modul 27 – Auftragsklärung. Was möchtest du vertiefen?',
+      system: 'Du bist ein warmherziger Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 27: Das Auftragsklärungsgespräch. Erkläre, beantworte Fragen, gib Feedback zu Coaching-Fragen der Lernenden. Bleib praxisnah und ermutigend. Antworte auf Deutsch.'
+    }
+  },
+  m28: {
+    coachee: {
+      label: '🎭 Dein Übungsklient: Lukas, 41',
+      desc: 'Lukas ist Führungskraft in einem mittelständischen Unternehmen. Er sagt: „Ich führe schon seit Jahren Coaching-Gespräche mit meinen Mitarbeitern – aber irgendwie kommt dabei selten etwas raus. Ich weiß nicht warum." Übe, gemeinsam mit Lukas herauszufinden, was im Prozess fehlt.',
+      system: 'Du spielst Lukas, 41, Führungskraft. Du führst regelmäßig Gespräche mit Mitarbeitern, nennst es Coaching, aber die Gespräche enden meist mit dir, der Ratschläge gibt. Du hast keinen strukturierten Prozess, springst zwischen Themen und bietest schnell Lösungen an. Das weißt du aber selbst nicht – du denkst, du machst es gut. Antworte als Lukas, leicht defensiv zu Beginn, aber offen für Reflexion. Antworte auf Deutsch.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich beantworte deine Fragen zu Modul 28 – Der Coachingprozess.',
+      system: 'Du bist ein warmherziger Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 28: Der Coachingprozess. Erkläre die 7 Phasen, beantworte Fragen, gib Feedback. Antworte auf Deutsch, praxisnah und ermutigend.'
+    }
+  },
+  m29: {
+    coachee: {
+      label: '🎭 Dein Übungsklient: Felix, 34',
+      desc: 'Felix kommt ins Coaching mit einer Mischung aus Business-Themen und persönlichen Belastungen. Im Laufe des Gesprächs erwähnt er beiläufig: „Ich trinke eigentlich täglich, das entspannt mich einfach am besten nach der Arbeit." Übe, wie du mit dieser Aussage ethisch professionell umgehst.',
+      system: 'Du spielst Felix, 34, selbstständiger Webentwickler. Du bist wegen Business-Stress ins Coaching gekommen. Beiläufig erwähnst du tägliches Trinken als Stressbewältigung – du siehst es selbst nicht als Problem. Du bist offen im Gespräch, aber etwas defensiv wenn das Thema Alkohol angesprochen wird. Antworte als Felix, menschlich und glaubwürdig. Antworte auf Deutsch.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich beantworte deine Fragen zu Modul 29 – Ethik und Grenzen im Coaching.',
+      system: 'Du bist ein warmherziger Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 29: Ethik und Grenzen. Erkläre ethische Prinzipien, Grenzen des Coachings, Warnsignale und Weiterverweisen. Antworte auf Deutsch, praxisnah.'
+    }
+  },
+  m30: {
+    coachee: {
+      label: '🎭 Deine Übungsklientin: Sarah, 29',
+      desc: 'Sarah ist in der Ausbildung zur Coach und sagt dir: „Ich kenne so viele Methoden, aber wenn ich sitze und coache, vergesse ich alles oder springe zwischen Techniken hin und her." Übe, Sarah durch die Methodenauswahl zu begleiten.',
+      system: 'Du spielst Sarah, 29, angehende Coach in der Ausbildung. Du hast viele Methoden gelernt, aber im echten Coaching wirst du nervös und weißt nicht, wo du anfangen sollst. Du springst zwischen Methoden, verlierst den Faden und bist danach frustriert. Du bist lernbereit und offen. Antworte als Sarah, etwas unsicher aber engagiert. Antworte auf Deutsch.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich beantworte deine Fragen zu Modul 30 – Methodenauswahl im Coaching.',
+      system: 'Du bist ein warmherziger Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 30: Methodenauswahl. Hilf dabei zu verstehen, wann welche Methode passt. Nutze die Coaching-Landkarte. Antworte auf Deutsch, praxisnah.'
+    }
+  },
+  m31: {
+    coachee: {
+      label: '🎭 Deine Übungsklientin: Susanne, 38',
+      desc: 'Susanne möchte seit über einem Jahr ihr Business aufbauen, hat alle Vorbereitungen gemacht – aber noch keinen Kunden kontaktiert. Sie sagt: „Ich glaube, ich brauche einfach noch eine weitere Ausbildung, dann fühle ich mich sicher genug." Übe, das wirkliche Thema hinter dem „Noch nicht bereit" zu erkunden.',
+      system: 'Du spielst Susanne, 38, die seit einem Jahr ihr Business aufbauen möchte, aber durch Perfektionismus und Angst vor Ablehnung blockiert ist. Du weißt selbst nicht wirklich, was dich aufhält – du rationalisierst es als „noch nicht bereit". Du bist sympathisch, redefreudig und reflektiert, weichst aber direkten Fragen zu deiner Angst aus. Antworte als Susanne, menschlich und glaubwürdig. Antworte auf Deutsch.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich beantworte deine Fragen zu Modul 31 – Fallarbeit & Praxisfälle.',
+      system: 'Du bist ein warmherziger Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 31: Fallarbeit. Hilf dabei, Praxisfälle zu analysieren, Muster zu erkennen und Methoden zuzuordnen. Antworte auf Deutsch.'
+    }
+  }
+};
+
+function setKiMode(mod, mode) {
+  var panel = document.getElementById(mod);
+  var btns = panel.querySelectorAll('.ki-mode-toggle button');
+  btns[0].classList.toggle('active', mode === 'coachee');
+  btns[1].classList.toggle('active', mode === 'lern');
+
+  var persona = kiPersonas[mod][mode];
+  document.getElementById(mod + '-persona').innerHTML =
+    '<strong>' + persona.label + '</strong>' + persona.desc;
+
+  if (!kiState[mod]) kiState[mod] = {};
+  kiState[mod].mode = mode;
+  kiState[mod].history = [];
+  kiState[mod].msgCount = 0;
+
+  var chat = document.getElementById(mod + '-chat');
+  chat.innerHTML = '';
+  appendMsg(mod, 'system', mode === 'coachee'
+    ? '✨ Neues Gespräch gestartet. Beginne dein Coaching!'
+    : '📚 Lernbegleiter bereit. Was möchtest du wissen oder üben?');
+}
+
+function appendMsg(mod, role, text) {
+  var chat = document.getElementById(mod + '-chat');
+  var div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function handleKiKey(e, mod) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendKiMessage(mod); }
+}
+
+async function sendKiMessage(mod) {
+  var input = document.getElementById(mod + '-input');
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+
+  if (!kiState[mod]) { setKiMode(mod, 'coachee'); return; }
+  var state = kiState[mod];
+  if (!state.mode) state.mode = 'coachee';
+  if (!state.history) state.history = [];
+  if (!state.msgCount) state.msgCount = 0;
+
+  appendMsg(mod, 'user', text);
+  state.history.push({ role: 'user', content: text });
+  state.msgCount++;
+
+  var persona = kiPersonas[mod][state.mode];
+
+  var messages = state.history.slice();
+  if (state.msgCount >= 4 && state.mode === 'coachee') {
+    messages[messages.length - 1] = {
+      role: 'user',
+      content: text + '\n\n[Bitte antworte zunächst als Coachee. Füge danach auf einer neuen Zeile nach "---" ein kurzes Feedback für den Coach hinzu: Was lief gut? Was könnte besser sein?]'
+    };
+  }
+
+  try {
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        system: persona.system,
+        messages: messages
+      })
+    });
+    var data = await res.json();
+    var reply = data.content && data.content[0] ? data.content[0].text : '(Keine Antwort)';
+    state.history.push({ role: 'assistant', content: reply });
+
+    if (state.msgCount >= 4 && state.mode === 'coachee' && reply.includes('---')) {
+      var parts = reply.split('---');
+      appendMsg(mod, 'ai', parts[0].trim());
+      appendMsg(mod, 'system', '💬 Feedback: ' + parts[1].trim());
+    } else {
+      appendMsg(mod, 'ai', reply);
+    }
+  } catch(e) {
+    appendMsg(mod, 'system', '⚠️ Verbindungsfehler. Bitte versuche es erneut.');
+  }
+}
+
+function resetKi(mod) {
+  var mode = (kiState[mod] && kiState[mod].mode) ? kiState[mod].mode : 'coachee';
+  setKiMode(mod, mode);
+}
+
+// Init alle Module
+['m27','m28','m29','m30','m31'].forEach(function(mod) {
+  setKiMode(mod, 'coachee');
+});
+</script>
+
+
+</body></html>
