@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY – Einführung</title>
+<style>
+  :root {
+    --salbei: #5e8478; --salbei-mid: #7da398; --salbei-pale: #eaf2f0;
+    --apricot: #e8a882; --apricot-pale: #fdf3ec; --apricot-dark: #7a3e28;
+    --bg: #f4f8f6;
+    --gradient: linear-gradient(135deg, #3d6458, #5e8478, #7da398, #5e8478);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); }
+  .module-header {
+    background: var(--gradient);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+  }
+  .module-number { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; margin-bottom: 0.4rem; }
+  .module-header h1 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin-bottom: 0.6rem; }
+  .module-header p { font-size: 1rem; opacity: 0.88; max-width: 640px; line-height: 1.5; }
+  .content { padding: 2rem; max-width: 860px; margin: 0 auto; }
+  .video-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.4rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+    border-left: 4px solid var(--salbei-mid);
+  }
+  .video-card h3 { font-size: 1rem; font-weight: 700; color: var(--salbei); margin-bottom: 1rem; }
+  .video-wrapper {
+    position: relative; border-radius: 10px; overflow: hidden;
+    background: #000; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .video-wrapper iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+  .video-fade-top { position: absolute; top: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, var(--bg), transparent); pointer-events: none; }
+  .video-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, var(--bg), transparent); pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div class="module-header">
+  <div class="module-number">Einführung</div>
+  <h1>Willkommen zur MUMTY Coaching-Ausbildung</h1>
+  <p>Dein Flugsimulator für professionelles Coaching – hier startest du deine Reise.</p>
+</div>
+
+<div class="content">
+
+  <div class="video-card">
+    <h3>🎬 Video 1</h3>
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1ZF8gD9FgfoBu_-6RhLo1Py_SKW_N6Wiq/preview" allowfullscreen></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <h3>🎬 Video 2</h3>
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1EBXq1rpLD98PiEwXZhg7kgySpxUYed_6/preview" allowfullscreen></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <h3>🎬 Video 3</h3>
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1Iw37bdRNcZ7hXiTdvV2Jv6RzmkVfvDUD/preview" allowfullscreen></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <h3>🎬 Video 4</h3>
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/1sVgooa8iox3IgIIpphozfbkXm65st1ob/preview" allowfullscreen></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
