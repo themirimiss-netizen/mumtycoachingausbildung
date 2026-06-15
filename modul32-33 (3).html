@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY Coaching-Ausbildung – Module 32–33</title>
+<style>
+  :root {
+    --salbei: #5e8478;
+    --salbei-mid: #7da398;
+    --salbei-pale: #eaf2f0;
+    --apricot: #e8a882;
+    --apricot-pale: #fdf3ec;
+    --apricot-dark: #7a3e28;
+    --bg: #f4f8f6;
+    --gradient: linear-gradient(135deg, #3d6458, #5e8478, #7da398, #5e8478);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: #2c2c2c;
+    min-height: 100vh;
+  }
+
+  .top-nav {
+    background: var(--gradient);
+    padding: 0 1rem;
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-nav button {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    padding: 1rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .top-nav button:hover { color: #fff; }
+  .top-nav button.active {
+    color: #fff;
+    border-bottom-color: var(--apricot);
+    font-weight: 700;
+  }
+
+  .module-panel { display: none; }
+  .module-panel.active { display: block; }
+
+  .module-header {
+    background: var(--gradient);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .module-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  .module-number {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 0.4rem;
+  }
+  .module-header h1 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+  .module-header p {
+    font-size: 1rem;
+    opacity: 0.88;
+    max-width: 640px;
+    line-height: 1.5;
+  }
+
+  .tab-bar {
+    background: #fff;
+    border-bottom: 2px solid var(--salbei-pale);
+    display: flex;
+    overflow-x: auto;
+  }
+  .tab-bar button {
+    background: none;
+    border: none;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-bar button:hover { color: var(--salbei); }
+  .tab-bar button.active {
+    color: var(--salbei);
+    border-bottom-color: var(--salbei);
+  }
+
+  .tab-content { display: none; padding: 2rem; max-width: 860px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  .video-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  }
+  .video-wrapper iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+  }
+  .video-fade-top {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--bg), transparent);
+    pointer-events: none;
+  }
+  .video-fade-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
+  }
+  .video-hint {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #888;
+  }
+
+  .theorie-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+  }
+  .theorie-section h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--salbei);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--salbei-pale);
+  }
+  .theorie-section h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--apricot-dark);
+    margin: 1rem 0 0.5rem;
+  }
+  .theorie-section p { line-height: 1.7; margin-bottom: 0.8rem; color: #3a3a3a; }
+  .theorie-section ul, .theorie-section ol {
+    margin: 0.5rem 0 0.8rem 1.4rem;
+    line-height: 1.7;
+    color: #3a3a3a;
+  }
+  .theorie-section li { margin-bottom: 0.3rem; }
+
+  .merksatz {
+    background: var(--apricot-pale);
+    border-left: 4px solid var(--apricot);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.2rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--apricot-dark);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .check-list { list-style: none; margin-left: 0 !important; }
+  .check-list li::before { content: '✅ '; }
+  .fehler-list { list-style: none; margin-left: 0 !important; }
+  .fehler-list li::before { content: '❌ '; }
+
+  .schaubild-wrap {
+    margin: 1.2rem 0;
+    background: var(--salbei-pale);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .schaubild-wrap svg { max-width: 100%; overflow: visible; }
+
+  /* Rollen-Vergleichstabelle */
+  .rollen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  .rollen-card {
+    background: var(--salbei-pale);
+    border-radius: 10px;
+    padding: 1rem;
+    border-top: 3px solid var(--salbei);
+  }
+  .rollen-card.highlight { border-top-color: var(--apricot); background: var(--apricot-pale); }
+  .rollen-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--salbei); margin-bottom: 0.4rem; }
+  .rollen-card.highlight h4 { color: var(--apricot-dark); }
+  .rollen-card p { font-size: 0.85rem; color: #444; line-height: 1.5; margin: 0; }
+  .rollen-card em { display: block; margin-top: 0.4rem; font-style: italic; color: #666; font-size: 0.82rem; }
+
+  /* Abschluss-spezifisch */
+  .abschluss-hero {
+    background: var(--gradient);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .abschluss-hero::before {
+    content: '🎓';
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .abschluss-hero h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+  }
+  .abschluss-hero p { opacity: 0.9; line-height: 1.6; max-width: 520px; margin: 0 auto; }
+
+  .feier-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.6rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+    border-left: 4px solid var(--apricot);
+  }
+  .feier-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--apricot-dark);
+    margin-bottom: 0.8rem;
+  }
+  .feier-card textarea {
+    width: 100%;
+    min-height: 80px;
+    border: 1.5px solid #f0d5c4;
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    background: var(--apricot-pale);
+    transition: border-color 0.2s;
+  }
+  .feier-card textarea:focus { outline: none; border-color: var(--apricot); }
+
+  .versprechen-box {
+    background: var(--gradient);
+    border-radius: 14px;
+    padding: 2rem;
+    color: #fff;
+    margin: 1.4rem 0;
+  }
+  .versprechen-box h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; text-align: center; }
+  .versprechen-box ul { list-style: none; margin: 0; padding: 0; }
+  .versprechen-box li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; opacity: 0.92; line-height: 1.5; }
+  .versprechen-box li::before { content: '✦'; position: absolute; left: 0; color: var(--apricot); }
+
+  .unterschrift-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.4rem;
+  }
+  .unterschrift-field {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 0.8rem;
+  }
+  .unterschrift-field label { font-size: 0.78rem; opacity: 0.7; display: block; margin-bottom: 0.3rem; }
+  .unterschrift-field input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.2rem 0;
+    font-family: inherit;
+  }
+  .unterschrift-field input:focus { outline: none; border-bottom-color: var(--apricot); }
+  .unterschrift-field input::placeholder { color: rgba(255,255,255,0.4); }
+
+  .abschluss-ritual {
+    background: var(--apricot-pale);
+    border: 2px solid var(--apricot);
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+    margin: 1.4rem 0;
+  }
+  .abschluss-ritual h3 { color: var(--apricot-dark); font-size: 1.1rem; margin-bottom: 1rem; }
+  .abschluss-ritual p { color: var(--apricot-dark); line-height: 1.7; margin-bottom: 1rem; }
+  .abschluss-ritual textarea {
+    width: 100%;
+    min-height: 100px;
+    border: 1.5px solid var(--apricot);
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    background: #fff;
+  }
+  .abschluss-ritual textarea:focus { outline: none; border-color: var(--apricot-dark); }
+
+  .glueckwunsch-box {
+    background: var(--gradient);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .glueckwunsch-box::before { content: '🌟'; font-size: 3rem; display: block; margin-bottom: 1rem; }
+  .glueckwunsch-box h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1.2rem; }
+  .glueckwunsch-box p { opacity: 0.92; line-height: 1.7; font-size: 1.05rem; max-width: 480px; margin: 0 auto 0.6rem; }
+  .glueckwunsch-box .finale { font-size: 1.15rem; font-weight: 700; margin-top: 1.2rem; opacity: 1; }
+
+  .uebung-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+    border-left: 4px solid var(--salbei-mid);
+  }
+  .uebung-card h3 { font-size: 1rem; font-weight: 700; color: var(--salbei); margin-bottom: 0.8rem; }
+  .uebung-card p { line-height: 1.7; margin-bottom: 0.8rem; color: #3a3a3a; }
+  .uebung-card textarea {
+    width: 100%;
+    min-height: 110px;
+    border: 1.5px solid #cde0da;
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    background: var(--bg);
+    transition: border-color 0.2s;
+  }
+  .uebung-card textarea:focus { outline: none; border-color: var(--salbei); }
+  .beispiel-toggle {
+    background: var(--salbei-pale);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--salbei);
+    cursor: pointer;
+    margin-top: 0.7rem;
+    transition: background 0.2s;
+  }
+  .beispiel-toggle:hover { background: #cde0da; }
+  .beispiel-antwort {
+    display: none;
+    background: var(--salbei-pale);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    margin-top: 0.6rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #2c4a42;
+  }
+  .beispiel-antwort.open { display: block; }
+
+  .quiz-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+  }
+  .quiz-card .question { font-weight: 700; margin-bottom: 1rem; line-height: 1.5; }
+  .quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border: 1.5px solid #e0e0e0;
+    transition: all 0.2s;
+    background: var(--bg);
+    font-size: 0.91rem;
+    line-height: 1.5;
+  }
+  .quiz-option:hover { border-color: var(--salbei-mid); background: var(--salbei-pale); }
+  .quiz-option.correct { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+  .quiz-option.wrong { background: #fdecea; border-color: #ef5350; color: #7f0000; }
+  .quiz-option input { margin-top: 3px; flex-shrink: 0; }
+  .quiz-btn {
+    background: var(--salbei);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    transition: background 0.2s;
+  }
+  .quiz-btn:hover { background: #4a6d63; }
+  .quiz-feedback {
+    display: none;
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .quiz-feedback.correct { background: #e8f5e9; color: #1b5e20; border: 1px solid #4caf50; }
+  .quiz-feedback.wrong { background: #fdecea; color: #7f0000; border: 1px solid #ef5350; }
+
+  .ki-mode-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 0.4rem;
+    box-shadow: 0 2px 8px rgba(94,132,120,0.08);
+  }
+  .ki-mode-toggle button {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: #666;
+    transition: all 0.2s;
+  }
+  .ki-mode-toggle button.active { background: var(--salbei); color: #fff; }
+
+  .ki-persona-card {
+    background: var(--apricot-pale);
+    border: 1.5px solid var(--apricot);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--apricot-dark);
+  }
+  .ki-persona-card strong { display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+
+  .ki-chat-window {
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid #e0e0e0;
+    height: 340px;
+    overflow-y: auto;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .ki-chat-window .msg {
+    max-width: 82%;
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .ki-chat-window .msg.user { background: var(--salbei); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; }
+  .ki-chat-window .msg.ai { background: var(--salbei-pale); color: #2c2c2c; align-self: flex-start; border-bottom-left-radius: 3px; }
+  .ki-chat-window .msg.system { background: var(--apricot-pale); color: var(--apricot-dark); align-self: center; font-size: 0.82rem; font-style: italic; max-width: 90%; text-align: center; }
+
+  .ki-input-row { display: flex; gap: 0.5rem; }
+  .ki-input-row textarea {
+    flex: 1;
+    min-height: 58px;
+    max-height: 120px;
+    border: 1.5px solid #cde0da;
+    border-radius: 8px;
+    padding: 0.65rem;
+    font-family: inherit;
+    font-size: 0.88rem;
+    resize: vertical;
+  }
+  .ki-input-row textarea:focus { outline: none; border-color: var(--salbei); }
+  .ki-send-btn {
+    background: var(--salbei);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 1.1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-self: flex-end;
+    height: 58px;
+    transition: background 0.2s;
+  }
+  .ki-send-btn:hover { background: #4a6d63; }
+  .ki-reset-btn {
+    background: transparent;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    color: #666;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  .ki-reset-btn:hover { border-color: var(--salbei); color: var(--salbei); }
+
+  @media (max-width: 600px) {
+    .tab-content { padding: 1rem; }
+    .rollen-grid { grid-template-columns: 1fr; }
+    .unterschrift-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav" id="topNav">
+  <button class="active" onclick="showModule('m32', this)">M32 Rolle des Coaches</button>
+  <button onclick="showModule('m33', this)">M33 Abschluss &amp; Zertifikat</button>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 32 – DIE ROLLE DES COACHES
+════════════════════════════════════════════════ -->
+<div class="module-panel active" id="m32">
+  <div class="module-header">
+    <div class="module-number">Modul 32</div>
+    <h1>Die Rolle des Coaches</h1>
+    <p>Ein Coach gibt keine Antworten. Er stellt die richtigen Fragen – und schafft den Raum, in dem Erkenntnisse entstehen.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab('m32','video',this)">🎬 Video</button>
+    <button onclick="showTab('m32','theorie',this)">📖 Theorie</button>
+    <button onclick="showTab('m32','uebung',this)">✏️ Übung</button>
+    <button onclick="showTab('m32','quiz',this)">🧠 Quiz</button>
+    <button onclick="showTab('m32','ki',this)">🤖 KI-Praxis</button>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="tab-content active" id="m32-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="https://drive.google.com/file/d/14YWDWNBKTNbx7QxLBp1jGxHiBBTHNeY_/preview" allowfullscreen></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Tipp: Vollbild-Modus für beste Lernerfahrung</p>
+  </div>
+
+  <!-- THEORIE -->
+  <div class="tab-content" id="m32-theorie">
+
+    <div class="theorie-section">
+      <h2>Was ist die Rolle eines Coaches?</h2>
+      <p>Viele Menschen glauben, ein Coach müsse Antworten liefern, Probleme lösen oder den richtigen Weg vorgeben. Genau das ist jedoch <strong>nicht</strong> die Hauptaufgabe eines Coaches.</p>
+      <p>Ein Coach begleitet Menschen dabei, ihre eigenen Antworten, Lösungen und Ressourcen zu entdecken.</p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 340 100" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
+          <rect x="10" y="20" width="145" height="60" rx="10" fill="#5e8478"/>
+          <text x="82" y="46" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">COACH</text>
+          <text x="82" y="64" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="10">Experte für den Prozess</text>
+
+          <rect x="185" y="20" width="145" height="60" rx="10" fill="#e8a882"/>
+          <text x="257" y="46" text-anchor="middle" fill="#7a3e28" font-size="12" font-weight="700">COACHEE</text>
+          <text x="257" y="64" text-anchor="middle" fill="#7a3e28" font-size="10">Experte für sein Leben</text>
+        </svg>
+      </div>
+      <div class="merksatz">Der Coach ist nicht der Experte für das Leben des Coachees. Der Coachee ist der Experte für sein Leben. Der Coach ist Experte für den Prozess.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die vier Rollen im Vergleich</h2>
+      <p>Was unterscheidet einen Coach von einem Berater, Trainer oder Mentor?</p>
+
+      <div class="rollen-grid">
+        <div class="rollen-card highlight">
+          <h4>🎯 Der Coach</h4>
+          <p>Stellt Fragen. Hilft dem Coachee, Klarheit zu gewinnen, Zusammenhänge zu erkennen und eigene Lösungen zu entwickeln.</p>
+          <em>„Was wäre für dich eine gute Lösung?"</em>
+        </div>
+        <div class="rollen-card">
+          <h4>📋 Der Berater</h4>
+          <p>Liefert Empfehlungen und Fachwissen. Ist Experte für das Thema.</p>
+          <em>„Ich würde Ihnen Folgendes empfehlen …"</em>
+        </div>
+        <div class="rollen-card">
+          <h4>🎓 Der Trainer</h4>
+          <p>Vermittelt Wissen und Fähigkeiten. Erklärt und übt mit den Teilnehmern.</p>
+          <em>„Heute lernen wir, wie man …"</em>
+        </div>
+        <div class="rollen-card">
+          <h4>🧭 Der Mentor</h4>
+          <p>Teilt eigene Erfahrungen. Gibt Orientierung durch persönliche Erlebnisse.</p>
+          <em>„Als ich in dieser Situation war …"</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die Verantwortung im Coaching</h2>
+      <p>Eine der wichtigsten Coaching-Regeln:</p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="max-width:320px">
+          <defs>
+            <marker id="arr32" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#5e8478"/>
+            </marker>
+          </defs>
+          <!-- Coach -->
+          <rect x="10" y="10" width="135" height="36" rx="8" fill="#5e8478"/>
+          <text x="77" y="33" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">COACH</text>
+          <line x1="77" y1="46" x2="77" y2="62" stroke="#5e8478" stroke-width="2" marker-end="url(#arr32)"/>
+          <rect x="10" y="64" width="135" height="28" rx="6" fill="#eaf2f0"/>
+          <text x="77" y="83" text-anchor="middle" fill="#3d6458" font-size="10">Struktur · Fragen · Methoden</text>
+          <!-- Coachee -->
+          <rect x="175" y="10" width="135" height="36" rx="8" fill="#e8a882"/>
+          <text x="242" y="33" text-anchor="middle" fill="#7a3e28" font-size="12" font-weight="700">COACHEE</text>
+          <line x1="242" y1="46" x2="242" y2="62" stroke="#e8a882" stroke-width="2" marker-end="url(#arr32)"/>
+          <rect x="175" y="64" width="135" height="46" rx="6" fill="#fdf3ec"/>
+          <text x="242" y="81" text-anchor="middle" fill="#7a3e28" font-size="10">Entscheidungen</text>
+          <text x="242" y="96" text-anchor="middle" fill="#7a3e28" font-size="10">Umsetzung · Ergebnisse</text>
+
+          <text x="160" y="145" text-anchor="middle" fill="#5e8478" font-size="10" font-style="italic">↕ klare Trennung</text>
+        </svg>
+      </div>
+      <div class="merksatz">Der Coach begleitet den Weg. Der Coachee geht ihn selbst.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Typische Anfängerfehler</h2>
+      <h3>Retterrolle übernehmen</h3>
+      <p>„Ich muss meinem Kunden helfen." → Gefahr: Der Coach rutscht ins Drama-Dreieck und übernimmt Verantwortung, die nicht ihm gehört.</p>
+      <h3>Zu viele Ratschläge geben</h3>
+      <p>„Du solltest …" → Gefahr: Der Coachee entwickelt keine eigenen Lösungen und bleibt abhängig.</p>
+      <h3>Eigene Erfahrungen überstülpen</h3>
+      <p>„Bei mir hat das funktioniert, also wird es bei dir auch funktionieren." → Gefahr: Jeder Mensch hat andere Motive, Werte und Lebensumstände.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Die Haltung eines guten Coaches</h2>
+      <p>Ein guter Coach begegnet dem Coachee mit:</p>
+      <ul>
+        <li><strong>Wertschätzung</strong> – bedingungsloser Respekt, unabhängig vom Thema</li>
+        <li><strong>Neugier</strong> – echtes Interesse, nicht Beurteilung</li>
+        <li><strong>Offenheit</strong> – keine vorgefassten Meinungen</li>
+        <li><strong>Vertrauen</strong> – in die Ressourcen des Coachees</li>
+      </ul>
+      <div class="merksatz">„Ich glaube daran, dass du die Lösung bereits in dir trägst."</div>
+
+      <h3>Selbstreflexion vor jeder Sitzung</h3>
+      <ul>
+        <li>Bin ich gerade Coach oder Berater?</li>
+        <li>Möchte ich verstehen oder überzeugen?</li>
+        <li>Gebe ich Antworten oder stelle ich Fragen?</li>
+        <li>Trage ich gerade Verantwortung, die dem Coachee gehört?</li>
+      </ul>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Verbindung zu anderen Modellen</h2>
+      <h3>Rolle des Coaches &amp; Aktives Zuhören</h3>
+      <p>Ein Coach hört zu, bevor er handelt. Verstehen kommt vor Verändern.</p>
+      <h3>Rolle des Coaches &amp; GROW</h3>
+      <p>Im GROW-Modell entwickelt der Coachee seine eigenen Lösungen. Der Coach führt lediglich durch den Prozess.</p>
+      <h3>Rolle des Coaches &amp; Auftragsklärung</h3>
+      <p>Ein Coach arbeitet nicht an seinem Ziel – er arbeitet am Ziel des Coachees. Deshalb ist die Auftragsklärung so entscheidend.</p>
+
+      <div class="schaubild-wrap">
+        <svg viewBox="0 0 220 280" xmlns="http://www.w3.org/2000/svg" style="max-width:220px">
+          <defs>
+            <marker id="arr32b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#5e8478"/>
+            </marker>
+          </defs>
+          <rect x="40" y="10" width="140" height="30" rx="7" fill="#3d6458"/>
+          <text x="110" y="30" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">VERTRAUEN</text>
+          <line x1="110" y1="40" x2="110" y2="54" stroke="#5e8478" stroke-width="2" marker-end="url(#arr32b)"/>
+          <rect x="40" y="56" width="140" height="30" rx="7" fill="#5e8478"/>
+          <text x="110" y="76" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">ZUHÖREN</text>
+          <line x1="110" y1="86" x2="110" y2="100" stroke="#5e8478" stroke-width="2" marker-end="url(#arr32b)"/>
+          <rect x="40" y="102" width="140" height="30" rx="7" fill="#7da398"/>
+          <text x="110" y="122" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">FRAGEN</text>
+          <line x1="110" y1="132" x2="110" y2="146" stroke="#5e8478" stroke-width="2" marker-end="url(#arr32b)"/>
+          <rect x="40" y="148" width="140" height="30" rx="7" fill="#5e8478"/>
+          <text x="110" y="168" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">ERKENNTNIS</text>
+          <line x1="110" y1="178" x2="110" y2="192" stroke="#5e8478" stroke-width="2" marker-end="url(#arr32b)"/>
+          <rect x="40" y="194" width="140" height="30" rx="7" fill="#7da398"/>
+          <text x="110" y="214" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">EIGENE LÖSUNG</text>
+          <line x1="110" y1="224" x2="110" y2="238" stroke="#5e8478" stroke-width="2" marker-end="url(#arr32b)"/>
+          <rect x="40" y="240" width="140" height="30" rx="7" fill="#e8a882"/>
+          <text x="110" y="260" text-anchor="middle" fill="#7a3e28" font-size="11" font-weight="700">VERÄNDERUNG</text>
+        </svg>
+      </div>
+      <div class="merksatz">Der Coach muss nicht die besten Antworten haben. Seine Aufgabe ist es, die besten Fragen zu stellen und den Raum zu schaffen, in dem Erkenntnisse entstehen können.</div>
+    </div>
+  </div>
+
+  <!-- ÜBUNG -->
+  <div class="tab-content" id="m32-uebung">
+    <div class="uebung-card">
+      <h3>Übung 1: Coach oder Berater?</h3>
+      <p>Ordne folgende Aussagen ein: Coach-Haltung oder Berater-Haltung? Begründe kurz. a) „Was glaubst du, was hinter dieser Erschöpfung steckt?" b) „Du solltest auf jeden Fall mehr schlafen und weniger arbeiten." c) „Stell dir vor, das Problem wäre gelöst – wie würde sich dein Leben anfühlen?" d) „Ich kenne das, bei mir hat Meditation wirklich geholfen."</p>
+      <textarea placeholder="Deine Einordnung..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        a) Coach – öffnende Frage, Coachee findet selbst die Antwort. b) Berater – gibt direkte Empfehlung, lässt keinen eigenen Denkraum. c) Coach – Wunderfrage, aktiviert eigene Vorstellungskraft. d) Mentor – teilt eigene Erfahrung, kann Orientierung geben, aber auch die Perspektive des Coachees einengen.
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 2: Ratschlag in Frage verwandeln</h3>
+      <p>Schreibe für jeden Ratschlag eine echte Coaching-Frage, die denselben Impuls gibt, aber die Lösung beim Coachee lässt: a) „Du solltest mit deinem Chef sprechen." b) „Nimm dir mehr Zeit für dich." c) „Hör auf, alles perfekt machen zu wollen."</p>
+      <textarea placeholder="Deine Coaching-Fragen..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        a) → „Was würde passieren, wenn du mit deinem Chef darüber sprechen würdest? Was hält dich davon ab?" b) → „Was bräuchtest du, damit du dir wieder mehr Zeit für dich nehmen kannst?" c) → „Was würde sich verändern, wenn du bei diesem Thema 80% statt 100% ausreichen lässt?"
+      </div>
+    </div>
+
+    <div class="uebung-card">
+      <h3>Übung 3: Selbstreflexion als Coach</h3>
+      <p>Denke an eine Situation, in der du jemandem „zu viel geholfen" hast – vielleicht indem du Ratschläge gabst, Lösungen anbietest oder die Verantwortung übernommen hast. Was wäre eine andere Reaktion gewesen, die dem anderen mehr Eigenverantwortung gelassen hätte?</p>
+      <textarea placeholder="Deine Reflexion..."></textarea>
+      <button class="beispiel-toggle" onclick="toggleBeispiel(this)">💡 Beispielantwort anzeigen</button>
+      <div class="beispiel-antwort">
+        Diese Übung ist sehr persönlich – es gibt keine richtige Antwort. Typische Erkenntnisse: „Ich hätte nachfragen können, ob die Person überhaupt Rat wollte." „Ich hätte fragen können: Was würdest du selbst tun?" „Ich habe gemerkt, dass ich damit eigentlich mich selbst beruhigt habe, nicht die andere Person." Die Coach-Haltung beginnt im Alltag – nicht nur im formalen Coaching.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="tab-content" id="m32-quiz">
+    <div class="quiz-card" id="m32q1">
+      <p class="question">1. Was ist der entscheidende Unterschied zwischen einem Coach und einem Berater?</p>
+      <label class="quiz-option"><input type="radio" name="m32q1" value="a"> Ein Coach hat mehr Ausbildungsjahre als ein Berater.</label>
+      <label class="quiz-option"><input type="radio" name="m32q1" value="b"> Ein Berater liefert Empfehlungen und Fachwissen, ein Coach hilft dem Coachee, eigene Lösungen zu entwickeln.</label>
+      <label class="quiz-option"><input type="radio" name="m32q1" value="c"> Ein Coach arbeitet nur mit Einzelpersonen, ein Berater mit Unternehmen.</label>
+      <button class="quiz-btn" onclick="checkQuiz('m32q1','b','Genau! Der Coach ist Experte für den Prozess, nicht für das Thema. Er entwickelt keine Lösungen für den Coachee – er begleitet den Coachee dabei, eigene Lösungen zu finden.','Das ist nicht korrekt. Der Unterschied liegt nicht in der Ausbildung oder Zielgruppe, sondern in der Haltung: Ratschläge geben vs. eigene Lösungen ermöglichen.')">Auswerten</button>
+      <div class="quiz-feedback" id="m32q1-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m32q2">
+      <p class="question">2. Wofür ist der Coach verantwortlich – und wofür der Coachee?</p>
+      <label class="quiz-option"><input type="radio" name="m32q2" value="a"> Der Coach ist für alles verantwortlich – Prozess und Ergebnis.</label>
+      <label class="quiz-option"><input type="radio" name="m32q2" value="b"> Der Coach ist für den Prozess verantwortlich, der Coachee für Entscheidungen, Umsetzung und Ergebnisse.</label>
+      <label class="quiz-option"><input type="radio" name="m32q2" value="c"> Der Coachee ist für den Prozess verantwortlich, der Coach für das Ergebnis.</label>
+      <button class="quiz-btn" onclick="checkQuiz('m32q2','b','Richtig! Diese Trennung ist fundamental. Der Coach hält den Rahmen – Struktur, Fragen, Methoden. Der Coachee trägt die Verantwortung für sein Leben: Entscheidungen, Umsetzung, Ergebnisse.','Das ist nicht korrekt. Eine der wichtigsten Coaching-Regeln: Coach = Verantwortung für den Prozess. Coachee = Verantwortung für Entscheidungen und Ergebnisse.')">Auswerten</button>
+      <div class="quiz-feedback" id="m32q2-feedback"></div>
+    </div>
+
+    <div class="quiz-card" id="m32q3">
+      <p class="question">3. Was beschreibt die Grundhaltung eines guten Coaches am besten?</p>
+      <label class="quiz-option"><input type="radio" name="m32q3" value="a"> „Ich weiß, was das Beste für meinen Coachee ist."</label>
+      <label class="quiz-option"><input type="radio" name="m32q3" value="b"> „Ich glaube daran, dass der Coachee die Lösung bereits in sich trägt."</label>
+      <label class="quiz-option"><input type="radio" name="m32q3" value="c"> „Meine Aufgabe ist es, dem Coachee das Leben leichter zu machen."</label>
+      <button class="quiz-btn" onclick="checkQuiz('m32q3','b','Genau! Diese Grundhaltung ist der Kern von Coaching: Vertrauen in die Ressourcen und die Fähigkeiten des Coachees. Der Coach glaubt an die Lösung im Coachee – bevor der Coachee selbst daran glaubt.','Nicht ganz. „Das Beste wissen" oder „das Leben leichter machen" klingt hilfreich, führt aber schnell in die Retterrolle. Die echte Coach-Haltung ist: Vertrauen in den Coachee.')">Auswerten</button>
+      <div class="quiz-feedback" id="m32q3-feedback"></div>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m32-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode('m32','coachee')">🎭 Coachee-Modus</button>
+      <button onclick="setKiMode('m32','lern')">📚 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-card" id="m32-persona">
+      <strong>🎭 Dein Übungsklient: David, 46</strong>
+      David ist erfahrener Unternehmensberater und kommt zum ersten Mal als Coachee zu dir. Er sagt: „Ich bin es gewohnt, Lösungen zu liefern. Jetzt sitze ich hier und bin selbst ratlos – das ist ein seltsames Gefühl." Übe, deine Coach-Rolle klar zu halten – und David zu helfen, seine eigenen Antworten zu finden, ohne selbst in die Berater-Rolle zu rutschen.
+    </div>
+    <div class="ki-chat-window" id="m32-chat"></div>
+    <div class="ki-input-row">
+      <textarea id="m32-input" placeholder="Deine Coaching-Frage an David..." onkeydown="handleKiKey(event,'m32')"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage('m32')">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi('m32')">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     MODUL 33 – ABSCHLUSS & ZERTIFIKAT
+════════════════════════════════════════════════ -->
+<div class="module-panel" id="m33">
+  <div class="module-header">
+    <div class="module-number">Modul 33</div>
+    <h1>Abschluss &amp; Dein Weg als Coach</h1>
+    <p>Du hast nicht nur Methoden gelernt. Du hast gelernt, Menschen besser zu verstehen, Veränderung zu begleiten und Entwicklung zu ermöglichen.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="showTab('m33','video',this)">🎬 Video</button>
+    <button onclick="showTab('m33','theorie',this)">📖 Rückblick</button>
+    <button onclick="showTab('m33','feier',this)">🎉 Feierformular</button>
+    <button onclick="showTab('m33','versprechen',this)">📜 Versprechen</button>
+    <button onclick="showTab('m33','ki',this)">🤖 KI-Praxis</button>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="tab-content active" id="m33-video">
+    <div class="video-wrapper">
+      <div class="video-fade-top"></div>
+      <iframe src="about:blank" style="display:none" allowfullscreen></iframe>
+      <div class="video-fade-bottom"></div>
+    </div>
+    <p class="video-hint">💡 Nimm dir Zeit für dieses letzte Video. Du hast es verdient. 🌿</p>
+  </div>
+
+  <!-- RÜCKBLICK / THEORIE -->
+  <div class="tab-content" id="m33-theorie">
+
+    <div class="abschluss-hero">
+      <h2>Du bist am Ziel angekommen.</h2>
+      <p>Nimm dir einen Moment Zeit und schaue auf deinen Weg zurück. Denke an den Zeitpunkt, an dem du mit dieser Ausbildung begonnen hast.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Was du gelernt hast</h2>
+      <p>Du hast in dieser Ausbildung nicht nur Methoden kennengelernt – du hast eine neue Art zu denken, zu fragen und zu begleiten entwickelt.</p>
+
+      <ul class="check-list">
+        <li>Menschen wirklich zuzuhören</li>
+        <li>Die richtigen Fragen zur richtigen Zeit zu stellen</li>
+        <li>Menschen besser zu verstehen – von innen</li>
+        <li>Konflikte zu erkennen und einzuordnen</li>
+        <li>Ressourcen zu aktivieren und Perspektiven zu erweitern</li>
+        <li>Veränderung professionell zu begleiten</li>
+        <li>Die eigene Rolle klar zu halten</li>
+        <li>Ethisch und verantwortungsvoll zu handeln</li>
+      </ul>
+
+      <div class="merksatz">Doch die wichtigste Entwicklung betrifft nicht die Methoden. Sie betrifft dich selbst.</div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Fragen für deinen Rückblick</h2>
+      <p>Nimm dir etwas Zeit und beantworte diese Fragen für dich:</p>
+      <ul>
+        <li>Was habe ich über mich gelernt?</li>
+        <li>Welche Erkenntnis hat mich am meisten verändert?</li>
+        <li>Welche Methode hat mich persönlich am stärksten berührt?</li>
+        <li>Worauf bin ich heute stolz?</li>
+      </ul>
+      <p>Oft erkennen wir Wachstum erst, wenn wir bewusst zurückblicken.</p>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Was gute Coaches ausmacht</h2>
+      <div class="merksatz">Gute Coaches entstehen nicht durch Wissen. Gute Coaches entstehen durch Selbstreflexion, Erfahrung und echte Begegnung mit Menschen.</div>
+      <p>Die Ausbildung hat dir das Fundament gegeben. Was jetzt kommt, ist das Wichtigste: die Anwendung im echten Leben.</p>
+      <p>Jedes Gespräch, das du führst, jede Frage, die du stellst, jeder Moment echter Begegnung – das ist Coaching.</p>
+    </div>
+
+    <div class="glueckwunsch-box">
+      <h2>Herzlichen Glückwunsch</h2>
+      <p>Du hast nicht nur Methoden gelernt.</p>
+      <p>Du hast gelernt, Menschen besser zu verstehen, Veränderung zu begleiten und Entwicklung zu ermöglichen.</p>
+      <p class="finale">Nun beginnt der wichtigste Teil: Die Anwendung im echten Leben. 🌿</p>
+    </div>
+  </div>
+
+  <!-- FEIERFORMULAR -->
+  <div class="tab-content" id="m33-feier">
+    <div class="theorie-section" style="border-left: 4px solid var(--apricot);">
+      <h2 style="color: var(--apricot-dark);">🎉 Meine Coaching-Reise feiern</h2>
+      <p>Nimm dir Zeit für diese Fragen. Es gibt keine richtigen oder falschen Antworten – nur deine ehrlichen.</p>
+    </div>
+
+    <div class="feier-card">
+      <h3>✨ Mein größter Aha-Moment</h3>
+      <textarea placeholder="Das war der Moment, in dem sich etwas verändert hat ..."></textarea>
+    </div>
+
+    <div class="feier-card">
+      <h3>🔍 Die wichtigste Erkenntnis über mich selbst</h3>
+      <textarea placeholder="Ich habe gelernt, dass ich ..."></textarea>
+    </div>
+
+    <div class="feier-card">
+      <h3>🛠️ Die Methode, die ich am häufigsten einsetzen möchte</h3>
+      <textarea placeholder="Die Methode ist ... weil ..."></textarea>
+    </div>
+
+    <div class="feier-card">
+      <h3>📈 Was ich heute besser kann als zu Beginn</h3>
+      <textarea placeholder="Vor der Ausbildung konnte ich nicht ... Heute kann ich ..."></textarea>
+    </div>
+
+    <div class="feier-card">
+      <h3>🙏 Wofür ich mir selbst dankbar bin</h3>
+      <textarea placeholder="Ich bin mir selbst dankbar dafür, dass ich ..."></textarea>
+    </div>
+
+    <div class="feier-card">
+      <h3>🚀 Mein nächster Entwicklungsschritt als Coach</h3>
+      <textarea placeholder="Als nächstes möchte ich ..."></textarea>
+    </div>
+
+    <div class="abschluss-ritual">
+      <h3>🌟 Das Abschlussritual</h3>
+      <p>Stell dir vor, wir treffen uns in fünf Jahren wieder. Du hast viele Menschen begleitet, unterstützt und inspiriert.</p>
+      <p><strong>Was sollen diese Menschen dann über dich als Coach sagen?</strong></p>
+      <textarea placeholder="In fünf Jahren sagen meine Coachees über mich: ..."></textarea>
+    </div>
+  </div>
+
+  <!-- VERSPRECHEN -->
+  <div class="tab-content" id="m33-versprechen">
+    <div class="theorie-section" style="border-left: 4px solid var(--apricot);">
+      <h2 style="color: var(--apricot-dark);">📜 Mein Coaching-Versprechen</h2>
+      <p>Ein Coach zu sein ist nicht nur ein Beruf – es ist eine Haltung. Dieses Versprechen erinnert dich daran, was dir wichtig ist.</p>
+    </div>
+
+    <div class="versprechen-box">
+      <h3>✦ Ich verpflichte mich</h3>
+      <ul>
+        <li>Menschen wertschätzend zu begegnen – unabhängig von Thema oder Person</li>
+        <li>neugierig zu bleiben – auf den Menschen, nicht auf die Methode</li>
+        <li>Verantwortung dort zu lassen, wo sie hingehört – beim Coachee</li>
+        <li>mich selbst kontinuierlich weiterzuentwickeln</li>
+        <li>Coaching als Hilfe zur Selbsthilfe zu verstehen</li>
+        <li>meine Grenzen zu kennen und zu respektieren</li>
+        <li>ethisch und transparent zu handeln</li>
+      </ul>
+
+      <div class="unterschrift-row">
+        <div class="unterschrift-field">
+          <label>Datum</label>
+          <input type="text" id="datum-field" placeholder="TT.MM.JJJJ">
+        </div>
+        <div class="unterschrift-field">
+          <label>Dein Name</label>
+          <input type="text" id="name-field" placeholder="Dein voller Name">
+        </div>
+      </div>
+    </div>
+
+    <div class="theorie-section">
+      <h2>Was jetzt kommt</h2>
+      <p>Die Ausbildung ist abgeschlossen. Aber das Lernen hört nie auf. Als Coach wirst du:</p>
+      <ul>
+        <li>aus jedem Gespräch etwas Neues mitnehmen</li>
+        <li>dich selbst immer besser kennenlernen</li>
+        <li>Methoden entdecken, die zu dir passen</li>
+        <li>Menschen begleiten, die dein Leben bereichern</li>
+      </ul>
+      <div class="merksatz">Der wichtigste Coach in deinem Leben bist du selbst. Behandle dich mit derselben Wertschätzung, die du deinen Coachees entgegenbringst.</div>
+    </div>
+
+    <div class="glueckwunsch-box">
+      <h2>Du bist jetzt Coach. 🌿</h2>
+      <p>Nicht weil du ein Zertifikat hast.</p>
+      <p>Sondern weil du gelernt hast, echte Fragen zu stellen, wirklich zuzuhören und Menschen auf ihrem Weg zu begleiten.</p>
+      <p class="finale">Herzlich willkommen in der Welt des Coachings.</p>
+    </div>
+  </div>
+
+  <!-- KI-PRAXIS -->
+  <div class="tab-content" id="m33-ki">
+    <div class="ki-mode-toggle">
+      <button class="active" onclick="setKiMode('m33','coachee')">🎭 Abschluss-Coaching</button>
+      <button onclick="setKiMode('m33','lern')">📚 Lernbegleiter</button>
+    </div>
+    <div class="ki-persona-card" id="m33-persona">
+      <strong>🎭 Dein letztes Übungsgespräch: Anna, 42</strong>
+      Anna ist wie du – sie schließt gerade ihre Coaching-Ausbildung ab. Sie sagt: „Ich freue mich so sehr, endlich fertig zu sein. Aber gleichzeitig habe ich eine riesengroße Angst: Was, wenn ich als Coach nicht gut genug bin?" Führe Anna durch diesen letzten Moment – und nutze alles, was du gelernt hast.
+    </div>
+    <div class="ki-chat-window" id="m33-chat"></div>
+    <div class="ki-input-row">
+      <textarea id="m33-input" placeholder="Deine Coaching-Frage an Anna..." onkeydown="handleKiKey(event,'m33')"></textarea>
+      <button class="ki-send-btn" onclick="sendKiMessage('m33')">➤</button>
+    </div>
+    <button class="ki-reset-btn" onclick="resetKi('m33')">↺ Gespräch neu starten</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+function showModule(id, btn) {
+  document.querySelectorAll('.module-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.top-nav button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showTab(mod, tab, btn) {
+  var panel = document.getElementById(mod);
+  panel.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  panel.querySelectorAll('.tab-bar button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(mod + '-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleBeispiel(btn) {
+  var ans = btn.nextElementSibling;
+  var open = ans.classList.toggle('open');
+  btn.textContent = open ? '🙈 Beispielantwort verbergen' : '💡 Beispielantwort anzeigen';
+}
+
+function checkQuiz(id, correct, okMsg, wrongMsg) {
+  var card = document.getElementById(id);
+  var sel = card.querySelector('input[name="' + id + '"]:checked');
+  var fb = document.getElementById(id + '-feedback');
+  if (!sel) { fb.style.display = 'block'; fb.className = 'quiz-feedback wrong'; fb.textContent = 'Bitte wähle eine Antwort aus.'; return; }
+  card.querySelectorAll('.quiz-option').forEach(function(opt) {
+    opt.classList.remove('correct', 'wrong');
+    if (opt.querySelector('input').value === correct) opt.classList.add('correct');
+    else if (opt.querySelector('input').value === sel.value && sel.value !== correct) opt.classList.add('wrong');
+  });
+  fb.style.display = 'block';
+  if (sel.value === correct) {
+    fb.className = 'quiz-feedback correct';
+    fb.textContent = '✅ ' + okMsg;
+  } else {
+    fb.className = 'quiz-feedback wrong';
+    fb.textContent = '❌ ' + wrongMsg;
+  }
+}
+
+var kiState = {};
+
+var kiPersonas = {
+  m32: {
+    coachee: {
+      label: '🎭 Dein Übungsklient: David, 46',
+      desc: 'David ist erfahrener Unternehmensberater. Er sagt: „Ich bin es gewohnt, Lösungen zu liefern. Jetzt sitze ich hier und bin selbst ratlos – das ist ein seltsames Gefühl." Übe, deine Coach-Rolle klar zu halten ohne selbst in die Berater-Rolle zu rutschen.',
+      system: 'Du spielst David, 46, Unternehmensberater mit 20 Jahren Erfahrung. Du bist zum ersten Mal Coachee. Du bist es gewohnt, Antworten zu geben – nicht zu empfangen. Du hast Schwierigkeiten, dich zu öffnen, und neigst dazu, das Gespräch zu analysieren statt zu fühlen. Das eigentliche Thema: Du hast deinen Job immer mit deiner Identität gleichgesetzt und weißt nicht mehr, wer du bist jenseits deiner Leistung. Antworte als David, intellektuell und kontrolliert, aber mit kleinen Rissen. Antworte auf Deutsch.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich beantworte deine Fragen zu Modul 32 – Die Rolle des Coaches.',
+      system: 'Du bist ein warmherziger Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 32: Die Rolle des Coaches. Erkläre die Unterschiede zwischen Coach, Berater, Trainer und Mentor. Gib Feedback zu Formulierungen. Antworte auf Deutsch, praxisnah und ermutigend.'
+    }
+  },
+  m33: {
+    coachee: {
+      label: '🎭 Dein letztes Übungsgespräch: Anna, 42',
+      desc: 'Anna schließt gerade ihre Coaching-Ausbildung ab und sagt: „Ich freue mich so sehr – aber ich habe eine riesengroße Angst: Was, wenn ich als Coach nicht gut genug bin?" Führe Anna durch diesen letzten Moment.',
+      system: 'Du spielst Anna, 42, die gerade ihre Coaching-Ausbildung abschließt. Du bist aufgeregt und stolz, aber gleichzeitig von Selbstzweifel geplagt: "Was wenn ich nicht gut genug bin?" Du neigst dazu, dich mit anderen zu vergleichen und denkst, du müsstest perfekt sein. Das eigentliche Thema: Angst vor Ablehnung und Selbstwert unabhängig von Leistung. Du bist offen, herzlich und lernbereit. Antworte als Anna, warm und authentisch. Antworte auf Deutsch.'
+    },
+    lern: {
+      label: '📚 Lernbegleiter-Modus',
+      desc: 'Ich begleite dich beim Abschluss der Ausbildung. Was möchtest du noch vertiefen oder reflektieren?',
+      system: 'Du bist ein warmherziger Abschluss-Lernbegleiter für die MUMTY Coaching-Ausbildung, Modul 33. Hilf dabei, die gesamte Lernreise zu reflektieren, Erkenntnisse zu verankern und den nächsten Schritt als Coach zu planen. Antworte auf Deutsch, warm und feierlich.'
+    }
+  }
+};
+
+function setKiMode(mod, mode) {
+  var panel = document.getElementById(mod);
+  var btns = panel.querySelectorAll('.ki-mode-toggle button');
+  btns[0].classList.toggle('active', mode === 'coachee');
+  btns[1].classList.toggle('active', mode === 'lern');
+
+  var persona = kiPersonas[mod][mode];
+  document.getElementById(mod + '-persona').innerHTML =
+    '<strong>' + persona.label + '</strong>' + persona.desc;
+
+  if (!kiState[mod]) kiState[mod] = {};
+  kiState[mod].mode = mode;
+  kiState[mod].history = [];
+  kiState[mod].msgCount = 0;
+
+  var chat = document.getElementById(mod + '-chat');
+  chat.innerHTML = '';
+  appendMsg(mod, 'system', mode === 'coachee'
+    ? '✨ Neues Gespräch gestartet. Beginne dein Coaching!'
+    : '📚 Lernbegleiter bereit. Was möchtest du wissen?');
+}
+
+function appendMsg(mod, role, text) {
+  var chat = document.getElementById(mod + '-chat');
+  var div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function handleKiKey(e, mod) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendKiMessage(mod); }
+}
+
+async function sendKiMessage(mod) {
+  var input = document.getElementById(mod + '-input');
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+
+  if (!kiState[mod]) { setKiMode(mod, 'coachee'); return; }
+  var state = kiState[mod];
+  if (!state.mode) state.mode = 'coachee';
+  if (!state.history) state.history = [];
+  if (!state.msgCount) state.msgCount = 0;
+
+  appendMsg(mod, 'user', text);
+  state.history.push({ role: 'user', content: text });
+  state.msgCount++;
+
+  var persona = kiPersonas[mod][state.mode];
+  var messages = state.history.slice();
+
+  if (state.msgCount >= 4 && state.mode === 'coachee') {
+    messages[messages.length - 1] = {
+      role: 'user',
+      content: text + '\n\n[Bitte antworte zunächst als Coachee. Füge danach nach "---" ein kurzes Feedback für den Coach hinzu: Was lief gut? Was könnte besser sein?]'
+    };
+  }
+
+  try {
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        system: persona.system,
+        messages: messages
+      })
+    });
+    var data = await res.json();
+    var reply = data.content && data.content[0] ? data.content[0].text : '(Keine Antwort)';
+    state.history.push({ role: 'assistant', content: reply });
+
+    if (state.msgCount >= 4 && state.mode === 'coachee' && reply.includes('---')) {
+      var parts = reply.split('---');
+      appendMsg(mod, 'ai', parts[0].trim());
+      appendMsg(mod, 'system', '💬 Feedback: ' + parts[1].trim());
+    } else {
+      appendMsg(mod, 'ai', reply);
+    }
+  } catch(e) {
+    appendMsg(mod, 'system', '⚠️ Verbindungsfehler. Bitte versuche es erneut.');
+  }
+}
+
+function resetKi(mod) {
+  var mode = (kiState[mod] && kiState[mod].mode) ? kiState[mod].mode : 'coachee';
+  setKiMode(mod, mode);
+}
+
+// Datum vorausfüllen
+document.addEventListener('DOMContentLoaded', function() {
+  var d = new Date();
+  var datumField = document.getElementById('datum-field');
+  if (datumField) {
+    datumField.value = d.getDate().toString().padStart(2,'0') + '.' +
+      (d.getMonth()+1).toString().padStart(2,'0') + '.' + d.getFullYear();
+  }
+  ['m32','m33'].forEach(function(mod) { setKiMode(mod, 'coachee'); });
+});
+</script>
+</body>
+</html>
