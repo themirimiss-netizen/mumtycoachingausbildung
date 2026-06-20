@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///Users/famsta22/Downloads/mumty_module11bis16%20(2).html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUMTY Coaching-Ausbildung – Module 11–16</title>
+<style>
+:root {
+  --salbei: #5e8478;
+  --salbei-mid: #7da398;
+  --salbei-pale: #eaf2f0;
+  --apricot: #e8a882;
+  --apricot-pale: #fdf3ec;
+  --apricot-dark: #7a3e28;
+  --bg: #f4f8f6;
+  --text: #2c3e35;
+  --text-light: #5a7060;
+  --shadow: 0 2px 16px rgba(94,132,120,0.13);
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+.main-header { background: linear-gradient(135deg,#3d6458,#5e8478,#7da398,#5e8478); padding: 28px 40px; color: white; box-shadow: 0 4px 20px rgba(61,100,88,.3); }
+.main-header .logo { font-size: 2rem; font-weight: 800; letter-spacing: -1px; }
+.main-header .subtitle { font-size: .95rem; opacity: .85; margin-top: 3px; }
+.module-nav { display: flex; gap: 8px; padding: 18px 40px; background: white; border-bottom: 1px solid #dce8e4; overflow-x: auto; flex-wrap: wrap; }
+.module-nav-btn { padding: 8px 18px; border: 2px solid var(--salbei-pale); background: var(--salbei-pale); color: var(--salbei); border-radius: 30px; cursor: pointer; font-size: .88rem; font-weight: 600; transition: all .2s; white-space: nowrap; }
+.module-nav-btn:hover, .module-nav-btn.active { background: var(--salbei); border-color: var(--salbei); color: white; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 20px 80px; }
+.module-panel { display: none; }
+.module-panel.active { display: block; }
+.module-header { background: linear-gradient(135deg,#3d6458,#5e8478,#7da398,#5e8478); color: white; padding: 28px 32px; border-radius: var(--radius) var(--radius) 0 0; }
+.module-number { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: .8; margin-bottom: 4px; }
+.module-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.5px; }
+.tab-nav { display: flex; background: white; border-bottom: 2px solid var(--salbei-pale); overflow-x: auto; }
+.tab-btn { padding: 14px 22px; border: none; background: transparent; color: var(--text-light); font-size: .9rem; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .2s; white-space: nowrap; }
+.tab-btn:hover { color: var(--salbei); background: var(--salbei-pale); }
+.tab-btn.active { color: var(--salbei); border-bottom-color: var(--salbei); background: var(--bg); }
+.tab-content { background: white; border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow); min-height: 500px; }
+.tab-pane { display: none; padding: 32px; }
+.tab-pane.active { display: block; }
+.video-wrapper { position: relative; border-radius: 10px; overflow: hidden; background: #000; }
+.video-wrapper iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+.vft { position: absolute; top: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom,#f4f8f6,transparent); pointer-events: none; z-index: 2; }
+.vfb { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to top,#f4f8f6,transparent); pointer-events: none; z-index: 2; }
+.t-sec { margin-bottom: 30px; padding-bottom: 26px; border-bottom: 1px solid var(--salbei-pale); }
+.t-sec:last-child { border-bottom: none; margin-bottom: 0; }
+.t-sec h3 { color: var(--salbei); font-size: 1.08rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.t-sec h3::before { content: ''; width: 4px; height: 18px; background: var(--apricot); border-radius: 2px; flex-shrink: 0; }
+.t-sec p { line-height: 1.78; margin-bottom: 10px; }
+.t-sec h4 { color: var(--salbei); font-size: .95rem; font-weight: 700; margin: 16px 0 6px; }
+.t-sec ul { padding-left: 0; list-style: none; margin: 8px 0; }
+.t-sec ul li { padding: 5px 0 5px 22px; position: relative; line-height: 1.65; }
+.t-sec ul li::before { content: '✦'; color: var(--apricot); position: absolute; left: 0; font-size: .68rem; top: 8px; }
+.merksatz { background: var(--apricot-pale); border-left: 4px solid var(--apricot); padding: 14px 20px; border-radius: 0 8px 8px 0; margin: 14px 0; font-style: italic; color: var(--apricot-dark); font-weight: 500; line-height: 1.65; }
+.info-box { background: var(--salbei-pale); border: 1px solid #b8d4ce; border-radius: 8px; padding: 16px 20px; margin: 12px 0; line-height: 1.7; }
+.info-box strong { color: var(--salbei); }
+.schaubild { background: var(--salbei-pale); border: 2px solid #c5dbd6; border-radius: 10px; padding: 20px; margin: 16px 0; text-align: center; }
+.check-list { list-style: none; padding: 0; margin: 10px 0; }
+.check-list li { padding: 4px 0 4px 28px; position: relative; line-height: 1.6; }
+.check-list li::before { content: '✅'; position: absolute; left: 0; font-size: .85rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+@media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
+.grid-card { background: var(--salbei-pale); border: 1px solid #c5dbd6; border-radius: 8px; padding: 14px 16px; }
+.grid-card h4 { color: var(--salbei); font-size: .9rem; font-weight: 700; margin-bottom: 8px; }
+.grid-card p, .grid-card li { font-size: .87rem; line-height: 1.6; }
+.flow { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 16px 0; }
+.flow-step { background: var(--salbei); color: white; padding: 9px 28px; border-radius: 20px; font-weight: 600; font-size: .88rem; min-width: 210px; text-align: center; }
+.flow-arrow { color: var(--salbei); font-size: 1.3rem; line-height: 1.4; }
+.simple-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .88rem; }
+.simple-table th { background: var(--salbei); color: white; padding: 10px 14px; text-align: left; font-weight: 600; }
+.simple-table td { padding: 9px 14px; border-bottom: 1px solid #dce8e4; line-height: 1.5; }
+.simple-table tr:nth-child(even) td { background: var(--salbei-pale); }
+/* JOHARI */
+.johari-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; border-radius: 8px; overflow: hidden; border: 2px solid #c5dbd6; margin: 16px 0; }
+.j-cell { padding: 18px; }
+.j-cell h4 { font-size: .9rem; font-weight: 800; margin-bottom: 4px; }
+.j-cell .j-sub { font-size: .75rem; font-weight: 600; opacity: .7; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
+.j-cell p { font-size: .83rem; line-height: 1.55; }
+.j-cell ul { list-style: none; padding: 0; }
+.j-cell ul li { font-size: .82rem; padding: 2px 0 2px 14px; position: relative; }
+.j-cell ul li::before { content: '→'; position: absolute; left: 0; }
+.j-a { background: #e8f5ee; } .j-a h4 { color: #2a6b45; }
+.j-b { background: #fdeaea; } .j-b h4 { color: #8b3333; }
+.j-c { background: #fff8e1; } .j-c h4 { color: #7a5c00; }
+.j-d { background: var(--salbei-pale); } .j-d h4 { color: var(--salbei); }
+/* TA */
+.ta-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 14px 0; }
+@media(max-width:600px){.ta-grid{grid-template-columns:1fr;}}
+.ta-card { border-radius: 10px; padding: 16px; border: 1px solid transparent; }
+.ta-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: 8px; }
+.ta-card p { font-size: .83rem; line-height: 1.55; margin-bottom: 6px; }
+.ta-card ul { list-style: none; padding: 0; }
+.ta-card ul li { font-size: .82rem; padding: 2px 0 2px 14px; position: relative; }
+.ta-card ul li::before { content: '·'; position: absolute; left: 0; font-weight: 700; }
+/* Archetypes */
+.arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+@media(max-width:600px){.arch-grid{grid-template-columns:1fr;}}
+.arch-card { border-radius: 10px; padding: 16px; border: 1px solid transparent; }
+.arch-card h4 { font-size: .95rem; font-weight: 800; margin-bottom: 6px; }
+.arch-card p { font-size: .84rem; line-height: 1.55; }
+/* ÜBUNG */
+.u-card { background: var(--bg); border: 1px solid #dce8e4; border-radius: 10px; padding: 22px; margin-bottom: 22px; }
+.u-card h4 { color: var(--salbei); font-weight: 700; margin-bottom: 6px; font-size: 1rem; }
+.u-card p { color: var(--text-light); font-size: .92rem; margin-bottom: 12px; line-height: 1.65; }
+.u-card textarea { width: 100%; min-height: 100px; padding: 12px; border: 1.5px solid #c5dbd6; border-radius: 8px; font-family: inherit; font-size: .9rem; resize: vertical; background: white; color: var(--text); transition: border-color .2s; }
+.u-card textarea:focus { outline: none; border-color: var(--salbei); }
+.ex-toggle { display: flex; align-items: center; gap: 6px; background: none; border: none; color: var(--salbei); font-size: .85rem; font-weight: 600; cursor: pointer; padding: 8px 0 0; }
+.ex-toggle:hover { opacity: .7; }
+.ex-body { display: none; background: white; border: 1px solid #c5dbd6; border-radius: 8px; padding: 14px 16px; margin-top: 10px; font-size: .88rem; line-height: 1.72; color: var(--text-light); }
+.ex-body.open { display: block; }
+/* QUIZ */
+.q-card { background: var(--bg); border: 1px solid #dce8e4; border-radius: 10px; padding: 22px; margin-bottom: 22px; }
+.q-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; line-height: 1.5; }
+.q-opts { display: flex; flex-direction: column; gap: 8px; }
+.q-opt { padding: 12px 16px; border: 2px solid #dce8e4; border-radius: 8px; cursor: pointer; transition: all .2s; font-size: .9rem; background: white; text-align: left; }
+.q-opt:hover { border-color: var(--salbei-mid); background: var(--salbei-pale); }
+.q-opt.correct { border-color: #4caf7d; background: #e8f5ee; color: #2a6b45; font-weight: 600; }
+.q-opt.wrong { border-color: #e57373; background: #fdeaea; color: #8b3333; }
+.q-fb { display: none; margin-top: 12px; padding: 12px 16px; border-radius: 8px; font-size: .88rem; line-height: 1.65; }
+.q-fb.correct { background: #e8f5ee; color: #2a6b45; border: 1px solid #4caf7d; display: block; }
+.q-fb.wrong { background: #fdeaea; color: #8b3333; border: 1px solid #e57373; display: block; }
+/* KI */
+.ki-toggle { display: flex; gap: 8px; margin-bottom: 18px; }
+.ki-btn { padding: 10px 20px; border: 2px solid var(--salbei); border-radius: 30px; cursor: pointer; font-size: .88rem; font-weight: 600; transition: all .2s; background: white; color: var(--salbei); }
+.ki-btn.active { background: var(--salbei); color: white; }
+.ki-persona { background: var(--apricot-pale); border: 1px solid #f0c9ac; border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; font-size: .9rem; line-height: 1.65; }
+.ki-persona strong { color: var(--apricot-dark); }
+.chat-box { border: 1.5px solid #c5dbd6; border-radius: 10px; overflow: hidden; background: white; }
+.chat-msgs { min-height: 280px; max-height: 420px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.msg { max-width: 80%; padding: 11px 15px; border-radius: 12px; font-size: .9rem; line-height: 1.62; }
+.msg.user { align-self: flex-end; background: var(--salbei); color: white; border-radius: 12px 12px 2px 12px; }
+.msg.ai { align-self: flex-start; background: var(--bg); border: 1px solid #dce8e4; border-radius: 12px 12px 12px 2px; }
+.msg.sys { align-self: center; background: var(--apricot-pale); color: var(--apricot-dark); border: 1px solid #f0c9ac; font-size: .83rem; font-style: italic; max-width: 95%; text-align: center; border-radius: 8px; }
+.chat-bar { display: flex; gap: 8px; padding: 14px; border-top: 1.5px solid #e0ece8; background: var(--bg); }
+.chat-in { flex: 1; padding: 10px 14px; border: 1.5px solid #c5dbd6; border-radius: 8px; font-family: inherit; font-size: .9rem; resize: none; background: white; }
+.chat-in:focus { outline: none; border-color: var(--salbei); }
+.chat-send { padding: 10px 20px; background: var(--salbei); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: .9rem; transition: background .2s; align-self: flex-end; }
+.chat-send:hover { background: #4d6e63; }
+.chat-send:disabled { background: #aac4bc; cursor: not-allowed; }
+.typing { display: none; align-self: flex-start; padding: 10px 16px; background: var(--bg); border: 1px solid #dce8e4; border-radius: 12px; font-size: .85rem; color: var(--text-light); font-style: italic; }
+.typing.on { display: block; }
+</style>
+</head>
+<body>
+
+<header class="main-header">
+  <div>
+    <div class="logo">MUMTY</div>
+    <div class="subtitle">Coaching-Ausbildung · Module 11–16</div>
+  </div>
+</header>
+
+<nav class="module-nav">
+  <button class="module-nav-btn active" onclick="showMod(11)">Modul 11 · Johari-Fenster</button>
+  <button class="module-nav-btn" onclick="showMod(12)">Modul 12 · Transaktionsanalyse</button>
+  <button class="module-nav-btn" onclick="showMod(13)">Modul 13 · Inneres Team</button>
+  <button class="module-nav-btn" onclick="showMod(14)">Modul 14 · Innere Antreiber</button>
+  <button class="module-nav-btn" onclick="showMod(15)">Modul 15 · Glaubenssätze</button>
+  <button class="module-nav-btn" onclick="showMod(16)">Modul 16 · Archetypen</button>
+</nav>
+
+<div class="container">
+
+<!-- ===== MODUL 11 – JOHARI ===== -->
+<div class="module-panel active" id="mod-11">
+  <div class="module-header"><div class="module-number">Modul 11</div><div class="module-title">Das Johari-Fenster</div></div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab(11,&#39;video&#39;,this)">🎬 Video</button>
+    <button class="tab-btn" onclick="showTab(11,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(11,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button class="tab-btn" onclick="showTab(11,&#39;quiz&#39;,this)">🎯 Quiz</button>
+    <button class="tab-btn" onclick="showTab(11,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="t-11-video">
+      <div class="video-wrapper">
+        <div class="vft"></div>
+        <iframe src="https://drive.google.com/file/d/1JMAPm7zJU5Nj-fw-AWDEvElHQDZWtAC2/preview" allowfullscreen=""></iframe>
+        <div class="vfb"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-11-theorie">
+      <div class="t-sec">
+        <h3>Was ist das Johari-Fenster?</h3>
+        <p>Das Johari-Fenster wurde von den Psychologen <strong>Joseph Luft</strong> und <strong>Harrington Ingham</strong> entwickelt. Der Name „Johari" setzt sich aus den Vornamen der beiden Entwickler zusammen.</p>
+        <p>Das Modell hilft dabei zu verstehen:</p>
+        <ul>
+          <li>Wie sehe ich mich selbst?</li>
+          <li>Wie sehen mich andere?</li>
+          <li>Was weiß ich über mich noch nicht?</li>
+          <li>Welche Potenziale liegen noch verborgen?</li>
+        </ul>
+        <p>Jeder Mensch hat <strong>blinde Flecken</strong>. Oft erleben wir Situationen nach dem Motto: „So habe ich das doch gar nicht gemeint." oder „Warum reagieren die anderen so auf mich?" Das Johari-Fenster macht Selbstbild, Fremdbild, ungenutzte Potenziale und blinde Flecken sichtbar.</p>
+        <p>Was bringt mir das als Coachee?</p>
+        <ul class="check-list">
+          <li>Mich selbst besser verstehen</li>
+          <li>Feedback besser nutzen</li>
+          <li>Blinde Flecken erkennen</li>
+          <li>Persönliches Wachstum fördern</li>
+          <li>Beziehungen verbessern</li>
+        </ul>
+      </div>
+
+      <div class="t-sec">
+        <h3>Das Schaubild – Die vier Bereiche</h3>
+        <p style="font-size:.85rem;color:var(--text-light);margin-bottom:10px">Zwei Achsen: Was mir selbst bekannt ist · Was anderen bekannt ist</p>
+        <div class="johari-grid">
+          <div class="j-cell j-a">
+            <h4>1. Öffentliche Person</h4>
+            <div class="j-sub">Mir bekannt · Anderen bekannt</div>
+            <p>Alles, was offen sichtbar ist. Dieser Bereich soll wachsen – je größer er ist, desto klarer die Kommunikation, desto authentischer der Mensch.</p>
+            <ul><li>Beruf, Hobbys</li><li>Werte, Stärken</li><li>Kommunikationsstil</li></ul>
+          </div>
+          <div class="j-cell j-b">
+            <h4>2. Blinder Fleck</h4>
+            <div class="j-sub">Mir unbekannt · Anderen bekannt</div>
+            <p>Verhaltensweisen, die andere wahrnehmen, ich selbst aber nicht. <em>Oliver glaubt: „Ich bin sachlich." – sein Team erlebt ihn als „kontrollierend."</em></p>
+            <ul><li>Dominantes Auftreten</li><li>Körpersprache</li><li>Kommunikationsmuster</li></ul>
+          </div>
+          <div class="j-cell j-c">
+            <h4>3. Geheimbereich</h4>
+            <div class="j-sub">Mir bekannt · Anderen unbekannt</div>
+            <p>Dinge, die ich bewusst zurückhalte. <em>Eine Führungskraft wirkt souverän – innerlich hat sie große Angst zu scheitern.</em></p>
+            <ul><li>Ängste, Unsicherheiten</li><li>Wünsche, persönliche Erfahrungen</li></ul>
+          </div>
+          <div class="j-cell j-d">
+            <h4>4. Unbekannter Bereich</h4>
+            <div class="j-sub">Mir unbekannt · Anderen unbekannt</div>
+            <p>Verborgene Talente, unentdeckte Potenziale, zukünftige Entwicklungen. <em>Eine Person entdeckt erst mit 50 ihre Leidenschaft für Kunst.</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Anwendung im Coaching – 4 Schritte</h3>
+        <h4>Schritt 1 – Selbstbild erkunden</h4>
+        <p>Wie würdest du dich beschreiben? · Was sind deine Stärken? · Was macht dich aus?</p>
+        <h4>Schritt 2 – Fremdbild betrachten</h4>
+        <p>Was würden andere über dich sagen? · Welche Rückmeldungen bekommst du häufig?</p>
+        <h4>Schritt 3 – Blinde Flecken entdecken</h4>
+        <p>Was überrascht dich an Feedback? · Wo wiederholen sich Rückmeldungen?</p>
+        <p><strong>Coachingfrage:</strong> „Was könnten andere über dich wahrnehmen, was dir selbst noch nicht bewusst ist?"</p>
+        <h4>Schritt 4 – Potenziale erkunden</h4>
+        <p>Was wolltest du schon immer ausprobieren? · Welche Fähigkeiten könnten noch in dir schlummern?</p>
+      </div>
+
+      <div class="t-sec">
+        <h3>Verbindung zu Frankls „Raum zwischen Reiz und Reaktion"</h3>
+        <p>Das Johari-Fenster passt hervorragend zu Viktor Frankls Gedanken: <em>Zwischen Reiz und Reaktion liegt ein Raum. In diesem Raum liegt unsere Freiheit zur Entscheidung.</em></p>
+        <p>Je größer die Selbstwahrnehmung wird, desto größer wird auch dieser Raum. Menschen reagieren dann weniger automatisch – sie handeln bewusster.</p>
+        <div class="grid-2">
+          <div class="grid-card">
+            <h4>Vorher</h4>
+            <p>Kritik → Verteidigung</p>
+          </div>
+          <div class="grid-card">
+            <h4>Nach Selbstreflexion</h4>
+            <p>Kritik → Nachdenken → bewusste Antwort</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Verbindung zu anderen Modellen</h3>
+        <p><strong>Johari &amp; Feedback:</strong> Feedback verkleinert den blinden Fleck und vergrößert die öffentliche Person.</p>
+        <p><strong>Johari &amp; Inneres Team:</strong> Innere Anteile beeinflussen oft, wie wir uns zeigen und was wir verbergen.</p>
+        <p><strong>Johari &amp; Wertearbeit:</strong> Unsere Werte bestimmen häufig, was wir zeigen und was wir verbergen.</p>
+        <div class="flow">
+          <div class="flow-step">Selbstwahrnehmung</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Feedback</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Blinde Flecken erkennen</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Bewusstsein</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Persönliches Wachstum</div>
+        </div>
+        <div class="merksatz">Je besser wir uns selbst verstehen, desto bewusster können wir handeln.<br>Wachstum beginnt dort, wo wir bereit sind, auch unsere blinden Flecken zu betrachten.</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-11-uebung">
+      <div class="u-card">
+        <h4>✏️ Übung 1 – Deine vier Fenster</h4>
+        <p>Fülle alle vier Bereiche des Johari-Fensters für dich aus. Sei ehrlich – besonders beim Geheimbereich. Was zeigst du der Welt, was verbirgst du, was könnten andere wahrnehmen?</p>
+        <textarea placeholder="Öffentliche Person (mir &amp; anderen bekannt): ...
+Blinder Fleck (anderen bekannt, mir nicht): ...
+Geheimbereich (mir bekannt, anderen nicht): ...
+Unbekanntes (weder mir noch anderen bekannt): ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Öffentliche Person:</strong> Ich bin Coachin in Ausbildung, arbeite strukturiert, bin offen und direkt in der Kommunikation.<br><strong>Blinder Fleck:</strong> Andere sagen mir manchmal, ich klinge ungeduldig – ich selbst erlebe mich als effizient.<br><strong>Geheimbereich:</strong> Ich habe Angst, vor Gruppen zu sprechen – nach außen wirke ich sicher.<br><strong>Unbekanntes:</strong> Vielleicht schlummert in mir ein Talent fürs Schreiben – ich habe es noch nie wirklich ausprobiert.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 2 – Einen blinden Fleck erkunden</h4>
+        <p>Denk an Feedback, das dich überrascht hat – positiv oder negativ. Was hat die andere Person gesehen, das du selbst nicht gesehen hast? Was nimmst du daraus mit?</p>
+        <textarea placeholder="Das Feedback, das mich überrascht hat: ...
+Was die andere Person gesehen hat: ...
+Was ich daraus mitnehme: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body">Eine Kollegin sagte zu mir: „Wenn du sprichst, fühlt sich der Raum ruhiger an." Das hat mich überrascht – ich dachte immer, ich rede zu wenig und bin nicht präsent genug.<br><br>Was sie gesehen hat: eine ruhige, beruhigende Präsenz, die ich selbst nicht als Stärke erkannte.<br><br>Was ich daraus mitnehme: Meine vermeintliche Schwäche (ruhig zu sein) ist für andere eine Qualität. Das verändert mein Selbstbild.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 3 – Johari im Coaching-Gespräch</h4>
+        <p>Formuliere für jeden der vier Johari-Bereiche eine kraftvolle Coaching-Frage, die einen Coachee einlädt, tiefer nachzuforschen.</p>
+        <textarea placeholder="Zur öffentlichen Person: ...
+Zum blinden Fleck: ...
+Zum Geheimbereich: ...
+Zum unbekannten Bereich: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Öffentliche Person:</strong> „Welche Stärken erkennst du in dir – und würden andere Menschen das genauso sehen?"<br><strong>Blinder Fleck:</strong> „Was könnten andere über dich wahrnehmen, das dir selbst noch nicht bewusst ist?"<br><strong>Geheimbereich:</strong> „Was zeigst du nach außen nicht – und was würde passieren, wenn du es zeigen würdest?"<br><strong>Unbekanntes:</strong> „Welche Fähigkeiten oder Talente könnten noch in dir schlummern, die du noch nie wirklich ausprobiert hast?"</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-11-quiz">
+      <div class="q-card">
+        <h4>1. Was beschreibt der „blinde Fleck" im Johari-Fenster?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-11-1&#39;,&#39;Der blinde Fleck zeigt Verhaltensweisen, die ANDERE wahrnehmen, ich selbst aber nicht. Er liegt außerhalb meiner Selbstwahrnehmung.&#39;)">Dinge, die ich bewusst vor anderen verberge</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-11-1&#39;,&#39;Genau! Der blinde Fleck zeigt Verhaltensweisen, die andere wahrnehmen, ich selbst aber nicht – außerhalb meiner Selbstwahrnehmung.&#39;)">Verhaltensweisen, die andere wahrnehmen, ich selbst aber nicht</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-11-1&#39;,&#39;Der blinde Fleck zeigt Verhaltensweisen, die ANDERE wahrnehmen, ich selbst aber nicht. Er liegt außerhalb meiner Selbstwahrnehmung.&#39;)">Verborgene Talente, die weder ich noch andere kennen</button>
+        </div>
+        <div class="q-fb" id="qf-11-1"></div>
+      </div>
+      <div class="q-card">
+        <h4>2. Warum ist es das Ziel im Coaching, die „öffentliche Person" zu vergrößern?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-11-2&#39;,&#39;Je größer die öffentliche Person, desto klarer die Kommunikation und desto authentischer wirkt der Mensch.&#39;)">Damit die Person mehr Kontrolle über ihr Bild nach außen hat</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-11-2&#39;,&#39;Genau! Je größer die öffentliche Person, desto klarer die Kommunikation und desto authentischer wirkt der Mensch.&#39;)">Weil ein großer öffentlicher Bereich Kommunikation klarer und den Menschen authentischer macht</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-11-2&#39;,&#39;Je größer die öffentliche Person, desto klarer die Kommunikation und desto authentischer wirkt der Mensch.&#39;)">Damit andere weniger Kritik üben können</button>
+        </div>
+        <div class="q-fb" id="qf-11-2"></div>
+      </div>
+      <div class="q-card">
+        <h4>3. Was hat Viktor Frankls „Raum zwischen Reiz und Reaktion" mit dem Johari-Fenster zu tun?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-11-3&#39;,&#39;Je größer die Selbstwahrnehmung (Johari), desto größer wird der Raum zwischen Reiz und Reaktion – Menschen handeln bewusster statt automatisch.&#39;)">Beide Modelle beschäftigen sich mit Feedback von anderen</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-11-3&#39;,&#39;Je größer die Selbstwahrnehmung (Johari), desto größer wird der Raum zwischen Reiz und Reaktion – Menschen handeln bewusster statt automatisch.&#39;)">Frankls Modell erklärt den Geheimbereich im Johari-Fenster</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-11-3&#39;,&#39;Genau! Je größer die Selbstwahrnehmung (Johari), desto größer wird der Raum zwischen Reiz und Reaktion – bewussteres Handeln wird möglich.&#39;)">Je größer die Selbstwahrnehmung, desto bewusster können wir zwischen Reiz und Reaktion wählen</button>
+        </div>
+        <div class="q-fb" id="qf-11-3"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-11-ki">
+      <div class="ki-toggle">
+        <button class="ki-btn active" onclick="setMode(11,&#39;coachee&#39;,this)">🙋 Coachee-Modus</button>
+        <button class="ki-btn" onclick="setMode(11,&#39;lernbegleiter&#39;,this)">🎓 Lernbegleiter-Modus</button>
+      </div>
+      <div class="ki-persona" id="kip-11"><strong>Deine Übungspartnerin: Claudia, 44</strong><br>Claudia ist Teamleiterin und bekommt von ihren Mitarbeitenden immer wieder das Feedback, sie wirke „kalt und distanziert" – dabei empfindet sie sich selbst als professionell und fair. Sie ist verletzt und verwirrt. Hilf ihr, ihren blinden Fleck zu erkunden.</div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chat-11"><div class="msg ai">Ich weiß ehrlich gesagt nicht, was ich damit anfangen soll. Mein Team hat im letzten Feedbackgespräch gesagt, ich sei kalt und distanziert. Das hat mich wirklich getroffen. Ich dachte immer, ich bin einfach professionell...</div></div>
+        <div class="typing" id="typ-11">Claudia schreibt...</div>
+        <div class="chat-bar">
+          <textarea class="chat-in" id="inp-11" rows="2" placeholder="Schreib Claudia eine Nachricht..." onkeydown="handleEnter(event,11)"></textarea>
+          <button class="chat-send" onclick="sendMsg(11)">Senden</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== MODUL 12 – TRANSAKTIONSANALYSE ===== -->
+<div class="module-panel" id="mod-12">
+  <div class="module-header"><div class="module-number">Modul 12</div><div class="module-title">Transaktionsanalyse (TA)</div></div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab(12,&#39;video&#39;,this)">🎬 Video</button>
+    <button class="tab-btn" onclick="showTab(12,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(12,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button class="tab-btn" onclick="showTab(12,&#39;quiz&#39;,this)">🎯 Quiz</button>
+    <button class="tab-btn" onclick="showTab(12,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="t-12-video">
+      <div class="video-wrapper">
+        <div class="vft"></div>
+        <iframe src="https://drive.google.com/file/d/1SDazbUwzH7U0N-CVMTf-hv3jkFLzcOXM/preview" allowfullscreen=""></iframe>
+        <div class="vfb"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-12-theorie">
+      <div class="t-sec">
+        <h3>Warum ist dieses Modell wichtig?</h3>
+        <p>Kennst du Situationen wie:</p>
+        <ul>
+          <li>Du fühlst dich plötzlich wie ein kleines Kind und wirst trotzig</li>
+          <li>Jemand behandelt dich von oben herab</li>
+          <li>Ein Gespräch eskaliert, obwohl es sachlich begann</li>
+          <li>Du reagierst viel emotionaler, als die Situation eigentlich hergibt</li>
+        </ul>
+        <p>Genau hier setzt die Transaktionsanalyse an. Der Psychiater <strong>Eric Berne</strong> stellte fest: Menschen kommunizieren nicht immer aus ihrem erwachsenen, sachlichen Anteil heraus – sondern oft aus alten inneren Mustern.</p>
+      </div>
+
+      <div class="t-sec">
+        <h3>Die drei Ich-Zustände</h3>
+        <div class="ta-grid">
+          <div class="ta-card" style="background:#fff8e1;border-color:#ffe082">
+            <h4 style="color:#7a5c00">👨‍👩‍👧 Eltern-Ich</h4>
+            <p>Wir sprechen aus Regeln, Erfahrungen und Bewertungen.</p>
+            <p><strong style="color:#7a5c00">Positiv:</strong> Fürsorge, Schutz, Orientierung</p>
+            <p><strong style="color:#8b3333">Negativ:</strong> Kontrolle, Kritik, Bevormundung</p>
+            <ul><li>„Das macht man nicht."</li><li>„Du solltest ..."</li><li>„Pass auf."</li></ul>
+          </div>
+          <div class="ta-card" style="background:#e8f5ee;border-color:#4caf7d">
+            <h4 style="color:#2a6b45">🧠 Erwachsenen-Ich</h4>
+            <p>Der ideale Kommunikationszustand. Sachlich, lösungsorientiert, klar.</p>
+            <p><strong>Fokus auf:</strong> Fakten · Lösungen · Verantwortung · Klarheit</p>
+            <ul><li>„Was genau ist passiert?"</li><li>„Welche Möglichkeiten gibt es?"</li><li>„Was brauchst du jetzt?"</li></ul>
+          </div>
+          <div class="ta-card" style="background:#fce4ec;border-color:#f48fb1">
+            <h4 style="color:#880e4f">🧒 Kind-Ich</h4>
+            <p>Wir reagieren emotional aus inneren Mustern heraus.</p>
+            <p><strong>Typische Gefühle:</strong> Freude · Neugier · Angst · Trotz · Verletzung</p>
+            <ul><li>„Das ist unfair."</li><li>„Ich will nicht."</li><li>„Keiner versteht mich."</li></ul>
+          </div>
+        </div>
+        <div class="schaubild">
+          <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="80" y="10" width="140" height="40" rx="8" fill="#e8a882"></rect>
+            <text x="150" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="700">ELTERN-ICH</text>
+            <polygon points="150,55 144,50 156,50" fill="#7da398"></polygon>
+            <rect x="80" y="58" width="140" height="40" rx="8" fill="#5e8478"></rect>
+            <text x="150" y="76" text-anchor="middle" fill="white" font-size="12" font-weight="700">ERWACHSENEN-ICH</text>
+            <text x="150" y="90" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">Klarheit &amp; Realität</text>
+            <polygon points="150,103 144,98 156,98" fill="#e8a882"></polygon>
+            <rect x="80" y="106" width="140" height="40" rx="8" fill="#7da398"></rect>
+            <text x="150" y="131" text-anchor="middle" fill="white" font-size="12" font-weight="700">KIND-ICH</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Anwendung im Coaching – Beispiel</h3>
+        <div class="info-box">
+          <strong>Coachee:</strong> „Mein Chef kontrolliert mich ständig."<br><br>
+          Der Coach untersucht nun:<br>
+          → Reagiert der Chef aus dem <strong>Eltern-Ich</strong>?<br>
+          → Reagiert der Coachee aus dem <strong>Kind-Ich</strong>?<br>
+          → Wie würde Kommunikation aus dem <strong>Erwachsenen-Ich</strong> aussehen?
+        </div>
+        <h4>Coaching-Fragen zur Transaktionsanalyse</h4>
+        <ul>
+          <li>Aus welchem Ich-Zustand reagierst du gerade?</li>
+          <li>Wie würde dein Erwachsenen-Ich antworten?</li>
+          <li>Welche Fakten sprechen dafür?</li>
+          <li>Welche Emotion spricht gerade?</li>
+        </ul>
+      </div>
+
+      <div class="t-sec">
+        <h3>Ziel der Methode</h3>
+        <p>Menschen lernen durch die Transaktionsanalyse:</p>
+        <ul>
+          <li>Bewusster zu kommunizieren</li>
+          <li>Konflikte zu entschärfen</li>
+          <li>Weniger emotional zu reagieren</li>
+          <li>Verantwortung zu übernehmen</li>
+        </ul>
+        <p><strong>Verbindung zu Glaubenssätzen:</strong> Viele Glaubenssätze entstehen früh im Leben und werden aus dem Kind-Ich gespeichert. Später beeinflussen sie unbewusst unser Verhalten. Die TA zeigt, wo Glaubenssätze entstanden sein können – die Glaubenssatzarbeit hilft, sie zu verändern.</p>
+        <p><strong>Verbindung zum Inneren Team:</strong> Die drei Ich-Zustände lassen sich als innere Anteile verstehen, die im Gespräch die Führung übernehmen können.</p>
+        <div class="merksatz">Wir kommunizieren nicht immer aus unserem Erwachsenen-Ich. Aber wir können lernen, bewusster dahin zurückzufinden.</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-12-uebung">
+      <div class="u-card">
+        <h4>✏️ Übung 1 – Ich-Zustände im Alltag erkennen</h4>
+        <p>Denk an ein Gespräch der letzten Woche, bei dem du emotional reagiert hast. Aus welchem Ich-Zustand hast du gesprochen? Und dein Gegenüber? Was wäre aus dem Erwachsenen-Ich möglich gewesen?</p>
+        <textarea placeholder="Das Gespräch: ...
+Mein Ich-Zustand: ...
+Ich-Zustand des Gegenübers: ...
+Aus dem Erwachsenen-Ich hätte ich gesagt: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Das Gespräch:</strong> Mein Partner hat mich gebeten, mehr im Haushalt zu helfen.<br><strong>Mein Ich-Zustand:</strong> Kind-Ich – ich wurde trotzig und fühlte mich ungerecht behandelt.<br><strong>Gegenüber:</strong> Eltern-Ich – klang fordernd und bewertend.<br><strong>Erwachsenen-Ich hätte gesagt:</strong> „Ich höre, dass dir das wichtig ist. Lass uns besprechen, wie wir das gemeinsam aufteilen können."</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 2 – Sätze zuordnen</h4>
+        <p>Ordne die folgenden Sätze dem passenden Ich-Zustand zu (Eltern-Ich, Erwachsenen-Ich oder Kind-Ich) und begründe deine Zuordnung kurz.</p>
+        <textarea placeholder="„Das hätte ich dir gleich sagen können." →="" ...&#10;„was="" sind="" die="" nächsten="" schritte?"="" ...&#10;„das="" ist="" so="" unfair!"="" ...&#10;„du="" machst="" das="" immer="" falsch."="" ...&#10;„ich="" brauche="" noch="" etwas="" zeit,="" um="" nachzudenken."="" ..."=""></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body">„Das hätte ich dir gleich sagen können." → <strong>Eltern-Ich</strong> (abwertend, besserwisserisch)<br>„Was sind die nächsten Schritte?" → <strong>Erwachsenen-Ich</strong> (sachlich, lösungsorientiert)<br>„Das ist so unfair!" → <strong>Kind-Ich</strong> (emotional, trotzig)<br>„Du machst das immer falsch." → <strong>Eltern-Ich</strong> (kritisch, verallgemeinernd)<br>„Ich brauche noch etwas Zeit, um nachzudenken." → <strong>Erwachsenen-Ich</strong> (selbstbewusst, klar)</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 3 – Coaching-Fragen zur TA</h4>
+        <p>Formuliere für jeden der drei Ich-Zustände zwei kraftvolle Coaching-Fragen, die einem Coachee helfen, seinen aktuellen Ich-Zustand zu erkennen und ins Erwachsenen-Ich zu wechseln.</p>
+        <textarea placeholder="Zum Eltern-Ich: ...
+Zum Kind-Ich: ...
+Zum Erwachsenen-Ich (hinführend): ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Eltern-Ich:</strong> „Wessen Stimme hörst du da gerade – ist das wirklich deine eigene Überzeugung?" · „Was würdest du jemandem raten, der genauso denkt wie du gerade?"<br><strong>Kind-Ich:</strong> „Was genau hat in dir gerade ausgelöst, so zu reagieren?" · „Wenn du dir selbst aus der Vogelperspektive zuschaust – was siehst du?"<br><strong>Hin zum Erwachsenen-Ich:</strong> „Was sind die Fakten in dieser Situation, losgelöst von Gefühlen?" · „Was würde dein ruhigstes, klarsten Ich jetzt tun?"</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-12-quiz">
+      <div class="q-card">
+        <h4>1. Welcher Ich-Zustand gilt als der ideale Kommunikationszustand?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-12-1&#39;,&#39;Das Erwachsenen-Ich ist der ideale Zustand: sachlich, lösungsorientiert, klar und verantwortungsbewusst.&#39;)">Das Eltern-Ich – weil es Struktur und Orientierung gibt</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-12-1&#39;,&#39;Genau! Das Erwachsenen-Ich ist der ideale Zustand: sachlich, lösungsorientiert, klar und verantwortungsbewusst.&#39;)">Das Erwachsenen-Ich – sachlich, lösungsorientiert, klar</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-12-1&#39;,&#39;Das Erwachsenen-Ich ist der ideale Zustand: sachlich, lösungsorientiert, klar und verantwortungsbewusst.&#39;)">Das Kind-Ich – weil es authentisch und ungefiltert ist</button>
+        </div>
+        <div class="q-fb" id="qf-12-1"></div>
+      </div>
+      <div class="q-card">
+        <h4>2. Wenn jemand sagt: „Das ist so unfair, keiner versteht mich!" – aus welchem Ich-Zustand kommt das?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-12-2&#39;,&#39;Diese Aussage ist emotional, trotzig und verletzt – typisch für das Kind-Ich.&#39;)">Eltern-Ich</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-12-2&#39;,&#39;Diese Aussage ist emotional, trotzig und verletzt – typisch für das Kind-Ich.&#39;)">Erwachsenen-Ich</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-12-2&#39;,&#39;Genau! Emotional, trotzig, verletzt – das sind typische Merkmale des Kind-Ichs.&#39;)">Kind-Ich</button>
+        </div>
+        <div class="q-fb" id="qf-12-2"></div>
+      </div>
+      <div class="q-card">
+        <h4>3. Wie hängen Transaktionsanalyse und Glaubenssätze zusammen?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-12-3&#39;,&#39;Viele Glaubenssätze entstehen früh im Kind-Ich und beeinflussen später unbewusst unser Verhalten.&#39;)">Glaubenssätze entstehen immer im Eltern-Ich</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-12-3&#39;,&#39;Genau! Viele Glaubenssätze entstehen früh im Leben im Kind-Ich und beeinflussen später unbewusst unser Verhalten.&#39;)">Viele Glaubenssätze entstehen früh im Kind-Ich und wirken später unbewusst weiter</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-12-3&#39;,&#39;Viele Glaubenssätze entstehen früh im Kind-Ich und beeinflussen später unbewusst unser Verhalten.&#39;)">Glaubenssätze und Transaktionsanalyse haben nichts miteinander zu tun</button>
+        </div>
+        <div class="q-fb" id="qf-12-3"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-12-ki">
+      <div class="ki-toggle">
+        <button class="ki-btn active" onclick="setMode(12,&#39;coachee&#39;,this)">🙋 Coachee-Modus</button>
+        <button class="ki-btn" onclick="setMode(12,&#39;lernbegleiter&#39;,this)">🎓 Lernbegleiter-Modus</button>
+      </div>
+      <div class="ki-persona" id="kip-12"><strong>Deine Übungspartnerin: Petra, 39</strong><br>Petra hat immer wieder Konflikte mit ihrer Mutter – sobald sie telefonieren, endet es in Streit. Petra weiß nicht warum, fühlt sich aber jedes Mal danach wie ein trotziges Kind. Sie möchte das verstehen und verändern. Hilf ihr mit der Transaktionsanalyse.</div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chat-12"><div class="msg ai">Ich weiß gar nicht wo ich anfangen soll. Jedes Mal wenn ich meine Mutter anrufe, fängt es irgendwie nett an – und dann eskaliert es. Und ich fühle mich danach so... klein. Wie früher. Ich will das endlich verstehen.</div></div>
+        <div class="typing" id="typ-12">Petra schreibt...</div>
+        <div class="chat-bar">
+          <textarea class="chat-in" id="inp-12" rows="2" placeholder="Schreib Petra eine Nachricht..." onkeydown="handleEnter(event,12)"></textarea>
+          <button class="chat-send" onclick="sendMsg(12)">Senden</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== MODUL 13 – INNERES TEAM ===== -->
+<div class="module-panel" id="mod-13">
+  <div class="module-header"><div class="module-number">Modul 13</div><div class="module-title">Das Innere Team</div></div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab(13,&#39;video&#39;,this)">🎬 Video</button>
+    <button class="tab-btn" onclick="showTab(13,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(13,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button class="tab-btn" onclick="showTab(13,&#39;quiz&#39;,this)">🎯 Quiz</button>
+    <button class="tab-btn" onclick="showTab(13,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="t-13-video">
+      <div class="video-wrapper">
+        <div class="vft"></div>
+        <iframe src="https://drive.google.com/file/d/1Rw-v7NoQeSMy0B07crSpqg7Fu9YVyVgA/preview" allowfullscreen=""></iframe>
+        <div class="vfb"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-13-theorie">
+      <div class="t-sec">
+        <h3>Was ist das Innere Team?</h3>
+        <p>Das Modell des Inneren Teams wurde von <strong>Friedemann Schulz von Thun</strong> entwickelt. Es geht davon aus, dass in jedem Menschen verschiedene innere Stimmen oder Persönlichkeitsanteile wirken – mit oft unterschiedlichen Bedürfnissen und Zielen. Dadurch entstehen innere Konflikte.</p>
+        <p>Viele Menschen erleben Situationen wie:<br>„Ein Teil von mir möchte Ja sagen, ein anderer Nein." · „Ich weiß nicht, was ich wirklich will." · „Irgendetwas hält mich zurück."</p>
+        <p>Oft handelt es sich dabei nicht um fehlende Klarheit, sondern um einen inneren Konflikt zwischen verschiedenen Anteilen.</p>
+        <p>Was bringt mir das als Coachee?</p>
+        <ul class="check-list">
+          <li>Innere Konflikte besser verstehen</li>
+          <li>Bessere Entscheidungen treffen</li>
+          <li>Selbstsabotage erkennen</li>
+          <li>Mehr innere Ruhe entwickeln</li>
+          <li>Verschiedene Bedürfnisse integrieren</li>
+          <li>Selbstführung stärken</li>
+        </ul>
+      </div>
+
+      <div class="t-sec">
+        <h3>Das Schaubild – Der innere Manager und seine Stimmen</h3>
+        <p>Der innere Manager steht im Zentrum. Er hört alle Stimmen an und trifft die Entscheidung. Typische innere Anteile:</p>
+        <div class="schaubild">
+          <svg width="100%" viewBox="0 0 680 520" role="img" style="max-width:600px;display:block;margin:0 auto;">
+        <title>Das Innere Team nach Schulz von Thun</title>
+        <desc>Der goldene Manager oben, sechs innere Stimmen im Halbkreis darunter – stellvertretend für viele weitere Stimmen</desc>
+        <defs>
+          <marker id="arr-it" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- Verbindungslinien -->
+        <line x1="340" y1="120" x2="528" y2="188" stroke="#BA7517" stroke-width="1" opacity="0.3"/>
+        <line x1="340" y1="120" x2="474" y2="269" stroke="#BA7517" stroke-width="1" opacity="0.3"/>
+        <line x1="340" y1="120" x2="388" y2="314" stroke="#BA7517" stroke-width="1" opacity="0.3"/>
+        <line x1="340" y1="120" x2="292" y2="314" stroke="#BA7517" stroke-width="1" opacity="0.3"/>
+        <line x1="340" y1="120" x2="206" y2="269" stroke="#BA7517" stroke-width="1" opacity="0.3"/>
+        <line x1="340" y1="120" x2="152" y2="188" stroke="#BA7517" stroke-width="1" opacity="0.3"/>
+        <!-- Halbkreis-Bogen gestrichelt -->
+        <path d="M 152 188 A 200 200 0 0 1 528 188" fill="none" stroke="#BA7517" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.25"/>
+        <!-- MANAGER -->
+        <circle cx="340" cy="120" r="64" fill="#FAEEDA" stroke="#BA7517" stroke-width="2"/>
+        <circle cx="340" cy="120" r="57" fill="#FAC775" stroke="#EF9F27" stroke-width="1" opacity="0.5"/>
+        <text x="340" y="107" text-anchor="middle" font-size="22" font-family="serif" fill="#633806">&#x1F451;</text>
+        <text x="340" y="128" text-anchor="middle" font-size="14" font-weight="500" font-family="sans-serif" fill="#633806">Manager</text>
+        <text x="340" y="145" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#854F0B">koordiniert das Team</text>
+        <!-- Antreiberin – pink -->
+        <circle cx="528" cy="188" r="50" fill="#FBEAF0" stroke="#993556" stroke-width="1.5"/>
+        <text x="528" y="177" text-anchor="middle" font-size="17" font-family="serif" fill="#993556">&#x1F525;</text>
+        <text x="528" y="195" text-anchor="middle" font-size="12" font-weight="500" font-family="sans-serif" fill="#993556">Antreiberin</text>
+        <text x="528" y="210" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#72243E">&#x201E;Mehr, schneller!&#x201C;</text>
+        <!-- Fürsorge – teal -->
+        <circle cx="474" cy="269" r="50" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+        <text x="474" y="258" text-anchor="middle" font-size="17" font-family="serif" fill="#0F6E56">&#x1F917;</text>
+        <text x="474" y="276" text-anchor="middle" font-size="12" font-weight="500" font-family="sans-serif" fill="#0F6E56">F&#xFC;rsorge</text>
+        <text x="474" y="291" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#085041">&#x201E;Pass auf dich auf.&#x201C;</text>
+        <!-- Weise – green -->
+        <circle cx="388" cy="314" r="50" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1.5"/>
+        <text x="388" y="303" text-anchor="middle" font-size="17" font-family="serif" fill="#3B6D11">&#x1F33F;</text>
+        <text x="388" y="321" text-anchor="middle" font-size="12" font-weight="500" font-family="sans-serif" fill="#3B6D11">Weise</text>
+        <text x="388" y="336" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#27500A">&#x201E;Alles hat seine Zeit.&#x201C;</text>
+        <!-- Inneres Kind – blue -->
+        <circle cx="292" cy="314" r="50" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+        <text x="292" y="303" text-anchor="middle" font-size="17" font-family="serif" fill="#185FA5">&#x1F31F;</text>
+        <text x="292" y="321" text-anchor="middle" font-size="12" font-weight="500" font-family="sans-serif" fill="#185FA5">Inneres Kind</text>
+        <text x="292" y="336" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#0C447C">&#x201E;Ich will spielen!&#x201C;</text>
+        <!-- Rebellin – purple -->
+        <circle cx="206" cy="269" r="50" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+        <text x="206" y="258" text-anchor="middle" font-size="17" font-family="serif" fill="#534AB7">&#x26A1;</text>
+        <text x="206" y="276" text-anchor="middle" font-size="12" font-weight="500" font-family="sans-serif" fill="#534AB7">Rebellin</text>
+        <text x="206" y="291" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#3C3489">&#x201E;Brich die Regeln!&#x201C;</text>
+        <!-- Kritikerin – coral -->
+        <circle cx="152" cy="188" r="50" fill="#FAECE7" stroke="#993C1D" stroke-width="1.5"/>
+        <text x="152" y="177" text-anchor="middle" font-size="17" font-family="serif" fill="#993C1D">&#x1F50D;</text>
+        <text x="152" y="195" text-anchor="middle" font-size="12" font-weight="500" font-family="sans-serif" fill="#993C1D">Kritikerin</text>
+        <text x="152" y="210" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#712B13">&#x201E;Das reicht nicht!&#x201C;</text>
+        <!-- Hinweis: viele weitere Stimmen -->
+        <text x="340" y="400" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#888780">&#x2026; und viele weitere Stimmen, die nur du kennst</text>
+        <!-- Titel -->
+        <text x="340" y="490" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#aaa">Das Innere Team &#xB7; nach Schulz von Thun</text>
+      </svg>
+        </div>
+        <p style="font-size:12px;color:var(--text-light);text-align:center;margin-top:0.75rem;font-style:italic;">Diese sechs Stimmen sind nur Beispiele. Dein inneres Team ist einzigartig.</p>
+      </div>
+
+      <div class="t-sec">
+        <h3>Die Grundidee – jeder Anteil hat eine positive Absicht</h3>
+        <div class="grid-2">
+          <div class="grid-card"><h4>Der Perfektionist</h4><p>möchte vor Fehlern schützen und Qualität sichern.</p></div>
+          <div class="grid-card"><h4>Die Sicherheitsbeauftragte</h4><p>möchte Risiken vermeiden und Stabilität bewahren.</p></div>
+          <div class="grid-card"><h4>Der Rebell</h4><p>möchte Freiheit und Authentizität bewahren.</p></div>
+          <div class="grid-card"><h4>Die Mutmacherin</h4><p>möchte Wachstum und Entwicklung ermöglichen.</p></div>
+        </div>
+        <div class="merksatz">Hinter jedem Anteil steckt eine positive Absicht.</div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Die Metaphern</h3>
+        <h4>🚣 Das Ruderboot</h4>
+        <p>Stell dir vor, alle inneren Anteile sitzen in einem Boot. Zwei rudern nach vorne, zwei nach hinten, einige diskutieren, andere haben Angst. Das Boot kommt kaum voran. Die Aufgabe des inneren Managers: alle anhören und die Kräfte in eine gemeinsame Richtung lenken.</p>
+        <h4>🐎 Die Pferdeherde</h4>
+        <p>Eine Pferdeherde besteht aus mutigen, vorsichtigen, neugierigen und beschützenden Pferden. Eine funktionierende Herde versucht nicht, einzelne Pferde loszuwerden – sie integriert die unterschiedlichen Qualitäten. Der innere Manager ist hier die Person, die sich mit voller Präsenz und klarer Führung vor die Herde stellt und sie lenkt.</p>
+      </div>
+
+      <div class="t-sec">
+        <h3>Anwendung im Coaching – 4 Schritte</h3>
+        <h4>Schritt 1 – Situation wählen</h4>
+        <p>„Wo bist du innerlich hin- und hergerissen?"</p>
+        <h4>Schritt 2 – Anteile sichtbar machen</h4>
+        <p>Wer meldet sich? · Was sagt dieser Anteil? · Was befürchtet er? · Was möchte er erreichen?</p>
+        <h4>Schritt 3 – Positive Absicht erkennen</h4>
+        <p>Was möchte dieser Anteil Gutes für dich? · Wovor möchte er dich schützen?</p>
+        <h4>Schritt 4 – Den inneren Manager aktivieren</h4>
+        <p>Was wäre eine gute Lösung für das Gesamtsystem? · Welche Bedürfnisse sollten berücksichtigt werden? · Welche Entscheidung dient dir langfristig?</p>
+        <div class="info-box"><strong>Besonders kraftvoll im Coaching:</strong> Die Anteile werden nicht nur besprochen, sondern räumlich dargestellt – mit Figuren, Bauklötzen, Steinen, Tannenzapfen oder Naturmaterialien. Auch im Walk &amp; Talk Coaching ideal. Coachee bestimmt Größe, Abstand, Blickrichtung und Nähe zum Manager selbst. Dadurch werden innere Dynamiken sofort sichtbar.</div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Wichtige Coaching-Fragen</h3>
+        <ul>
+          <li>Welche Stimme ist gerade besonders laut?</li>
+          <li>Welche Stimme wird überhört?</li>
+          <li>Welche Stimme macht dir Angst?</li>
+          <li>Was will dieser Anteil Gutes für dich?</li>
+          <li>Was braucht dieser Anteil?</li>
+          <li>Welche Lösung berücksichtigt möglichst viele Anteile?</li>
+        </ul>
+        <div class="merksatz">Innere Konflikte entstehen selten, weil ein Anteil falsch ist. Sie entstehen, weil mehrere Anteile gleichzeitig etwas Gutes für uns wollen – aber in unterschiedliche Richtungen ziehen.</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-13-uebung">
+      <div class="u-card">
+        <h4>✏️ Übung 1 – Dein inneres Team kennenlernen</h4>
+        <p>Denk an eine Entscheidung, die du vor dir herschiebst oder bei der du hin- und hergerissen bist. Welche inneren Stimmen melden sich? Gib ihnen Namen und beschreibe, was sie sagen.</p>
+        <textarea placeholder="Meine Entscheidung: ...
+
+Stimme 1 (Name): ... sagt: ...
+Stimme 2 (Name): ... sagt: ...
+Stimme 3 (Name): ... sagt: ...
+
+Was möchte jede Stimme Gutes für mich?"></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Entscheidung:</strong> Soll ich meine Stelle kündigen und mich als Coachin selbstständig machen?<br><br><strong>Die Mutige:</strong> „Jetzt oder nie! Du hast alles, was du brauchst." Positive Absicht: Wachstum und Freiheit ermöglichen.<br><strong>Die Sicherheitsbeauftragte:</strong> „Was, wenn es nicht funktioniert? Du hast einen Kredit." Positive Absicht: Stabilität bewahren.<br><strong>Der Antreiber:</strong> „Du musst erst noch mehr lernen, perfekter werden." Positive Absicht: Qualität sichern, Schutz vor Kritik.<br><strong>Das innere Kind:</strong> „Ich habe Angst, allein zu sein." Positive Absicht: Verbundenheit schützen.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 2 – Den inneren Manager aktivieren</h4>
+        <p>Schau auf die Stimmen aus Übung 1. Was würde dein innerer Manager sagen, wenn er alle Anteile gehört hat und eine ausgewogene Entscheidung treffen würde?</p>
+        <textarea placeholder="Der innere Manager hat alle Stimmen gehört. Er sagt: ...
+
+Die Entscheidung, die das Gesamtsystem berücksichtigt, wäre: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body">Der innere Manager hat gehört: den Mut, die Angst, den Antrieb und die Sehnsucht nach Sicherheit.<br><br>„Ich respektiere alle eure Anliegen. Die Lösung ist weder sofort kündigen noch für immer warten. Ich mache einen konkreten Plan: In 6 Monaten baue ich nebenbei erste Coaching-Kunden auf. Wenn ich X Kunden regelmäßig habe, kündige ich. So honoriere ich die Sicherheitsbedürfnisse UND ermögliche den Mut."</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 3 – Das Innere Team im Coaching</h4>
+        <p>Formuliere fünf kraftvolle Coaching-Fragen, die du einem Coachee stellen würdest, um sein inneres Team zu erkunden und den inneren Manager zu aktivieren.</p>
+        <textarea placeholder="Frage 1: ...
+Frage 2: ...
+Frage 3: ...
+Frage 4: ...
+Frage 5: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>1.</strong> „Wenn du auf dieses Thema schaust – welche Stimmen melden sich in dir? Gib ihnen ruhig Namen."<br><strong>2.</strong> „Welche dieser Stimmen ist gerade am lautesten – und welche wird vielleicht überhört?"<br><strong>3.</strong> „Was möchte dieser Anteil, der dich zurückhält, Gutes für dich? Wovor will er dich schützen?"<br><strong>4.</strong> „Was würde passieren, wenn du dieser lauten Stimme einfach mal Recht gibst – was ändert sich?"<br><strong>5.</strong> „Was würde dein innerer Manager sagen, der alle Stimmen gehört hat und jetzt eine weise Entscheidung trifft?"</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-13-quiz">
+      <div class="q-card">
+        <h4>1. Was ist die Grundannahme des Modells „Inneres Team"?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-13-1&#39;,&#39;Hinter jedem Anteil steckt eine positive Absicht – auch wenn sein Verhalten manchmal hinderlich erscheint.&#39;)">Manche inneren Anteile sind negativ und müssen überwunden werden</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-13-1&#39;,&#39;Genau! Hinter jedem Anteil steckt eine positive Absicht – auch wenn sein Verhalten manchmal hinderlich erscheint.&#39;)">Hinter jedem inneren Anteil steckt eine positive Absicht</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-13-1&#39;,&#39;Hinter jedem Anteil steckt eine positive Absicht – auch wenn sein Verhalten manchmal hinderlich erscheint.&#39;)">Der Mensch sollte nur einem inneren Anteil folgen</button>
+        </div>
+        <div class="q-fb" id="qf-13-1"></div>
+      </div>
+      <div class="q-card">
+        <h4>2. Was ist die Aufgabe des „inneren Managers"?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-13-2&#39;,&#39;Der innere Manager hört alle Stimmen an und trifft dann eine ausgewogene Entscheidung für das Gesamtsystem.&#39;)">Den lautesten inneren Anteil zum Schweigen bringen</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-13-2&#39;,&#39;Genau! Der innere Manager hört alle Stimmen an und lenkt die Kräfte in eine gemeinsame Richtung.&#39;)">Alle Anteile anhören und die Kräfte in eine gemeinsame Richtung lenken</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-13-2&#39;,&#39;Der innere Manager hört alle Stimmen an und trifft dann eine ausgewogene Entscheidung für das Gesamtsystem.&#39;)">Die negativsten Anteile verdrängen</button>
+        </div>
+        <div class="q-fb" id="qf-13-2"></div>
+      </div>
+      <div class="q-card">
+        <h4>3. Wozu dient die räumliche Aufstellung der inneren Anteile im Coaching?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-13-3&#39;,&#39;Die räumliche Aufstellung macht innere Dynamiken sofort sichtbar – Größe, Abstand und Blickrichtung zeigen Beziehungen zwischen Anteilen.&#39;)">Um dem Coachee eine Struktur zum Auswendiglernen zu geben</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-13-3&#39;,&#39;Genau! Durch räumliche Darstellung werden innere Dynamiken sofort sichtbar – wer ist nah, wer ist weit, wer schaut weg?&#39;)">Damit innere Dynamiken zwischen den Anteilen sofort sichtbar werden</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-13-3&#39;,&#39;Die räumliche Aufstellung macht innere Dynamiken sofort sichtbar – Größe, Abstand und Blickrichtung zeigen Beziehungen zwischen Anteilen.&#39;)">Weil der Coachee sonst die Stimmen vergisst</button>
+        </div>
+        <div class="q-fb" id="qf-13-3"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-13-ki">
+      <div class="ki-toggle">
+        <button class="ki-btn active" onclick="setMode(13,&#39;coachee&#39;,this)">🙋 Coachee-Modus</button>
+        <button class="ki-btn" onclick="setMode(13,&#39;lernbegleiter&#39;,this)">🎓 Lernbegleiter-Modus</button>
+      </div>
+      <div class="ki-persona" id="kip-13"><strong>Dein Übungspartner: Michael, 37</strong><br>Michael ist hin- und hergerissen: Ein Teil von ihm will endlich Verantwortung übernehmen und Teamleiter werden. Ein anderer Teil hat massive Zweifel und sagt ihm, er sei noch nicht bereit. Er dreht sich seit Wochen im Kreis. Hilf ihm, sein Inneres Team zu erkunden.</div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chat-13"><div class="msg ai">Ich mache mich selbst wahnsinnig, ehrlich gesagt. Jeden Tag denke ich: Ja, ich will das machen. Und dann am Abend: Nein, ich bin doch noch nicht bereit. Das ist wie ein innerer Kampf, der einfach nicht aufhört.</div></div>
+        <div class="typing" id="typ-13">Michael schreibt...</div>
+        <div class="chat-bar">
+          <textarea class="chat-in" id="inp-13" rows="2" placeholder="Schreib Michael eine Nachricht..." onkeydown="handleEnter(event,13)"></textarea>
+          <button class="chat-send" onclick="sendMsg(13)">Senden</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== MODUL 14 – INNERE ANTREIBER ===== -->
+<div class="module-panel" id="mod-14">
+  <div class="module-header"><div class="module-number">Modul 14</div><div class="module-title">Innere Antreiber</div></div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab(14,&#39;video&#39;,this)">🎬 Video</button>
+    <button class="tab-btn" onclick="showTab(14,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(14,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button class="tab-btn" onclick="showTab(14,&#39;quiz&#39;,this)">🎯 Quiz</button>
+    <button class="tab-btn" onclick="showTab(14,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="t-14-video">
+      <div class="video-wrapper">
+        <div class="vft"></div>
+        <iframe src="https://drive.google.com/file/d/1h9V1s8YEF436Pw_sHLhxVsxyS2UpZKPv/preview" allowfullscreen=""></iframe>
+        <div class="vfb"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-14-theorie">
+      <div class="t-sec">
+        <h3>Was sind Innere Antreiber?</h3>
+        <p>Innere Antreiber sind unbewusste innere Botschaften, die unser Verhalten steuern. Sie entstehen in der Kindheit – durch Erziehung, Vorbilder und Erfahrungen – und werden zu inneren Überzeugungen darüber, wie wir sein müssen, um geliebt, anerkannt oder wertvoll zu sein.</p>
+        <p>Das Konzept wurde vom Psychologen <strong>Taibi Kahler</strong> im Rahmen der Transaktionsanalyse entwickelt. Er identifizierte fünf universelle Antreiber, die nahezu alle Menschen kennen – jedoch in unterschiedlicher Ausprägung.</p>
+        <p>Das Tückische: Antreiber fühlen sich oft wie Tugenden an. Sie sorgen für Leistung, Zuverlässigkeit und Hilfsbereitschaft – aber auf Kosten unserer Energie, Grenzen und inneren Ruhe.</p>
+        <p>Was bringt mir das als Coachee?</p>
+        <ul class="check-list">
+          <li>Eigene Antreiber erkennen und benennen</li>
+          <li>Verstehen, woher innerer Druck kommt</li>
+          <li>Erschöpfung und Perfektionismus verstehen</li>
+          <li>Innere Erlaubnisse entwickeln</li>
+          <li>Bewusster und selbstfürsorglicher handeln</li>
+        </ul>
+      </div>
+
+      <div class="t-sec">
+        <h3>Die 5 Inneren Antreiber</h3>
+        <div class="grid-2">
+          <div class="grid-card" style="border-left: 4px solid #c0392b;">
+            <h4 style="color:#c0392b">⭐ Sei perfekt!</h4>
+            <p>„Ich muss alles fehlerfrei machen." Erkennbar an: Perfektionismus, Selbstkritik, Angst vor Fehlern, nie fertig sein. Positive Seite: hohe Qualität, Sorgfalt.<br><strong>Innere Erlaubnis:</strong> „Ich darf gut genug sein."</p>
+          </div>
+          <div class="grid-card" style="border-left: 4px solid #2980b9;">
+            <h4 style="color:#2980b9">💪 Sei stark!</h4>
+            <p>„Ich darf keine Schwäche zeigen." Erkennbar an: Gefühle unterdrücken, alleine kämpfen, nie um Hilfe bitten. Positive Seite: Belastbarkeit, Verlässlichkeit.<br><strong>Innere Erlaubnis:</strong> „Ich darf Hilfe annehmen."</p>
+          </div>
+          <div class="grid-card" style="border-left: 4px solid #27ae60;">
+            <h4 style="color:#27ae60">🤝 Mach es allen recht!</h4>
+            <p>„Ich muss geliebt und akzeptiert werden." Erkennbar an: kein Nein sagen, eigene Bedürfnisse hintenanstellen, Harmonie um jeden Preis. Positive Seite: Empathie, Teamfähigkeit.<br><strong>Innere Erlaubnis:</strong> „Ich darf auch an mich denken."</p>
+          </div>
+          <div class="grid-card" style="border-left: 4px solid #8e44ad;">
+            <h4 style="color:#8e44ad">🏋️ Streng dich an!</h4>
+            <p>„Es zählt nur, wenn es schwer war." Erkennbar an: Dinge unnötig komplizieren, Leichtigkeit misstrauen, Entspannung als Faulheit erleben. Positive Seite: Ausdauer, Einsatzbereitschaft.<br><strong>Innere Erlaubnis:</strong> „Ich darf es leicht haben."</p>
+          </div>
+          <div class="grid-card" style="border-left: 4px solid #e67e22;">
+            <h4 style="color:#e67e22">⚡ Beeil dich!</h4>
+            <p>„Ich muss schnell sein, sonst bin ich nicht genug." Erkennbar an: ständige Eile, Ungeduld, viele Dinge gleichzeitig, Pausen als Zeitverschwendung. Positive Seite: Effizienz, Tempo.<br><strong>Innere Erlaubnis:</strong> „Ich darf mir Zeit lassen."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Wie Antreiber wirken</h3>
+        <p>Antreiber entstehen als Überlebensstrategie in der Kindheit: „Wenn ich perfekt bin, werde ich geliebt." Mit der Zeit werden sie automatisch – und laufen auch dann, wenn sie längst nicht mehr nötig sind.</p>
+        <div class="flow">
+          <div class="flow-step">Kindheitsbotschaft</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Innerer Antreiber</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Automatisches Verhalten</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Erschöpfung / Druck / Unzufriedenheit</div>
+        </div>
+        <div class="info-box">
+          <strong>Miriams persönlicher Gedanke:</strong><br>
+          „Als ich die fünf inneren Antreiber zum ersten Mal kennengelernt habe, ist mir einer davon immer wieder einfach geflötet gegangen – ich habe ihn schlicht vergessen. Ausgerechnet meinen eigenen. Das fand ich so bezeichnend, dass ich darüber lachen musste. Inzwischen sind wir fein miteinander und er bleibt. Aber diese Phase des Beobachtens – wie ein Antreiber sich erst zeigt, dann wieder versteckt – die hat mich mehr gelehrt als jede Theorie."
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Anwendung im Coaching</h3>
+        <h4>Schritt 1 – Antreiber erkennen</h4>
+        <p>Welche Aussagen klingen vertraut? · Wann fühlt sich Druck besonders stark an? · In welchen Situationen kannst du nicht loslassen?</p>
+        <h4>Schritt 2 – Ursprung verstehen</h4>
+        <p>Von wem hast du diese Botschaft gelernt? · Was wäre früher passiert, wenn du nicht perfekt/stark/gefällig warst?</p>
+        <h4>Schritt 3 – Positive Absicht würdigen</h4>
+        <p>Der Antreiber hat dir früher geholfen. Er war eine sinnvolle Strategie. Er verdient Dankbarkeit – auch wenn er heute nicht mehr passt.</p>
+        <h4>Schritt 4 – Innere Erlaubnis entwickeln</h4>
+        <p>Was ist das Gegenteil des Antreibers? · Was dürftest du dir erlauben, wenn der Antreiber leiser wäre? · Was würde sich verändern?</p>
+        <div class="merksatz">Innere Antreiber sind keine Fehler – sie sind treue alte Begleiter. Im Coaching geht es nicht darum, sie loszuwerden, sondern sie zu kennen, zu würdigen und bewusster mit ihnen umzugehen.</div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Verbindung zu anderen Modellen</h3>
+        <p><strong>Antreiber &amp; Glaubenssätze:</strong> Antreiber erzeugen oft Glaubenssätze. „Sei perfekt!" → Glaubenssatz: „Ich bin nicht gut genug." Beide Modelle ergänzen sich – Antreiber zeigen das Wie, Glaubenssätze zeigen das Was.</p>
+        <p><strong>Antreiber &amp; Inneres Team:</strong> Jeder Antreiber kann als innerer Anteil im Team verstanden werden. Der Perfektionist, der Antreiber, die Sicherheitsbeauftragte – sie alle haben eine Stimme.</p>
+        <p><strong>Antreiber &amp; Grundbedürfnisse:</strong> Antreiber entstehen aus dem Versuch, emotionale Grundbedürfnisse (Anerkennung, Verbundenheit, Sicherheit) zu erfüllen – oft auf Kosten anderer Bedürfnisse.</p>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-14-uebung">
+      <div class="u-card">
+        <h4>✏️ Übung 1 – Meine Antreiber-Landkarte</h4>
+        <p>Lies die 5 Antreiber durch und schätze für jeden ein, wie stark er bei dir ausgeprägt ist (1 = kaum, 5 = sehr stark). Welcher ist dein dominantester? In welchen Situationen zeigt er sich besonders?</p>
+        <textarea placeholder="Sei perfekt: .../5 → zeigt sich bei mir wenn: ...
+Sei stark: .../5 → zeigt sich bei mir wenn: ...
+Mach es allen recht: .../5 → zeigt sich bei mir wenn: ...
+Streng dich an: .../5 → zeigt sich bei mir wenn: ...
+Beeil dich: .../5 → zeigt sich bei mir wenn: ...
+
+Mein stärkster Antreiber: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body">Sei perfekt: 4/5 → zeigt sich wenn ich Präsentationen vorbereite – ich überarbeite alles dreimal.<br>Sei stark: 2/5 → nicht so stark, ich bitte eigentlich ganz gut um Hilfe.<br>Mach es allen recht: 5/5 → zeigt sich überall, besonders wenn jemand unzufrieden mit mir ist – das hält mich nachts wach.<br>Streng dich an: 3/5 → wenn es zu leicht geht, misstraue ich dem Ergebnis.<br>Beeil dich: 3/5 → in langen Meetings, ich bin ungeduldig.<br><br><strong>Stärkster Antreiber: Mach es allen recht.</strong> Das kostet mich am meisten Energie.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 2 – Die innere Erlaubnis</h4>
+        <p>Nimm deinen stärksten Antreiber. Schreibe auf: Was kostet er dich? Und formuliere dann eine innere Erlaubnis – einen Satz, der ihm entgegenwirkt und sich trotzdem wahr anfühlt.</p>
+        <textarea placeholder="Mein stärkster Antreiber: ...
+Was er mich kostet: ...
+
+Meine innere Erlaubnis: ...
+
+Wie sich dieser Satz anfühlt: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Antreiber:</strong> Mach es allen recht.<br><strong>Was er mich kostet:</strong> Ich sage Ja, wenn ich Nein meine. Ich schlafe schlecht wenn jemand unzufrieden mit mir ist. Ich verbiege mich.<br><br><strong>Meine innere Erlaubnis:</strong> „Ich darf auch dann liebenswert sein, wenn ich nicht alle glücklich mache."<br><br><strong>Wie es sich anfühlt:</strong> Ein bisschen beängstigend – aber tief in mir stimmt es. Das ist genau das Zeichen, dass es der richtige Satz ist.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 3 – Antreiber im Coaching-Gespräch</h4>
+        <p>Formuliere für jeden der 5 Antreiber eine Coaching-Frage, die hilft, ihn zu erkennen und die dahinterliegende Erschöpfung sichtbar zu machen.</p>
+        <textarea placeholder="Zu Sei perfekt: ...
+Zu Sei stark: ...
+Zu Mach es allen recht: ...
+Zu Streng dich an: ...
+Zu Beeil dich: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Sei perfekt:</strong> „Wann ist für dich etwas gut genug – gibt es diesen Moment überhaupt?"<br><strong>Sei stark:</strong> „Was müsste passieren, damit du dir erlaubst, Hilfe anzunehmen?"<br><strong>Mach es allen recht:</strong> „Wessen Meinung über dich ist dir am wichtigsten – und was kostet dich das?"<br><strong>Streng dich an:</strong> „Wie würdest du reagieren, wenn etwas auf einmal leicht wäre? Was würdest du denken?"<br><strong>Beeil dich:</strong> „Was wäre, wenn du dir für diese eine Sache wirklich Zeit lassen würdest – was befürchtest du würde passieren?"</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-14-quiz">
+      <div class="q-card">
+        <h4>1. Woher stammt das Konzept der Inneren Antreiber?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-14-1&#39;,&#39;Das Konzept stammt von Taibi Kahler, entwickelt im Rahmen der Transaktionsanalyse.&#39;)">Von Carl Gustav Jung aus der Archetypenlehre</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-14-1&#39;,&#39;Genau! Taibi Kahler entwickelte das Konzept im Rahmen der Transaktionsanalyse.&#39;)">Von Taibi Kahler, im Rahmen der Transaktionsanalyse</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-14-1&#39;,&#39;Das Konzept stammt von Taibi Kahler, entwickelt im Rahmen der Transaktionsanalyse.&#39;)">Von Friedemann Schulz von Thun aus dem Inneren Team</button>
+        </div>
+        <div class="q-fb" id="qf-14-1"></div>
+      </div>
+      <div class="q-card">
+        <h4>2. Warum fühlen sich Innere Antreiber oft wie Tugenden an?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-14-2&#39;,&#39;Antreiber entstehen als Überlebensstrategie und haben echte positive Seiten – sie erzeugen aber gleichzeitig Druck, Erschöpfung und Unfreiheit.&#39;)">Weil sie tatsächlich positiv sind und keine negativen Seiten haben</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-14-2&#39;,&#39;Genau! Antreiber haben echte positive Seiten – Qualität, Zuverlässigkeit, Empathie – erzeugen aber gleichzeitig Druck und Erschöpfung.&#39;)">Weil sie echte positive Seiten haben, aber gleichzeitig Druck und Erschöpfung erzeugen</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-14-2&#39;,&#39;Antreiber entstehen als Überlebensstrategie und haben echte positive Seiten – sie erzeugen aber gleichzeitig Druck, Erschöpfung und Unfreiheit.&#39;)">Weil sie in der Kindheit gelernt wurden</button>
+        </div>
+        <div class="q-fb" id="qf-14-2"></div>
+      </div>
+      <div class="q-card">
+        <h4>3. Was ist das Ziel der „inneren Erlaubnis" in der Arbeit mit Antreibern?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-14-3&#39;,&#39;Die innere Erlaubnis gibt dem Antreiber einen bewussten Gegenpol – nicht um ihn zu löschen, sondern um ihm etwas entgegenzusetzen.&#39;)">Den Antreiber vollständig zu löschen</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-14-3&#39;,&#39;Die innere Erlaubnis gibt dem Antreiber einen bewussten Gegenpol – nicht um ihn zu löschen, sondern um ihm etwas entgegenzusetzen.&#39;)">Den Antreiber zu ignorieren</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-14-3&#39;,&#39;Genau! Die innere Erlaubnis ist ein bewusster Gegenpol – sie gibt dem Menschen Raum, anders zu sein, ohne den Antreiber bekämpfen zu müssen.&#39;)">Dem Antreiber einen bewussten Gegenpol zu geben, der mehr Freiheit schafft</button>
+        </div>
+        <div class="q-fb" id="qf-14-3"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-14-ki">
+      <div class="ki-toggle">
+        <button class="ki-btn active" onclick="setMode(14,&#39;coachee&#39;,this)">🙋 Coachee-Modus</button>
+        <button class="ki-btn" onclick="setMode(14,&#39;lernbegleiter&#39;,this)">🎓 Lernbegleiter-Modus</button>
+      </div>
+      <div class="ki-persona" id="kip-14"><strong>Deine Übungspartnerin: Lisa, 36</strong><br>Lisa ist Grundschullehrerin – immer perfekt vorbereitet, immer für alle da, nie genug. Sie ist erschöpft, hört aber nicht auf. Sie weiß nicht, was sie antreibt. Hilf ihr, ihre inneren Antreiber zu erkennen.</div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chat-14"><div class="msg ai">Ich weiß gar nicht, wie ich anfangen soll. Ich mache alles – und trotzdem habe ich das Gefühl, es reicht nie. Ich bin so müde. Aber aufhören fühlt sich auch falsch an. Irgendwie dreht sich das alles im Kreis.</div></div>
+        <div class="typing" id="typ-14">Lisa schreibt...</div>
+        <div class="chat-bar">
+          <textarea class="chat-in" id="inp-14" rows="2" placeholder="Schreib Lisa eine Nachricht..." onkeydown="handleEnter(event,14)"></textarea>
+          <button class="chat-send" onclick="sendMsg(14)">Senden</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== MODUL 15 – GLAUBENSSÄTZE ===== -->
+<div class="module-panel" id="mod-15">
+  <div class="module-header"><div class="module-number">Modul 15</div><div class="module-title">Glaubenssätze</div></div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab(15,&#39;video&#39;,this)">🎬 Video</button>
+    <button class="tab-btn" onclick="showTab(15,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(15,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button class="tab-btn" onclick="showTab(15,&#39;quiz&#39;,this)">🎯 Quiz</button>
+    <button class="tab-btn" onclick="showTab(15,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="t-15-video">
+      <div class="video-wrapper">
+        <div class="vft"></div>
+        <iframe src="https://drive.google.com/file/d/1i4zvF2NyyJSgWxxeNWtQWUjVmRVC3g72/preview" allowfullscreen=""></iframe>
+        <div class="vfb"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-15-theorie">
+      <div class="t-sec">
+        <h3>Was sind Glaubenssätze?</h3>
+        <p>Glaubenssätze sind tief verankerte Überzeugungen über uns selbst, andere Menschen, Erfolg, Beziehungen, Geld und das Leben. Sie entstehen meist unbewusst durch Kindheit, Erziehung, Erfahrungen, Schule, Vorbilder und gesellschaftliche Prägungen. Mit der Zeit werden sie zu unserer persönlichen „Wahrheit".</p>
+        <p>Viele Menschen glauben, ihre Probleme lägen an äußeren Umständen – oft werden sie jedoch von inneren Überzeugungen gesteuert:</p>
+        <div class="info-box">
+          „Ich bin nicht gut genug." · „Ich darf keine Fehler machen." · „Ich muss es allen recht machen." · „Geld verdirbt den Charakter." · „Erfolg bedeutet Stress."
+        </div>
+        <p>Was bringt mir das als Coachee?</p>
+        <ul class="check-list">
+          <li>Limitierende Glaubenssätze erkennen</li>
+          <li>Verstehen, warum ich immer wieder gleich handle</li>
+          <li>Innere Blockaden auflösen</li>
+          <li>Mehr Selbstvertrauen entwickeln</li>
+          <li>Neue Handlungsmöglichkeiten erkennen</li>
+          <li>Bewusstere Entscheidungen treffen</li>
+        </ul>
+      </div>
+
+      <div class="t-sec">
+        <h3>Wie wirken Glaubenssätze?</h3>
+        <p>Glaubenssätze wirken wie ein Filter – sie beeinflussen Gedanken, Gefühle, Verhalten und Ergebnisse.</p>
+        <div class="flow">
+          <div class="flow-step">Glaubenssatz</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Gedanken</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Gefühle</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Verhalten</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Ergebnis</div>
+        </div>
+        <div class="info-box">
+          <strong>Beispiel – der Verstärkerkreis:</strong><br>
+          Glaubenssatz: „Ich bin nicht gut genug."<br>
+          → Gedanken: „Bestimmt mache ich Fehler."<br>
+          → Gefühle: Unsicherheit, Angst, Selbstzweifel<br>
+          → Verhalten: Aufschieben, Perfektionismus, Rückzug<br>
+          → Ergebnis: Weniger Erfolg → bestätigt den Glaubenssatz<br><br>
+          <strong>Der Glaubenssatz verstärkt sich dadurch immer weiter.</strong>
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Anwendung im Coaching – 5 Schritte</h3>
+        <h4>Schritt 1 – Problem sichtbar machen</h4>
+        <p>„Was beschäftigt dich aktuell?"<br>Beispiel: „Ich traue mich nicht, sichtbar zu werden."</p>
+        <h4>Schritt 2 – Den dahinterliegenden Glaubenssatz finden</h4>
+        <p>Was glaubst du über dich? · Was müsste wahr sein, damit du so handelst? · Was hält dich zurück?<br>Beispiel: „Ich bin nicht interessant genug."</p>
+        <h4>Schritt 3 – Ursprung erforschen</h4>
+        <p>Woher kennst du diesen Satz? · Wann hast du das zum ersten Mal geglaubt? · Wer hat dir das vermittelt?<br>Ziel: Verstehen, dass der Glaubenssatz irgendwann <em>gelernt</em> wurde.</p>
+        <h4>Schritt 4 – Glaubenssatz überprüfen</h4>
+        <p>Ist das wirklich immer wahr? · Welche Gegenbeweise gibt es? · Würdest du das auch deinem besten Freund sagen?<br>Oft erkennt der Coachee hier bereits erste Denkfehler.</p>
+        <h4>Schritt 5 – Neuen Glaubenssatz entwickeln</h4>
+        <p>Aus „Ich bin nicht gut genug." wird: „Ich darf lernen und wachsen." oder „Ich bin bereits wertvoll und entwickle mich weiter."<br><strong>Wichtig:</strong> Der neue Satz muss glaubwürdig sein.</p>
+      </div>
+
+      <div class="t-sec">
+        <h3>Verbindung zu anderen Modellen</h3>
+        <p><strong>Glaubenssätze &amp; Inneres Team:</strong> Viele innere Anteile basieren auf Glaubenssätzen. Der Innere Kritiker sagt: „Du bist nicht gut genug." – Der Perfektionist: „Du darfst keine Fehler machen." Das Innere Team zeigt die Stimmen. Glaubenssätze erklären, warum diese Stimmen sprechen.</p>
+        <p><strong>Glaubenssätze &amp; Grundbedürfnisse:</strong> Viele Glaubenssätze entstehen aus verletzten Bedürfnissen. Beispiel: Bedürfnis nach Verbundenheit nicht erfüllt → Glaubenssatz: „Ich gehöre nicht dazu."</p>
+        <p><strong>Glaubenssätze &amp; Transaktionsanalyse:</strong> Viele Glaubenssätze entstehen früh im Leben und werden aus dem Kind-Ich heraus gespeichert. Später beeinflussen sie unbewusst unser Verhalten.</p>
+        <div class="merksatz">Wir handeln nicht nach der Realität. Wir handeln nach dem, was wir über die Realität glauben.<br>Verändert sich der Glaubenssatz, verändert sich oft auch das Verhalten.</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-15-uebung">
+      <div class="u-card">
+        <h4>✏️ Übung 1 – Eigene Glaubenssätze entdecken</h4>
+        <p>Vervollständige die folgenden Satzanfänge spontan und ohne zu zensieren. Schreibe das erste, was dir einfällt – auch wenn es sich seltsam anfühlt.</p>
+        <textarea placeholder="„Ich bin ..." &#10;„ich="" kann="" nicht="" ..."&#10;„geld="" ist="" ..."&#10;„erfolg="" bedeutet="" ..."&#10;„ich="" darf="" ..."&#10;„andere="" menschen="" sind="" ..."&#10;&#10;welcher="" dieser="" sätze="" überrascht="" dich?="" wo="" kommt="" er="" her?"=""></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body">„Ich bin ... nie fertig." (Überraschend – ich dachte, ich bin eigentlich produktiv)<br>„Ich kann nicht ... einfach mal nichts tun."<br>„Geld ist ... immer knapp." (Obwohl es das objektiv gar nicht ist!)<br>„Erfolg bedeutet ... Druck und Verlust von Freiheit."<br>„Ich darf nicht ... zu viel Aufmerksamkeit brauchen."<br>„Andere Menschen sind ... in bestimmten Dingen einfach besser."<br><br><em>Der überraschendste: „Geld ist immer knapp." Dieser Satz kam von meinen Eltern – sie haben immer über zu wenig Geld gesprochen. Er hat nichts mit meiner Realität zu tun.</em></div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 2 – Den Verstärkerkreis durchbrechen</h4>
+        <p>Wähle einen Glaubenssatz aus Übung 1 und durchlaufe den 5-Schritte-Prozess: Ursprung finden → überprüfen → neuen Satz entwickeln.</p>
+        <textarea placeholder="Mein Glaubenssatz: ...
+Ursprung (woher kommt er?): ...
+Überprüfung (ist er immer wahr? Gegenbeweise?): ...
+Neuer Glaubenssatz: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Glaubenssatz:</strong> „Erfolg bedeutet Druck und Verlust von Freiheit."<br><strong>Ursprung:</strong> Mein Vater war sehr erfolgreich – und nie da. Als Kind habe ich gelernt: Erfolg = Abwesenheit.<br><strong>Überprüfung:</strong> Stimmt das wirklich? Ich kenne viele erfolgreiche Menschen, die viel Freiheit haben. Und Erfolg in meinen Bedingungen könnte sogar MEHR Freiheit bedeuten.<br><strong>Neuer Satz:</strong> „Mein Erfolg ist auf meine Art und Weise möglich – er gibt mir Freiheit, nicht nimmt sie mir."</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 3 – Glaubenssatz-Coaching</h4>
+        <p>Ein Coachee sagt: „Ich schaffe es nie, Dinge wirklich durchzuziehen." Formuliere die 5 Schritte als Coaching-Fragen – eine Frage pro Schritt.</p>
+        <textarea placeholder="Schritt 1 (Problem): ...
+Schritt 2 (Glaubenssatz finden): ...
+Schritt 3 (Ursprung): ...
+Schritt 4 (Überprüfen): ...
+Schritt 5 (Neuer Satz): ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>1:</strong> „Was genau meinst du mit ‚nicht durchziehen' – kannst du mir ein konkretes Beispiel geben?"<br><strong>2:</strong> „Was glaubst du über dich, wenn du an dieses Muster denkst – was müsste wahr sein, damit du immer wieder so handelst?"<br><strong>3:</strong> „Woher kennst du diesen Satz? Wann hast du das zum ersten Mal über dich gedacht?"<br><strong>4:</strong> „Ist das wirklich IMMER wahr? Gibt es Dinge, die du durchgezogen hast – auch kleine?"<br><strong>5:</strong> „Was wäre ein Satz über dich, der zwar neu, aber trotzdem glaubwürdig ist?"</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-15-quiz">
+      <div class="q-card">
+        <h4>1. Warum verstärken sich limitierende Glaubenssätze oft selbst?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-15-1&#39;,&#39;Der Glaubenssatz filtert die Wahrnehmung so, dass das Verhalten Ergebnisse produziert, die den Glaubenssatz bestätigen – ein Verstärkerkreis.&#39;)">Weil Menschen keine Motivation haben, sie zu verändern</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-15-1&#39;,&#39;Genau! Der Glaubenssatz filtert die Wahrnehmung, erzeugt passendes Verhalten und produziert Ergebnisse, die ihn bestätigen.&#39;)">Weil das durch den Glaubenssatz gesteuerte Verhalten Ergebnisse erzeugt, die ihn bestätigen</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-15-1&#39;,&#39;Der Glaubenssatz filtert die Wahrnehmung so, dass das Verhalten Ergebnisse produziert, die den Glaubenssatz bestätigen – ein Verstärkerkreis.&#39;)">Weil andere Menschen den Glaubenssatz immer wieder bestätigen</button>
+        </div>
+        <div class="q-fb" id="qf-15-1"></div>
+      </div>
+      <div class="q-card">
+        <h4>2. Warum ist es bei Schritt 5 (neuer Glaubenssatz) wichtig, dass er „glaubwürdig" ist?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-15-2&#39;,&#39;Ein zu großer Sprung (von „Ich bin wertlos" zu="" „ich="" bin="" perfekt")="" wird="" vom="" inneren="" erleben="" abgelehnt.="" der="" neue="" satz="" muss="" fühlbar="" wahr="" sein.')"="">Damit er gut klingt und motiviert</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-15-2&#39;,&#39;Ein zu großer Sprung (von „Ich bin wertlos" zu="" „ich="" bin="" perfekt")="" wird="" vom="" inneren="" erleben="" abgelehnt.="" der="" neue="" satz="" muss="" fühlbar="" wahr="" sein.')"="">Damit er vom Coach akzeptiert wird</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-15-2&#39;,&#39;Genau! Ein zu großer Sprung wird vom inneren Erleben abgelehnt. Der neue Satz muss fühlbar wahr sein, sonst greift er nicht.&#39;)">Weil ein unglaubwürdiger Satz vom inneren Erleben abgelehnt wird und keine Wirkung hat</button>
+        </div>
+        <div class="q-fb" id="qf-15-2"></div>
+      </div>
+      <div class="q-card">
+        <h4>3. Welcher Schritt hilft dem Coachee zu verstehen, dass ein Glaubenssatz gelernt – und nicht „wahr" – ist?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-15-3&#39;,&#39;Schritt 3 (Ursprung erforschen) zeigt: Der Satz wurde irgendwann gelernt – von einer Person, in einem Kontext. Er ist keine unveränderliche Wahrheit.&#39;)">Schritt 4 – den Glaubenssatz überprüfen</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-15-3&#39;,&#39;Genau! Schritt 3 zeigt: Der Satz wurde gelernt – von einer Person, in einem Kontext. Er ist keine unveränderliche Wahrheit.&#39;)">Schritt 3 – den Ursprung erforschen</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-15-3&#39;,&#39;Schritt 3 (Ursprung erforschen) zeigt: Der Satz wurde irgendwann gelernt – von einer Person, in einem Kontext. Er ist keine unveränderliche Wahrheit.&#39;)">Schritt 5 – den neuen Glaubenssatz entwickeln</button>
+        </div>
+        <div class="q-fb" id="qf-15-3"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-15-ki">
+      <div class="ki-toggle">
+        <button class="ki-btn active" onclick="setMode(15,&#39;coachee&#39;,this)">🙋 Coachee-Modus</button>
+        <button class="ki-btn" onclick="setMode(15,&#39;lernbegleiter&#39;,this)">🎓 Lernbegleiter-Modus</button>
+      </div>
+      <div class="ki-persona" id="kip-15"><strong>Deine Übungspartnerin: Sarah, 33</strong><br>Sarah ist hochqualifiziert, aber traut sich nie, sich für Beförderungen zu bewerben. Sie sagt immer: „Die anderen sind einfach besser als ich." Tief in ihr steckt der Satz: „Ich bin nicht gut genug." Hilf ihr, diesen Glaubenssatz zu erkunden und zu transformieren.</div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chat-15"><div class="msg ai">Ich wurde letzte Woche wieder gefragt, ob ich mich für die Stelle bewerben möchte. Und ich habe wieder Nein gesagt. Dabei wollte ich doch... aber irgendwie ist da immer diese Stimme, die sagt: Die anderen könnten das viel besser als du.</div></div>
+        <div class="typing" id="typ-15">Sarah schreibt...</div>
+        <div class="chat-bar">
+          <textarea class="chat-in" id="inp-15" rows="2" placeholder="Schreib Sarah eine Nachricht..." onkeydown="handleEnter(event,15)"></textarea>
+          <button class="chat-send" onclick="sendMsg(15)">Senden</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== MODUL 16 – ARCHETYPEN ===== -->
+<div class="module-panel" id="mod-16">
+  <div class="module-header"><div class="module-number">Modul 16</div><div class="module-title">Archetypen</div></div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab(16,&#39;video&#39;,this)">🎬 Video</button>
+    <button class="tab-btn" onclick="showTab(16,&#39;theorie&#39;,this)">📖 Theorie</button>
+    <button class="tab-btn" onclick="showTab(16,&#39;uebung&#39;,this)">✏️ Übung</button>
+    <button class="tab-btn" onclick="showTab(16,&#39;quiz&#39;,this)">🎯 Quiz</button>
+    <button class="tab-btn" onclick="showTab(16,&#39;ki&#39;,this)">🤖 KI-Praxis</button>
+  </div>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="t-16-video">
+      <div class="video-wrapper">
+        <div class="vft"></div>
+        <iframe src="https://drive.google.com/file/d/1ouIPL-GTOGXhUTQTMd-7gKvf-V6HSnjP/preview" allowfullscreen=""></iframe>
+        <div class="vfb"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-16-theorie">
+      <div class="t-sec">
+        <h3>Was sind Archetypen?</h3>
+        <p>Archetypen sind <strong>universelle Persönlichkeitsmuster</strong>. Sie beschreiben typische Rollen, die Menschen unbewusst einnehmen. Bekannt wurden sie durch <strong>Carl Gustav Jung</strong>.</p>
+        <p>Archetypen helfen zu verstehen:</p>
+        <ul>
+          <li>Wer bin ich?</li>
+          <li>Welche Rolle nehme ich ein?</li>
+          <li>Wie wirke ich auf andere?</li>
+        </ul>
+        <p>Was bringt mir das als Coachee?</p>
+        <ul class="check-list">
+          <li>Mehr Selbstverständnis</li>
+          <li>Klarere Identität</li>
+          <li>Bessere Positionierung</li>
+          <li>Verständnis für andere Menschen</li>
+        </ul>
+      </div>
+
+      <div class="t-sec">
+        <h3>Die typischen Archetypen</h3>
+        <div class="arch-grid">
+          <div class="arch-card" style="background:#fdeaea;border-color:#e57373">
+            <h4 style="color:#c0392b">⚔️ Der Held</h4>
+            <p><strong>Kernthemen:</strong> Mut, Leistung, Wachstum<br>Der Held stellt sich Herausforderungen, überwindet Hindernisse und beweist sich. Er wächst durch Kämpfe.</p>
+          </div>
+          <div class="arch-card" style="background:#fff8e1;border-color:#ffe082">
+            <h4 style="color:#7a5c00">🦉 Die Weise</h4>
+            <p><strong>Kernthemen:</strong> Wissen, Erkenntnis, Lernen<br>Die Weise sucht nach Wahrheit und Tiefe. Sie teilt ihr Wissen und begleitet andere auf dem Weg zur Erkenntnis.</p>
+          </div>
+          <div class="arch-card" style="background:#e3f2fd;border-color:#64b5f6">
+            <h4 style="color:#1a5d8f">🧭 Die Entdeckerin</h4>
+            <p><strong>Kernthemen:</strong> Freiheit, Abenteuer, Selbstbestimmung<br>Die Entdeckerin braucht Bewegung, Neues und Unabhängigkeit. Grenzen und Routine beengen sie.</p>
+          </div>
+          <div class="arch-card" style="background:#fce4ec;border-color:#f48fb1">
+            <h4 style="color:#880e4f">🤗 Die Fürsorgliche</h4>
+            <p><strong>Kernthemen:</strong> Unterstützung, Verbindung, Mitgefühl<br>Die Fürsorgliche stellt andere in den Mittelpunkt. Sie nährt, schützt und verbindet – oft auf Kosten eigener Bedürfnisse.</p>
+          </div>
+          <div class="arch-card" style="background:#f3e5f5;border-color:#ce93d8">
+            <h4 style="color:#6a1b9a">⚡ Der Rebell</h4>
+            <p><strong>Kernthemen:</strong> Veränderung, Innovation, Freiheit<br>Der Rebell hinterfragt Regeln und Konventionen. Er ist Impulsgeber für Wandel – manchmal destruktiv, oft notwendig.</p>
+          </div>
+          <div class="arch-card" style="background:var(--salbei-pale);border-color:#b8d4ce">
+            <h4 style="color:var(--salbei)">✨ Der Magier</h4>
+            <p><strong>Kernthemen:</strong> Transformation, Vision, Möglichkeiten<br>Der Magier sieht Potenziale wo andere Probleme sehen. Er glaubt an Veränderung und verwandelt das Unmögliche.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-sec">
+        <h3>Archetypen im Coaching</h3>
+        <p>Archetypen helfen im Coaching dabei:</p>
+        <ul>
+          <li>Die eigene Persönlichkeit besser zu verstehen</li>
+          <li>Typische Verhaltensmuster zu erkennen</li>
+          <li>Die eigene „Geschichte" zu verstehen: Welchen Archetyp lebe ich gerade?</li>
+          <li>Zu erkennen, welchen Archetyp ich entwickeln möchte</li>
+        </ul>
+        <div class="info-box">
+          <strong>Praxisbeispiel:</strong> Eine Coachin erkennt, dass sie stark im Archetyp der Fürsorglichen lebt – sie hilft allen, vernachlässigt aber ihre eigenen Bedürfnisse. Das Coaching-Ziel: mehr vom Helden und der Entdeckerin integrieren.
+        </div>
+        <p><strong>Verbindung zum Inneren Team:</strong> Verschiedene Archetypen können als innere Anteile verstanden werden. Der Perfektionist ist ein Held, der Sicherheitsanteil eine Fürsorgliche für sich selbst.</p>
+        <p><strong>Verbindung zur Wertearbeit:</strong> Jeder Archetyp lebt bestimmte Werte – der Held Mut und Leistung, die Weise Wahrheit und Wissen. Welche Werte dominieren mein Leben?</p>
+        <div class="merksatz">Archetypen helfen uns zu verstehen, welche Geschichte wir über uns selbst leben.</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-16-uebung">
+      <div class="u-card">
+        <h4>✏️ Übung 1 – Dein dominanter Archetyp</h4>
+        <p>Schau dir die Archetypen an. Welcher resoniert am stärksten mit dir – welcher bist du gerade vor allem? Und welchen würdest du dir gerne mehr wünschen?</p>
+        <textarea placeholder="Mein dominanter Archetyp gerade: ...
+Woran ich das erkenne: ...
+
+Den Archetyp, den ich mir mehr wünsche: ...
+Weil: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Mein dominanter Archetyp:</strong> Die Fürsorgliche – ich bin immer für andere da, vernachlässige aber meine eigenen Bedürfnisse.<br><strong>Woran ich das erkenne:</strong> Ich sage selten Nein, denke zuerst an andere, fühle mich schuldig wenn ich Zeit für mich nehme.<br><br><strong>Den Archetyp, den ich mir mehr wünsche:</strong> Die Entdeckerin – weil ich mich nach mehr Freiheit, Abenteuern und Eigenständigkeit sehne. Ich möchte auch mal an mich zuerst denken.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 2 – Die Geschichte, die du lebst</h4>
+        <p>Wenn dein Leben ein Film wäre – welche Hauptrolle spielst du gerade? Welche Rolle möchtest du spielen? Was müsste sich ändern, damit der Film anders ausgeht?</p>
+        <textarea placeholder="Meine aktuelle Hauptrolle (Archetyp): ...
+Die Rolle, die ich spielen möchte: ...
+Was sich ändern müsste: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>Meine aktuelle Rolle:</strong> Die Weise – ich analysiere, beobachte, gebe Ratschläge, bleibe aber selbst im Hintergrund.<br><strong>Die Rolle, die ich spielen möchte:</strong> Der Held – in die Arena gehen, Risiken eingehen, sichtbar werden.<br><strong>Was sich ändern müsste:</strong> Ich müsste aufhören zu warten, bis alles perfekt ist. Der Held wartet nicht – er handelt, auch mit Unsicherheit.</div>
+      </div>
+      <div class="u-card">
+        <h4>✏️ Übung 3 – Archetypen im Coaching</h4>
+        <p>Formuliere drei kraftvolle Coaching-Fragen, die helfen, den dominanten Archetyp eines Coachees zu erkennen und ihn einzuladen, neue Anteile zu integrieren.</p>
+        <textarea placeholder="Frage 1: ...
+Frage 2: ...
+Frage 3: ..."></textarea>
+        <button class="ex-toggle" onclick="toggleEx(this)">💡 Beispielantwort anzeigen</button>
+        <div class="ex-body"><strong>1:</strong> „Wenn dein Leben ein Film wäre – welche Rolle spielst du gerade? Bist du Held, Weise, Rebell oder jemand anderes?"<br><strong>2:</strong> „Welcher Archetyp fasziniert dich – welche Qualität in anderen Menschen bewunderst du, die du dir selbst weniger zugestehst?"<br><strong>3:</strong> „Was würde die Person tun, die du gerne wärst – wie würde sie in deiner aktuellen Situation reagieren?"</div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-16-quiz">
+      <div class="q-card">
+        <h4>1. Was sind Archetypen?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-16-1&#39;,&#39;Archetypen sind universelle Persönlichkeitsmuster – typische Rollen, die Menschen unbewusst einnehmen, bekannt durch C. G. Jung.&#39;)">Persönlichkeitstests zur Karriereplanung</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-16-1&#39;,&#39;Genau! Archetypen sind universelle Persönlichkeitsmuster – typische Rollen, die Menschen unbewusst einnehmen.&#39;)">Universelle Persönlichkeitsmuster – typische Rollen, die Menschen unbewusst einnehmen</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-16-1&#39;,&#39;Archetypen sind universelle Persönlichkeitsmuster – typische Rollen, die Menschen unbewusst einnehmen, bekannt durch C. G. Jung.&#39;)">Kulturelle Klischees aus der Literatur</button>
+        </div>
+        <div class="q-fb" id="qf-16-1"></div>
+      </div>
+      <div class="q-card">
+        <h4>2. Welcher Archetyp stellt Unterstützung, Verbindung und Mitgefühl in den Mittelpunkt – oft auf Kosten eigener Bedürfnisse?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-16-2&#39;,&#39;Die Fürsorgliche stellt andere in den Mittelpunkt – sie nährt, schützt und verbindet, oft auf Kosten eigener Bedürfnisse.&#39;)">Die Weise</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-16-2&#39;,&#39;Die Fürsorgliche stellt andere in den Mittelpunkt – sie nährt, schützt und verbindet, oft auf Kosten eigener Bedürfnisse.&#39;)">Der Rebell</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-16-2&#39;,&#39;Genau! Die Fürsorgliche lebt für andere – nährt, schützt und verbindet, manchmal auf Kosten eigener Bedürfnisse.&#39;)">Die Fürsorgliche</button>
+        </div>
+        <div class="q-fb" id="qf-16-2"></div>
+      </div>
+      <div class="q-card">
+        <h4>3. Wie können Archetypen im Coaching genutzt werden?</h4>
+        <div class="q-opts">
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-16-3&#39;,&#39;Archetypen helfen, die eigene Geschichte zu verstehen, Verhaltensmuster zu erkennen und neue Anteile zu integrieren.&#39;)">Um den Coachee in eine bestimmte Kategorie einzusortieren</button>
+          <button class="q-opt" onclick="ansQ(this,true,&#39;qf-16-3&#39;,&#39;Genau! Archetypen helfen, die eigene Geschichte zu verstehen, Muster zu erkennen und neue Qualitäten zu integrieren.&#39;)">Um die eigene Persönlichkeit besser zu verstehen und neue Anteile zu integrieren</button>
+          <button class="q-opt" onclick="ansQ(this,false,&#39;qf-16-3&#39;,&#39;Archetypen helfen, die eigene Geschichte zu verstehen, Verhaltensmuster zu erkennen und neue Anteile zu integrieren.&#39;)">Um dem Coachee seinen „richtigen" Archetyp zu zeigen</button>
+        </div>
+        <div class="q-fb" id="qf-16-3"></div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="t-16-ki">
+      <div class="ki-toggle">
+        <button class="ki-btn active" onclick="setMode(16,&#39;coachee&#39;,this)">🙋 Coachee-Modus</button>
+        <button class="ki-btn" onclick="setMode(16,&#39;lernbegleiter&#39;,this)">🎓 Lernbegleiter-Modus</button>
+      </div>
+      <div class="ki-persona" id="kip-16"><strong>Deine Übungspartnerin: Anna, 29</strong><br>Anna ist Grafikdesignerin und fühlt sich in ihrem Job wie in einer Schachtel eingesperrt. Sie hat kreative Ideen, zeigt sie aber nie, weil sie denkt: „Wer bin ich, dass ich so mutig sein darf?" Hilf ihr, ihre innere Entdeckerin und Heldin zu finden.</div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chat-16"><div class="msg ai">Hey. Also... ich hab das Gefühl, ich sitze in einer Schachtel. Ich habe so viele Ideen – aber ich zeige sie nie. Immer denke ich: Die anderen sind viel talentierter. Ich weiß nicht mal genau, was mich zurückhält.</div></div>
+        <div class="typing" id="typ-16">Anna schreibt...</div>
+        <div class="chat-bar">
+          <textarea class="chat-in" id="inp-16" rows="2" placeholder="Schreib Anna eine Nachricht..." onkeydown="handleEnter(event,16)"></textarea>
+          <button class="chat-send" onclick="sendMsg(16)">Senden</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<script>
+// NAV
+function showMod(n){
+  document.querySelectorAll('.module-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.module-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('mod-'+n).classList.add('active');
+  document.querySelectorAll('.module-nav-btn')[n-11].classList.add('active');
+}
+function showTab(mod,tab,btn){
+  const p=document.getElementById('mod-'+mod);
+  p.querySelectorAll('.tab-pane').forEach(x=>x.classList.remove('active'));
+  p.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+  document.getElementById('t-'+mod+'-'+tab).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEx(btn){
+  const c=btn.nextElementSibling;
+  const o=c.classList.toggle('open');
+  btn.textContent=o?'💡 Beispielantwort ausblenden':'💡 Beispielantwort anzeigen';
+}
+function ansQ(btn,correct,fid,expl){
+  const card=btn.closest('.q-card');
+  if(card.querySelector('.correct,.wrong'))return;
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct)card.querySelectorAll('.q-opt').forEach(o=>{if(o.getAttribute('onclick').includes('true'))o.classList.add('correct');});
+  const fb=document.getElementById(fid);
+  fb.className='q-fb '+(correct?'correct':'wrong');
+  fb.textContent=(correct?'✅ Richtig! ':'❌ Fast. ')+expl;
+}
+
+// KI
+const S={};
+const P={
+  11:{
+    coachee:{ind:'Claudia schreibt...',ph:'Schreib Claudia eine Nachricht...',
+      sys:`Du bist Claudia, 44, Teamleiterin. Dein Team sagt, du wirkst kalt und distanziert – du empfindest dich als professionell und fair. Du bist verletzt und verwirrt. Antworte auf Deutsch, zeige echte Betroffenheit.`,
+      intro:`Ich weiß ehrlich gesagt nicht, was ich damit anfangen soll. Mein Team hat im letzten Feedbackgespräch gesagt, ich sei kalt und distanziert. Das hat mich wirklich getroffen. Ich dachte immer, ich bin einfach professionell...`},
+    lernbegleiter:{ind:'Lernbegleiter denkt...',ph:'Stelle eine Frage zum Johari-Fenster...',
+      sys:`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: Johari-Fenster (4 Bereiche, blinde Flecken, Feedback). Erkläre, gib Feedback, hilf bei Fragen. Antworte auf Deutsch.`,
+      intro:`Willkommen im Lernbegleiter-Modus für das Johari-Fenster! 🪟\n\nHier kannst du:\n• Die vier Bereiche und ihre Bedeutung verstehen\n• Coaching-Fragen für blinde Flecken entwickeln\n• Feedback zu deinen Übungsgesprächen bekommen\n\nWomit kann ich dir helfen?`}
+  },
+  12:{
+    coachee:{ind:'Petra schreibt...',ph:'Schreib Petra eine Nachricht...',
+      sys:`Du bist Petra, 39. Du hast immer wieder Konflikte mit deiner Mutter – nach Telefonaten fühlst du dich wie ein trotziges Kind. Du weißt nicht warum. Du bist nachdenklich und möchte das verstehen. Antworte auf Deutsch.`,
+      intro:`Ich weiß gar nicht wo ich anfangen soll. Jedes Mal wenn ich meine Mutter anrufe, fängt es irgendwie nett an – und dann eskaliert es. Und ich fühle mich danach so... klein. Wie früher. Ich will das endlich verstehen.`},
+    lernbegleiter:{ind:'Lernbegleiter denkt...',ph:'Stelle eine Frage zur Transaktionsanalyse...',
+      sys:`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: Transaktionsanalyse (Eltern-Ich, Erwachsenen-Ich, Kind-Ich). Erkläre, gib Feedback zu Gesprächen, hilf bei Fragen. Antworte auf Deutsch.`,
+      intro:`Willkommen im Lernbegleiter-Modus für die Transaktionsanalyse! 🧠\n\nHier kannst du:\n• Die drei Ich-Zustände verstehen\n• Typische Kommunikationsmuster erkennen\n• Coaching-Fragen zur TA entwickeln\n\nWomit kann ich dir helfen?`}
+  },
+  13:{
+    coachee:{ind:'Michael schreibt...',ph:'Schreib Michael eine Nachricht...',
+      sys:`Du bist Michael, 37. Ein Teil von dir will Teamleiter werden, ein anderer hat massive Zweifel. Du drehst dich seit Wochen im Kreis. Du bist nachdenklich aber auch ungeduldig mit dir selbst. Antworte auf Deutsch.`,
+      intro:`Ich mache mich selbst wahnsinnig, ehrlich gesagt. Jeden Tag denke ich: Ja, ich will das machen. Und dann am Abend: Nein, ich bin doch noch nicht bereit. Das ist wie ein innerer Kampf, der einfach nicht aufhört.`},
+    lernbegleiter:{ind:'Lernbegleiter denkt...',ph:'Stelle eine Frage zum Inneren Team...',
+      sys:`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: Inneres Team (Schulz von Thun, innere Anteile, innerer Manager). Erkläre, gib Feedback, hilf bei Fragen. Antworte auf Deutsch.`,
+      intro:`Willkommen im Lernbegleiter-Modus für das Innere Team! 🫂\n\nHier kannst du:\n• Das Modell von Schulz von Thun verstehen\n• Coaching-Schritte zur Anteilearbeit üben\n• Fragen zur räumlichen Aufstellung entwickeln\n\nWomit kann ich dir helfen?`}
+  },
+  14:{
+    coachee:{ind:'Lisa schreibt...',ph:'Schreib Lisa eine Nachricht...',
+      sys:`Du bist Lisa, 36, Grundschullehrerin. Du bist ständig am Funktionieren – perfekt vorbereitet, immer hilfsbereit, nie genug. Du bist erschöpft aber hörst nicht auf. Tief in dir treibt dich ein „Sei perfekt" und ein „Mach es allen recht" an, ohne dass du es benennen kannst. Antworte auf Deutsch, zeige echte Erschöpfung und Offenheit.`,
+      intro:`Ich weiß gar nicht, wie ich anfangen soll. Ich mache alles – und trotzdem habe ich das Gefühl, es reicht nie. Ich bin so müde. Aber aufhören fühlt sich auch falsch an. Irgendwie dreht sich das alles im Kreis.`},
+    lernbegleiter:{ind:'Lernbegleiter denkt...',ph:'Stelle eine Frage zu Inneren Antreibern...',
+      sys:`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: Innere Antreiber (die 5 Antreiber nach Taibi Kahler: Sei perfekt, Sei stark, Mach es allen recht, Streng dich an, Beeil dich). Erkläre Antreiber, gib Feedback zu Coaching-Gesprächen, hilf bei Fragen. Antworte auf Deutsch.`,
+      intro:`Willkommen im Lernbegleiter-Modus für Innere Antreiber! ⚡
+
+Hier kannst du:
+• Die 5 Antreiber nach Kahler kennenlernen
+• Antreiber bei dir und Coachees erkennen
+• Coaching-Fragen zu Antreibern entwickeln
+
+Womit kann ich dir helfen?`}
+  },
+  15:{
+    coachee:{ind:'Sarah schreibt...',ph:'Schreib Sarah eine Nachricht...',
+      sys:`Du bist Sarah, 33, hochqualifizierte Projektmanagerin. Du traust dich nie, dich für Beförderungen zu bewerben. Du denkst: „Die anderen sind einfach besser als ich." Tief in dir: „Ich bin nicht gut genug." Du bist reflektiert und offen, aber sehr selbstkritisch. Antworte auf Deutsch.`,
+      intro:`Ich wurde letzte Woche wieder gefragt, ob ich mich für die Stelle bewerben möchte. Und ich habe wieder Nein gesagt. Dabei wollte ich doch... aber irgendwie ist da immer diese Stimme, die sagt: Die anderen könnten das viel besser als du.`},
+    lernbegleiter:{ind:'Lernbegleiter denkt...',ph:'Stelle eine Frage zu Glaubenssätzen...',
+      sys:`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: Glaubenssätze (Entstehung, Wirkungskreis, 5-Schritte-Prozess). Erkläre, gib Feedback, hilf bei Fragen. Antworte auf Deutsch.`,
+      intro:`Willkommen im Lernbegleiter-Modus für Glaubenssätze! 💭\n\nHier kannst du:\n• Den 5-Schritte-Prozess der Glaubenssatzarbeit verstehen\n• Den Verstärkerkreis erklären\n• Coaching-Fragen zur Glaubenssatzarbeit entwickeln\n\nWomit kann ich dir helfen?`}
+  },
+  16:{
+    coachee:{ind:'Anna schreibt...',ph:'Schreib Anna eine Nachricht...',
+      sys:`Du bist Anna, 29, Grafikdesignerin. Du hast kreative Ideen, zeigst sie aber nie. Du denkst: „Wer bin ich, dass ich so mutig sein darf?" Du sehnst dich nach mehr Freiheit und Mut, traust dich aber nicht. Antworte auf Deutsch.`,
+      intro:`Hey. Also... ich hab das Gefühl, ich sitze in einer Schachtel. Ich habe so viele Ideen – aber ich zeige sie nie. Immer denke ich: Die anderen sind viel talentierter. Ich weiß nicht mal genau, was mich zurückhält.`},
+    lernbegleiter:{ind:'Lernbegleiter denkt...',ph:'Stelle eine Frage zu Archetypen...',
+      sys:`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: Archetypen im Coaching (C.G. Jung, universelle Muster, Anwendung). Erkläre, gib Feedback, hilf bei Fragen. Antworte auf Deutsch.`,
+      intro:`Willkommen im Lernbegleiter-Modus für Archetypen! ✨\n\nHier kannst du:\n• Die wichtigsten Archetypen und ihre Kernthemen verstehen\n• Coaching-Fragen zu Archetypen entwickeln\n• Verbindungen zu anderen Modellen erkunden\n\nWomit kann ich dir helfen?`}
+  }
+};
+
+function initS(m){if(!S[m])S[m]={mode:'coachee',hist:[],cnt:0,fb:false};}
+function addMsg(m,role,txt){
+  const el=document.getElementById('chat-'+m);
+  const d=document.createElement('div');
+  d.className='msg '+role; d.textContent=txt;
+  el.appendChild(d); el.scrollTop=el.scrollHeight;
+}
+function setMode(m,mode,btn){
+  initS(m);
+  const s=S[m]; s.mode=mode; s.hist=[]; s.cnt=0; s.fb=false;
+  document.querySelectorAll('#mod-'+m+' .ki-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const p=P[m][mode];
+  document.getElementById('inp-'+m).placeholder=p.ph;
+  document.getElementById('typ-'+m).textContent=p.ind;
+  document.getElementById('chat-'+m).innerHTML='';
+  addMsg(m,'ai',p.intro);
+}
+function handleEnter(e,m){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg(m);}}
+async function sendMsg(m){
+  initS(m);
+  const s=S[m], inp=document.getElementById('inp-'+m), txt=inp.value.trim();
+  if(!txt)return;
+  inp.value=''; addMsg(m,'user',txt);
+  s.hist.push({role:'user',content:txt}); s.cnt++;
+  const btn=document.querySelector('#mod-'+m+' .chat-send'); btn.disabled=true;
+  const typ=document.getElementById('typ-'+m); typ.classList.add('on');
+  const p=P[m][s.mode];
+  const msgs=[{role:'user',content:p.sys+'\n\nStarte das Gespräch.'},{role:'assistant',content:p.intro},...s.hist];
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:msgs})});
+    const d=await r.json();
+    const reply=d.content?.find(c=>c.type==='text')?.text||'(Keine Antwort)';
+    typ.classList.remove('on'); addMsg(m,'ai',reply);
+    s.hist.push({role:'assistant',content:reply});
+    if(s.mode==='coachee'&&s.cnt===4&&!s.fb){s.fb=true;await giveFB(m,s.hist);}
+  }catch(e){typ.classList.remove('on');addMsg(m,'sys','Verbindungsfehler – bitte erneut versuchen.');}
+  btn.disabled=false;
+}
+async function giveFB(m,hist){
+  const names={11:'Johari-Fenster',12:'Transaktionsanalyse',13:'Inneres Team',14:'Glaubenssätze',15:'Archetypen'};
+  addMsg(m,'sys','🎓 Dein Lernbegleiter meldet sich mit kurzem Feedback...');
+  const conv=hist.map(x=>(x.role==='user'?'Coach':'Coachee')+': '+x.content).join('\n\n');
+  const prompt=`Du bist ein warmherziger Coaching-Lernbegleiter. Thema: "${names[m]}".\n\nGespräch:\n${conv}\n\nGib kurzes konstruktives Feedback auf Deutsch (~150 Wörter): 1. Was lief gut? 2. Ein Tipp zur Verbesserung. 3. Eine Anregung. Sei warm und ermutigend.`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});
+    const d=await r.json();
+    const fb=d.content?.find(c=>c.type==='text')?.text||'';
+    if(fb)addMsg(m,'sys','🎓 '+fb);
+  }catch(e){}
+}
+[11,12,13,14,15,16].forEach(m=>{
+  initS(m);
+  const el=document.getElementById('chat-'+m);
+  if(el&&el.children.length===0)addMsg(m,'ai',P[m].coachee.intro);
+});
+</script>
+
+
+</body></html>
