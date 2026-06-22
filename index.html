@@ -91,6 +91,9 @@ function hideLoading() {
 }
 
 function showModule(file, btn) {
+  document.querySelectorAll('#frame-container iframe').forEach(function(frame) {
+    frame.src = frame.src;
+  });
   if (file === currentFile) return;
   currentFile = file;
   document.querySelectorAll('.top-nav button').forEach(function(b) { b.classList.remove('active'); });
